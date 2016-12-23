@@ -1,0 +1,198 @@
+.sign{
+    margin: 36% auto 0 auto;
+    width: 90%;
+}
+
+.sign.register{
+    margin: 80px auto 0 auto;
+}
+
+.sign .sign-item{
+    margin-top: 30px;
+    padding: 0 5% 0 8%;
+    width: 100%;
+    height: 50px;
+    border-radius: 3rem;
+    background-color: rgba(255,255,255,.2);
+    box-sizing: border-box;
+    position: relative;
+    font-size: 0;
+}
+
+.sign.register .sign-item{
+    margin-top: 20px;
+}
+
+.sign .sign-item .border{
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: -webkit-radial-gradient(rgba(255,255,255,1),rgba(255,255,255,0) 80%);
+    background: radial-gradient(rgba(255,255,255,1), rgba(255,255,255,0) 80%);
+}
+
+.sign .sign-item .border.border-top{
+    top: 0;
+}
+
+.sign .sign-item .border.border-bottom{
+    bottom: 0;
+}
+
+.sign .sign-item i{
+    margin: 10px 0;
+    width: 30px;
+    height: 30px;
+}
+
+.user i{
+    background-position: 0 0;
+}
+
+.password i{
+    background-position: -30px 0;
+}
+
+.phone i{
+    background-position: -60px 0;
+}
+
+.code-img i{
+    background-position: -90px 0;
+}
+
+.code-sms i{
+    background-position: -120px 0;
+}
+
+.sign .sign-item .input{
+    display: inline-block;
+    padding: 0 3%;
+    background: none;
+    border: none;
+    width: 88%;
+    height: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+    color: #fff;
+    vertical-align: top;
+    position: relative;
+}
+
+.sign .sign-item input::-webkit-input-placeholder{
+    color: #fff;
+}
+
+.sign .sign-item .input .input-code{
+    padding-right: 100px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.sign .sign-item .input .register-code{
+    margin: 5px 0;
+    width: 100px;
+    height: 40px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;right: 0;
+    font-size: 0;
+}
+
+.sign .sign-item .input .register-code img{
+    width: 100px;
+    height: 40px;
+}
+
+.sign .sign-item .input .input-sms{
+    float: left;
+    margin-right: 3%;
+    width: 62%;
+    height: 100%;
+}
+
+.sign .sign-item .input .sms-btn{
+    float: right;
+    width: 35%;
+    height: 100%;
+    font-size: .75rem;
+    color: #f9be00;
+}
+
+.sign .sign-item .input .sms-btn.countdown{
+    font-size: 1.25rem;
+}
+
+.sign .sign-btn{
+    margin: 30px 0;
+    display: block;
+    width: 100%;
+    height: 50px;
+    background-color: #fabf13;
+    border-radius: 3rem;
+    text-align: center;
+    line-height: 50px;
+    color: #000;
+    font-size: 1.25rem;
+}
+
+.sign.register .sign-btn{
+    margin: 20px 0;
+}
+
+.sign .sign-link{
+    width: 100%;
+    height: 30px;
+    position: relative;
+}
+
+.sign .sign-link .line{
+    position: absolute;
+    top: 15px;
+    width: 35%;
+    height: 1px;
+}
+
+.sign .sign-link .line.line-left{
+    left: 0;
+    background: -webkit-linear-gradient(left,rgba(255,255,255,0),rgba(255,255,255,1));
+    background: linear-gradient(left,rgba(255,255,255,0),rgba(255,255,255,1));
+}
+
+.sign .sign-link .line.line-right{
+    right: 0;
+    background: -webkit-linear-gradient(right,rgba(255,255,255,0),rgba(255,255,255,1));
+    background: linear-gradient(right,rgba(255,255,255,0),rgba(255,255,255,1));
+}
+
+.sign .sign-link .link{
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+}
+
+.sign .org-web{
+    position: absolute;
+    left: -3%;
+    bottom: 2%;
+    width: 106%;
+    height: 30px;
+    font-size: .875rem;
+    color: #9fa0a0;
+    line-height: 30px;
+    text-align: center;
+}
+
+.sign .org-web i{
+    width: 30px;
+    height: 30px;
+    background-position: -180px 0;
+}

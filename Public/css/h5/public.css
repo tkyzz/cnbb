@@ -1,0 +1,385 @@
+*{
+    margin: 0;
+    padding: 0;
+    font: 100% normal;
+    color: #595757;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+a{
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(240,240,240,0.7);
+}
+
+input{
+    background: none;
+    border: none;
+}
+
+input:focus,a:focus,a:focus,select:focus,button:focus{
+    outline: none;
+}
+
+input[type="button"]{
+    -webkit-appearance:none;
+}
+
+input[type="button"]:focus,a:focus{
+    opacity: .8;
+}
+
+ul,li{
+    list-style: none;
+}
+
+i{
+    display: inline-block;
+    background: url("../../img/wap/student_h5_icon.png") no-repeat;
+    background-size: 210px auto;
+    vertical-align: top;
+}
+
+.page{
+    position: absolute;
+    top: 0;left: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: #f4f4f4;
+}
+
+.sign-page{
+    position: absolute;
+    top: 0;left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #2c2928 url("../../img/wap/sign_bg.jpg") no-repeat center bottom;
+    background-size: 100% auto;
+}
+
+.download-page{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.header{
+    position: fixed;
+    top: 0;left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #fdd108;
+    z-index: 99;
+}
+
+.sign-page .header{
+    background-color: rgba(253,209,8,.7);
+}
+
+.header .title{
+    display: block;
+    width: 100%;
+    font-size: 1.25rem;
+    color: #000;
+    text-align: center;
+    line-height: 50px;
+}
+
+.header .back{
+    display: block;
+    position: absolute;
+    top: 0;
+    padding: 0 3%;
+    height: 50px;
+    width: 14px;
+}
+
+.header .back i{
+    margin-top: 12px;
+    width: 14px;
+    height: 25px;
+    background-position: 0 -30px;
+}
+
+.header .working-place{
+    position: absolute;
+    top: 0;
+    left: 3%;
+    width: 70px;
+    height: 50px;
+    overflow: hidden;
+    font-size: 0;
+}
+
+.header .working-place i{
+    margin: 15px 2px 16px 0;
+    width: 16px;
+    height: 19px;
+    background-position: -82px -30px;
+}
+
+.header .working-place .place{
+    display: inline-block;
+    width: 47px;
+    height: 50px;
+    overflow: hidden;
+    line-height: 50px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1rem;
+}
+
+.header .others{
+    position: absolute;
+    top: 0;
+    right: 3%;
+    display: inline-block;
+    text-align: right;
+    font-size: 0;
+}
+
+.header .sub-nav{
+    display: inline-block;
+    margin: 12px 0;
+    width: 20px;
+    height: 25px;
+    vertical-align: top;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(240,240,240,0.7);
+}
+
+.header .sub-nav.share{
+    margin-right: 15px;
+}
+
+.header .sub-nav i{
+    width: 25px;
+    height: 25px;
+}
+
+.header .sub-nav.share i{
+    background-position: -57px -30px;
+}
+
+.header .sub-nav.my i{
+    background-position: -32px -30px;
+}
+
+.header .my-cont{
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(137,137,137,.42);
+    font-size: 0;
+    display: none;
+}
+
+.header .my-cont .cont-item{
+    position: relative;
+    display: inline-block;
+    padding: 15px 0;
+    width: 50%;
+    height: auto;
+    overflow: hidden;
+    background-color: rgba(255,255,255,.75);
+    border-bottom: 2px solid #fff;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+.header .my-cont .cont-item:first-child{
+    border-right: 1px solid #fff;
+}
+
+.header .my-cont .cont-item:last-child{
+    border-left: 1px solid #fff;
+}
+
+.header .my-cont .cont-item .item-img{
+    margin: 0 27%;
+    width: 46%;
+    height: auto;
+}
+
+.header .my-cont .cont-item .item-title{
+    margin-top: 5px;
+    width: 100%;
+    font-size: 1rem;
+    color: #000;
+    text-align: center;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;left: 0;
+    padding: 10px 3%;
+    width: 94%;
+    height: auto;
+    background-color: rgba(0,0,0,.75);
+    font-size: 0;
+    z-index: 9;
+}
+
+.footer .logo{
+    display: inline-block;
+    width: 16%;
+    height: auto;
+    vertical-align: middle;
+}
+
+.footer .slogan{
+    display: inline-block;
+    margin: 0 3%;
+    width: 48%;
+    height: auto;
+    vertical-align: middle;
+}
+
+.footer img{
+    width: 100%;
+    height: auto;
+}
+
+.footer .app-download{
+    display: inline-block;
+    width: 30%;
+    vertical-align: middle;
+    position: relative;
+}
+
+.footer .app-download .download{
+    display: inline-block;
+    margin: 0 5%;
+    width: 90%;
+    height: 36px;
+    border-radius: .3rem;
+    background-color: #f2c920;
+    box-shadow: -1px -1px 2px rgba(145,131,70,.75);
+    font-size: 1rem;
+    color: #000;
+    text-align: center;
+    line-height: 36px;
+    position: relative;
+}
+
+.footer .app-download .download img{
+    position: absolute;
+    margin: auto;
+    top: 0;right: 0;bottom: 0;left: 0;
+    /*width: 100%;*/
+    width: 78%;
+    height: auto;
+}
+
+.footer .app-download .cartoon{
+    position: absolute;
+    top: -92px;right: 12%;
+    width: 160px;
+    height: 114px;
+    z-index: -1;
+}
+
+.content{
+    width: 100%;
+    height: auto;
+}
+
+.header ~ .content{
+    margin-top: 50px;
+}
+
+.footer ~ .content{
+    margin-bottom: 90px;
+}
+
+/*popup*/
+.popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(35, 24, 21, .7);
+    z-index: 100;
+    display: none;
+}
+
+.popup .popup-info{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 84%;
+    height: 260px;
+    border-radius: .3rem;
+    background-color: #fff;
+    box-shadow: 0 0 0 8px rgba(35, 24, 21, .2);
+}
+
+.popup .popup-close {
+    position: absolute;
+    right: 3%;
+    top: 10px;
+    display: block;
+    width: 34px;
+    height: 34px;
+}
+
+.popup .popup-close i{
+    width: 34px;
+    height: 34px;
+    background-position: -56px -55px;
+}
+
+.popup .popup-img{
+    margin: 30px 0 15px 0;
+    width: 100%;
+    text-align: center;
+}
+
+.popup .popup-img img{
+    width: 80px;
+    height: auto;
+}
+
+.popup .popup-text{
+    width: 100%;
+    font-size: 1.2rem;
+    color: #231815;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.popup .popup-btn{
+    margin-top: 20px;
+    width: 100%;
+    height: 40px;
+    font-size: 0;
+    text-align: center;
+}
+
+.popup .popup-btn .sub-btn{
+    display: inline-block;
+    margin: 0 5%;
+    width: 40%;
+    height: 40px;
+    border-radius: 1.25rem;
+    background-color: #fdd108;
+    font-size: 1rem;
+    color: #231815;
+    vertical-align: top;
+}
+
+.popup .popup-btn .sub-btn.return{
+    background-color: #dcdddd;
+}

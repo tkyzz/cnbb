@@ -1,0 +1,110 @@
+
+  function getJobUrl()
+{
+  var url = '/postList'
+    var paramarr = new Array();
+    if ($("#area").val()){
+        paramarr.push("area="+$("#area").val());
+    }
+    if ($("#trade").val()){
+        paramarr.push("trade="+$("#trade").val());
+    }
+    if ($("#work_type").val()){
+        paramarr.push("work_type="+$("#work_type").val());
+    }
+    if ($("#week_day").val()){
+        paramarr.push("week_day="+$("#week_day").val());
+    }
+    if ($("#natures").val()){
+        paramarr.push("natures="+$("#natures").val());
+    }
+    if ($("#degrees").val()){
+        paramarr.push("degrees="+$("#degrees").val());
+    }
+    if ($("#sort").val()){
+        paramarr.push("sort="+$("#sort").val());
+    }
+    if ($("#keyword").val()){
+        paramarr.push("keyword="+$("#keyword").val());
+    }
+    if (paramarr.length > 0){
+        url = url+'?'+paramarr.join('&');
+    }
+    return url;
+}
+  function spkey(id){//初始化搜索条件多个
+    //alert(1);
+      var arr = $('#'+id).val().split(',');
+      if ($('#'+id).val().length==0){
+        return false;
+      }
+      $('.'+id).eq(0).removeClass('active');
+      for(var i in arr){
+        //alert(arr[i]);
+        $('.'+id+'[data-id='+arr[i]+']').addClass('active').attr('data-type','cancel');;
+      }
+  }
+  function spsingekey(id){//初始化搜索条件单个
+    //alert(1);
+      var str = $('#'+id).val();
+      if ($('#'+id).val().length==0){
+        return false;
+      }
+      $('.'+id).eq(0).removeClass('active');
+      $('.'+id+'[data-id='+str+']').addClass('active').attr('data-type','cancel');
+  }
+    spkey("trade");
+    spkey("area");
+    spkey("work_type");
+    spkey("natures");
+    spkey("degrees");
+    spsingekey('week_day');
+  //   $(".trade").each(function(){
+  //     alert($(this).text())
+  // });
+
+  $(".jobsea").click(function(){
+
+        var id = $(this).attr('data-id');
+        var op = $(this).attr('data-op');
+        var str = $("#"+op).val();
+        var arr = str.split(',');
+        if ($(this).attr("data-type")=="cancel"){
+
+        }else if ($(this).attr("data-type")=="cancel"){
+
+          $(this).removeClass("active");
+          $(this).removeAttr('data-type');
+          arr.splice($.inArray(id,arr),1);
+          $("#"+op).val(arr.join(","));
+          window.location.href = getJobUrl();
+          return false;
+        }
+        if (str.length==0){
+          $("#"+op).val(id);
+        }else if(arr.length>2){
+            return false;
+        }
+        else if(op=="week_day"){
+          $("#"+op).val(id);
+          
+        }else{
+          $("#"+op).val(str+','+id);
+        }
+        
+        window.location.href = getJobUrl();
+        return false;
+
+    });
+
+  $(".keyword").click(function(){
+        var search = $('#search').val();
+        $('#keyword').val(search);
+        window.location.href = getJobUrl();
+        return false;
+    });
+//分页
+  $('.js_page').click(function(){
+    var page = $(this).text();
+    window.location.href="/postList?page="+page;
+  });

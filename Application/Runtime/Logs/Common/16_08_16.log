@@ -1,0 +1,228 @@
+[ 2016-08-16T09:05:36+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Favicon
+
+[ 2016-08-16T09:47:33+08:00 ] 127.0.0.1 /post/img/mailing_sure.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Post
+
+[ 2016-08-16T10:14:21+08:00 ] 127.0.0.1 /post/img/mailing_sure.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Post
+
+[ 2016-08-16T10:14:22+08:00 ] 127.0.0.1 /post/img/mailing_sure.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Post
+
+[ 2016-08-16T10:14:37+08:00 ] 127.0.0.1 /post/img/mailing_sure.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Post
+
+[ 2016-08-16T17:41:29+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:41:43+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:42:29+08:00 ] 127.0.0.1 /ajax/getReward
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:43:00+08:00 ] 127.0.0.1 /ajax/getReward
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:43:26+08:00 ] 127.0.0.1 /ajax/getReward
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:43:57+08:00 ] 127.0.0.1 /ajax/getReward
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:44:04+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:45:22+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:46:32+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:46:33+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:48:35+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:48:43+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:48:44+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:49:07+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:49:08+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:49:11+08:00 ] 127.0.0.1 /ajax/getReward
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:49:13+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:49:21+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:49:22+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:49:32+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:49:33+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:50:20+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:50:22+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:50:38+08:00 ] 127.0.0.1 /ajax/t/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:51:02+08:00 ] 127.0.0.1 /ajax/t/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:51:03+08:00 ] 127.0.0.1 /ajax/t/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:51:04+08:00 ] 127.0.0.1 /ajax/t/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:51:13+08:00 ] 127.0.0.1 /INDEX.PHP/ajax/t/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:51:31+08:00 ] 127.0.0.1 /ajax/t/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:52:23+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:52:24+08:00 ] 127.0.0.1 /ajax/getReward?resume_id=126&id=110
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T17:52:30+08:00 ] 127.0.0.1 /ajax/getReward
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T18:02:33+08:00 ] 127.0.0.1 /ajax/getReward
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T18:02:46+08:00 ] 127.0.0.1 /ajax/getReward
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T18:02:46+08:00 ] 127.0.0.1 /ajax/getReward
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T18:03:05+08:00 ] 127.0.0.1 /getReward
+ERR: 无法加载模块:GetReward
+
+[ 2016-08-16T18:03:13+08:00 ] 127.0.0.1 /getReward
+ERR: 无法加载模块:GetReward
+
+[ 2016-08-16T18:03:14+08:00 ] 127.0.0.1 /getReward
+ERR: 无法加载模块:GetReward
+
+[ 2016-08-16T18:03:14+08:00 ] 127.0.0.1 /getReward
+ERR: 无法加载模块:GetReward
+
+[ 2016-08-16T18:03:14+08:00 ] 127.0.0.1 /getReward
+ERR: 无法加载模块:GetReward
+
+[ 2016-08-16T18:03:14+08:00 ] 127.0.0.1 /getReward
+ERR: 无法加载模块:GetReward
+
+[ 2016-08-16T18:03:15+08:00 ] 127.0.0.1 /getReward
+ERR: 无法加载模块:GetReward
+
+[ 2016-08-16T18:04:13+08:00 ] 127.0.0.1 /getReward
+ERR: 无法加载模块:GetReward
+
+[ 2016-08-16T18:04:14+08:00 ] 127.0.0.1 /getReward
+ERR: 无法加载模块:GetReward
+
+[ 2016-08-16T18:04:58+08:00 ] 127.0.0.1 /ajax/getReward
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T18:05:21+08:00 ] 127.0.0.1 /ajax/getReward
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T18:05:21+08:00 ] 127.0.0.1 /ajax/getReward
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T18:05:22+08:00 ] 127.0.0.1 /ajax/getReward
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T18:05:33+08:00 ] 127.0.0.1 /ajax/test
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T18:05:35+08:00 ] 127.0.0.1 /ajax/test
+ERR: 无法加载模块:Ajax
+
+[ 2016-08-16T18:26:29+08:00 ] 127.0.0.1 /systemNotice.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:SystemNotice
+
+[ 2016-08-16T18:28:41+08:00 ] 127.0.0.1 /post/img/mailing_sure.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Post
+
+[ 2016-08-16T18:30:51+08:00 ] 127.0.0.1 /post/img/mailing_sure.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Post
+
+[ 2016-08-16T18:30:52+08:00 ] 127.0.0.1 /post/img/mailing_sure.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Post
+
+[ 2016-08-16T18:31:20+08:00 ] 127.0.0.1 /post/img/mailing_sure.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Post
+
+[ 2016-08-16T18:31:21+08:00 ] 127.0.0.1 /post/img/mailing_sure.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Post
+
+[ 2016-08-16T18:32:17+08:00 ] 127.0.0.1 /post/img/mailing_sure.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Post
+
+[ 2016-08-16T19:23:33+08:00 ] 127.0.0.1 /post/img/mailing_sure.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Post
+

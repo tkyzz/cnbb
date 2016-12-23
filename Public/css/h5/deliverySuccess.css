@@ -1,0 +1,88 @@
+.content .success-img{
+    width: 100%;
+    height: auto;
+}
+
+.content .success-img img{
+    margin: 20px 15% 0 15%;
+    width: 70%;
+    height: auto;
+}
+
+.content .success-cont{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: 52.6%;
+    background-color: #fff;
+    border-top: 1px solid #c9caca;
+}
+
+.content .success-cont .success-icon{
+    position: relative;
+    top: -45px;
+    height: 90px;
+    text-align: center;
+}
+
+.content .success-cont .success-icon img{
+    width: 90px;
+    height: 90px;
+}
+
+.content .success-cont .success-tips{
+    margin-top: -30px;
+    width: 100%;
+    text-align: center;
+}
+
+.content .success-cont .success-tips img{
+    width: 76%;
+    height: auto;
+}
+
+.content .success-cont .success-activity{
+    position: fixed;
+    bottom: 5%;
+    width: 100%;
+}
+
+.content .success-cont .app-tips{
+    width: 100%;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.content .success-cont .app-download{
+    margin: 20px 0 15px 0;
+    width: 100%;
+    text-align: center;
+}
+
+.content .success-cont .app-download .download-btn{
+    display: inline-block;
+    width: 80%;
+    height: 46px;
+    border-radius: 1.875rem;
+    background-color: #fdd108;
+    box-shadow: 0 0 10px #ffe8b5;
+    font-size: 1.2rem;
+    line-height: 46px;
+    text-align: center;
+    color: #231815;
+    font-weight: bold;
+}
+
+.content .success-cont .stay{
+    display: block;
+    width: 80%;
+    text-align: right;
+    color: #231815;
+}
+
+.content .success-cont .stay i{
+    margin: 1px 10px 0 0;
+    width: 41px;
+    height: 15px;
+    background-position: 0 -55px;
+}

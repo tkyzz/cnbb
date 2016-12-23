@@ -1,0 +1,667 @@
+/*@font-face {*/
+    /*!*font-family: "PingFang SC Medium";*!*/
+    /*!*src: url("../font/PingFangMedium.ttf");*!*/
+/*}*/
+
+*{
+    margin: 0;
+    padding: 0;
+    font: 14px 微软雅黑,"Microsoft YaHei";
+    /*font: 14px "PingFang SC Medium";*/
+    color: #231815;
+}
+
+body{
+    background: #fff;
+}
+
+a{
+    text-decoration: none;
+}
+a:active{
+    opacity: .9;
+}
+
+input{
+    border: none;
+    background: none;
+}
+input:focus{
+    outline: none;
+}
+
+input:-ms-input-placeholder,textarea:-ms-input-placeholder{
+    color: #a9a9a9;
+}
+
+.placeholder{
+    color: #a9a9a9;
+}
+
+select:focus{
+    outline: none;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+input[type="button"]:focus{
+    outline: none;
+    opacity: .9;
+}
+
+button:focus{
+    outline: none;
+    opacity: .9;
+}
+
+img{
+    border: none;
+}
+
+ul,li{
+    list-style: none;
+}
+
+i{
+    float: left;
+    display: block;
+    background: url("../img/cjn_student_icon.png") no-repeat;
+}
+
+.top{
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    position: relative;
+}
+
+.top .active{
+    color: #2cb5a9;
+}
+
+.top .top-nav{
+    margin: 0 auto;
+    width: 1000px;
+    height: 60px;
+}
+
+.top .top-nav  img{
+    float: left;
+    margin: 11px 0;
+    width: 135px;
+    height: 38px;
+}
+
+.top .top-nav  .menu{
+    float: left;
+    width: 800px;
+    height: 60px;
+    font-size: 0;
+}
+
+/*.top .top-nav  .menu .sub-menu{*/
+    /*margin-left: 80px;*/
+    /*line-height: 60px;*/
+    /*font-size: 18px;*/
+/*}*/
+
+/*.top .top-nav  .menu .sub-menu:hover{*/
+    /*color: #2cb5a9;*/
+/*}*/
+
+/*sub-menu use orgImg*/
+.top .top-nav  .menu .sub-menu{
+    display: inline-block;
+    margin: 20px 0 20px 80px;
+    width: 80px;
+    height: 20px;
+    background: url("../img/menu.png") no-repeat;
+}
+
+.top .top-nav  .menu .sub-menu + .sub-menu{
+    margin: 20px 0 20px 20px;
+}
+
+.top .top-nav  .menu .sub-menu.index-menu{
+    background-position: 0 0;
+}
+.top .top-nav  .menu .sub-menu.index-menu.active,.top .top-nav  .menu .sub-menu.index-menu:hover{
+    background-position: 0 -20px;
+}
+
+.top .top-nav  .menu .sub-menu.ds-menu{
+     background-position: -80px 0;
+ }
+.top .top-nav  .menu .sub-menu.ds-menu.active,.top .top-nav  .menu .sub-menu.ds-menu:hover{
+    background-position: -80px -20px;
+}
+
+.top .top-nav  .menu .sub-menu.jm-menu{
+    background-position: -160px 0;
+}
+.top .top-nav  .menu .sub-menu.jm-menu.active,.top .top-nav  .menu .sub-menu.jm-menu:hover{
+    background-position: -160px -20px;
+}
+
+.top .other-nav{
+    position: absolute;
+    top: 0;right: 0;
+    max-width: 620px;
+    height: 60px;
+    text-align: right;
+    font-size: 0;
+    z-index: 2;
+}
+
+.top .top-nav .other-nav{
+    position: relative;
+    float: right;
+}
+
+.top .other-nav .logon,.top .other-nav .my-nav{
+    display: inline-block;
+    margin-right: 20px;
+    height: 60px;
+    font-size: 0;
+    vertical-align: top;
+}
+
+.top .other-nav .logon{
+    width: 100px;
+}
+
+.top .other-nav .logon .logon-item{
+    display: inline-block;
+    margin: 0 2px;
+    line-height: 60px;
+}
+
+.top .other-nav .my-nav{
+    max-width: 490px;
+    position: relative;
+    list-style: none;
+}
+
+.top .other-nav > a,.top .other-nav .my-nav li{
+    display: inline-block;
+    height: 60px;
+    margin-right: 10px;
+    line-height: 60px;
+    font-size: 14px;
+}
+
+.top .other-nav .my-nav li{
+    float: left;
+    margin-right: 20px;
+}
+
+.top .other-nav .my-nav li .part-line{
+    font-size: 12px;
+    color: #aba9a9;
+}
+
+.top .other-nav .my-nav .my{
+    position: relative;
+}
+
+.top .other-nav .my-nav .my >span{
+    display: block;
+    margin-top: 18px;
+    max-width: 190px;
+    height: 24px;
+    overflow: hidden;
+    line-height: 24px;
+    word-break: break-all;
+    cursor: pointer;
+}
+
+.top .other-nav i{
+    margin-right: 3px;
+}
+
+.top .other-nav .my-reply,.top .other-nav .my-message{
+    position: relative;
+}
+
+.top .other-nav .new-tag{
+    position: absolute;
+    top: -1px;right: -8px;
+    display: block;
+    width: 9px;
+    height: 9px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+}
+
+.top .other-nav .my-reply i{
+    margin-top: 24px;
+    width: 12px;
+    height: 13px;
+    background-position: -83px -15px;
+}
+
+.top .other-nav .my-message i{
+    margin-top: 25px;
+    width: 16px;
+    height: 13px;
+    background-position: -48px -734px;
+}
+
+.top .other-nav .my i{
+    width: 17px;
+    height: 24px;
+    background-position: 0 -55px;
+}
+
+.top .other-nav .nav-hove i{
+    background-position: -17px -55px;
+}
+
+.top .other-nav .app-download i{
+    margin-top: 24px;
+    width: 10px;
+    height: 13px;
+    background-position: -55px -15px;
+}
+
+.top .other-nav .app-code{
+    position: absolute;
+    top: 60px;left: -40px;
+    width: 140px;
+    height: 140px;
+    overflow: hidden;
+    background-color: #fff;
+    box-sizing: border-box;
+    text-align: center;
+    display: none;
+}
+
+.top .top-nav .other-nav .app-code{
+    top: 40px;
+}
+
+.app-code img{
+    width: 100%;
+    height: auto;
+}
+
+.top .top-nav  .other-nav .app-code img{
+    clear: both;
+    width: 140px;
+    height: 140px;
+}
+
+.top .other-nav .pr-login{
+    font-weight: bold;
+    color: #2cb3a7;
+}
+
+.top .other-nav .pr-login i{
+    margin-top: 23px;
+    /*margin-top: 25px;*/
+    /*width: 18px;*/
+    /*height: 11px;*/
+    width: 25px;
+    height: 15px;
+    background-position: -37px -612px;
+    /*background-position: -65px -15px;*/
+}
+
+/*my-nav*/
+.top .other-nav .my-nav .my-top-nav{
+    position: absolute;
+    top: 50px;left: 0;
+    padding: 10px;
+    width: 80px;
+    height: auto;
+    background-color: #f9be00;
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(170,170,0,1);
+    box-sizing: border-box;
+    text-align: left;
+    display: none;
+}
+
+.top .other-nav .my-nav .my-top-nav::before{
+    margin: auto;
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 10px solid #f9be00;
+    position: absolute;
+    top: -5px;left: 0;right: 0;
+}
+
+.top .other-nav .my-nav .my-top-nav .sub-nav{
+    color: #231815;
+    line-height: 25px;
+}
+
+.top .other-nav .my-nav .my-top-nav .sub-nav:hover{
+    border-bottom: 1px solid #231815;
+}
+
+.footer{
+    margin: 0 auto;
+    padding: 10px 0 5px 0;
+    width: 1000px;
+    border-top: 1px solid #aaaaab;
+}
+
+.footer > img{
+    float: left;
+}
+
+.footer .bottom-nav{
+    margin: 0 30px;
+    float: left;
+    width: 420px;
+    font-size: 0;
+}
+
+.footer .bottom-nav .sub-bottom-nav{
+    display: inline-block;
+    margin: 0 15px 5px 0;
+    /*line-height: 30px;*/
+    color: #3f3f3f;
+    font-size: 12px;
+}
+
+.footer .bottom-nav .sub-bottom-nav:hover{
+    color: #2cb5a9;
+}
+
+.footer .bottom-nav .icp{
+    margin-bottom: 30px;
+    width: 100%;
+    font-size: 12px;
+    color: #727272;
+}
+
+.footer .bottom-nav .icp > a{
+    font-size: 12px;
+    color: #727272;
+}
+
+.footer .code{
+    float: right;
+    width: 420px;
+    text-align: right;
+    position: relative;
+}
+
+.footer .code .code-nav{
+    cursor: pointer;
+    line-height: 28px;
+}
+
+.footer .code .code-nav img{
+    margin-right: 5px;
+    width: 28px;
+    height: 28px;
+    vertical-align: top;
+}
+
+.footer .code .app-code{
+    position: absolute;
+    top: -142px;right: 0;
+    width: 140px;
+    height: 140px;
+    border: 2px solid #dcdddd;
+    /*border: 2px solid #f39800;*/
+    overflow: hidden;
+    background-color: #fff;
+    box-sizing: border-box;
+    text-align: center;
+    display: none;
+    z-index: 99;
+}
+
+/*my-advice*/
+.my-advice{
+    margin-left: 50%;
+    padding-top: 38px;
+    position: fixed;
+    bottom: 100px;
+    left: 550px;
+    /*left: 620px;*/
+    width: 56px;
+    height: 55px;
+}
+
+.my-advice i{
+    margin: 0 10px 5px 10px;
+    width: 36px;
+    height: 33px;
+    background: url("../img/advice_icon.png") no-repeat 0 0;
+}
+
+.my-advice:hover i{
+    background: url("../img/advice_icon.png") no-repeat -36px 0;
+}
+
+.my-advice span{
+    display: block;
+    width: 56px;
+    text-align: center;
+    font-size: 12px;
+}
+
+/*popup*/
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(35, 24, 21, .7);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2231815,endColorstr=#B2231815);
+    z-index: 9;
+    display: none;
+}
+
+.popup .popup-info {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 840px;
+    height: 420px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    box-shadow: 0 0 0 10px rgba(35, 24, 21, .2);
+}
+
+.popup .popup-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    display: block;
+    width: 38px;
+    height: 38px;
+}
+
+.popup .popup-close i {
+    width: 38px;
+    height: 38px;
+    background-position: -90px -514px;
+}
+
+/*errorPage*/
+.error-page{
+    position: fixed;
+    top: 0;left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fcf5d9;
+}
+
+.error-page .error-cont{
+    position: absolute;
+    margin: auto;
+    top: 0;right: 0;bottom: 0;left: 0;
+    width: 680px;
+    height: 520px;
+    overflow: hidden;
+}
+
+.error-page .error-cont .error-info{
+    float: right;
+    width: 522px;
+    height: 294px;
+    background: url("../img/dialog_bg.png") no-repeat;
+    text-align: center;
+}
+
+.error-page .error-cont .error-info .dialog-img{
+    margin: 50px auto 30px auto;
+    width: 184px;
+    height: 69px;
+}
+
+.error-page .error-cont .error-info .error-dialog{
+    font-size: 24px;
+    color: #3f3f3f;
+}
+
+.error-page .error-cont .error-info .error-dialog .back-link{
+    border-bottom: 1px solid #725321;
+    font-size: 24px;
+    color: #725321;
+}
+
+.error-page .error-cont .error-img{
+    position: relative;
+    top: -68px;
+    width: 100%;
+    height: 294px;
+    z-index: -1;
+}
+
+.error-page .error-cont img{
+    width: 100%;
+    height: auto;
+}
+
+/*errorPage-normal*/
+.error-page .error-detail{
+    position: absolute;
+    margin: auto;
+    top: 0;right: 0;bottom: 0;left: 0;
+    width: 1020px;
+    height: 350px;
+    text-align: center;
+    font-size: 0;
+}
+
+.error-page .error-detail .error-code{
+    display: inline-block;
+    width: 309px;
+    height: 309px;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+.error-page .error-detail img{
+    width: 100%;
+    height: auto;
+}
+
+.error-page .error-detail .error-text{
+    display: inline-block;
+    padding-left: 50px;
+    width: 711px;
+    box-sizing: border-box;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+.error-page .error-detail .error-text .error-cartoon{
+    margin-left: 35px;
+    width: 146px;
+    height: 149px;
+}
+
+.error-page .error-detail .error-text .error-tips{
+    margin-top: 20px;
+    width: 100%;
+}
+
+.error-page .error-detail .error-text .error-tips .tips-key{
+    font-size: 25px;
+    color: #000;
+}
+
+.error-page .error-detail .error-text .error-tips .tips-others{
+    margin-top: 20px;
+    font-size: 18px;
+    color: #000;
+}
+
+.error-page .error-detail .error-text .error-activity{
+    margin-top: 57px;
+    width: 100%;
+    font-size: 0;
+}
+
+.error-page .error-detail .error-text .error-activity .error-btn{
+    display: inline-block;
+    width: 230px;
+    height: 50px;
+    border-radius: 30px;
+    font-size: 20px;
+    color: #000;
+    line-height: 50px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.error-page .error-detail .error-text .error-activity .error-btn.back-link{
+    background-color: #fcd107;
+}
+
+.error-page .error-detail .error-text .error-activity .error-btn.index-link{
+    margin-left: 60px;
+    background-color: #dcdddd;
+}
+
+/*errorPage-serious*/
+.error-page .error-detail .error-text.error-serious{
+    margin-bottom: 40px;
+}
+
+/*bottom-ad*/
+.bottom-ad{
+    position: fixed;
+    bottom: 0;left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #edbd1f;
+    z-index: 9;
+}
+
+.bottom-ad ~ .footer{
+    margin: 60px auto 0 auto;
+}
+
+.bottom-ad .ad-img{
+    display: block;
+    position: absolute;
+    bottom: 0;left: 0;
+    width: 100%;
+}
+
+.bottom-ad .ad-img img{
+    position: relative;
+    left: 50%;
+    margin-left: -960px;
+}

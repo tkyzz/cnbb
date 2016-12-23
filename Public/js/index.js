@@ -1,0 +1,12 @@
+    $('.js_jzsx_btn').click(function(){
+        $(this).addClass('active');
+        $('.js_sjsx_btn').removeClass('active');
+        $('.jzsx').show();
+        $('.sjsx').hide();
+    });
+    $('.js_sjsx_btn').click(function(){
+        $(this).addClass('active');
+        $('.js_jzsx_btn').removeClass('active');
+        $('.jzsx').hide();
+        $('.sjsx').show();
+    });

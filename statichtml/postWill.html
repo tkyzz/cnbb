@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菜鸟帮帮-想去金融机构实习？上菜鸟帮帮！</title>
+    <link rel="stylesheet" type="text/css" href="css/public.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/style.js"></script>
+    <script src="js/slides.jquery.js"></script>
+</head>
+<body>
+    <div class="popup will-layer">
+        <div class="popup-info">
+            <a class="popup-close" href="javascript:;"><i></i></a>
+            <div class="will-hint">
+                <img src="img/will_hint.png"/>
+                <span class="hint-info">完善的实习意向，才能接收到最精准的推荐岗位哦~</span>
+            </div>
+            <p class="will-name">实习意向</p>
+            <div class="info-item hope-info">
+                <span class="info-name"><b class="must-lab"></b>期望工作城市（最多3个）</span>
+                <div class="input-box">
+                    <input type="text" value="点击选择" readonly/>
+                    <i></i>
+                </div>
+                <div class="selected-box">
+                    <span class="sub-selected">上海<i></i></span>
+                    <span class="sub-selected">克兹波尔自治州<i></i></span>
+                    <span class="sub-selected">克兹波尔自治州<i></i></span>
+                </div>
+                <div class="select-container">
+                    <ul class="province">
+                        <li>热门城市</li>
+                        <li>江苏</li>
+                        <li>浙江</li>
+                        <li class="active">河北</li>
+                        <li>广西壮族自治区</li>
+                        <li>河南</li>
+                        <li>湖北</li>
+                        <li>湖南</li>
+                        <li>河南</li>
+                        <li>湖北</li>
+                        <li>湖南</li>
+                    </ul>
+                    <ul class="city selected-right">
+                        <li>石家庄</li>
+                        <li class="active">唐山</li>
+                        <li>秦皇岛</li>
+                        <li>张家口</li>
+                        <li>承德</li>
+                        <li>沧州</li>
+                        <li>衡水</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-item hope-info">
+                <span class="info-name"><b class="must-lab"></b>期望工作行业（最多3个）</span>
+                <div class="input-box">
+                    <input type="text" value="点击选择" readonly/>
+                    <i></i>
+                </div>
+                <div class="selected-box">
+                    <span class="sub-selected">新兴金融行业<i></i></span>
+                    <span class="sub-selected">证券投资<i></i></span>
+                    <span class="sub-selected">财务会计<i></i></span>
+                </div>
+                <ul class="select-container trade-select selected-right">
+                    <li>商业银行</li>
+                    <li class="active">证券投资</li>
+                    <li>保险</li>
+                    <li class="active">新兴金融行业</li>
+                    <li class="active">财务会计</li>
+                    <li>其他</li>
+                </ul>
+            </div>
+            <div class="info-item check-info">
+                <span class="info-name"><b class="must-lab"></b>期待工作性质</span>
+                <div class="check-box">
+                    <input class="check" id="nature1" type="radio" name="nature">
+                    <label for="nature1">日常实习</label>
+                </div>
+                <div class="check-box">
+                    <input class="check" id="nature2" type="radio" name="nature">
+                    <label for="nature2">假期实习</label>
+                </div>
+                <div class="entry-time">
+                    <span class="info-name">到岗时间</span>
+                    <div class="time-selection">
+                        <select>
+                            <option>待定</option>
+                            <option>1周内</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="info-item check-info work-days">
+                <span class="info-name"><b class="must-lab"></b>每周工作天数</span>
+                <div class="check-box">
+                    <input class="check" id="work0" type="radio" name="work">
+                    <label for="work0">不限</label>
+                </div>
+                <div class="check-box">
+                    <input class="check" id="work1" type="radio" name="work">
+                    <label for="work1">1天</label>
+                </div>
+                <div class="check-box">
+                    <input class="check" id="work2" type="radio" name="nature">
+                    <label for="work2">2天</label>
+                </div>
+                <div class="check-box">
+                    <input class="check" id="work3" type="radio" name="nature">
+                    <label for="work3">3天</label>
+                </div>
+                <div class="check-box">
+                    <input class="check" id="work4" type="radio" name="nature">
+                    <label for="work4">4天</label>
+                </div>
+                <div class="check-box">
+                    <input class="check" id="work5" type="radio" name="nature">
+                    <label for="work5">5天</label>
+                </div>
+                <div class="check-box">
+                    <input class="check" id="work6" type="radio" name="nature">
+                    <label for="work6">6天</label>
+                </div>
+                <div class="check-box">
+                    <input class="check" id="work7" type="radio" name="nature">
+                    <label for="work7">7天</label>
+                </div>
+
+                <!--<label class="error">请选择每周工作天数</label>-->
+            </div>
+            <div class="info-item check-info work-days" id="workDays">
+                <span class="info-name"><b class="must-lab"></b>连续实习时长</span>
+                <div class="check-box">
+                    <input class="check" id="duration0" type="radio" name="duration">
+                    <label for="duration0">不限</label>
+                </div>
+                <div class="duration-month">
+                    <i class="reduce"></i>1个月<i class="raise"></i>
+                </div>
+            </div>
+            <div class="detail-btn">
+                <input class="sub-btn save" type="button" value="保存">
+                <a class="sub-btn cancel" href="javascript:;">取消</a>
+            </div>
+        </div>
+    </div>
+
+<!--进入我的简历和消息中心页，如果没填求职意向，弹出以下层-->
+    <div class="popup" style="display: block">
+        <div class="popup-info will-popup">
+            <a class="popup-close" href="javascript:;"><i></i></a>
+            <div class="popup-img"><img src="img/will_tips.png"/></div>
+            <p class="no-will">您还未填写<span>实习意向</span>哦~</p>
+            <p class="will-tips">完善的实习意向，才能接收到最精准的推荐岗位哦~</p>
+
+            <a class="will-btn" href="myProfile.html">现在就去填</a>
+        </div>
+    </div>
+</body>

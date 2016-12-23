@@ -1,0 +1,1110 @@
+[ 2016-12-21T18:20:08+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:20:21+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:20:49+08:00 ] 192.168.0.129 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-21T18:20:49+08:00 ] 192.168.0.129 /login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 1 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-21T18:20:58+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:21:11+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:21:39+08:00 ] 192.168.0.129 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:21:39+08:00 ] 192.168.0.129 /login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 1 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:21:43+08:00 ] 127.0.0.1 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:21:48+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:22:01+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:22:12+08:00 ] 192.168.0.216 /snapshot.html?hr&code=80wC9tpAfodW7ee52i2qs9UcfbcOeXW4IkuBD3OoC9NZjNvpoFNoImRs1RN98ntJGMAGVl67keZ%2BEaBeKb9g9g%3D%3D&t=kz
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Declaration of Home\Controller\IndexController::error() should be compatible with Think\Controller::error($message = '', $jumpUrl = '', $ajax = false) D:\WWW\cnbb\cnbb_student\Application\Home\Controller\IndexController.class.php 第 343 行.
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: p D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\01f1e537c6aa84228969dca70fe877fc.php 第 1 行.
+NOTIC: [8] Use of undefined constant kz - assumed 'kz' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\01f1e537c6aa84228969dca70fe877fc.php 第 11 行.
+NOTIC: [8] Undefined index: p D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\01f1e537c6aa84228969dca70fe877fc.php 第 11 行.
+NOTIC: [8] Use of undefined constant kz - assumed 'kz' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\01f1e537c6aa84228969dca70fe877fc.php 第 11 行.
+NOTIC: [8] Use of undefined constant politics - assumed 'politics' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\01f1e537c6aa84228969dca70fe877fc.php 第 21 行.
+NOTIC: [8] Undefined variable: param D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 337 行.
+NOTIC: [2] http_build_query(): Parameter 1 expected to be Array or Object.  Incorrect value given D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 72 行.
+NOTIC: [8] Use of undefined constant ； - assumed '；' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\01f1e537c6aa84228969dca70fe877fc.php 第 21 行.
+NOTIC: [8] Use of undefined constant kz - assumed 'kz' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\01f1e537c6aa84228969dca70fe877fc.php 第 21 行.
+NOTIC: [8] Use of undefined constant kz - assumed 'kz' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\01f1e537c6aa84228969dca70fe877fc.php 第 21 行.
+NOTIC: [8] Use of undefined constant kz - assumed 'kz' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\01f1e537c6aa84228969dca70fe877fc.php 第 21 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.033002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.033002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:22:29+08:00 ] 192.168.0.129 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:22:29+08:00 ] 192.168.0.129 /login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 1 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-21T18:22:38+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:22:51+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:23:19+08:00 ] 192.168.0.129 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:23:19+08:00 ] 192.168.0.129 /login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 1 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-21T18:23:26+08:00 ] 127.0.0.1 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:23:29+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:23:37+08:00 ] 127.0.0.1 /company/extra
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+
+[ 2016-12-21T18:23:41+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:24:09+08:00 ] 192.168.0.129 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:24:09+08:00 ] 192.168.0.129 /login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 1 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-21T18:24:18+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:24:31+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:24:59+08:00 ] 192.168.0.129 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:24:59+08:00 ] 192.168.0.129 /login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 1 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:25:08+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:25:21+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:25:49+08:00 ] 192.168.0.129 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:25:49+08:00 ] 192.168.0.129 /login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 1 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-21T18:25:58+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:26:11+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:26:39+08:00 ] 192.168.0.129 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:26:39+08:00 ] 192.168.0.129 /login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 1 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:26:48+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:27:01+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:27:29+08:00 ] 192.168.0.129 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:27:29+08:00 ] 192.168.0.129 /login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 1 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-21T18:27:38+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:27:51+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:28:19+08:00 ] 192.168.0.129 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:28:19+08:00 ] 192.168.0.129 /login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 1 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-21T18:28:28+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:28:41+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:29:10+08:00 ] 192.168.0.129 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:29:10+08:00 ] 192.168.0.129 /login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 1 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-12-21T18:29:18+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:29:31+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:29:59+08:00 ] 192.168.0.129 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-21T18:29:59+08:00 ] 192.168.0.129 /login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 1 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:30:08+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:30:21+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:30:49+08:00 ] 192.168.0.129 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-21T18:30:49+08:00 ] 192.168.0.129 /login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 1 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:30:58+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:31:11+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:31:39+08:00 ] 192.168.0.129 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-21T18:31:39+08:00 ] 192.168.0.129 /login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 1 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-21T18:31:48+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:32:01+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:32:29+08:00 ] 192.168.0.129 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-21T18:32:29+08:00 ] 192.168.0.129 /login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 1 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:32:38+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:32:51+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:33:19+08:00 ] 192.168.0.129 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-21T18:33:19+08:00 ] 192.168.0.129 /login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 1 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-21T18:33:28+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:33:41+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:34:10+08:00 ] 192.168.0.129 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-21T18:34:10+08:00 ] 192.168.0.129 /login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 1 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-21T18:34:18+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:34:31+08:00 ] 192.168.0.216 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:34:59+08:00 ] 192.168.0.129 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:34:59+08:00 ] 192.168.0.129 /login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 1 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:35:49+08:00 ] 192.168.0.129 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-12-21T18:35:49+08:00 ] 192.168.0.129 /login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 1 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined variable: nav D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Undefined index: member D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\5c9ee6d19cd41add49f97afe3aef0b25.php 第 12 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-12-21T18:39:58+08:00 ] 127.0.0.1 /hrLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: HTTP_VIA D:\WWW\cnbb\cnbb_student\Application\Common\Common\function.php 第 808 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: js D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\12a18a6fdf70fef49564c2c453b98673.php 第 1 行.
+NOTIC: [8] Use of undefined constant index - assumed 'index' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\12a18a6fdf70fef49564c2c453b98673.php 第 20 行.
+NOTIC: [8] Use of undefined constant post - assumed 'post' D:\WWW\cnbb\cnbb_student\Application\Runtime\Cache\Home\12a18a6fdf70fef49564c2c453b98673.php 第 20 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-12-21T18:39:58+08:00 ] 127.0.0.1 /ajax/getmsgnum
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Components\BaseController.class.php 第 17 行.
+
+[ 2016-12-21T18:40:07+08:00 ] 127.0.0.1 /hrLogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 0 D:\WWW\cnbb\cnbb_student\Application\Home\Controller\UserController.class.php 第 261 行.
+

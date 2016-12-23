@@ -1,0 +1,286 @@
+/*myResume*/
+.content .resume-block{
+    margin: 0 3% 10px 3%;
+    width: 94%;
+}
+
+.content .resume-block .block-title{
+    padding: 10px 0;
+    width: 100%;
+    font-size: 1.125rem;
+    color: #231815;
+}
+
+.content .resume-block .block-info{
+    padding: 20px 5%;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #dcdddd;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.content .resume-block .block-info .my-avatar{
+    margin: 0 auto;
+    width: 90px;
+    height: 90px;
+    position: relative;
+}
+
+.content .resume-block .block-info .my-avatar .avatar-img{
+    width: 100%;
+    height: 100%;
+    border-radius: 1.875rem;
+    overflow: hidden;
+}
+
+.content .resume-block .block-info .my-avatar .avatar-img img{
+    width: 100%;
+    height: auto;
+}
+
+.content .resume-block .block-info .my-avatar .avatar-edit{
+    position: absolute;
+    right: -6px;
+    top: -6px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: #efefef;
+    border: 2px solid #fff;
+}
+
+.content .resume-block .block-info .my-avatar .avatar-edit i{
+    margin: 4px;
+    width: 18px;
+    height: 18px;
+    background-position: -183px -30px;
+}
+
+.content .resume-block .block-info .my-avatar .avatar-upload{
+    position: absolute;
+    top: 0;left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.875rem;
+    background: #000;
+    opacity: 0;
+}
+
+.content .resume-block .block-info .upload-text{
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    color: #8d8d8e;
+}
+
+.content .resume-block .block-info .upload-tips{
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    color: #ff3e3e;
+    font-size: .875rem;
+}
+
+.content .resume-block .block-info .resume-edit{
+    position: absolute;
+    top: 20px;
+    right: 5%;
+    display: inline-block;
+    width: 60px;
+    height: 20px;
+    line-height: 20px;
+    color: #2cb5a9;
+    text-align: right;
+    z-index: 4;
+}
+
+.content .resume-block .block-info .resume-edit i{
+    margin: 1px 3px 1px 0;
+    width: 18px;
+    height: 18px;
+    background-position: -183px -30px;
+}
+
+.content .resume-block .block-info .field-bar{
+    width: 100%;
+    font-size: 0;
+}
+
+.content .resume-block .block-info .field-bar + .field-bar{
+    margin-top: 15px;
+}
+
+.content .resume-block .block-info .field-bar .field-name{
+    display: inline-block;
+    margin-right: 5%;
+    width: 30%;
+    height: 20px;
+    line-height: 20px;
+    font-size: 1rem;
+    color: #666464;
+    vertical-align: top;
+}
+
+.content .resume-block .block-info .field-bar .field-cont{
+    display: inline-block;
+    width: 65%;
+    line-height: 20px;
+    font-size: 1rem;
+    color: #231815;
+    word-break: break-all;
+    vertical-align: top;
+}
+
+.content .resume-block .block-info .field-bar.my-name .field-cont{
+    padding-right: 60px;
+    box-sizing: border-box;
+}
+
+/*resumeBasic*/
+.content .resume-edit{
+    width: 100%;
+}
+
+.content .resume-edit .edit-item{
+    margin-left: 5%;
+    padding-right: 5%;
+    width: 90%;
+    min-height: 46px;
+    border-bottom: 1px solid #dcdddd;
+    font-size: 0;
+}
+
+.content .resume-edit .edit-item.down{
+    background: url("../../img/wap/select_icon.png") no-repeat 95% center;
+    background-size: 15px auto;
+}
+
+.content .resume-edit .edit-item .field-name{
+    display: inline-block;
+    margin-right: 5%;
+    width: 30%;
+    height: 46px;
+    line-height: 46px;
+    font-size: 1rem;
+    color: #666464;
+    vertical-align: top;
+}
+
+.content .resume-edit .edit-item .field-input{
+    display: inline-block;
+    width: 65%;
+    height: 46px;
+    line-height: 46px;
+    font-size: 1rem;
+    color: #231815;
+}
+
+.content .resume-edit .edit-item span.field-input{
+    padding: 12px 0;
+    height: auto;
+    line-height: 1.5;
+    word-break: break-all;
+}
+
+.content .resume-edit .edit-item.down .field-input{
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+select{
+    padding-right: 20px;
+    border: none;
+    -webkit-appearance: none;
+    background: #fff url("../../img/wap/select_icon.png") no-repeat right center;
+    background-size: 15px auto;
+    box-sizing: border-box;
+}
+
+input[type="date"]{
+    -webkit-appearance: none;
+}
+
+.content .resume-edit .edit-item.right .field-input{
+    padding-right: 15px;
+    background: url("../../img/wap/go.png") no-repeat right center;
+    background-size: 10px auto;
+    box-sizing: border-box;
+}
+
+.content .resume-edit .edit-item .field-detail{
+    width: 100%;
+    height: 46px;
+    font-size: 1rem;
+    color: #231815;
+}
+
+.content .resume-edit .edit-item .field-detail::-webkit-input-placeholder{
+    color: #231815;
+}
+
+.content .resume-edit .edit-save{
+    margin: 30px 10% 50px 10%;
+    width: 80%;
+    height: 40px;
+    border-radius: 1.25rem;
+    background: #fdd108;
+    color: #231815;
+    text-align: center;
+    line-height: 40px;
+}
+
+.content .resume-edit .edit-save.edit-over{
+    margin: 30px 20% 50px 20%;
+    width: 60%;
+}
+
+/*resumePopup*/
+.resume-popup{
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 50px;
+    width: 100%;
+    height: 100%;
+    z-index: 98;
+    display: none;
+}
+
+.resume-popup .popup-info{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.resume-popup .popup-info .left-info{
+    position: absolute;
+    top: 0;left: 0;
+    width: 44%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: #fff;
+}
+
+.resume-popup .popup-info .right-info{
+    position: absolute;
+    top: 0;left: 44%;
+    width: 56%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: #efefef;
+}
+
+.resume-popup .popup-info .info-block{
+    padding: 0 6%;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: .875rem;
+}
+
+.resume-popup .popup-info .left-info .info-block.active{
+    background-color: #efefef;
+}

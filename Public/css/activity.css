@@ -1,0 +1,241 @@
+*{
+    margin: 0;
+    padding: 0;
+    font: 100% normal;
+    color: #3f3f3f;
+}
+
+.activity-page{
+    position: absolute;
+    top: 0;left: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: #f9f4e8;
+}
+
+.activity-page .activity-banner,.activity-page .activity-banner img{
+    width: 100%;
+    height: auto;
+}
+
+.activity-page .activity-cont{
+    margin: 0 5% 2rem 5%;
+    width: 90%;
+    height: auto;
+}
+
+.activity-page .activity-cont .rule-title{
+    font-size: 1.2rem;
+    color: #f8bd00;
+    font-weight: bold;
+    line-height: 2;
+}
+
+.activity-page .activity-cont .rule-item{
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    font-size: .875rem;
+    color: #3f3f3f;
+    line-height: 1.8;
+}
+
+.activity-page .activity-cont .our-warn{
+    margin-bottom: 2rem;
+    width: 100%;
+    font-size: .75rem;
+    color: #828282;
+}
+
+.activity-page .activity-cont .award-img{
+    margin-top: 1.5rem;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.activity-page .activity-cont .award-img img{
+    width: 100%;
+    height: auto;
+}
+
+.activity-page .activity-cont .activity-btn{
+    display: block;
+    margin: 1.5rem auto 0 auto;
+    width: 100%;
+    height: 3rem;
+    border-radius: .3rem;
+    background-color: #f8c40e;
+    font-size: 1.25rem;
+    color: #000;
+    text-align: center;
+    line-height: 3rem;
+    text-decoration: none;
+}
+
+.activity-page .activity-cont .activity-btn:focus{
+    outline: none;
+}
+
+.activity-page .activity-cont .download-img{
+    margin: 0 auto;
+    width: 40%;
+}
+
+.activity-page .activity-cont .download-img img{
+    width: 100%;
+    height: auto;
+}
+
+.activity-page .activity-cont .download-img ~ .activity-btn{
+    margin: .5rem auto 0 auto;
+}
+
+.activity-page .activity-cont .winner-title{
+    margin-top: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.activity-page .activity-cont .winners-nav{
+    width: 100%;
+    font-size: 0;
+}
+
+.activity-page .activity-cont .winners-nav .sub-nav{
+    display: inline-block;
+    margin-top: 10px;
+    width: 48%;
+    height: 40px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: 1px solid #d3d3d4;
+    background-color: #e6e6e6;
+    font-size: .875rem;
+    text-align: center;
+    line-height: 38px;
+}
+
+.activity-page .activity-cont .winners-nav .sub-nav.active{
+    background-color: #fddf98;
+}
+
+.activity-page .activity-cont .winners-nav .sub-nav:nth-child(even){
+    margin-left: 4%;
+}
+
+.activity-page .activity-cont .winners{
+    margin: 30px auto;
+    width: 100%;
+    display: none;
+}
+
+.activity-page .activity-cont .winners .winners-item{
+    width: 100%;
+}
+
+.activity-page .activity-cont .winners .winners-item .award-info{
+    margin-bottom: 35px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.winners .winners-item .award-info .award-name{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    position: relative;
+}
+
+.winners .winners-item.zjyqj .award-info .award-name{
+    background-color: #f39800;
+}
+
+.winners .winners-item.xyyb .award-info .award-name{
+    background-color: #e85298;
+}
+
+.winners .winners-item.hybb .award-info .award-name{
+    background-color: #00b9ef;
+}
+
+.winners .winners-item .award-info .award-name img{
+    position: absolute;
+    margin: auto;
+    top: 0;right: 0;bottom: 0;left: 0;
+    width: 32%;
+    height: auto;
+}
+
+.winners .winners-item .award-info .winners-info{
+    width: 100%;
+    height: auto;
+}
+
+.winners .winners-item.hybb .award-info .winners-info{
+    height: 200px;
+    overflow: hidden;
+}
+
+.winners .winners-item .award-info .winners-info .info-th{
+    width: 100%;
+    height: 40px;
+    background-color: #fffcdb;
+    font-size: 0;
+    overflow: hidden;
+}
+
+.winners .winners-item.hybb .award-info .winners-info .info-th{
+    position: relative;
+    z-index: 9;
+}
+
+.winners .winners-item .award-info .winners-info .info-tr{
+    width: 100%;
+    height: 40px;
+    background-color: #fff;
+    font-size: 0;
+    overflow: hidden;
+}
+
+.winners .winners-item .award-info .winners-info .winner-basic{
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: .875rem;
+    color: #231815;
+    text-decoration: none;
+}
+
+.winners .winners-item.hybb .award-info .winners-info .info-th .winner-basic{
+    font-size: 1rem;
+}
+
+.activity-page .activity-cont .winners-tips{
+    width: 100%;
+}
+
+.activity-page .activity-cont .winners-tips .wishes{
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #231815;
+}
+
+.activity-page .activity-cont .winners-tips .sub-tips{
+    margin-top: 10px;
+    width: 100%;
+    line-height: 1.5;
+    font-size: .875rem;
+    color: #231815;
+}
+
+.activity-page .activity-cont .winners-tips .sub-tips span{
+    display: inline-block;
+    margin: 7px 15px 7px 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #898989;
+    vertical-align: top;
+}
