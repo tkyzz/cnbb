@@ -1,0 +1,21 @@
+    <div class="popup" id="intention_tip" style="display: block">
+        <div class="popup-info will-popup">
+            <a class="popup-close" href="javascript:;"><i class="js_close_intention_tip"></i></a>
+            <div class="popup-img"><img src="__PUBLIC__/img/will_tips.png"/></div>
+            <p class="no-will">您还未填写<span>实习意向</span>哦~</p>
+            <p class="will-tips">完善的实习意向，才能接收到最精准的推荐岗位哦~</p>
+
+            <a class="will-btn" href="/resume/list.html?show=1">现在就去填</a>
+        </div>
+    </div>
+    <script type="text/javascript">
+		//关闭弹框
+		$('.js_close_intention_tip').click(function(){
+		    $('#intention_tip').hide();
+		   $.get("/ajax/setclose",{name:'intention_tip'},
+		      function(data){
+
+		          },
+		  "json"); 
+		});
+    </script>

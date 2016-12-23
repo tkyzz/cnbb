@@ -1,0 +1,44 @@
+ 
+
+                        <foreach name="res.posts" item="v" key="k">
+                        <div class="list-item">
+                            <div class="post-item">
+                                <div class="item-row">
+                                    <a class="row-left post-name" href="/post/{$v.id|smartBase64=###}.html" target="_blank">
+                                        <span class="name-box">{$v.name}</span>
+                                        <notempty name="v.ishot">
+                                        <!--急招岗位显示img-->
+                                        <img class="hot-post" src="__PUBLIC__/img/hot_post.png"/>
+                                        </notempty>
+                                      <egt name="v['esalary']" value="1">
+                                      <span class="post-cost">{$v['ssalary']}-{$v['esalary']}<if condition="$v['salary_unit'] eq 0">元/天<else />元/月</if></span>
+                                      <else />
+                                      <span class="post-cost"> <if condition="$v['ssalary'] elt 0">面议<else /><if condition="$v['salary_unit'] eq 0">{$v.ssalary}元/天<else />{$v.ssalary}元/月</if></if></span>
+                                      </egt>
+                                    </a>
+                                    <a class="row-right company-name" href="/post/company/{$v.org.id|smartBase64=###}.html" target="_blank">{$v.org.abbrname}</a>
+                                </div>
+                                <div class="item-row">
+                                    <div class="row-left post-demand">
+                                        <span class="sub-demand post-addr"><i></i>{$v.city_name}-<notempty name="v.zone_name">{$v.zone_name}<else />全市</notempty></span>
+                                        <span class="sub-demand degree"><i></i>{$v.degree|smartDegree=###}</span>
+                                    </div>
+                                    <span class="row-right company-nature">{$v.org.trade_name}/{$v.org.subtrade_name}</span>
+                                </div>
+                                <div class="item-row">
+                                    <div class="row-left post-demand time">
+                                        <span class="sub-demand post-time"><i></i>{$v.work_type|smartWorkType=###}</span>
+                                        <notempty name="v.work_days">
+                                        <span class="sub-demand demand-time"><i></i>{$v.work_days}天/周</span>
+                                        </notempty>
+                                        <notempty name="v.work_duration">
+                                        <span class="sub-demand demand-time"><i></i>至少{$v['work_duration']/30}个月</span>
+                                        </notempty>
+                                        <!--<span class="sub-demand last-time"><i></i>距离投递结束还有<span>{$v.rev_stop_time|smartPostStrTime=###}</span>天</span>-->
+                                    </div>
+                                    <span class="row-right publish-date">{$v.last_time|smartJobStrTime=###}</span>
+                                </div>
+                            </div>
+                            <a class="company-logo" href="/post/company/{$v.org.id|smartBase64=###}.html"><img src="{$v.org.b_logo_url}"/></a><!-- {$v.img_url} -->
+                        </div>
+                        </foreach>

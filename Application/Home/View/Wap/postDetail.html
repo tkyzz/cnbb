@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>菜鸟帮帮-岗位详情</title>
+    <include file="./Application/Home/View/libpage/inc_wap_header.html" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/h5/postDetail.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/h5/nativeShare.css"/>
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <a class="back" href="/mpostList.html"><i></i></a>
+            <span class="title">岗位详情</span>
+            <div class="others">
+                <span class="sub-nav share" id="share"><i></i></span>
+                <span class="sub-nav my" id="my"><i></i></span>
+            </div>
+            <div class="my-cont" id="my-cont">
+                <notempty name="Think.session.user.access_token">
+                    <a class="cont-item" href="/mmyresume.html">
+                        <img class="item-img" src="__PUBLIC__/img/wap/my_profile.png"/>
+                        <p class="item-title">我的简历</p>
+                    </a>
+                    <a class="cont-item" href="/mfeedback.html">
+                        <img class="item-img" src="__PUBLIC__/img/wap/feedback.png"/>
+                        <p class="item-title">投递反馈</p>
+                    </a>
+                <else />
+                    <a class="cont-item" href="/mlogin.html">
+                        <img class="item-img" src="__PUBLIC__/img/wap/my_profile.png"/>
+                        <p class="item-title">我的简历</p>
+                    </a>
+                    <a class="cont-item" href="/mlogin.html">
+                        <img class="item-img" src="__PUBLIC__/img/wap/feedback.png"/>
+                        <p class="item-title">投递反馈</p>
+                    </a>
+                </notempty>
+            </div>
+        </header>
+        <nav class="bottom-nav">
+        <if condition="$is_show eq 0">
+            <a class="sub-nav edit-profile" href="/mlogin.html">创建简历<span class="nav-tag"></span></a>
+            <input class="sub-nav delivery" data="0" type="button" value="一键投递">
+        <elseif condition="$is_show eq 1"/>
+            <a class="sub-nav edit-profile">{$myresume['name']}<span class="nav-tag"></span></a>
+            <notempty name="res.is_delivered">
+            <input class="sub-nav delivery" data="2" type="button" value="已投递">
+            <else />
+            <input class="sub-nav delivery" data="1" type="button" value="一键投递">
+            </notempty>
+            <input type="hidden" name="resume_id" value="{$myresume['id']}">
+            <input type="hidden" name="post_id" value="{$res.id}">
+        <else />
+            <a class="sub-nav edit-profile" href="/mmyResume.html">创建简历<span class="nav-tag"></span></a>
+            <input class="sub-nav delivery" data="-1" type="button" value="一键投递">
+        </if>
+        </nav>
+        <div class="footer">
+            <div class="logo"><img src="__PUBLIC__/img/wap/logo.png"/></div>
+            <div class="slogan"><img src="__PUBLIC__/img/wap/slogan.png"/></div>
+            <div class="app-download">
+                <div class="cartoon"><img src="__PUBLIC__/img/wap/cartoon.png"/></div>
+                <a class="download" href="{$download_url}"><img src="__PUBLIC__/img/wap/download_btn.png"/></a>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="cont-item">
+                <div class="name-pay">
+                    <span class="post-name">{$res.name}</span>
+                  <egt name="res['esalary']" value="1">
+                  <span class="post-pay">{$res['ssalary']}-{$res['esalary']}<if condition="$res['salary_unit'] eq 0">元/天<else />元/月</if></span>
+                  <else />
+                  <span class="post-pay"> <if condition="$res['ssalary'] elt 0">面议<else /><if condition="$res['salary_unit'] eq 0">{$res.ssalary}元/天<else />{$res.ssalary}元/月</if></if></span>
+                  </egt>
+                </div>
+                <div class="post-basic">
+                    <div class="basic-left">
+                        <span class="basic-item post-degree"><i></i>{$res.degree|smartDegree=###}</span>
+                        <span class="basic-item post-type"><i></i>{$res.work_type|smartdictval=###}</span>
+                        <notempty name="res.work_days">
+                        <span class="basic-item post-days"><i></i>{$res.work_days}天/周</span>
+                        </notempty>
+                        <notempty name="$res['work_duration']">
+                        <span class="basic-item post-month"><i></i>至少{$res['work_duration']/30}个月</span>
+                        </notempty>
+                    </div>
+                    <div class="basic-right">
+                        <span class="basic-item post-duration">{$res.last_time|smartJobStrTime=###}</span>
+                    </div>
+                </div>
+
+                <notempty name="res.high_lights">
+                <div class="post-basic">
+                    <span class="basic-title">岗位亮点</span>
+                    <span class="post-key">{$res.high_lights}</span>
+                </div>
+                </notempty>
+
+                <div class="post-basic">
+                    <span class="basic-title">福利标签</span>
+                    <div class="welfare">
+                    <foreach name="res.fl_tags" item="v">
+                            <span class="sub-welfare">{$v}</span>
+                    </foreach>
+                    </div>
+                </div>
+
+                <div class="post-basic">
+                    <a class="basic-item post-addr" href="/mMap.html?addr={$res.province_name}{$res.city_name} {$res.zone_name}{$res.addr}">
+                    <i></i>
+                    <if condition="is_zhixia($res['province_name'])">
+                                       {$res.province_name}-{$res.zone_name}<notempty name="res.addr">-{$res.addr}</notempty>
+                                       <else />
+                                       {$res.province_name}-{$res.city_name}-<notempty name="res.zone_name">{$res.zone_name}<else />全市</notempty><notempty name="res.addr">-{$res.addr}</notempty>
+                    </if>
+                        <i class="go"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="cont-item">
+                <div class="org-img"><img src="{$res.org.b_logo_url}"/></div>
+                <div class="org-info">
+                    <p class="org-name">{$res.org.fullname}</p>
+                    <div class="info-box">
+                        <span class="info-item">{$res.org.trade_name}</span>
+                        <span class="info-item">{$res.org.nature_name}</span>
+                        <span class="info-item">{$res.org.scale_name}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cont-item">
+                <div class="post-info">
+                    <div class="part-title">
+                        <div class="title-tag"><span></span></div>
+                        <span class="title-info">岗位描述</span>
+                    </div>
+                    <div class="part-info">
+                        {$res.remark|nl2br}
+                    </div>
+                </div>
+                <div class="post-info">
+                    <div class="part-title">
+                        <div class="title-tag"><span></span></div>
+                        <span class="title-info">岗位要求</span>
+                    </div>
+                    <div class="part-info">
+                        {$res.post_remark|nl2br}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="jiathis_style_m" style="display:none;"></div>
+<input type="hidden" id="current_url" value="/mpost/{$res.id|smartBase64=###}">
+
+    <!--分享弹层-->
+    <div class="popup" id="sharePopup" style="display:none;">
+        <div class="share-info">
+        <div id="nativeShare"></div>
+<!--             <div class="share-nav" id="nativeShare">
+                <div class="sub-nav">
+                    <div class="nav-img"><img src="__PUBLIC__/img/wap/weixin.jpg"/></div>
+                    <p class="nav-text">微信朋友圈</p>
+                </div>
+                <div class="sub-nav">
+                    <div class="nav-img"><img src="__PUBLIC__/img/wap/kongjian.jpg"/></div>
+                    <p class="nav-text">QQ空间</p>
+                </div>
+                <div class="sub-nav nativeShare weibo" data-app="sinaWeibo">
+                    <div class="nav-img"><img src="__PUBLIC__/img/wap/weibo.jpg"></div>
+                    <p class="nav-text">新浪微博</p>
+                </div>
+            </div> -->
+            <div class="share-cancel"><button class="cancel-btn">取消</button></div>
+        </div>
+    </div>
+</body>
+
+<script src="__PUBLIC__/js/wap/nativeShare.js?v=1.4"></script>
+<script src="__PUBLIC__/js/style_h5.js"></script>
+<script type="text/javascript">
+$(function(){
+        var current_url = window.location.href;
+        var config = {
+            url:current_url,
+            title:'菜鸟帮帮',
+            desc:'菜鸟帮帮',
+            img:'{$res.org.b_logo_url}',
+            img_title:'菜鸟帮帮',
+            from:'菜鸟帮帮'
+        };
+        var share_obj = new nativeShare('nativeShare',config);
+})
+$('.delivery').click(function(){
+    var data = $(this).attr('data');
+    //已投递
+    if (data == 2){
+        layer.msg('此岗位您已投递过啦~',{icon:0});
+        return false;
+    }
+    if ( data == 0 ) {
+        //未登录
+        var url = $('#current_url').val();
+        if(url.length > 0){
+            window.location.href = '/mLogin.html?return='+url;
+        }else{
+            window.location.href = '/mLogin.html';
+        }
+        
+        
+    } else if ( data == -1 ) {
+        //没有简历
+        layer.msg('请先创建简历后才能投递岗位',{icon:0});
+        //window.location.href = '/mmyResume.html';
+    } else if ( data == 1 ) {
+        //投递
+        var resume_id = $('[name="resume_id"]').val();
+        var post_id = $('[name="post_id"]').val();
+        var org_id = $("input[name=org_id]").val();
+        $('.delivery').attr("disabled",true);
+        layer.msg("拼命投递中……", {
+            icon:1
+        });
+        $.post("/ajax/deliver", {
+            resume_id:resume_id,
+            post_id:post_id,
+            device:2
+        }, function(data) {
+            if (data.status == 1) {
+                $('.delivery').val('已投递').attr('data',2);
+                window.location.href = "/mdeliver.html?id="+post_id;
+            } else {
+                layer.msg(data.msg, {
+                    icon:5
+                });
+                 $('.delivery').removeAttr("disabled");
+                //window.location.reload();
+            }
+        }, "json");
+
+    }
+});
+</script>
+</html>

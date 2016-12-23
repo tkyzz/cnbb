@@ -1,0 +1,20 @@
+                    <div class="profile-show" data-id="{$skill.id}">
+                        <div class="detail-item-title">
+                            <p class="title"><span>语言技能</span></p>
+                            <div class="action-box">
+                                <div class="sub-action edit js_skill_edit" data-id="{$res.id}"><i></i>编辑</div>
+                            </div>
+                        </div>
+                        <div class="sub-info">
+                            <div class="college-info">
+                                <span class="major">英语能力</span>
+                                <span class="ability">{$skill.enskill}</span>
+                            </div>
+                            <foreach name="skill.other_languages" item="v">
+                            <div class="college-info">
+                                <span class="major">{$v.name}能力</span>
+                                <span class="ability">{$v.proficiency|smartShulian=###}</span>
+                            </div>
+                            </foreach>
+                        </div>
+                    </div>

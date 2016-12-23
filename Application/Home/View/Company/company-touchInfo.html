@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="金融机构实习，找菜鸟帮帮">
+    <meta name="keys" content="实习,金融,学生">
+    <title>菜鸟帮帮-企业基本信息</title>
+<include file="./Application/Home/View/libpage/inc_header.html" />
+</head>
+<body>
+    <div class="page company-page company-basic-info company-touch-info">
+<include file="./Application/Home/View/libpage/inc_company_top.html" />
+        <div class="logon-box">
+        <form id="comExtraForm" name="comExtraForm" method="post">
+            <div class="basic-title">
+                <span class="title-cont">企业联系方式（我们不会对用户显示这些信息）</span>
+                <span class="title-line"></span>
+            </div>
+            <div class="basic-item">
+                <span class="basic-name">企业联系人</span>
+                <input class="basic-cont" type="text" name="contacter" placeholder="请输入企业联系人"/>
+            </div>
+            <div class="basic-item">
+                <span class="basic-name">企业联系邮箱</span>
+                <input class="basic-cont" type="text" name="contacter_mail" placeholder="请输入企业联系邮箱" value="{$Think.session.email}"/>
+            </div>
+            <div class="basic-item contact-number">
+                <span class="basic-name">企业联系电话（任选其一）</span>
+                <div class="number">
+                    <input class="basic-cont" type="text" name="contacter_phone" placeholder="座机"/>
+                    <input class="basic-cont" type="text" name="contacter_mobile" value="{$Think.cookie.reg_phone}" placeholder="手机"/>
+                </div>
+            </div>
+           <input type="hidden" name="id" value="{$Think.get.id}">
+           <input type="text" name="yyzz_img" id="yyzz_id" data-show="0" style="height:0.5px;width:0px;padding:0px;margin:0px;">
+         </form>   
+            <input type="hidden" id="is_orgemail" value="{$is_orgemail}">
+            <empty name="is_orgemail">
+            <form id="yyzzForm" name="yyzzForm" method="post">
+            <div class="basic-title other-title">
+                <span class="title-cont">企业其他资料认证（我们不会对用户显示这些信息）</span>
+                <span class="title-line"></span>
+            </div>
+            <div class="data-upload">
+                <div class="upload-box">
+                    <p class="example">示例</p>
+                    <div class="upload-item">
+                        <div class="mask"><i></i>请上传营业执照或名片</div>
+                        <div class="img-box">
+                            <img id="js_yyzz_show" src=""/>
+                        </div>
+                        <input type="file" id="yyzz_img" name="yyzz_img" alt="请选择图片">
+                    </div>
+                    <div class="upload-item"><img src="__PUBLIC__/img/orgImg/example.jpg"/></div>
+                </div>
+                <div class="upload-tips">
+                    1.上传营业执照或名片要清晰可辨（见上传示例），审核通过后将有已认证标识。<br>
+                    2.为保证信息安全，您上传的资质证明不提供预览功能，请谅解。<br>
+                    3.该资质证明只用作菜鸟帮帮审核认证使用，请您放心上传。
+                </div>
+            </div>
+            </form>
+            </empty>
+            <span id="error"></span>
+            <input class="submit-btn" id="sub_extra" type="button" value="下一步">
+        </div>
+        <div class="popup" id="weiscyyzz">
+            <div class="popup-info upload-popup">
+                <a class="popup-close" href="javascript:;"><i></i></a>
+                <div class="popup-img"><img src="__PUBLIC__/img/upload_popup.png"/></div>
+                <p class="no-upload">未上传企业资料</p>
+                <p class="upload-tips">由于您使用的是个人邮箱，<br>所以必须认证企业资质后才可以开通招聘服务！</p>
+
+                <div class="upload-active">
+                    <button class="sub-btn keep-btn" onclick="$('#weiscyyzz').hide();$('#yyzz_id').attr('data-show',0);">返回</button>
+                    <a class="sub-btn other-link" onclick="$('#weiscyyzz').hide();$('#comExtraForm').submit();">跳过</a>
+                </div>
+            </div>
+        </div>
+<include file="./Application/Home/View/libpage/inc_buttom.html" />
+    </div>
+    <script src="__PUBLIC__/js/member.js"></script>
+</body>
+</html>

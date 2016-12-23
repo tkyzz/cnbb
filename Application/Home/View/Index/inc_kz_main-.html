@@ -1,0 +1,285 @@
+    <div class="preview-page <if condition="$Think.get.p neq ''">profile-pdf</if>">
+    <empty name="Think.get.p">
+    <if condition="$Think.get.t neq kz">
+        <!--企业预览和pdf使用preview-top-->
+        <div class="preview-top" style="display: block"><img src="__PUBLIC__/img/profilePreview_top.jpg"/></div>
+    </if>
+    </empty>
+        <div class="preview-info">
+            <div class="profile-basic">
+                <div class="basic-avatar"><div class="avatar-img">
+                    <notempty name="info.avatar_url">
+                        <img src="{$info.avatar_url}">
+                    <else />
+                    <if condition="$info['gender'] eq 2">
+                        <img src="__PUBLIC__/img/female.jpg">
+                    <else />
+                        <img src="__PUBLIC__/img/man.jpg">
+                    </if>    
+                    </notempty> 
+                </div></div>
+                <div class="basic-info">
+                    <div class="basic-key">
+                        <div class="basic-item">
+                            <span class="basic-name">{$info.fullname}</span>
+                        </div>
+                        <div class="basic-item basic-phone">
+                            <i></i>
+                            <span>{$info.phone}</span>
+                        </div>
+                        <div class="basic-item basic-email">
+                            <i></i>
+                             <span>{$info.email}</span>
+                        </div>
+                        <if condition="$is_view_resume neq 1">
+                        <notempty name="Think.cookie.cnbb_token">
+                        <div class="get-contact" data="{$res.base_info.delivereds.resume_id}">点击获取联系方式</div>
+                        <script>
+                        $('.get-contact').click(function(){
+                           var id = $(this).attr('data');
+                            $.post("/ajax/confirmsee", {id:id}, function(data) {
+                                if (data.status == 1) {
+                                    window.location.href = window.location.href;
+                                } else {
+                                    layer.msg(data.msg, {icon:5});
+                                }
+                            }, "json");
+                        });
+                        </script>
+                        <else />
+                        <div class="get-contact" onclick="">点击获取联系方式</div>
+                        </notempty>
+                        </if>
+                    </div>
+                    <div class="basic-others">
+                        <span>
+                        <if condition="$info['gender'] eq 1">男<elseif condition="$info['gender'] eq 2" />女</if>
+                        </span>
+                        <span>{$info.birthday|substr=0,4}年{$info.birthday|substr=4,2}月{$info.birthday|substr=6,2}日</span>
+                        <span>户口：<span>{$info.hk_province_name}</span></span>
+                        <if condition="smartResumeDict(politics,$info['politics']) eq '党员'">
+                        <span>{$info.politics|smartResumeDict=politics,###}</span>
+                        </if>
+                    </div>
+                    <div class="basic-others">
+                        <span>实习居住地：<span>{$info.province_name}-{$info.city_name}{$info.address}</span></span>
+                    </div>
+                    <div class="profile-tag">
+                        <foreach name="res.info.tags" item="v">
+                            <span class="sub-tag">{$v}</span>
+                        </foreach>
+                    </div>
+                </div>
+            </div>
+            <if condition="count($edus)">
+            <div class="profile-item">
+                <div class="item-title"><div class="sub-title education"><i></i>教育经历</div></div>
+                <foreach name="edus" item="v">
+                <div class="item-detail">
+                    <span class="detail-tag"></span>
+                    <div class="detail-cont">
+                        <div class="cont-box">
+                            <span class="cont-item first-cont">
+                            {$v.sdate|substr_replace=###,'.',4,0}&nbsp;—&nbsp;<if condition="$v.edate eq 0">至今<else />{$v.edate|substr_replace=###,'.',4,0}</if>
+                            </span>
+                            <span class="cont-item name-cont">{$v.school_name}</span>
+                            <span class="cont-item">{$v.major}</span>
+                            <span class="cont-item last-cont">{$v.degree|smartDegree=###}</span>
+                        </div>
+                        <!--交换生经历和专业研究项目跟在所属教育经历后面-->
+                        <foreach name="v.exchanges" item="exv" key="exk">
+                        <div class="profile-event">
+                            <div class="cont-box">
+                                <span class="cont-item first-cont">
+                                <if condition="$exk eq 0">（交换生经历） </if>
+                                </span>
+                                <span class="cont-item name-cont">{$exv.school_name}</span>
+                                <span class="cont-item">{$exv.major}</span>
+                                <span class="cont-item last-cont">
+                                {$exv.sdate|substr_replace=###,'.',4,0}&nbsp;—&nbsp;<if condition="$exv.edate eq 0">至今<else />{$exv.edate|substr_replace=###,'.',4,0}</if>
+                                </span>
+                            </div>
+                            <div class="event-description">
+                                {$exv.remark}
+                            </div>
+                        </div>
+                        </foreach>
+                        <foreach name="v.others" item="pv" key="pk">
+                        <div class="profile-event">
+                            <div class="cont-box">
+                                <span class="cont-item first-cont"><if condition="$pk eq 0">（专业研究项目）</if></span>
+                                <span class="cont-item name-cont">{$pv.name}</span>
+                                <span class="cont-item">{$pv.role|smartRole=###}</span>
+                                <span class="cont-item last-cont">{$pv.sdate|substr_replace=###,'.',4,0}&nbsp;—&nbsp;<if condition="$pv['edate'] eq 0">至今<else />{$pv.edate|substr_replace=###,'.',4,0}</if></span>
+                            </div>
+                            <div class="event-description">
+                                {$pv.remark}
+                            </div>
+                        </div>
+                        </foreach>
+                    </div>
+                </div>
+                </foreach>
+            </div>
+            </if>
+            <if condition="count($internships)">
+            <div class="profile-item">
+                <div class="item-title"><div class="sub-title internship"><i></i>实习经历</div></div>
+                <foreach name="internships" item="v">
+                <div class="item-detail">
+                    <span class="detail-tag"></span>
+                    <div class="detail-cont">
+                        <div class="cont-box">
+                            <span class="cont-item first-cont">{$v.sdate|substr_replace=###,'.',4,0}&nbsp;—&nbsp;<if condition="$v.edate eq 0">至今<else />{$v.edate|substr_replace=###,'.',4,0}</if></span>
+                            <span class="cont-item live-cont">{$v.company_name}</span>
+                            <!--<span class="cont-item">{$v.trade_name}（{$v.nature_name}）</span>-->
+                            <span class="cont-item post-cont">{$v.function_name}</span>
+                        </div>
+                        <div class="event-description">
+                            {$v.work_remark}
+                        </div>
+                    </div>
+                </div>
+                </foreach>
+            </div>
+            </if>
+            <if condition="$skill['id'] gt 0">
+            <div class="profile-item honor">
+                <div class="item-title"><div class="sub-title certificate"><i></i>技能证书</div></div>
+                <!--财金证书和语言能力合并到一起显示-->
+                <div class="item-detail">
+                    <span class="detail-tag"></span>
+                    <div class="detail-cont">
+                        <div class="cont-box">
+                            <span class="cont-item first-cont">英语能力</span>
+                            <!--同类多个证书间用中文的；分隔-->
+                            <span class="cont-item others-cont">{$skill.enskill}</span>
+                        </div>
+                    </div>
+                </div>
+                <foreach name="skill.other_languages" item="v">
+                <div class="item-detail">
+                    <span class="detail-tag"></span>
+                    <div class="detail-cont">
+                        <div class="cont-box">
+                            <span class="cont-item first-cont">{$v.name}能力</span>
+                            <!--其他语种能力跟APP一样，使用“了解、熟悉、掌握、精通”-->
+                            <span class="cont-item others-cont">{$v.proficiency|smartShulian=###}</span>
+                        </div>
+                    </div>
+                </div>
+                </foreach>
+                <foreach name="certificates" item="v">
+                <if condition="$v.cert_type_id neq 10">
+                <div class="item-detail">
+                    <span class="detail-tag"></span>
+                    <div class="detail-cont">
+                        <div class="cont-box">
+                            <span class="cont-item first-cont">{$v.cert_type_name|smartSubstr='（'}</span>
+                           <if condition="$v['is_allpass']">
+                                    <if condition="$v['cert_type_id'] eq 5">
+                                     <span class="cont-item others-cont">持证人</span>
+                                    <else />
+                                     <span class="cont-item others-cont">全部通过</span>
+                                    </if> 
+                            <else />
+                               <span class="cont-item others-cont">{$v.coursenames|implode=；,###}</span>
+                             </if>
+                           
+                        </div>
+                    </div>
+                </div>
+                <else />
+                <!--ACCA分阶段证书显示效果-->
+                <div class="item-detail">
+                    <span class="detail-tag"></span>
+                    <div class="detail-cont">
+                        <div class="cont-box">
+                            <span class="cont-item first-cont">{$v.cert_type_name|smartSubstr='（'}</span>
+                            <div class="cont-item others-cont">
+                            <notempty name="v.fcourse">
+                                <div class="stage-item">
+                                    <span class="stage-title">F阶段</span>
+                                    <if condition="$v['is_allpass']">
+                                            <span class="stage-cont">全部通过</span>
+                                    <else />
+                                    <span class="stage-cont">{$v.fcourse}</span>
+                                     </if>
+                                </div>
+                            </notempty>
+                             <notempty name="v.pcourse">
+                                <div class="stage-item">
+                                    <span class="stage-title">P阶段</span>
+                                    <if condition="$v['is_allpass2']">
+                                            <span class="stage-cont">全部通过</span>
+                                    <else />
+                                    <span class="stage-cont">{$v.pcourse}</span>
+                                    </if>
+                                </div>
+                            </notempty>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </if>
+                </foreach>
+            </div>
+            </if>
+            <if condition="count($rjp['jobs']) || count($rjp['practice']) || count($rjp['rewards'])">
+            <div class="profile-item honor">
+                <div class="item-title"><div class="sub-title student-live"><i></i>校内经历</div></div>
+                <foreach name="rjp.rewards" item="v" key="k">
+                <div class="item-detail">
+                    <span class="detail-tag"></span>
+                    <div class="detail-cont">
+                        <div class="cont-box">
+                            <span class="cont-item first-cont">{$v.get_time|substr_replace=###,'.',4,0}</span>
+                            <span class="cont-item name-cont">{$v.name}</span>
+                            <span class="cont-item level-cont">{$v.level|smartRewardLevel=###}</span>
+                           
+                            <span class="cont-item class-name"> <if condition="$k eq 0">（学生奖励与荣誉）</if></span>
+                            
+                        </div>
+                    </div>
+                </div>
+                </foreach>
+                <foreach name="rjp.jobs" item="v" key="k">
+                <div class="item-detail">
+                    <span class="detail-tag"></span>
+                    <div class="detail-cont">
+                        <div class="cont-box">
+                            <span class="cont-item first-cont">{$v.sdate|substr_replace=###,'.',4,0}&nbsp;—&nbsp;{$v.edate|substr_replace=###,'.',4,0}</span>
+                            <span class="cont-item long-cont">{$v.role|smartRole=###}</span>
+                            <span class="cont-item class-name"><if condition="$k eq 0">（社会职务/社团活动）</if></span>
+                        </div>
+                        <div class="event-description">
+                            {$v.remark|nl2br}
+                        </div>
+                    </div>
+                </div>
+                </foreach>
+                 <foreach name="rjp.practice" item="v" key="k">
+                <div class="item-detail">
+                    <span class="detail-tag"></span>
+                    <div class="detail-cont">
+                        <div class="cont-box">
+                            <span class="cont-item first-cont">{$v.sdate|substr_replace=###,'.',4,0}&nbsp;—&nbsp;<if condition="$v.edate eq 0">至今<else />{$v.edate|substr_replace=###,'.',4,0}</if></span>
+                            <span class="cont-item long-cont">{$v.name}</span>
+                            <span class="cont-item class-name"><if condition="$k eq 0">社会实践经历（非实习）</if></span>
+                        </div>
+                        <div class="event-description">
+                            {$v.remark|nl2br}
+                        </div>
+                    </div>
+                </div>
+                </foreach>
+            </div>
+            </if>
+        </div>
+    <empty name="Think.get.p">
+    <if condition="$Think.get.t neq kz">
+        <!--企业预览和pdf使用preview-bottom-->
+        <div class="preview-bottom" style="display: block">电话：021-31273718&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网址：<a class="our-link" href="www.cainiaobangbang.com">www.cainiaobangbang.com</a> </div>
+    </if>
+    </empty>
+    </div>

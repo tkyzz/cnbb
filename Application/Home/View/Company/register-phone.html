@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="金融机构实习，找菜鸟帮帮">
+    <meta name="keys" content="实习,金融,学生">
+    <title>菜鸟帮帮-企业注册</title>
+<include file="./Application/Home/View/libpage/inc_header.html" />
+</head>
+<body>
+    <div class="page info-page company-page">
+<include file="./Application/Home/View/libpage/inc_company_top.html" />
+
+        <div class="logon-box">
+            <p class="logon-title">邮箱验证</p>
+            <div class="input-item email">
+                <i></i>
+                <div class="input-box">
+                    <input type="email" id="contacter_mail" placeholder="请输入您的注册邮箱" />
+                </div>
+            </div>
+            <p class="input-tips">如使用公共邮箱（如：163、126、qq）将需要补充额外的企业认证资料</p>
+
+            <div class="btn"><input class="sub-btn js-next" type="button" value="下一步"></div>
+        </div>
+<include file="./Application/Home/View/libpage/inc_buttom.html" />
+<script src="__PUBLIC__/js/member.js"></script>
+    </div>
+    <script type="text/javascript">
+
+    $('.js-next').click(function(){
+        var emailTest = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        var email = $('#contacter_mail').val();
+        if(email.length==0){
+            layer.msg('请输入邮箱', {icon: 5});
+            return false;
+        }
+        if(!emailTest.test(email)){
+            layer.msg('请输入正确的邮箱', {icon: 5});
+            return false;
+        }
+        $('.js-next').attr('disabled',true);
+        $.post("/company/setMail.html",{email:email},
+          function(data){
+             if (data.status==1) {
+                   window.location.href='/company/authlxMail.html';
+                } else if(data.status==2) {
+                   window.location.href='/company/create.html';
+                }else{
+                    $('.js-next').removeAttr('disabled');
+                    layer.msg(data.msg, {icon: 5});
+                }
+              },
+          "json");
+});
+
+</script>
+</body>
+</html>

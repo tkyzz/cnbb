@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菜鸟帮帮-想去金融机构实习？上菜鸟帮帮！</title>
+    <link rel="shortcut  icon" type="image/x-icon" href="/cnbb.ico" media="screen" />
+</head>
+<body>
+<include file="./Application/Home/View/libpage/inc_top.html" />
+
+    <div class="banner" id="slides">
+        <ul class="banner-img">
+             <li class="img-list"><img src="__PUBLIC__/img/banner01.jpg"/></li>
+             <li class="img-list"><a href="//campus.finance365.com/" target="_blank"><img src="__PUBLIC__/img/banner02.jpg"/></a></li>
+            <li class="img-list"><img src="__PUBLIC__/img/banner03.jpg"/></li>
+        </ul>
+        <div class="banner-slider">
+            <a class="banner-btn prev unslider-arrow04" href="javascript:;"><i></i></a>
+            <a class="banner-btn next unslider-arrow04" href="javascript:;"><i></i></a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="search">
+            <div class="search-cont search-text">
+                <div class="input-box">
+                    <input id="index_input_search" type="search" placeholder="搜索岗位"/>
+                    <!-- <label for="search">搜索岗位</label> -->
+                </div>
+            </div>
+            <div class="search-cont search-btn">
+                <a href="javascript:;" id="index_search"><i></i>搜索</a>
+            </div>
+        </div>
+
+        <div class="company">
+            <div class="classify">
+            <foreach name="trades" item="v">
+                <div class="classify-item">
+                    <a class="classify-title" href="">{$v.name}</a>
+                    <div class="sub-classify">
+                    <foreach name="v.childs" item="vo">
+                        <a href="/postList?trade={$v.id}">{$vo.name}</a>
+                    </foreach>
+                    </div>
+                </div>
+            </foreach>
+            </div>
+
+            <div class="recommend">
+                <p class="recommend-title">热门公司</p>
+                <div class="recommend-company">
+                    <div class="recommend-item">
+                    <foreach name="recommend" item="v" key="k">
+                        <a class="sub-recommend" href="/post/company/{$v.id|smartBase64=###}.html" target="_blank">
+                            <div class="recommend-img"><img src="{$v.b_logo_url}"/></div>
+<!--                             <div class="recommend-info">
+                                <div class="post-count">岗位数量：<span>{$v.post_counts}</span></div>
+                                <div class="recommend-org">{$v.fullname}</div>
+                            </div> -->
+                        </a>
+                    </foreach>
+                    </div>
+                    <!--<div class="img-lab">-->
+                        <!--<span class="sub-lab active"><i></i></span>-->
+                        <!--<span class="sub-lab"><i></i></span>-->
+                        <!--<span class="sub-lab"><i></i></span>-->
+                        <!--<span class="sub-lab"><i></i></span>-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+
+        <div class="post-recommend">
+            <div class="post-type">
+                <a class="type-item js_jzsx_btn active" href="javascript:;">兼职实习<span></span></a>
+                <a class="type-item js_sjsx_btn" href="javascript:;">假期实习<span></span></a>
+            </div>
+            <div class="post-list jzsx">
+            <for start="0" end="11" step="2">
+                <div class="post-box">
+                    <notempty name="jzjob[$i].name">
+                    <div class="post-item">
+                        <div class="item-row">
+                            <a class="row-left post-name" href="/post/{$jzjob[$i].id|smartBase64=###}.html" target="_blank">{$jzjob[$i].name}</a>
+                            <a class="row-right company-name" href="/post/company/{$jzjob[$i].org.id|smartBase64=###}.html" target="_blank">{$jzjob[$i].org.abbrname}</a>
+                        </div>
+                        <div class="item-row">
+                            <div class="row-left post-demand addr-degree">
+                                <span class="sub-demand post-addr"><i></i>{$jzjob[$i].city_name}</span>
+                                <span class="sub-demand degree"><i></i>{$jzjob[$i].degree|smartDegree=###}</span>
+                            </div>
+                            <span class="row-right company-nature">{$jzjob[$i].org.trade_name}/{$jzjob[$i].org.subtrade_name}</span>
+                        </div>
+                        <div class="item-row">
+                            <div class="row-left post-demand time">
+                                <span class="sub-demand demand-time"><i></i><if condition="$jzjob[$i].work_days eq 0">每周实习天数不限<else />每周至少实习{$jzjob[$i].work_days}天</if></span>
+                            </div>
+                            <span class="row-right publish-date">{$jzjob[$i].issue_time|smartJobStrTime=###}</span>
+                        </div>
+                    </div>
+                    </notempty>
+                    <notempty name="jzjob[$i+1].name">
+                     <div class="post-item">
+                        <div class="item-row">
+                            <a class="row-left post-name" href="/post/{$jzjob[$i+1].id|smartBase64=###}.html" target="_blank">{$jzjob[$i+1].name}</a>
+                            <a class="row-right company-name" href="/post/company/{$jzjob[$i+1].org.id|smartBase64=###}.html" target="_blank">{$jzjob[$i+1].org.abbrname}</a>
+                        </div>
+                        <div class="item-row">
+                            <div class="row-left post-demand addr-degree">
+                                <span class="sub-demand post-addr"><i></i>{$jzjob[$i+1].city_name}</span>
+                                <span class="sub-demand degree"><i></i>{$jzjob[$i+1].degree|smartDegree=###}</span>
+                            </div>
+                            <span class="row-right company-nature">{$jzjob[$i+1].org.trade_name}/{$jzjob[$i+1].org.subtrade_name}</span>
+                        </div>
+                        <div class="item-row">
+                            <div class="row-left post-demand time">
+                                <span class="sub-demand demand-time"><i></i><if condition="$jzjob[$i+1].work_days eq 0">每周实习天数不限<else />每周至少实习{$jzjob[$i+1].work_days}天</if></span>
+                            </div>
+                            <span class="row-right publish-date">{$jzjob[$i+1].issue_time|smartJobStrTime=###}</span>
+                        </div>
+                    </div>
+                </notempty>
+
+                </div>
+            </for>
+                <a class="more-post" href="/postList.html" target="_blank">查看更多职位</a>
+            </div>
+            <div class="post-list sjsx" style="display:none;">
+            <for start="0" end="11" step="2">
+                <div class="post-box">
+                    <notempty name="sjjob[$i].name">
+                    <div class="post-item">
+                        <div class="item-row">
+                            <a class="row-left post-name" href="/post/{$sjjob[$i].id|smartBase64=###}.html" target="_blank">{$sjjob[$i].name}</a>
+                            <a class="row-right company-name" href="/post/company/{$sjjob[$i].org.id|smartBase64=###}.html" target="_blank">{$sjjob[$i].org.abbrname}</a>
+                        </div>
+                        <div class="item-row">
+                            <div class="row-left post-demand addr-degree">
+                                <span class="sub-demand post-addr"><i></i>{$sjjob[$i].city_name}</span>
+                                <span class="sub-demand degree"><i></i>{$sjjob[$i].degree|smartDegree=###}</span>
+                            </div>
+                            <span class="row-right company-nature">{$sjjob[$i].org.trade_name}/{$sjjob[$i].org.subtrade_name}</span>
+                        </div>
+                        <div class="item-row">
+                            <div class="row-left post-demand time">
+                                <span class="sub-demand demand-time"><i></i><if condition="$sjjob[$i].work_days eq 0">每周实习天数不限<else />每周至少实习{$sjjob[$i].work_days}天</if></span>
+                            </div>
+                            <span class="row-right publish-date">{$sjjob[$i].issue_time|smartJobStrTime=###}</span>
+                        </div>
+                    </div>
+                    </notempty>
+                    <notempty name="sjjob[$i+1].name">
+                     <div class="post-item">
+                        <div class="item-row">
+                            <a class="row-left post-name" href="/post/{$sjjob[$i+1].id|smartBase64=###}.html" target="_blank">{$sjjob[$i+1].name}</a>
+                            <a class="row-right company-name" href="/post/company/{$sjjob[$i+1].org.id|smartBase64=###}.html" target="_blank">{$sjjob[$i+1].org.abbrname}</a>
+                        </div>
+                        <div class="item-row">
+                            <div class="row-left post-demand addr-degree">
+                                <span class="sub-demand post-addr"><i></i>{$sjjob[$i+1].city_name}</span>
+                                <span class="sub-demand degree"><i></i>{$sjjob[$i+1].degree|smartDegree=###}</span>
+                            </div>
+                            <span class="row-right company-nature">{$sjjob[$i+1].org.trade_name}/{$sjjob[$i+1].org.subtrade_name}</span>
+                        </div>
+                        <div class="item-row">
+                            <div class="row-left post-demand time">
+                                <span class="sub-demand demand-time"><i></i><if condition="$sjjob[$i+1].work_days eq 0">每周实习天数不限<else />每周至少实习{$sjjob[$i+1].work_days}天</if></span>
+                            </div>
+                            <span class="row-right publish-date">{$sjjob[$i+1].issue_time|smartJobStrTime=###}</span>
+                        </div>
+                    </div>
+                </notempty>
+
+                </div>
+            </for>
+                <a class="more-post" href="/postList.html" target="_blank">查看更多职位</a>
+            </div>
+        </div>
+    </div>
+
+ <include file="./Application/Home/View/libpage/inc_buttom.html" />
+<script src="__PUBLIC__/js/index.js"></script>
+<script src="__PUBLIC__/js/unslider-min.js"></script>
+<script type="text/javascript">
+
+      var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?7a83b9c99272e7eb80fa5055220a4ef0";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+
+    $(function(){
+        $('#slides').slides({
+            container: 'banner-img',
+            preload: true,
+            play: 3000,
+            pause: 1000,
+            hoverPause: true,
+            effect: 'slide',
+            slideSpeed: 850
+        });
+    });
+</script>
+
+<script type="text/javascript">
+      $(document).ready(function(){ 
+
+
+            // var unslider04 = $('#slides').unslider({
+            //     dots: true
+            // }),
+            // data04 = unslider04.data('unslider');
+            
+            // $('.unslider-arrow04').click(function() {
+            //     var fn = this.className.split(' ')[1];
+            //     data04[fn]();
+            // });
+        $("body").keydown(function(e){ 
+          var curKey = e.which; 
+          var str = $('#index_input_search').val();
+          if(curKey == 13 && str){ 
+          $("#index_search").click(); 
+          return false; 
+          }
+
+      }); 
+    //首页搜索
+    $('#index_search').click(function(){
+      $keyword = $('#index_input_search').val();
+      if ($keyword.length == 0){
+        return false;
+      }
+      window.location.href='/postList?keyword='+$keyword;
+    });
+    }); 
+   </script>
+</body>
+</html>

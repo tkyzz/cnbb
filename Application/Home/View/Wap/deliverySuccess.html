@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>投递成功</title>
+    <include file="./Application/Home/View/libpage/inc_wap_header.html" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/h5/deliverySuccess.css">
+</head>
+<body>
+    <div class="download-page">
+        <header class="header">
+            <a class="back" href="javascript:;"><i></i></a>
+            <span class="title">投递成功</span>
+        </header>
+        <div class="content">
+            <div class="success-img"><img src="__PUBLIC__/img/wap/success_phone.png"/></div>
+            <div class="success-cont">
+                <div class="success-icon"><img src="__PUBLIC__/img/wap/success_icon.png"/></div>
+                <div class="success-tips"><img src="__PUBLIC__/img/wap/success_tips.png"/></div>
+                <div class="success-activity">
+                    <p class="app-tips">想及时获得HR的投递反馈？</p>
+                    <div class="app-download"><a class="download-btn" href="{$download_url}">立即下载菜鸟帮帮App</a></div>
+                    <a class="stay" href="/mpostList.html"><i></i>继续浏览岗位</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="id" value="{$Think.get.id|smartBase64=###}">
+</body>
+<script type="text/javascript">
+$('.back').click(function(){
+    var id = $('#id').val();
+    window.location.href = '/mpost/'+id;
+});
+</script>
+</html>

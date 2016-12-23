@@ -1,0 +1,33 @@
+        <foreach name="res.posts" item="v" key="k">
+            <a class="post-item" href="/mpost/{$v.id|smartBase64=###}.html">
+                <div class="post-avatar"><img src="{$v.org.b_logo_url|default='__PUBLIC__/img/wap/company_icon.jpg'}"/></div>
+                <div class="post-info">
+                    <div class="info-line">
+                        <span class="line-block post-name">{$v.name}</span>
+                          <egt name="v['esalary']" value="1">
+                          <span class="line-block post-pay">{$v['ssalary']}-{$v['esalary']}<if condition="$v['salary_unit'] eq 0">元/天<else />元/月</if></span>
+                          <else />
+                          <span class="line-block post-pay"> <if condition="$v['ssalary'] elt 0">面议<else /><if condition="$v['salary_unit'] eq 0">{$v.ssalary}元/天<else />{$v.ssalary}元/月</if></if></span>
+                          </egt>
+                        <!-- <span class="line-block post-pay">3500-8000元/月</span> -->
+
+                    </div>
+                    <div class="info-line">
+                        <span class="line-block post-org">{$v.org.abbrname}</span>
+                        <span class="line-block post-addr"><i></i>{$v.city_name}-<notempty name="v.zone_name">{$v.zone_name}<else />全市</notempty></span>
+                    </div>
+                    <div class="info-line">
+                        <div class="line-block post-others">
+                            <span class="sub-attr">{$v.degree|smartDegree=###}</span>
+                            <notempty name="v.work_days">
+                            <span class="sub-attr">{$v.work_days}天/周</span>
+                            </notempty>
+                            <notempty name="v.work_duration">
+                            <span class="sub-attr">至少{$v['work_duration']/30}个月</span>
+                            </notempty>
+                        </div>
+                        <span class="line-block post-time">{$v.last_time|smartJobStrTime=###}</span>
+                    </div>
+                </div>
+            </a>
+        </foreach>

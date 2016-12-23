@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>菜鸟帮帮-想去金融机构实习？上菜鸟帮帮！</title>
+
+</head>
+<body>
+<include file="./Application/Home/View/libpage/inc_top.html" />
+    <div class="banner" id="slides">
+        <ul class="banner-img">
+            <li class="img-list"><img src="__PUBLIC__/img/banner01.jpg"/></li>
+            <li class="img-list"><a href=""><img src="__PUBLIC__/img/banner02.jpg"/></a></li>
+            <li class="img-list"><img src="__PUBLIC__/img/banner03.jpg"/></li>
+        </ul>
+        <div class="banner-slider">
+            <a class="banner-btn prev" href="javascript:;"><i></i></a>
+            <a class="banner-btn next" href="javascript:;"><i></i></a>
+        </div>
+    </div>
+
+    <div class="index-content">
+        <div class="left-bar">
+            <div class="classify" id="slideNav">
+             <foreach name="trades" item="v">
+                <div class="classify-item">
+                    <a class="classify-title" href="javascript:;">{$v.name}</a>
+                    <div class="sub-classify">
+                <foreach name="v.childs" item="vo">
+                    <a href="/postList.html?trade={$v.id}" target="_blank">{$vo.name}</a>
+                </foreach>
+                    </div>
+                </div>
+            </foreach>
+
+
+
+            </div>
+        </div>
+        <div class="main">
+            <div class="recommend">
+            <foreach name="recommend" item="v" key="k">
+                <a class="recommend-item" href="/post/company/{$v.id|smartBase64=###}.html" target="_blank"><img src="{$v.b_logo_url}"></a>
+            </foreach>
+            </div>
+
+            <div class="post-recommend">
+            
+                <div class="post-box">
+                <for start="0" end="11">
+                    <div class="post-item">
+                        <div class="item-row">
+                            <a class="row-left post-name" href="/post/{$job[$i].id|smartBase64=###}.html" target="_blank">{$job[$i].name}</a>
+                            <a class="row-right company-name" href="/post/company/{$job[$i].org.id|smartBase64=###}.html" target="_blank">{$job[$i].org.abbrname}</a>
+                        </div>
+                        <div class="item-row">
+                            <div class="row-left post-demand addr-degree">
+                                <span class="sub-demand degree"><i></i>{$job[$i].degree|smartDegree=###}</span>
+                                <span class="sub-demand post-addr"><i></i>{$job[$i].city_name}-<notempty name="job[$i].zone_name">{$job[$i].zone_name}<else />全市</notempty></span>
+                            </div>
+                            <span class="row-right company-nature">{$job[$i].org.trade_name}/{$job[$i].org.subtrade_name}</span>
+                        </div>
+                        <div class="item-row">
+                            <div class="row-left post-demand time">
+                                <span class="sub-demand post-time"><i></i>{$job[$i].work_type|smartdictval=###}</span>
+                                <span class="sub-demand demand-time"><i></i><if condition="$job[$i]['work_days'] eq 0">每周实习天数不限<else />每周至少实习{$job[$i]['work_days']}天</if></span>
+                            </div>
+                            <span class="row-right publish-date">{$job[$i]['last_time']|smartJobStrTime=###}</span>
+                        </div>
+                    </div>
+                </for>
+                </div>
+            
+            
+                <div class="post-box">
+                <for start="12" end="23">
+                    <div class="post-item">
+                        <div class="item-row">
+                            <a class="row-left post-name" href="/post/{$job[$i].id|smartBase64=###}.html" target="_blank">{$job[$i].name}</a>
+                            <a class="row-right company-name" href="/post/company/{$job[$i].org.id|smartBase64=###}.html" target="_blank">{$job[$i].org.abbrname}</a>
+                        </div>
+                        <div class="item-row">
+                            <div class="row-left post-demand addr-degree">
+                                <span class="sub-demand degree"><i></i>{$job[$i].degree|smartDegree=###}</span>
+                                <span class="sub-demand post-addr"><i></i>{$job[$i].city_name}-<notempty name="job[$i].zone_name">{$job[$i].zone_name}<else />全市</notempty></span>
+                            </div>
+                            <span class="row-right company-nature">{$job[$i].org.trade_name}/{$job[$i].org.subtrade_name}</span>
+                        </div>
+                        <div class="item-row">
+                            <div class="row-left post-demand time">
+                                <span class="sub-demand post-time"><i></i>{$job[$i].work_type|smartdictval=###}</span>
+                                <span class="sub-demand demand-time"><i></i><if condition="$job[$i]['work_days'] eq 0">每周实习天数不限<else />每周至少实习{$job[$i]['work_days']}天</if></span>
+                            </div>
+                            <span class="row-right publish-date">{$job[$i]['last_time']|smartJobStrTime=###}</span>
+                        </div>
+                    </div>
+                </for>
+
+                </div>
+            
+                <a class="more-post"  href="/postList.html" target="_blank">更多<i></i></a>
+            </div>
+        </div>
+    </div>
+
+<include file="./Application/Home/View/libpage/inc_buttom.html" />
+<script type="text/javascript">
+
+    $(function () {
+        var navH = $("#slideNav").offset().top;
+        $(window).scroll(function () {
+            var scrollH = $(this).scrollTop();
+            if (scrollH>=navH){
+                $("#slideNav").addClass("nav-scroll");
+            }else {
+                $("#slideNav").removeClass("nav-scroll");
+            }
+        });
+    });
+
+    $(function(){
+        $('#slides').slides({
+            container: 'banner-img',
+            preload: true,
+            play: 3000,
+            pause: 1000,
+            hoverPause: true,
+            effect: 'slide',
+            slideSpeed: 850
+        });
+    });
+</script>
+</body>
+</html>

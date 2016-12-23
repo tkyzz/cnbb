@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菜鸟帮帮-联系我们</title>
+    <include file="./Application/Home/View/libpage/inc_header.html" />
+</head>
+<body>
+<include file="./Application/Home/View/libpage/inc_top.html" />
+
+    <div class="profile-banner"><img src="__PUBLIC__/img/profile_top.jpg"/></div>
+
+    <div class="my-detail">
+        <div class="link-page">
+
+ <include file="./Application/Home/View/libpage/inc_about_nav.html" />
+ 
+            <div class="link-tag our-info">
+                <div class="contact-box">
+                    <p class="office">上海总部</p>
+                    <div class="office-info">
+                        <p class="office-item">电话：<span>021-31273717</span></p>
+                        <p class="office-item">传真：<span>021-31273700</span></p>
+                        <!--<p class="office-item">网址：<span>www.cainiaobangbang.com</span></p>-->
+                        <!--<p class="office-item">邮箱：<span>finance365@wmichina.org</span></p>-->
+                        <p class="office-item">地址：<span>上海市浦东新区商城路889号波特营创意园B8（近世纪大道）</span></p>
+                        <div class="office-map" id="allmap"></div>
+                    </div>
+
+                    <div class="break"></div>
+
+                    <p class="office">北京分公司</p>
+                    <div class="office-info">
+                        <p class="office-item">电话：<span>010-59661520</span></p>
+                        <p class="office-item">传真：<span>010-59661520</span></p>
+<!--                         <p class="office-item">网址：<span>www.finance365.com</span></p>
+                        <p class="office-item">邮箱：<span>finance365@wmichina.org</span></p> -->
+                        <p class="office-item">地址：<span>北京市朝阳区新源南路6号京城大厦16楼</span></p>
+                        <div class="office-map" id="allmap2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <include file="./Application/Home/View/libpage/inc_buttom.html" />
+<script>
+  // 百度地图API功能
+  var map1 = new BMap.Map("allmap");    // 创建Map实例
+  //map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+  // map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+  // map.setCurrentCity(addr);          // 设置地图显示的城市 此项是必须设置的
+   map1.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+  var myGeo1 = new BMap.Geocoder();
+  var myIcon = new BMap.Icon("__PUBLIC__/img/map/ditu.png", new BMap.Size(23, 40), {  
+      offset: new BMap.Size(10, 25),   // 指定定位位置  
+      imageOffset: new BMap.Size(0, 0) // 设置图片偏移 
+  }); 
+  myGeo1.getPoint('上海市浦东新区商城路889号B8',function(point){
+
+    if(point){
+
+    var myIcon = new BMap.Icon("__PUBLIC__/img/map/ditu.png", new BMap.Size(23, 40), {  
+              offset: new BMap.Size(10, 25),   // 指定定位位置  
+              imageOffset: new BMap.Size(0, 0) // 设置图片偏移 
+          }); 
+     // var myIcon = new BMap.Icon("__PUBLIC__/img/map/ditu.png", new BMap.Size(30, 30));  
+      var marker = new BMap.Marker(point, {icon: myIcon});  // 创建标注
+      map1.centerAndZoom(point,19);
+      map1.addOverlay(marker);
+    }else{
+      alert("地址错误！");
+    }
+    });
+  //     // 百度地图API功能
+  var map = new BMap.Map("allmap2");    // 创建Map实例
+  //map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+  // map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+  // map.setCurrentCity(addr);          // 设置地图显示的城市 此项是必须设置的
+   map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+  var myGeo = new BMap.Geocoder();
+  myGeo.getPoint('北京市朝阳区新源南路6号京城大厦16楼',function(point){
+    if(point){
+              var myIcon = new BMap.Icon("__PUBLIC__/img/map/ditu.png", new BMap.Size(23, 40), {  
+                        offset: new BMap.Size(10, 25),   // 指定定位位置  
+                        imageOffset: new BMap.Size(0, 0) // 设置图片偏移 
+                    }); 
+     // var myIcon = new BMap.Icon("__PUBLIC__/img/map/ditu.png", new BMap.Size(30, 30));  
+      var marker = new BMap.Marker(point, {icon: myIcon});  // 创建标注
+      map.centerAndZoom(point,19);
+      map.addOverlay(marker);
+    }else{
+      alert("地址错误！");
+    }
+  });
+</script>
+</body>
+</html>

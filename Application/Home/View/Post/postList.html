@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<include file="./Application/Home/View/libpage/inc_header.html" />
+    <meta charset="UTF-8">
+    <title>菜鸟帮帮-岗位列表</title>
+</head>
+<body>
+<include file="./Application/Home/View/libpage/inc_top.html" />
+
+    <div class="profile-banner"><img src="__PUBLIC__/img/profile_top.jpg"/></div>
+
+    <div class="post-info-box">
+        <div class="my-detail" id="result">
+            <div class="position-set">
+                <div class="post-related">
+                <!-- 如果为智能排序 -->
+                    <if condition="$sec_isshow">
+                    <div class="post-tag post-select">
+<!--                         <div class="post-search">
+                            <div class="input-box">
+                                <input id="search" type="text" value="" data="" placeholder="搜索公司和职位" />
+                                <div class="search-relation js_searchhint_res" style="display: none" data-count="" data-now="0">
+
+                                </div>
+                            </div>
+                            <a class="search-btn keyword" href="javascript:;"><i></i>搜索</a>
+                        </div> -->
+                        <div class="post-search">
+                            <div class="input-box">
+                                <div class="search-class" id="searchClass">
+                                    <ul class="class-info">
+                                <if condition="$Think.get.keyword_by eq '0'">
+                                        <li class="class-item checked" data="0">公司</li>
+                                        <li class="class-item" data="1">岗位</li>
+                                <else />
+                                        <li class="class-item checked" data="1">岗位</li>
+                                        <li class="class-item" data="0">公司</li>
+                                </if>
+                                    </ul>
+                                    <i></i>
+                                </div>
+                                <input id="search" type="text" <if condition="$Think.get.keyword_by eq '0'"> data-type="0" placeholder="搜索公司"<else />data-type="1" placeholder="搜索岗位"</if> value="{$Think.get.keyword}"/>
+                                <div class="search-relation js_searchhint_res" style="display: none" data-count="" data-now="0">
+
+                                </div>
+                            </div>
+                           <a class="search-btn keyword" href="javascript:;"><i></i>搜索</a>
+                        </div>
+
+                        <div class="sub-selection">
+                            <span class="selection-name">行业领域</span>
+                            <div class="selection-box">
+                                <span class="active jobsea trade" data-op="trade" data-id="0">不限</span>
+                            <foreach name="trades" item="v" key="k">
+                                <span class="jobsea trade" data-op="trade" data-id="{$v.id}">{$v.name}</span>
+                            </foreach>
+                            </div>
+                        </div>
+                        <div class="sub-selection selection-addr">
+                            <span class="selection-name">工作地点</span>
+                            <div class="selection-box">
+                                <span class="active jobsea area" data-op="area" data-id="0">不限</span>
+                                <foreach name="city" item="v" key="k">
+                                <span class="jobsea area" data-op="area" data-id="{$v.code}">{$v.name}</span>
+                                </foreach>
+                            </div>
+                            <div class="more-addr" id="moreAddr"><span>更多<i></i></span></div>
+                        </div>
+                        <div class="sub-selection">
+                            <span class="selection-name">岗位性质</span>
+                            <div class="selection-box">
+                                <span class="jobsea active jqsx work_type" data-op="work_type" data-id="0">不限</span>
+                                <span class="jobsea jqsx work_type" data-op="work_type" data-id="1">假期</span>
+                                <span class="jobsea jzsx work_type" data-op="work_type" data-id="2" id="aa">日常</span>
+                                <div class="part-time" id="partTimeSelection" style="display:none;">
+                                    <span class="part-time-title">至少连续实习月数</span>
+                                    <span class="jobsea active" data-op="work_day" data-id="0">不限</span>
+                                    <span class="post-month">
+                                        <a class="reduce" href="javascript:;" data-id="{$Think.get.work_day|default=0}">-</a>
+                                        <label class="duration_show">{$Think.get.work_day|default=0}个月</label>
+                                        <a class="raise" href="javascript:;" data-id="{$Think.get.work_day|default=0}">+</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="moreRelated" class="more-related" <if condition="$is_val eq 1">style="display:block;"</if>>
+                            <div class="sub-selection">
+                                <span class="selection-name">每周工作</span>
+                                <div class="selection-box">
+                                    <span class="jobsea active week_day" data-op="week_day" data-id="0">不限</span>
+                                    <span class="jobsea week_day" data-op="week_day" data-id="1">1天</span>
+                                    <span class="jobsea week_day" data-op="week_day" data-id="2">2天</span>
+                                    <span class="jobsea week_day" data-op="week_day" data-id="3">3天</span>
+                                    <span class="jobsea week_day" data-op="week_day" data-id="4">4天</span>
+                                    <span class="jobsea week_day" data-op="week_day" data-id="5">5天</span>
+                                    <span class="jobsea week_day" data-op="week_day" data-id="6">6天</span>
+                                    <span class="jobsea week_day" data-op="week_day" data-id="7">7天</span>
+                                </div>
+                            </div>
+                            <div class="sub-selection">
+                                <span class="selection-name">机构性质</span>
+                                <div class="selection-box">
+                                    <span class="jobsea active natures" data-op="natures" data-id="0">不限</span>
+                                    <foreach name="org_natures" item="v" key="k">
+                                    <span class="jobsea natures" data-op="natures" data-id="{$v.id}">{$v.name}</span>
+                                    </foreach>
+                                </div>
+                            </div>
+                            <div class="sub-selection">
+                                <span class="selection-name">最低学历</span>
+                                <div class="selection-box">
+                                    <span class="jobsea active degrees" data-op="degrees" data-id="0">不限</span>
+                                    <span class="jobsea degrees" data-op="degrees" data-id="1">大专</span>
+                                    <span class="jobsea degrees" data-op="degrees" data-id="2">本科</span>
+                                    <span class="jobsea degrees" data-op="degrees" data-id="3">硕士</span>
+                                    <span class="jobsea degrees" data-op="degrees" data-id="4">博士</span>
+                                    <span class="jobsea degrees" data-op="degrees" data-id="0">其他</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a id="moreBtn" class="more-up <if condition="$is_val eq 1">more-down</if>" href="javascript:;"><i></i></a>
+                    </div>
+                    </if>
+                    <div class="post-tag sort-order">
+                        <span class="sort-name">排序方式</span> 
+                        <div class="sort-box">
+                            <span class="jobsea active sort" data-op="sort" data-id="0">默认</span>
+                            <span class="jobsea sort" data-op="sort" data-id="4">距离最近</span>
+                            <notempty name="is_yxcity">
+                            <span class="jobsea sort" data-op="sort" data-id="-1">智能</span>
+                            </notempty>
+                            <!-- <span class="jobsea sort" data-op="sort" data-id="2">即将截止</span> -->
+                        </div>
+                        
+                            <span class="search-count" <if condition="$is_val neq 1">style="display:none;"</if>>共找到<span>{$res.total|default=0}</span>个岗位</span>
+                        
+                    </div>
+
+                    <div class="post-tag post-list-box">
+
+
+
+                        <foreach name="res.posts" item="v" key="k">
+                        <div class="list-item">
+                            <div class="post-item">
+                                <div class="item-row">
+                                    <a class="row-left post-name" href="/post/{$v.id|smartBase64=###}.html" target="_blank">
+                                        <span class="name-box">{$v.name}</span>
+                                        <notempty name="v.ishot">
+                                        <!--急招岗位显示img-->
+                                        <img class="hot-post" src="__PUBLIC__/img/hot_post.png"/>
+                                        </notempty>
+                                  <egt name="v['esalary']" value="1">
+                                  <span class="post-cost">{$v['ssalary']}-{$v['esalary']}<if condition="$v['salary_unit'] eq 0">元/天<else />元/月</if></span>
+                                  <else />
+                                  <span class="post-cost"> <if condition="$v['ssalary'] elt 0">面议<else /><if condition="$v['salary_unit'] eq 0">{$v.ssalary}元/天<else />{$v.ssalary}元/月</if></if></span>
+                                  </egt>
+                                    </a>
+                                    <a class="row-right company-name" href="/post/company/{$v.org.id|smartBase64=###}.html" target="_blank">{$v.org.abbrname}</a>
+                                </div>
+                                <div class="item-row">
+                                    <div class="row-left post-demand">
+                                        <span class="sub-demand post-addr"><i></i>{$v.city_name}-<notempty name="v.zone_name">{$v.zone_name}<else />全市</notempty></span>
+                                        <span class="sub-demand degree"><i></i>{$v.degree|smartDegree=###}</span>
+                                    </div>
+                                    <span class="row-right company-nature">{$v.org.trade_name}/{$v.org.subtrade_name}</span>
+                                </div>
+                                <div class="item-row">
+                                    <div class="row-left post-demand time">
+                                        <span class="sub-demand post-time"><i></i>{$v.work_type|smartWorkType=###}</span>
+                                        <notempty name="v.work_days">
+                                        <span class="sub-demand demand-time"><i></i>{$v.work_days}天/周</span>
+                                        </notempty>
+                                        <notempty name="v.work_duration">
+                                        <span class="sub-demand demand-time"><i></i>至少{$v['work_duration']/30}个月</span>
+                                        </notempty>
+                                        <!--<span class="sub-demand last-time"><i></i>距离投递结束还有<span>{$v.rev_stop_time|smartPostStrTime=###}</span>天</span>-->
+                                    </div>
+                                    <span class="row-right publish-date">{$v.last_time|smartJobStrTime=###}</span>
+                                </div>
+                            </div>
+                            <a class="company-logo" href="/post/company/{$v.org.id|smartBase64=###}.html"><img src="{$v.org.b_logo_url}"/></a><!-- {$v.img_url} -->
+                        </div>
+                        </foreach>
+                    </div>
+
+                    <!-- 分页-->
+                    <if condition="$page['pages'] gt 2">
+<!--                     <div class="paging">
+                        <span class="page-up" id="pageUp"><i></i></span>
+                        <div class="page-list" id="pageGroup">
+                        
+                        <span class="js_page_cl js_page{$i}">{$i}</span>
+                       
+                    
+                        </div>
+                        <span class="page-down" id="pageDown"><i></i></span>
+                    </div> -->
+                    <div class="tcdPageCode">
+                    </div>
+                    </if>
+
+                </div>
+
+                <div class="ad-part">
+                    <div class="ad-item server-post">
+                        <img src="__PUBLIC__/img/service_post.png"/>
+                        <div class="service-text">
+                            <p class="text-title">扫一扫</p>
+                            <p class="text-cont">联系猎头姐姐</p>
+                            <p class="text-cont">有独家内推</p>
+                            <p class="text-cont">机会哦~</p>
+                        </div>
+                    </div>
+
+                <a class="ad-item" href="/app.html" target="_blank">
+                    <div class="ad-img"><img src="__PUBLIC__/img/our_ad.png"/></div>
+                </a>
+                <a class="ad-item" href="/post/company/MTQ3OTQ1NzUy.html" target="_blank">
+                    <div class="ad-img"><img src="__PUBLIC__/img/fico.jpg"/></div>
+                    <span class="ad-text">费埃哲</span>
+                </a>
+                <a class="ad-item" href="/post/company/MTQ3OTQ1MTU5.html" target="_blank">
+                    <div class="ad-img"><img src="__PUBLIC__/img/zojj.jpg"/></div>
+                    <span class="ad-text">中欧基金</span>
+                </a>
+                <a class="ad-item" href="/post/company/MTQ3OTQ1NzQy.html" target="_blank">
+                    <div class="ad-img"><img src="__PUBLIC__/img/thjj.jpg"/></div>
+                    <span class="ad-text">天弘基金</span>
+                </a>
+                <a class="ad-item" href="/post/company/MTQ3OTQ1NzUw.html" target="_blank">
+                    <div class="ad-img"><img src="__PUBLIC__/img/monita.jpg"/></div>
+                    <span class="ad-text">莫尼塔信息</span>
+                </a>
+                <a class="ad-item" href="/post/company/MTQ3OTQ1NzQ2.html" target="_blank">
+                    <div class="ad-img"><img src="__PUBLIC__/img/xhcf.jpg"/></div>
+                    <span class="ad-text">信和财富</span>
+                </a>
+                <a class="ad-item" href="/post/company/MTQ3OTQ1NzMx.html" target="_blank">
+                    <div class="ad-img"><img src="__PUBLIC__/img/yaqh.jpg"/></div>
+                    <span class="ad-text">永安期货</span>
+                </a>
+            </div>
+            </div>
+        </div>
+    </div>
+<input type="hidden" name="" id="trade" value="{$Think.get.trade}">
+<input type="hidden" name="" id="area" value="{$Think.get.area}">
+<input type="hidden" name="" id="work_type" value="{$Think.get.work_type}">
+<input type="hidden" name="" id="week_day" value="{$Think.get.week_day}">
+<input type="hidden" name="" id="natures" value="{$Think.get.natures}">
+<input type="hidden" name="" id="degrees" value="{$Think.get.degrees}">
+<input type="hidden" name="" id="sort" value="{$Think.get.sort}">
+<input type="hidden" name="" id="work_day" value="{$Think.get.work_day}">
+<input type="hidden" name="" id="keyword_by" value="{$Think.get.keyword_by}">
+<input type="hidden" name="" id="keyword" value="{$Think.get.keyword}">
+<input type="hidden" name="" id="page" value="{$Think.get.page|default=1}">
+<input type="hidden" name="" id="pagemax" value="{$page['pages']}">
+ <include file="./Application/Home/View/libpage/inc_buttom.html" />
+ <script src="__PUBLIC__/js/jobList.js?v=1.2"></script>
+  <script src="__PUBLIC__/js/jquery.page.js"></script>
+  <script>
+    $(".tcdPageCode").createPage({
+        pageCount:{$page['pages']},
+        current:{$Think.get.page|default=1},
+        backFn:function(p){
+            //window.location.reload();
+            $('#page').val(p);
+            var url = getJobUrl(true);
+             $.get(url+'&ispage=1',function(data){
+                     if (data.status==1 && data.html.length>10) {
+                            $('.post-list-box').html("");
+                            $('.post-list-box').append(data.html);
+
+                           //var sc=$(window).scrollTop();
+                           $('body,html').animate({scrollTop:430},600);
+
+                            //alert(data.msg);
+                        } else {
+                            alert("失败了");
+                        }
+                      },
+                  "json"); 
+        }
+    });
+  </script>
+</body>
+</html>

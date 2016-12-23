@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<include file="./Application/Home/View/libpage/inc_header.html" />
+    <meta charset="UTF-8">
+    <title>菜鸟帮帮-忘记密码-邮箱验证</title>
+</head>
+<body>
+    <div class="page info-page">
+
+<include file="./Application/Home/View/libpage/inc_top.html" />
+
+        <div class="logon-box input_email">
+            <div class="progress">
+                <div class="progress-item current-progress">
+                    <span class="progress-number">01</span>
+                    <span>输入邮箱地址</span>
+                </div>
+                <span class="progress-space current-space"></span>
+                <div class="progress-item">
+                    <span class="progress-number">02</span>
+                    <span>验证邮箱</span>
+                </div>
+                <span class="progress-space"></span>
+                <div class="progress-item">
+                    <span class="progress-number">03</span>
+                    <span>重置密码</span>
+                </div>
+            </div>
+
+            <div class="input-item email">
+                <i></i>
+                <div class="input-box">
+                    <input type="text" class="js_email_reset_password"/>
+                    <label>请输入注册时的邮箱地址</label>
+                </div>
+            </div>
+
+            <div class="btn get-btn"><a href="javascript:;" id="next_email">找回密码</a></div>
+
+            <div class="sign"><a class="via-email" href="/phoneReset.html">通过手机号找回</a></div>
+        </div>
+        <div class="logon-box show_email" style="display:none;">
+            <div class="progress">
+                <div class="progress-item current-progress">
+                    <span class="progress-number">01</span>
+                    <span>输入邮箱地址</span>
+                </div>
+                <span class="progress-space past-space"></span>
+                <div class="progress-item current-progress">
+                    <span class="progress-number">02</span>
+                    <span>验证邮箱</span>
+                </div>
+                <span class="progress-space current-space"></span>
+                <div class="progress-item">
+                    <span class="progress-number">03</span>
+                    <span>重置密码</span>
+                </div>
+            </div>
+
+            <div class="mail-verify-tips">
+                <div>密码重置邮件已发往你的邮箱<span class="js_send_email"></span></div>
+                <span class="verify-tips">请在24小时内登录你的邮箱点击链接修改密码</span>
+            </div>
+
+            <span class="info-space"></span>
+
+            <div class="sign"><a class="via-email" href="/phoneReset.html">通过手机号找回</a></div>
+        </div>
+
+        <include file="./Application/Home/View/libpage/inc_buttom.html" />
+
+</body>
+</html>

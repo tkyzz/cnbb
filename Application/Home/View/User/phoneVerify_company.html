@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<include file="./Application/Home/View/libpage/inc_header.html" />
+    <meta charset="UTF-8">
+    <title>菜鸟帮帮-忘记密码-手机验证</title>
+</head>
+<body>
+    <div class="page info-page company-page">
+
+    <include file="./Application/Home/View/libpage/inc_company_top.html" />
+
+        <div class="logon-box input_phone">
+            <div class="progress password-progress">
+                <div class="progress-item current-progress">
+                    <span class="progress-number">01</span>
+                    <span>验证手机号</span>
+                </div>
+                <span class="progress-space current-space"></span>
+                <div class="progress-item">
+                    <span class="progress-number">02</span>
+                    <span>重置密码</span>
+                </div>
+            </div>
+
+            <div class="input-item phone">
+                <i></i>
+                <div class="input-box">
+                    <input type="text" class="js_phone" placeholder="请输入注册时的手机号" />
+                </div>
+            </div>
+            <div class="input-item sms-code verify">
+                <i></i>
+                <div class="input-box">
+                    <input type="text" class="verify_code" placeholder="请输入图片验证码" />
+                </div>
+               <div class="code-btn code-img"><img alt="验证码" src="/verifyImg.html" class="js_verifyImg" title="点击刷新"> </div>
+            </div>
+            <div class="input-item sms-code">
+                <i></i>
+                <div class="input-box">
+                    <input type="text" class="js_phone_reset_code" placeholder="请输入短信验证码" />
+                </div>
+                 <input type="hidden" id="sendcodetime" value="180"/>
+                <input type="button" class="code-btn js_send_phone_code" data-id="2" data-type="reset_pwd" value="获取验证码">
+            </div>
+
+            <div class="btn get-btn"><a href="javascript:;" id="next_phone">找回密码</a></div>
+
+            <!-- <div class="sign"><a class="via-email" href="/mailReset.html">通过邮箱找回</a></div> -->
+        </div>
+        <div class="logon-box js_reset_password" style="display:none;">
+            <div class="progress password-progress">
+                <div class="progress-item current-progress">
+                    <span class="progress-number">01</span>
+                    <span>验证手机号</span>
+                </div>
+                <span class="progress-space past-space"></span>
+                <div class="progress-item current-progress">
+                    <span class="progress-number">02</span>
+                    <span>重置密码</span>
+                </div>
+            </div>
+
+            <div class="input-item password">
+                <i></i>
+                <div class="input-box">
+                    <input type="password" id="new_pwd" placeholder="请输入新密码" />
+                </div>
+            </div>
+            <div class="input-item password">
+                <i></i>
+                <div class="input-box">
+                    <input type="password" id="t_new_pwd" placeholder="请确认密码" />
+                </div>
+            </div>
+            
+            <div class="btn get-btn"><a href="javascript:;" class="js_sub_reset_pwd">提交</a></div>
+        </div>
+     <include file="./Application/Home/View/libpage/inc_buttom.html" />
+    </div>
+    <input type="hidden" id="type" value="{$type}">
+</body>
+</html>

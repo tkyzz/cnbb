@@ -1,0 +1,30 @@
+                            <div class="detail-item-title level-title">
+                                <p class="title"><span>专业研究项目</span></p>
+                                <div class="action-box">
+                                    <div class="sub-action add js_edu_project_add"><i></i>添加</div>
+                                </div>
+                            </div>
+                            <div class="show-level">
+                                <foreach name="edus" item="v">
+                                    <foreach name="v.others" item="vo">
+                                <div class="sub-info education-info">
+                                <div class="sub-edit edit js_edu_project_edit" data-id="{$vo.id}" data-eduid="{$v.id}"><i></i>编辑</div>
+                                    <div class="college-info">
+                                        <span class="name">项目名称：{$vo.name}</span>
+                                        <span class="major">{$vo.role|smartRole=###}</span>
+                                        <span class="from-to"><span>{$vo.sdate|substr_replace=###,'.',4,0}</span>—<span><if condition="$vo.edate eq 0">至今<else />{$vo.edate|substr_replace=###,'.',4,0}</if></span></span>
+                                    </div>
+                                    <div class="harvest">
+                                        <p class="harvest-title">收获及成绩</p>
+                                        <div class="harvest-info">
+                                            <div class="sub-harvest">
+                                               
+                                               {$vo.remark|smartTextarea=###}
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                    </foreach>
+                                </foreach>
+                            </div>

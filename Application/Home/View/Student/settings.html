@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<include file="./Application/Home/View/libpage/inc_header.html" />
+    <meta charset="UTF-8">
+    <title>菜鸟帮帮-账号设置-个人信息</title>
+
+</head>
+<body>
+<include file="./Application/Home/View/libpage/inc_top.html" />
+
+    <div class="profile-banner"><img src="__PUBLIC__/img/profile_top.jpg"/></div>
+
+    <div class="my-info-box">
+        <div class="content">
+            <p class="block-title">账号设置<span>Account settings</span></p>
+        </div>
+
+        <div class="my-detail">
+            <div class="detail settings">
+                <div class="slide-nav">
+                    <a class="sub-slide-nav myinfo active" href="/userInfo/setting.html"><i></i>个人信息</a>
+                    <a class="sub-slide-nav intention" href="/userInfo/changePwd.html"><i></i>修改密码</a>
+                    <!-- <a class="sub-slide-nav invitation" href="/userInfo/invitation.html"><i></i>邀请码</a> -->
+                </div>
+                <div class="settings-info">
+                  
+                       <div class="my-avatar">
+                        <form id="avatarform" name="avatarform" method="post" >
+                           <img class="js_avatar_show" src="{$data.avatar_url}"/>
+                           <input type="file" name="avatar_file" id="avatar_file" alt="请选择图片"/>
+                           <div class="mask" <if condition="$data['avatar_url']">style="display:none;"</if>>
+                               <i></i>
+                               <span>120*120</span>
+                           </div>
+                        </form>
+                       </div>
+                       <div class="input-box">
+                           <input id="nickname" type="text" value="{$data.nick_name}" placeholder="昵称" maxlength="12" />
+                       </div>
+                       <div class="radio-box">
+                           <span>性别</span>
+                           <div class="radio">
+                               <input id="sex0" type="radio" name="sex" value="1" <if condition="$data['gender'] eq 1">checked</if>/>
+                               <label for="sex0">男</label>
+                           </div>
+                           <div class="radio">
+                               <input id="sex1" type="radio" name="sex" value="2" <if condition="$data['gender'] eq 2">checked</if>/>
+                               <label for="sex1">女</label>
+                           </div>
+                       </div>
+                       <input type="hidden" class="avatar_id" value="">
+                        <input class="settings-btn js_save_info" type="button" value="保存">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+ <include file="./Application/Home/View/libpage/inc_buttom.html" />
+  <script type="text/javascript">
+
+       $('#avatar_file').hover(function(){
+                    if($('.js_avatar_show').attr('src') == ''){
+                      return;
+                    }
+                      $('.mask').show();
+                      },function(){
+                    if($('.js_avatar_show').attr('src') == ''){
+                      return;
+                    }
+                      $('.mask').hide();
+                         });
+  //图片上传
+    $("#avatar_file").change(function(){
+      var fname = $('#avatar_file').val();
+        if (fname){
+            if (/\.(jpg|jpeg|png)$/i.test(fname)){
+                $('#avatarform').submit();
+            }else{
+                 layer.msg('上传格式不正确', {icon: 2});
+            }
+        }return ;
+    });
+    $('#avatarform').validate({
+        rules : {},
+        messages : {},
+        submitHandler:function(form) {
+          var name="";
+            $('#avatarform').ajaxSubmit({
+                dataType:'json',
+                url:'/picUpload',
+                data:{name:'avatar_file'},
+                beforeSubmit:function(){},
+                success:function(data){
+                    if (data.status == 1) {
+                        $('.mask').hide();
+                        $(".js_avatar_show").attr('src',data.path).show();
+                        $('.avatar_id').val(data.file_id);
+                    } else {
+                        ///showDialogInfo(data.msg);
+                        $("#avatar_file").val('');
+                        $('.mask').show();
+                         layer.msg(data.msg, {icon: 5});
+                    }
+                }
+            });
+        }
+    });
+
+        //修改个人信息
+    $('.js_save_info').click(function(){
+        var nickname = $('#nickname').val();
+        var avatar_id = $('.avatar_id').val();
+        var gender = $('[name="sex"]:checked').val();
+        $('.js_save_info').val('提交中...').attr('disabled',true);
+            $.post("/userInfo/Update",{nickname:nickname,avatar_id:avatar_id,gender:gender},
+              function(data){
+                 if (data.status==1) {
+                      $('.js_save_info').val('保存成功');
+                        window.location.href = window.location.href;
+                        //setTimeout(function(){ window.location.reload(); },1000);
+                    } else {
+                        $('.js_save_info').val('保存失败');
+                        setTimeout(function(){ $('.js_save_info').val('保存').removeAttr('disabled'); },500);
+                    }
+                  },
+              "json");
+    });
+  </script>
+</body>
+</html>

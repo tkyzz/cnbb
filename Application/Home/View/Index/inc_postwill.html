@@ -1,0 +1,146 @@
+
+    <div class="popup will-layer js_index_intention" style="display: block">
+    <form id="indexIntentionForm" name="indexIntentionForm" method="post">
+        <div class="popup-info">
+            <a class="popup-close" href="javascript:;" onclick="$('#indexIntentionForm').submit();"><i></i></a>
+            <div class="will-hint">
+                <img src="__PUBLIC__/img/will_hint.png"/>
+                <span class="hint-info">完善的实习意向，才能接收到最精准的推荐岗位哦~</span>
+            </div>
+            <p class="will-name">实习意向</p>
+            <div class="info-item hope-info">
+                <span class="info-name"><b class="must-lab"></b>期望工作城市（最多3个）</span>
+                <div class="input-box">
+                    <input type="text" value="点击选择" readonly/>
+                    <i></i>
+                </div>
+                <div class="selected-box js_city_show">
+
+                </div>
+                <div class="select-container">
+                <ul class="province js_intention_province">
+                    <li>热门城市</li>
+                    <foreach name="area" item="v">
+                    <li value="{$v.code}">{$v.name}</li>
+                    </foreach>
+                </ul>
+                <ul class="city selected-right js_intention_city">
+                </ul>
+    <input type="hidden" name="work_cities_id" value="{$res.work_citiesid}">
+    <input type="hidden" name="work_cities_name" value="{$res.work_citiesstr}">
+                </div>
+            </div>
+            <div class="info-item hope-info">
+                <span class="info-name"><b class="must-lab"></b>期望工作行业（最多3个）</span>
+                <div class="input-box">
+                    <input type="text" value="点击选择" readonly/>
+                    <i></i>
+                </div>
+                <div class="selected-box js_trade_show">
+
+                </div>
+                <ul class="select-container trade-select selected-right js_intention_trade">
+                    <foreach name="trades" item="v">
+                        <li value="{$v.id}">{$v.name}</li>
+                    </foreach>
+                </ul>
+        <input type="hidden" name="trade_id" value="{$res.tradeid}">
+        <input type="hidden" name="trade_name" value="{$res.tradestr}">
+            </div>
+            <div class="info-item check-info">
+                <span class="info-name"><b class="must-lab"></b>期待工作性质</span>
+                <div class="check-box">
+                    <input class="check" id="nature2" type="radio" name="work_type" value="2" <if condition="$res['work_type'] eq 2 || $res['work_type'] eq ''">checked</if>>
+                    <label for="nature2" onclick="$('#resume_workDays').show();">日常</label>
+                </div>
+                <div class="check-box">
+                    <input class="check" id="nature1" type="radio" name="work_type" value="1" <if condition="$res['work_type'] eq 1">checked</if>>
+                    <label for="nature1" onclick="$('#resume_workDays').hide();">假期</label>
+                </div>
+                <div class="entry-time">
+                    <span class="info-name">到岗时间</span>
+                    <div class="time-selection">
+                    <select name="arrive_days">
+                        <option value="0" <if condition="$res['arrive_days'] eq 0">selected</if>>待定</option>
+                        <option value="-1" <if condition="$res['arrive_days'] eq -1">selected</if>>立即到岗</option>
+                        <option value="7" <if condition="$res['arrive_days'] eq 7">selected</if>>1周内</option>
+                        <option value="14" <if condition="$res['arrive_days'] eq 14">selected</if>>2周内</option>
+                        <option value="30" <if condition="$res['arrive_days'] eq 30">selected</if>>1个月</option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+            <div class="info-item check-info work-days">
+                <span class="info-name"><b class="must-lab"></b>每周工作天数</span>
+                <input type="hidden" name="week_day" value="{$res['week_workdays']}">
+           <div class="check-box">
+                <input class="check" id="work0" type="radio" value="0" name="week_workdays" <if condition="$res['week_workdays'] eq 0">checked</if>>
+                <label for="work0">不限</label>
+            </div>
+            <div class="check-box">
+                <input class="check" id="work1" type="radio" value="1" name="week_workdays" <if condition="$res['week_workdays'] eq 1">checked</if>>
+                <label for="work1">1天</label>
+            </div>
+            <div class="check-box">
+                <input class="check" id="work2" type="radio" value="2" name="week_workdays" <if condition="$res['week_workdays'] eq 2">checked</if>>
+                <label for="work2">2天</label>
+            </div>
+            <div class="check-box">
+                <input class="check" id="work3" type="radio" value="3" name="week_workdays" <if condition="$res['week_workdays'] eq 3">checked</if>>
+                <label for="work3">3天</label>
+            </div>
+            <div class="check-box">
+                <input class="check" id="work4" type="radio" value="4" name="week_workdays" <if condition="$res['week_workdays'] eq 4">checked</if>>
+                <label for="work4">4天</label>
+            </div>
+            <div class="check-box">
+                <input class="check" id="work5" type="radio" value="5" name="week_workdays" <if condition="$res['week_workdays'] eq 5">checked</if>>
+                <label for="work5">5天</label>
+            </div>
+            <div class="check-box">
+                <input class="check" id="work6" type="radio" value="6" name="week_workdays" <if condition="$res['week_workdays'] eq 6">checked</if>>
+                <label for="work6">6天</label>
+            </div>
+            <div class="check-box">
+                <input class="check" id="work7" type="radio" value="7" name="week_workdays" <if condition="$res['week_workdays'] eq 7">checked</if>>
+                <label for="work7">7天</label>
+            </div>
+
+                <!--<label class="error">请选择每周工作天数</label>-->
+            </div>
+            <div class="info-item check-info work-days" id="resume_workDays">
+                <span class="info-name"><b class="must-lab"></b>连续实习时长</span>
+                <div class="check-box">
+                    <input class="check" id="duration0" type="radio" name="duration" value="1" <if condition="$res['work_duration'] eq 0">checked="checked"</if>>
+                    <label for="duration0">不限</label>
+                </div>
+                <div class="duration-month">
+                    <i class="reduce"></i>
+                    <span class="js_duration_show"><if condition="$res['work_duration'] eq 0">1个月<else />{$res['work_duration']/30}个月</if></span>
+                    <i class="raise"></i>
+                    <input type="hidden" name="work_duration" value="<if condition="$res['work_duration'] eq 0">1<else />{$res['work_duration']/30}</if>">
+                </div>
+            </div>
+            <div class="detail-btn">
+                <input type="hidden" name="index" value="index">
+                <input type="hidden" name="resume_id" value="{$res['id']}">
+                <input type="hidden" name="id" value="{$res['id']}">
+                <input type="hidden" name="type" <empty name="res['work_type']">
+                value="intention_create"<else />value="intention_update"</empty>>
+                <input class="sub-btn save intention_resumelist_save" type="button" value="保存" onclick="$('#indexIntentionForm').submit();">
+                <a class="sub-btn cancel" href="javascript:;" onclick="$('.js_index_intention').hide();$('#indexIntentionForm').submit();">取消</a>
+            </div>
+        </div>
+        </form>
+    </div>
+
+    <script src="__PUBLIC__/js/validate/lib/jquery.form.js"></script>
+    <script src="__PUBLIC__/js/validate/dist/jquery.validate.js"></script>
+    <script src="__PUBLIC__/js/intention.js"></script>
+    <script>
+    $(function(){
+    intention_city();//初始化求职意向行业
+  intention_trade();//初始化求职意向
+
+    });
+    </script>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>菜鸟帮帮</title>
+    <include file="./Application/Home/View/libpage/inc_wap_header.html" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/h5/postList.css">
+<!--     <link rel="stylesheet" href="__PUBLIC__/js/dropload/dropload.css">
+    <script src="__PUBLIC__/js/dropload/dropload.min.js"></script> -->
+</head>
+<body>
+    <header class="header">
+        <a class="working-place" href="javascript:;"><i></i><span class="place">{$nowcity|default='上海'}</span></a>
+        <span class="title">菜鸟帮帮岗位列表</span>
+        <div class="others"><span class="sub-nav my" id="my"><i></i></span></div>
+        <!-- <span class="my" id="my"><i></i></span> -->
+        <div class="my-cont" id="my-cont">
+        <notempty name="Think.session.user.access_token">
+            <a class="cont-item" href="/m/myresume.html">
+                <img class="item-img" src="__PUBLIC__/img/wap/my_profile.png"/>
+                <p class="item-title">我的简历</p>
+            </a>
+            <a class="cont-item" href="/m/feedback.html">
+                <img class="item-img" src="__PUBLIC__/img/wap/feedback.png"/>
+                <p class="item-title">投递反馈</p>
+            </a>
+        <else />
+            <a class="cont-item" href="/m/login.html">
+                <img class="item-img" src="__PUBLIC__/img/wap/my_profile.png"/>
+                <p class="item-title">我的简历</p>
+            </a>
+            <a class="cont-item" href="/m/login.html">
+                <img class="item-img" src="__PUBLIC__/img/wap/feedback.png"/>
+                <p class="item-title">投递反馈</p>
+            </a>
+        </notempty>
+        </div>
+    </header>
+    <div class="footer">
+        <div class="logo"><img src="__PUBLIC__/img/wap/logo.png"/></div>
+        <div class="slogan"><img src="__PUBLIC__/img/wap/slogan.png"/></div>
+        <div class="app-download">
+            <div class="cartoon"><img src="__PUBLIC__/img/wap/cartoon.png"/></div>
+            <a class="download" href="{$download_url}"><img src="__PUBLIC__/img/wap/download_btn.png"/></a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="post-filter-box">
+            <div class="term-select">
+                <span class="select-item">岗位性质<i></i></span>
+                <span class="select-item">行业领域<i></i></span>
+            </div>
+            <div class="post-filter">
+                <div class="filter-info">
+                    <div class="filter-block">
+                        <p class="block-title">岗位性质</p>
+                        <div class="filter-term">
+                            <span class="sub-option jobsea work_type" data-op="work_type" data-id="0">不限</span>
+                            <span class="sub-option jobsea work_type" data-op="work_type" data-id="2">日常</span>
+                            <span class="sub-option jobsea work_type" data-op="work_type" data-id="1">假期</span>
+                        </div>
+                    </div>
+                    <div class="filter-block work_day_area" style="display:none;">
+                        <p class="block-title">至少连续实习月数</p>
+                        <div class="filter-term">
+                            <span class="sub-option jobsea work_day" data-op="work_day" data-id="1">1个月</span>
+                            <span class="sub-option jobsea work_day" data-op="work_day" data-id="2">2个月</span>
+                            <span class="sub-option jobsea work_day" data-op="work_day" data-id="3">3个月</span>
+                            <span class="sub-option jobsea work_day" data-op="work_day" data-id="4">4个月</span>
+                            <span class="sub-option jobsea work_day" data-op="work_day" data-id="5">5个月</span>
+                            <span class="sub-option jobsea work_day" data-op="work_day" data-id="6">6个月</span>
+                            <span class="sub-option jobsea work_day" data-op="work_day" data-id="7">7个月</span>
+                            <span class="sub-option jobsea work_day" data-op="work_day" data-id="8">8个月</span>
+                            <span class="sub-option jobsea work_day" data-op="work_day" data-id="9">9个月</span>
+                            <span class="sub-option jobsea work_day" data-op="work_day" data-id="10">10个月</span>
+                            <span class="sub-option jobsea work_day" data-op="work_day" data-id="11">11个月</span>
+                            <span class="sub-option jobsea work_day" data-op="work_day" data-id="12">12个月</span>
+                        </div>
+                    </div>
+                    <div class="filter-block">
+                        <p class="block-title">每周工作天数</p>
+                        <div class="filter-term">
+                            <span class="sub-option jobsea week_day" data-op="week_day" data-id="1">1天</span>
+                            <span class="sub-option jobsea week_day" data-op="week_day" data-id="2">2天</span>
+                            <span class="sub-option jobsea week_day" data-op="week_day" data-id="3">3天</span>
+                            <span class="sub-option jobsea week_day" data-op="week_day" data-id="4">4天</span>
+                            <span class="sub-option jobsea week_day" data-op="week_day" data-id="5">5天</span>
+                            <span class="sub-option jobsea week_day" data-op="week_day" data-id="6">6天</span>
+                            <span class="sub-option jobsea week_day" data-op="week_day" data-id="7">7天</span>
+                        </div>
+                    </div>
+                    <input class="filter-btn sec_sub" type="button" value="确定"/>
+                </div>
+                <div class="filter-info">
+                    <div class="filter-block">
+                        <p class="block-title">行业领域</p>
+                        <div class="filter-term">
+                            <!-- <span class="sub-option jobsea trade" data-op="trade" data-id="0">不限</span> -->
+                            <span class="sub-option jobsea trade" data-op="trade" data-id="1">商业银行</span>
+                            <span class="sub-option jobsea trade" data-op="trade" data-id="5">证券投资</span>
+                            <span class="sub-option jobsea trade" data-op="trade" data-id="11">保险</span>
+                            <span class="sub-option jobsea trade" data-op="trade" data-id="13">新兴金融行业</span>
+                            <span class="sub-option jobsea trade" data-op="trade" data-id="16">财务会计</span>
+                            <span class="sub-option jobsea trade" data-op="trade" data-id="20">其他</span>
+                        </div>
+                    </div>
+                    <input class="filter-btn sec_sub" type="button" value="确定"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="post-list">
+        <foreach name="res.posts" item="v" key="k">
+            <a class="post-item" href="/m/post/{$v.id|smartBase64=###}.html">
+                <div class="post-avatar"><img src="{$v.org.b_logo_url}"/></div>
+                <div class="post-info">
+                    <div class="info-line">
+                        <span class="line-block post-name">{$v.name}</span>
+                          <egt name="v['esalary']" value="1">
+                          <span class="line-block post-pay">{$v['ssalary']}-{$v['esalary']}<if condition="$v['salary_unit'] eq 0">元/天<else />元/月</if></span>
+                          <else />
+                          <span class="line-block post-pay"> <if condition="$v['ssalary'] elt 0">面议<else /><if condition="$v['salary_unit'] eq 0">{$v.ssalary}元/天<else />{$v.ssalary}元/月</if></if></span>
+                          </egt>
+                        <!-- <span class="line-block post-pay">3500-8000元/月</span> -->
+
+                    </div>
+                    <div class="info-line">
+                        <span class="line-block post-org">{$v.org.abbrname}</span>
+                        <span class="line-block post-addr"><i></i>{$v.city_name}-<notempty name="v.zone_name">{$v.zone_name}<else />全市</notempty></span>
+                    </div>
+                    <div class="info-line">
+                        <div class="line-block post-others">
+                            <span class="sub-attr">{$v.degree|smartDegree=###}</span>
+                            <notempty name="v.work_days">
+                            <span class="sub-attr">{$v.work_days}天/周</span>
+                            </notempty>
+                            <notempty name="v.work_duration">
+                            <span class="sub-attr">至少{$v['work_duration']/30}个月</span>
+                            </notempty>
+                        </div>
+                        <span class="line-block post-time">{$v.last_time|smartJobStrTime=###}</span>
+                    </div>
+                </div>
+            </a>
+        </foreach>
+        </div>
+    </div>
+    <input type="hidden" id="page" value="2">
+    <input type="hidden" id="city" value="{$Think.get.city}">
+    <input type="hidden" id="trade" data-v="" value="{$Think.get.trade}">
+    <input type="hidden" id="work_type" data-v="" value="{$Think.get.work_type}">
+    <input type="hidden" id="week_day" data-v="" value="{$Think.get.week_day}">
+    <input type="hidden" id="work_day" data-v="" value="{$Think.get.work_day}">
+    <script src="__PUBLIC__/js/style_h5.js"></script>
+    <script src="__PUBLIC__/js/wap/mpost.js?v=1.1"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.working-place').click(function(){
+                var url = '/m/jobSetCity.html';
+                var params = window.location.search;
+                if ( params ) {
+                    url += params;
+                }
+                window.location.href = url;
+            });
+            $(window).scroll(function() {
+                //$(document).scrollTop() 获取垂直滚动的距离
+                //$(document).scrollLeft() 这是获取水平滚动条的距离
+                // if ($(document).scrollTop() <= 0) {
+                //     alert("滚动条已经到达顶部为0");
+                // }
+
+
+                if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
+                    var sum = 0;
+                    $('.post-item').each(function(){
+                        sum ++;
+                    });
+                    //alert(sum);
+                    if(sum < 10){
+                        layer.msg('没有更多岗位了',{icon:2});
+                        return false;
+                    }
+                    var page = $('#page').val(); 
+                    var index = layer.load(1, {
+                      shade: [0.1,'#fff'] //0.1透明度的白色背景
+                    });
+                    $.ajax({
+                        type: 'post',
+                        url: getJobUrl(true),
+                        dataType: 'json',
+                        success: function(data){
+                            if( data.status == 1 ){
+                                $('#page').val(parseInt(page)+1); 
+                                $('.post-list').append(data.html);
+                                // 每次数据加载完，必须重置
+                               // me.resetload();
+                            }else{
+                                layer.msg(data.msg,{icon:2});
+                                // 每次数据加载完，必须重置
+                                //me.resetload();
+                            }
+                            layer.closeAll('loading'); //关闭加载层
+                        },
+                        error: function(xhr, type){
+                            layer.closeAll('loading'); //关闭加载层
+                            layer.msg('网络异常，请重试',{icon:2});
+                            // 即使加载出错，也得重置
+                          // me.resetload();
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

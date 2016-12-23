@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<include file="./Application/Home/View/libpage/inc_header.html" />
+    <meta charset="UTF-8">
+    <title>菜鸟帮帮-简历投递成功</title>
+</head>
+<body>
+<include file="./Application/Home/View/libpage/inc_top.html" />
+
+    <div class="profile-banner"><img src="__PUBLIC__/img/profile_top.jpg"/></div>
+
+    <div class="post-info-box">
+        <div class="content">
+            <div class="submit-success">
+                <div class="submit-item">
+                    <div class="submit-img success-img"><img src="__PUBLIC__/img/warn.png"/></div>
+                    <div class="success-info">
+                        <p class="success-tips">简历投递成功</p>
+                        <div class="tips-detail">你的简历已投递成功，你可以浏览下方的其他岗位，也可以查看相似岗位。</div>
+                    </div>
+                </div>
+                <div class="submit-item app-download">
+                    <div class="submit-img download-code"><img src="/public/img/app_download.jpg"/></div>
+                    <div class="success-info">
+                        <p class="code-tips">菜鸟帮帮——带你“飞”</p>
+                        <div class="code-detail">扫描下载app，随时查看最新职位，跟踪简历投递动态。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="my-detail">
+            <div class="position-set submit-resume">
+                <p class="submit-recommend"><span>此公司其它岗位</span></p>
+                <div class="post-tag post-list-box">
+                <foreach name="co_post.posts" item="v">
+                    <div class="list-item">
+                        <div class="post-item">
+                            <div class="item-row">
+                                <a class="row-left post-name" href="/post/{$v.id|smartBase64=###}.html"><span class="name-box">{$v.name}</span>
+                              <egt name="v['esalary']" value="1">
+                              <span class="post-cost">{$v['ssalary']}-{$v['esalary']}<if condition="$v['salary_unit'] eq 0">元/天<else />元/月</if></span>
+                              <else />
+                              <span class="post-cost"> <if condition="$v['ssalary'] elt 0">面议<else /><if condition="$v['salary_unit'] eq 0">{$v.ssalary}元/天<else />{$v.ssalary}元/月</if></if></span>
+                              </egt>
+                                </a>
+                                <a class="row-right company-name" href="companyProfile.html">{$v.org.fullname}</a>
+                            </div>
+                            <div class="item-row">
+                                <div class="row-left post-demand">
+                                    <span class="sub-demand post-addr"><i></i>{$v.city_name}-<notempty name="v.zone_name">{$v.zone_name}<else />全市</notempty></span>
+                                    <span class="sub-demand degree"><i></i>{$v.degree|smartDegree=###}</span>
+                                    <span class="sub-demand post-time"><i></i>{$v.work_type|smartdictval=###}</span>
+                                    <span class="sub-demand demand-time"><i></i>每周至少实习{$v.work_days}天</span>
+                                </div>
+                                <span class="row-right company-nature">{$v.org.trade_name}/{$v.org.subtrade_name}</span>
+                            </div>
+                            <div class="item-row">
+                                <div class="row-left post-demand time">
+                                    <span class="sub-demand last-time"><i></i>距离投递结束还有<span>{$v.rev_stop_time|smartPostStrTime=###}</span>天</span>
+                                </div>
+                                <span class="row-right publish-date">发布于{$v.last_time|smartJobStrTime=###}天前</span>
+                            </div>
+                        </div>
+                        <div class="company-logo"><img src="{$v.org.b_logo_url}"/></div>
+                    </div>
+                </foreach>
+                </div>
+            </div>
+            <div class="position-set submit-resume">
+                <p class="submit-recommend"><span>相似岗位</span></p>
+                <div class="post-tag post-list-box">
+                <foreach name="simjob.posts" item="v">
+                    <div class="list-item">
+                        <div class="post-item">
+                            <div class="item-row">
+                                <a class="row-left post-name" href="/post/{$v.id|smartBase64=###}.html"><span class="name-box">{$v.name}</span>
+                                  <egt name="v['esalary']" value="1">
+                                  <span class="post-cost">{$v['ssalary']}-{$v['esalary']}<if condition="$v['salary_unit'] eq 0">元/天<else />元/月</if></span>
+                                  <else />
+                                  <span class="post-cost"> <if condition="$v['ssalary'] elt 0">面议<else /><if condition="$v['salary_unit'] eq 0">{$v.ssalary}元/天<else />{$v.ssalary}元/月</if></if></span>
+                                  </egt>
+                                </a>
+                                <a class="row-right company-name" href="companyProfile.html">{$v.org.fullname}</a>
+                            </div>
+                            <div class="item-row">
+                                <div class="row-left post-demand">
+                                    <span class="sub-demand post-addr"><i></i>{$v.city_name}</span>
+                                    <span class="sub-demand degree"><i></i>{$v.degree|smartDegree=###}</span>
+                                    <span class="sub-demand post-time"><i></i>{$v.work_type|smartdictval=###}</span>
+                                    <span class="sub-demand demand-time"><i></i>每周至少实习{$v.work_days}天</span>
+                                </div>
+                                <span class="row-right company-nature">{$v.org.trade_name}/{$v.org.subtrade_name}</span>
+                            </div>
+                            <div class="item-row">
+                                <div class="row-left post-demand time">
+                                    <span class="sub-demand last-time"><i></i>距离投递结束还有<span>{$v.rev_stop_time|smartPostStrTime=###}</span>天</span>
+                                </div>
+                                <span class="row-right publish-date">发布于{$v.issue_time|smartJobStrTime=###}天前</span>
+                            </div>
+                        </div>
+                        <div class="company-logo"><img src="{$v.org.b_logo_url}"/></div>
+                    </div>
+                </foreach>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <include file="./Application/Home/View/libpage/inc_buttom.html" />
+</body>
+</html>

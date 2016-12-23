@@ -1,0 +1,18 @@
+                       <p class="others-title">相似岗位</p>
+                      <foreach name="simjob.posts" item="v">
+                       <div class="similar-post">
+                           <a class="similar-logo" href="/post/{$v.id|smartBase64=###}.html"><img src="{$v.org.b_logo_url}"/></a>
+                           <div class="similar-info">
+                               <a class="post-name" href="/post/{$v.id|smartBase64=###}.html">{$v.name}</a>
+                               <!--<p class="post-pay"><if condition="$v['ssalary'] eq 0">面议<else />{$v.ssalary}元/天</if></p>-->
+                               <div class="others-info">
+                                   <span class="sub-demand post-addr"><i></i>{$v.city_name}</span>
+                                   <!--<span class="similar-company">{$v.org.abbrname}</span>-->
+                               </div>
+                               <div class="others-info">
+                                   <span class="sub-demand degree"><i></i>{$v.degree|smartDegree=###}</span>
+                                   <span class="sub-demand demand-time"><i></i>3天/周</span>
+                               </div>
+                           </div>
+                       </div>
+                      </foreach>

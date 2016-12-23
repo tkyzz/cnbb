@@ -1,0 +1,30 @@
+                            <div class="detail-item-title level-title">
+                                <p class="title"><span>交换生经历</span></p>
+                                <div class="action-box">
+                                    
+                                    <div class="sub-action add js_edu_exchange_add"><i></i>添加</div>
+                                </div>
+                            </div>
+                            <div class="show-level">
+                            <foreach name="edus" item="v">
+                                <foreach name="v.exchanges" item="vo">
+                                <div class="sub-info">
+                                <div class="sub-edit edit js_edu_exchange_edit" data-id="{$vo.id}" data-eduid="{$v.id}"><i></i>编辑</div>
+                                    <div class="college-info">
+                                        <span class="name">{$vo.school_name}</span>
+                                        <span class="major">{$vo.major}</span>
+                                        <span class="from-to"><span>{$vo.sdate|substr_replace=###,'.',4,0}</span>—<span><if condition="$vo.edate eq 0">至今<else />{$vo.edate|substr_replace=###,'.',4,0}</if></span></span>
+                                    </div>
+                                    <div class="harvest">
+                                        <p class="harvest-title">收获及成绩</p>
+                                        <div class="harvest-info">
+                                            <div class="sub-harvest">
+                                                
+                                               {$vo.remark|smartTextarea=###}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </foreach>
+                            </foreach>
+                            </div>

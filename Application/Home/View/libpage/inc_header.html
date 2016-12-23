@@ -1,0 +1,23 @@
+<link rel="shortcut icon" type="image/x-icon" href="/cnbb.ico" media="screen" /> 
+<if condition="$js eq 'new'">
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<else />
+ <script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+</if>
+<script src="__PUBLIC__/js/layer/layer.js"></script>
+<script type="text/javascript">
+    //百度统计
+
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7a83b9c99272e7eb80fa5055220a4ef0";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+
+    //网站客服
+    <if condition="$browser[0] neq 'Internet Explorer'">
+    document.write('<script src="\/\/assets.kf5.com\/supportbox\/main.js?' + (new Date).getDay() + '" id="kf5-provide-supportBox" kf5-domain="cainiaobangbang.kf5.com" charset="utf-8"><\/script>');
+    </if>
+</script>

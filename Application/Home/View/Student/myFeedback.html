@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<include file="./Application/Home/View/libpage/inc_header.html" />
+    <meta charset="UTF-8">
+    <title>菜鸟帮帮-投递反馈</title>
+
+</head>
+<body>
+
+<include file="./Application/Home/View/libpage/inc_top.html" />
+    <div class="profile-banner"><img src="__PUBLIC__/img/profile_top.jpg"/></div>
+
+    <div class="my-info-box">
+        <div class="content">
+<include file="./Application/Home/View/libpage/inc_my_nav.html" />
+            <div class="feedback-nav">
+                <a class="sub-nav <present name="Think.get.st"><else />active</present>" href="/resume/myFeedback">全部</a>
+                <span class="sub-nav sub-nav-point"></span>
+                <a class="sub-nav <if condition="$Think.get.st eq '0'">active</if>" href="?st=0">已投递</a>
+                <span class="sub-nav sub-nav-point"></span>
+                <a class="sub-nav <if condition="$Think.get.st eq '10'">active</if>" href="?st=10">被查看</a>
+                <span class="sub-nav sub-nav-point"></span>
+                <a class="sub-nav <if condition="$Think.get.st eq '20'">active</if>" href="?st=20">已邀请</a>
+                <span class="sub-nav sub-nav-point"></span>
+                <a class="sub-nav <if condition="$Think.get.st eq '30'">active</if>" href="?st=30">已确认</a>
+                <span class="sub-nav sub-nav-point"></span>
+                <a class="sub-nav <if condition="$Think.get.st eq '40'">active</if>" href="?st=40">不合适</a>
+            </div>
+        </div>
+
+        <div class="my-detail">
+            <div class="detail my-favorite">
+
+<foreach name="res.delivereds" item="v">
+                <div class="favorite-item feedback-item">
+                    <div class="post-basic">
+                        <a class="post-name" href="/post/{$v.post_id|smartBase64=###}.html" target="_blank">{$v.post.name}</a>
+                      <egt name="v['post']['esalary']" value="1">
+                      <span class="post-pay">{$v['post']['ssalary']}-{$v['post']['esalary']}<if condition="$v['post']['salary_unit'] eq 0">元/天<else />元/月</if></span>
+                      <else />
+                      <span class="post-pay"> <if condition="$v['post']['ssalary'] elt 0">面议<else /><if condition="$v['post']['salary_unit'] eq 0">{$v.post.ssalary}元/天<else />{$v.post.ssalary}元/月</if></if></span>
+                      </egt>
+                        <span class="post-time">{$v.delivered_time|smartTimeFormat=###}</span>
+                    </div>
+                    <div class="post-basic">
+                        <span class="post-company">{$v.org.abbrname}</span>
+                        <span class="post-addr"><i></i>{$v.org.city_name}<notempty name="v.org.zone_name">-{$v.org.zone_name}</notempty></span>
+                        <span class="post-addr"><i></i>{$v.post.degree|smartDegree=###}</span>
+                    </div>
+                    <div class="post-demand">
+                        
+                        <span class="sub-demand post-time"><i></i>{$v.post.work_type||smartWorkType=###}</span>
+                        <notempty name="v.post.work_days">
+                        <span class="sub-demand demand-time"><i></i>{$v.post.work_days}天/周</span>
+                        </notempty>
+                        <notempty name="v.post.work_duration">
+                        <span class="sub-demand demand-time"><i></i>至少{$v['post']['work_duration']/30}个月</span>
+                        </notempty>
+                        <a class="feedback-btn" href="javascript:;" data-id={$v.id}><span>
+                        </span>
+                        <if condition="$v.state eq 0">已投递<elseif condition="$v.state eq 10"/>被查看<elseif condition="$v.state eq 20"/>已邀请<elseif condition="$v.state eq 40"/>不合适<else/>已确认</if>
+                        </a>
+                    </div>
+                    <div class="feedback-detail">
+                        <div class="sub-feedback <if condition="$v.state eq 0">now-state<else />past-state</if>">
+                            <div class="feedback">
+                                <span class="feedback-circle">已投递</span>
+                                <span class="feedback-line line-right"></span>
+                            </div>
+                            <if condition="$v.state egt 0">
+                            <div class="feedback-info">
+                                <p class="feedback-state">你已经成功投递简历：<span>{$v.post.name}</span></p>
+                                <p class="state-time">{$v.delivered_time|smartTimeFormat=###}</p>
+                            </div>
+                            </if>
+                        </div>
+                        <div class="sub-feedback <if condition="$v.state eq 10">now-state <elseif condition="$v.state gt 1"/>past-state</if>">
+                            <div class="feedback">
+                                <span class="feedback-line"></span>
+                                <span class="feedback-circle">被查看</span>
+                                <span class="feedback-line line-right"></span>
+                            </div>
+                            <if condition="$v.state egt 10">
+                            <div class="feedback-info">
+                                 <p class="feedback-state">HR查看了你的简历</p>
+                                <p class="state-time">{$v.viewed_time|smartTimeFormat=###}</p>
+                            </div>
+                            </if>
+                        </div>
+                        <div class="sub-feedback <if condition="$v.state eq 20 || $v.state eq 40">now-state<elseif condition="$v.state gt 20 && $v.state lt 40"/>past-state</if>">
+                            <div class="feedback">
+                                <span class="feedback-line"></span>
+                                <span class="feedback-circle"><if condition="$v.state eq 40">不合适<else />已邀请</if></span>
+                            <if condition="$v.state neq 40">
+                                <span class="feedback-line line-right"></span>
+                            </if>
+                            </div>
+                            <if condition="$v.state egt 20">
+                                <if condition="$v.state egt 40">
+                            <div class="feedback-info">
+                                <p class="feedback-state">你的简历暂不合适</p>
+                                <p class="state-time">{$v.interview_sended_time|smartTimeFormat=###}</p>
+                            </div>
+                                <else />
+                            <div class="feedback-info">
+                                <p class="feedback-state"><span>{$v.org.fullname}</span>给你发送了面试邀请</p>
+                                <p class="state-time">{$v.interview_sended_time|smartTimeFormat=###}</p>
+                            </div>
+                                </if>
+                            </if>
+                        </div>
+                        <if condition="$v.state neq 40">
+                        <div class="sub-feedback <if condition="$v.state eq 30">now-state</if>">
+                            <div class="feedback">
+                                <span class="feedback-line"></span>
+                                <span class="feedback-circle">已确认</span>
+                            </div>
+                            <if condition="$v.state egt 30">
+                            <div class="feedback-info">
+                                 <p class="feedback-state"><span>{$v.org.fullname}</span>已经确认了你的面试</p>
+                                <p class="state-time">{$v.interview_agreed|smartTimeFormat=###}</p>
+                            </div>
+                            </if>
+                        </div>
+                        </if>
+                        <a class="feedback-up" href="javascript:;"><i></i></a>
+                    </div>
+                </div>
+
+</foreach>
+            </div>
+        </div>
+    </div>
+
+ <include file="./Application/Home/View/libpage/inc_buttom.html" />
+</body>
+</html>

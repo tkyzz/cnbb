@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菜鸟帮帮-个人中心</title>
+    <include file="./Application/Home/View/libpage/inc_header.html" />
+    <script type="text/javascript" src="__PUBLIC__/js/selectivizr.js"></script>
+
+</head>
+<body>
+<include file="./Application/Home/View/libpage/inc_top.html" />
+
+     <div class="profile-banner"><img src="__PUBLIC__/img/profile_top.jpg"/></div>
+
+    <div class="my-info-box">
+        <div class="content">
+<include file="./Application/Home/View/libpage/inc_my_nav.html" />
+        </div>
+
+        <div class="my-detail" id="zzz">
+            <div class="batch-operation">
+                <span class="batch-choose js_pl_op"></span>
+                <button class="operation-item js_pl_deliver">批量投递</button>
+                <button class="operation-item js_pl_del">批量删除</button>
+            </div>
+            <div class="detail my-favorite">
+            <input type="hidden" name="default_id" value="{$resume_default_id}">
+            <foreach name="res.posts" item="v">
+                <div class="favorite-item msg-item js_list_{$v.id}">
+                    <div class="batch-choose js_ie_batchchoose">
+                        <input id="batch{$v.id}" name="jobcheck" type="checkbox" data-id="{$v.id}" data-postid="{$v.post.id}"/>
+                        <label for="batch{$v.id}" class="jobcheck_lab"></label>
+                    </div>
+                    <a class="avatar" href=""><img src="{$v.post.org.b_logo_url}"/></a>
+                    <div class="favorite-info">
+                        <div class="post-info">
+                            <div class="post-basic">
+                                <a class="post-name" href="/post/{$v.post.id|smartBase64=###}.html" target="_blank">{$v.post.name}</a>
+                                  <egt name="v['post']['esalary']" value="1">
+                                  <span class="post-pay">{$v['post']['ssalary']}-{$v['post']['esalary']}<if condition="$v['post']['salary_unit'] eq 0">元/天<else />元/月</if></span>
+                                  <else />
+                                  <span class="post-pay"> <if condition="$v['post']['ssalary'] elt 0">面议<else /><if condition="$v['post']['salary_unit'] eq 0">{$v.post.ssalary}元/天<else />{$v.post.ssalary}元/月</if></if></span>
+                                  </egt>
+                            </div>
+                            <div class="post-demand">
+                                <span class="publish-company">{$v.post.org.abbrname}</span>
+                                <span class="sub-demand post-addr"><i></i>{$v.post.city_name}</span>
+                                <span class="sub-demand degree"><i></i>{$v.post.degree|smartDegree=###}</span>
+                            </div>
+                            <div class="post-demand">
+                                <span class="sub-demand post-time"><i></i>{$v.post.work_type|smartWorkType=###}</span>
+                                 <notempty name="v.post.work_days">
+                                <span class="sub-demand demand-time"><i></i>{$v.post.work_days}天/周</span>
+                                </notempty>
+                            </div>
+                        </div>
+                        <div class="post-active">
+                            <p class="publish-time">推送时间：<span>{$v.fav_time|smartJobStrTime=###}</span></p>
+                            <div class="active">
+                            <if condition="$v.state eq 1">
+                                <button class="active-btn resume" disabled>已投递<span></span></button>
+                            <else />
+                                <button class="active-btn resume js_singletd" data-id="{$v.post.id}">一键投递<span></span></button>
+                            </if>
+                                <button class="active-btn undo-favorite js_singledel" data-id="{$v.id}" href="javascript:;">我不喜欢<span></span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </foreach>
+            </div>
+             <div class="tcdPageCode" <if condition="$res['pageCount'] elt 1">style="display:none;"</if>></div>
+        </div>
+    </div>
+
+ <include file="./Application/Home/View/libpage/inc_buttom.html" />
+ 
+ <notempty name="is_show">
+ <include file="./Application/Home/View/student/inc_intention_show.html" />
+ </notempty>
+<!--删除推荐岗位弹层-->
+    <div class="popup" id="js_del_tip">
+        <div class="popup-info msg-popup">
+            <div class="popup-img"><img src="__PUBLIC__/img/msg_delPost.png"/></div>
+            <p class="popup-hint">删除选中岗位吗？</p>
+            <div class="popup-btn">
+                <button class="sub-btn sure js_qddel">是</button>
+                <button class="sub-btn" onclick="$('#js_del_tip').hide();">否</button>
+            </div>
+        </div>
+    </div>
+
+    <!--投递推荐选中岗位提示弹层-->
+    <div class="popup" id="js_deliver_tip">
+        <div class="popup-info msg-popup">
+            <div class="popup-img"><img src="__PUBLIC__/img/msg_mailPost.png"/></div>
+            <p class="popup-hint">投递选中岗位吗？</p>
+            <div class="popup-btn">
+                <button class="sub-btn sure js_qdtd" data-op="singletd">是</button>
+                <button class="sub-btn" onclick="$('#js_deliver_tip').hide();">否</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script src="__PUBLIC__/js/jquery.page.js"></script>
+<script src="__PUBLIC__/js/myCenter.js"></script>
+<script>
+$(function(){
+
+    //分页
+    $(".tcdPageCode").createPage({
+    pageCount:{$res.pageCount},
+    current:{$Think.get.p|default=1},
+    backFn:function(p){
+        if(p <= 1){
+            var url = '/messages.html#zzz';
+        }else{
+            var url = '/messages.html?p='+p+'#zzz';
+        }
+        
+        window.location.href = url;
+    }
+    });
+
+})
+</script>
+</html>

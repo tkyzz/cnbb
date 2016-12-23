@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>编辑个人信息</title>
+    <include file="./Application/Home/View/libpage/inc_wap_header.html" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/h5/resume.css">
+    <link rel="stylesheet" href="__PUBLIC__/js/validationEngine/validationEngine.jquery.css">
+    <script src="__PUBLIC__/js/validationEngine/jquery.validationEngine.js"></script>
+    <script src="__PUBLIC__/js/validationEngine/jquery.validationEngine-zh_CN.js"></script>
+    <script src="__PUBLIC__/js/validate/lib/jquery.form.js"></script>
+</head>
+<body>
+    <header class="header">
+        <a class="back js_back_btn" href="JavaScript:;" data="0"><i></i></a>
+        <span class="title" data="编辑个人信息">编辑个人信息</span>
+    </header>
+    <div class="footer">
+        <div class="logo"><img src="__PUBLIC__/img/wap/logo.png"/></div>
+        <div class="slogan"><img src="__PUBLIC__/img/wap/slogan.png"/></div>
+        <div class="app-download">
+            <div class="cartoon"><img src="__PUBLIC__/img/wap/cartoon.png"/></div>
+            <a class="download" href=""><img src="__PUBLIC__/img/wap/download_btn.png"/></a>
+        </div>
+    </div>
+    
+    <div class="content">
+    <form action="/mresumeBase.html" method="post" enctype="multipart/form-data" id="resumeBaseForm">
+        <div class="resume-edit">
+            <div class="edit-item">
+                <span class="field-name">姓名</span>
+                <input class="field-input validate[required]" name="post[full_name]" type="text" value="{$res.fullname}"/>
+            </div>
+            <div class="edit-item">
+                <span class="field-name">性别</span>
+                <select class="field-input validate[required]" name="post[gender]">
+                    <option value="">请选择</option>
+                    <option value="1" <if condition="$res['gender'] eq 1">selected</if>>男</option>
+                    <option value="2" <if condition="$res['gender'] eq 2">selected</if>>女</option>
+                </select>
+            </div>
+            <div class="edit-item">
+                <span class="field-name">手机号码</span>
+                <input class="field-input validate[required,custom[phone]]" type="text" value="{$res.phone}" name="post[mobile]"/>
+            </div>
+            <div class="edit-item">
+                <span class="field-name">Email</span>
+                <input class="field-input validate[required,custom[email]]" type="email" value="{$res.email}" name="post[email]"/>
+            </div>
+            <div class="edit-item down">
+                <span class="field-name">出生日期</span>
+                <input class="field-input validate[required]" type="date" name="post[birthday]" value="<notempty name="res['birthday']">{$res.birthday|substr=0,4}-{$res.birthday|substr=4,2}-{$res.birthday|substr=6,2}</notempty>"/>
+            </div>
+            <div class="edit-item right">
+                <span class="field-name">实习居住地</span>
+                <span class="field-input js_sx_val" data-prov="{$res.province_code}" data-city="{$res.city_code}" onclick="setCity($(this),'sx')">{$res.city_name}</span>
+                <input class="field-detail validate[required]" type="text" name="post[address]" placeholder="详细街道信息" value="{$res.address}" data-prompt-position="inline"/>
+                <input type="hidden" name="post[province_id]" value="{$res.province_code}">
+                <input class="validate[required]" type="text" name="post[city_id]" value="{$res.city_code}" style="height:0.5px;width:0px;padding:0px;margin:0px;">
+            </div>
+            <div class="edit-item right">
+                <span class="field-name">户口所在地</span>
+                <span class="field-input js_hk_val" data-prov="{$res.hk_province_code}" data-city="{$res.hk_city_code}" onclick="setCity($(this),'hk')">{$res.hk_city_name}</span>
+                <input type="hidden" name="post[hk_province_id]" value="{$res.hk_province_code}">
+                <input type="text" class="validate[required]" name="post[hk_city_id]" value="{$res.hk_city_code}" style="height:0.5px;width:0px;padding:0px;margin:0px;">
+            </div>
+            <div class="edit-item">
+                <span class="field-name">身份证号码</span>
+                <input class="field-input validate[custom[chinaId]]" type="text" name="post[card_no]" value="{$res.card_no}"/>
+            </div>
+            <div class="edit-item">
+                <span class="field-name">户口类型</span>
+                <select class="field-input validate[required]" name="post[hk_type]">
+                    <option value="">请选择</option>
+                    <option value="0" <if condition="$res['gender'] eq 0">selected</if>>城镇户口</option>
+                    <option value="1" <if condition="$res['gender'] eq 1">selected</if>>农村户口</option>
+                    <option value="2" <if condition="$res['gender'] eq 2">selected</if>>集体户口</option>
+                </select>
+            </div>
+            <input type="hidden" name="post[avatar_id]" value="{$res.avatar_id|default=0}">
+            <input type="hidden" name="post[card_type]" value="1">
+            <if condition="$res['id']">
+            <input type="hidden" name="post[type]" value="update">
+            <input type="hidden" name="post[id]" value="{$res['id']}">
+            <else />
+            <input type="hidden" name="post[type]" value="create">
+            <input type="hidden" name="post[resume_id]" value="{$res['resume_id']}">
+            </if>
+            <input class="edit-save" type="button" onclick="$('#resumeBaseForm').submit();" value="下一步：教育经历">
+        </div>
+        </form>
+    </div>
+    <!--实习居住地、户口所在地、学校选择弹层-->
+<div class="resume-popup select_city">
+    <div class="popup-info">
+        <ul class="left-info prov_zone">
+        <foreach name="prov" item="v">
+             <li class="info-block" data="{$v.code}">{$v.name}</li>
+            </foreach>
+        </ul>
+        <ul class="right-info city_zone">
+        </ul>
+    </div>
+</div>
+
+
+<!--简历信息填写不全返回提示层-->
+<div class="popup exit_tixing" style="display:none;">
+    <div class="popup-info">
+        <a class="popup-close" href="javascript:" onclick="$('.exit_tixing').hide()"><i></i></a>
+        <div class="popup-img"><img src="__PUBLIC__/img/wap/warn.png"/></div>
+        <div class="popup-text">
+            现在退出简历编写，<br>
+            之前所填写内容无法保存哦
+        </div>
+        <div class="popup-btn">
+            <input class="sub-btn" type="button" onclick="$('.exit_tixing').hide()" value="继续填写"/>
+            <input class="sub-btn return" type="button" onclick="window.location.href='/mmyResume.html'" value="确认返回"/>
+        </div>
+    </div>
+</div>
+</body>
+<script src="__PUBLIC__/js/wap/mresume.js"></script>
+</html>

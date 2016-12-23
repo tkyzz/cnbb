@@ -1,0 +1,21 @@
+                            <div class="detail-item-title">
+                                <p class="title"><span>校内经历</span></p>
+                            </div>
+                            <div class="detail-item-title level-title">
+                                <p class="title"><span>学生奖励与荣誉</span></p>
+                                <div class="action-box">
+                                    <div class="sub-action add js_reward_add"><i></i>添加</div>
+                                </div>
+                            </div>
+                            <div class="show-level">
+                            <foreach name="rjp.rewards" item="v">
+                                <div class="sub-info">
+                                <div class="sub-edit edit js_reward_edit" data-id="{$v.id}" data-resumeid="{$rjp.resume_id}"><i></i>编辑</div>
+                                    <div class="college-info">
+                                        <span class="company-tag">{$v.name}</span>
+                                        <span class="company-tag">{$v.level|smartRewardLevel=###}</span>
+                                        <span class="from-to"><span>{$v.get_time|substr_replace=###,'.',4,0}</span></span>
+                                    </div>
+                                </div>
+                            </foreach>
+                            </div>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菜鸟帮帮-我的简历</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/public.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/main.css">
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/layer/layer.js"></script>
+    <script src="__PUBLIC__/js/common-org.js"></script>
+</head>
+<body>
+
+<switch name="Think.get.p">
+<case value="top" break="1">
+<if condition="$Think.get.t eq kz">
+<!--快照使用-->
+    <div class="profile-top">
+        <img src="__PUBLIC__/img/profile_photo_top.jpg"/>
+        <empty name="Think.cookie.cnbb_token">
+        <!--企业已经登录使用，联系方式全部显示-->
+        <div class="back-index"><a class="go-back" href="{:C(EE_URL)}">返回我的工作台</a></div>
+        </empty>
+    </div>
+<else />
+<!--企业简历查看及pdf使用-->
+<div class="preview-top" style="display: block"><img src="__PUBLIC__/img/profilePreview_top.jpg"/></div>
+</if>
+</case>
+<case value="foot" break="1">
+
+<if condition="$Think.get.t eq kz">
+<!--快照使用-->
+<div class="profile-footer">
+    <div class="footer-bg">
+        <div class="bg-left"></div>
+        <div class="bg-right"></div>
+    </div>
+    <div class="footer-box">
+        <div class="footer-img"><img src="__PUBLIC__/img/profile_bottom.png"/></div>
+        <span class="profile-ad">海量高校人才简历、精准高校简历推荐、一对一专属招聘服务</span>
+        <a class="login-link" href="/hrRegister.html">登 录</a>
+        <div class="others-link">
+            <a class="register-link" onclick="$('#login').show()">立即注册 →</a>
+            <div class="others-btn">
+                <a class="sub-link tel-link" href="/hrRegister.html"><img src="__PUBLIC__/img/profile_btn_tel.png"/></a>
+                <a class="sub-link free-link" href="/hrRegister.html"><img src="__PUBLIC__/img/profile_btn_free.png"/></a>
+            </div>
+        </div>
+    </div>
+</div>
+<else />
+    <div class="preview-bottom" style="display: block">菜鸟帮帮网址<a class="our-link" href="www.cainiaobangbang.com">www.cainiaobangbang.com</a> </div>
+</body>
+</html>
+</if>
+
+</case>
+<case value="main" break="1">
+<include file="./Application/Home/View/Index/inc_kz_main.html" />
+</case>
+<default />
+<if condition="$Think.get.t eq kz">
+<!--快照使用-->
+    <div class="profile-top">
+        <img src="__PUBLIC__/img/profile_photo_top.jpg"/>
+        <notempty name="Think.cookie.cnbb_token">
+        <!--企业已经登录使用，联系方式全部显示-->
+        <div class="back-index"><a class="go-back" href="{:C(EE_URL)}">返回我的工作台</a></div>
+        </notempty>
+    </div>
+</if>
+<include file="./Application/Home/View/Index/inc_kz_main.html" />
+<if condition="$Think.get.t eq kz">
+    <!--快照使用（快照企业已经登录，profile-footer不显示）-->
+    <empty name="Think.cookie.cnbb_token">
+    <div class="profile-footer" style="display: block">
+        <div class="footer-bg">
+            <div class="bg-left"></div>
+            <div class="bg-right"></div>
+        </div>
+        <div class="footer-box">
+            <div class="footer-img"><img src="__PUBLIC__/img/profile_bottom.png"/></div>
+            <span class="profile-ad">海量高校人才简历、精准高校简历推荐、一对一专属招聘服务</span>
+            <a class="login-link" onclick="$('#login').show()">登 录</a>
+            <div class="others-link">
+                <a class="register-link" href="/hrRegister.html">立即注册 →</a>
+                <div class="others-btn">
+                    <a class="sub-link tel-link" href="companyLogon/companyRegister.html"><img src="__PUBLIC__/img/profile_btn_tel.png"/></a>
+                    <a class="sub-link free-link" href="companyLogon/companyRegister.html"><img src="__PUBLIC__/img/profile_btn_free.png"/></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </empty>
+</if>
+</switch>

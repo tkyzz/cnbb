@@ -1,0 +1,60 @@
+                        <div class="my-avatar">
+                                <notempty name="info.avatar_url">
+                                    <img src="{$info.avatar_url}">
+                                <else />
+                                <if condition="$info['gender'] eq 2">
+                                    <img src="__PUBLIC__/img/female.jpg">
+                                <else />
+                                    <img src="__PUBLIC__/img/man.jpg">
+                                </if>    
+                                </notempty>    
+                        </div>
+                        <div class="basic-info">
+                            <div class="my-name">
+                                <span class="name">{$info.fullname}</span>
+                                <span class="edit js_baseinfo_edit"><i></i>编辑</span>
+                            </div>
+                            <div class="my-basic">
+                                <div class="my-basic-info basic-sex">
+                                    <i></i>
+                                    <span><if condition="$res['info']['gender'] eq 1">男<else />女</if></span>
+                                </div>
+                                <if condition="$info['height']">
+                                    <div class="my-basic-info basic-height">
+                                        <i></i>
+                                    <span>{$info['height']*100}CM</span>
+                                    </div>
+                                </if>
+
+                                <div class="my-basic-info basic-birth">
+                                    <i></i>
+                                    <span>{$info.birthday|substr=0,4}年{$info.birthday|substr=4,2}月{$info.birthday|substr=6,2}日</span>
+                                </div>
+                                <div class="my-basic-info basic-org">
+                                    <i></i>
+                                    <span>{$info.politics|smartResumeDict=politics,###}</span>
+                                </div>
+                            </div>
+                            <div class="my-basic two-column my-phone">
+                                <i></i>
+                                <span>{$info.phone}</span>
+                            </div>
+                            <div class="my-basic two-column my-mail">
+                                <i></i>
+                                <span>{$info.email}</span>
+                            </div>
+                            <div class="my-basic addr-live">
+                                <i></i>
+                                <span>实习居住地：<span>{$info.province_name}-{$info.city_name}-{$info.address}</span></span>
+                            </div>
+                            <div class="my-basic addr-born">
+                                <i></i>
+                                <span>户口所在地：<span>{$info.hk_province_name}-{$info.hk_city_name}</span></span>
+                                <span>{$info.hk_type|smartResumeDict=hktype,###}</span>
+                            </div>
+                            <div class="my-basic about-me">
+                            <foreach name="res.info.tags" item="v">
+                                <span>{$v}</span>
+                            </foreach> 
+                            </div>
+                        </div>

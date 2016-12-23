@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<include file="./Application/Home/View/libpage/inc_header.html" />
+    <meta charset="UTF-8">
+    <title>财金鸟-账号设置-修改密码</title>
+</head>
+<body>
+<include file="./Application/Home/View/libpage/inc_top.html" />
+
+    <div class="profile-banner"><img src="__PUBLIC__/img/profile_top.jpg"/></div>
+
+    <div class="my-info-box">
+        <div class="content">
+            <p class="block-title">账号设置</p>
+        </div>
+
+        <div class="my-detail">
+            <div class="detail settings">
+                <div class="slide-nav">
+                    <a class="sub-slide-nav myinfo" href="/userInfo/setting.html"><i></i>个人信息</a>
+                    <a class="sub-slide-nav intention" href="/userInfo/changePwd.html"><i></i>修改密码</a>
+                    <a class="sub-slide-nav invitation active" href="/userInfo/invitation.html"><i></i>邀请码</a>
+                </div>
+                <div class="settings-info">
+                    <form>
+                        <div class="input-box invitation-input">
+                            <input id="invitation_text" type="text" value="{$code}" placeholder="请输入邀请码" />
+                        </div>
+
+                        <input class="settings-btn" type="button" value="提交"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<a class="my-advice" href=""><i></i><span>我的建议</span></a>-->
+
+<include file="./Application/Home/View/libpage/inc_buttom.html" />
+
+    <!--提交成功弹层-->
+    <div class="popup invitation-popup" id="invitation">
+        <div class="popup-info invitation-info">
+            <div class="save-img"><img src="__PUBLIC__/img/invitation.png"/></div>
+            <div class="save-tips">提交成功</div>
+        </div>
+    </div>
+
+    <!--已经绑定过邀请码-->
+    <div class="popup invitation-popup" id="invitationWarn">
+        <div class="popup-info invitation-info">
+            <div class="save-img"><img src="__PUBLIC__/img/invitation_warn.png"/></div>
+            <div class="save-tips">此账号已经绑定过邀请码</div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    $('.settings-btn').click(function(){
+        var code = $('#invitation_text').val();
+        if(code.length == 5){
+            $.post("/userInfo/invitation",{code:code},
+                function(data){
+                   if (data.status==1) {
+                         $("#invitation").show().delay(1500).fadeOut();
+                      } else {
+                         $("#invitationWarn").show().delay(1500).fadeOut();
+                      }
+                    },
+                "json");
+        }else{
+            return;
+        }
+
+    });
+
+
+</script>

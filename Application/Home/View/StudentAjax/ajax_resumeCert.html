@@ -1,0 +1,55 @@
+                       <div class="detail-item-title">
+                           <p class="title"><span>财金证书</span></p>
+                           <div class="action-box">
+                              
+                               <div class="sub-action add js_cert_add"><i></i>添加</div>
+                           </div>
+                       </div>
+                <foreach name="certificates" item="v">
+                    <if condition="$v['cert_type_id'] neq 10">
+                       <div class="sub-info">
+                           <div class="sub-edit edit js_cert_edit" data-id="{$v.id}" data-resumeid="{$res.id}" data-cid="{$v.cert_type_id}"><i></i>编辑</div>
+                           <div class="college-info">
+                               <span class="major">{$v.cert_type_name|smartSubstr='（'}</span>
+                               <span class="ability">
+                                <if condition="$v['is_allpass']">
+                                        <if condition="$v['cert_type_id'] eq 5">
+                                        <span>持证人</span>
+                                        <else />
+                                        <span>全部通过</span>
+                                        </if> 
+                                <else />
+                                   <span>{$v.coursenames|implode=；,###}</span>
+                                 </if>
+
+                               </span>
+                           </div>
+                       </div>
+                    <else />
+                       <div class="sub-info">
+                            <div class="sub-edit edit js_cert_edit" data-id="{$v.id}" data-resumeid="{$res.id}" data-cid="{$v.cert_type_id}"><i></i>编辑</div>
+                           <div class="college-info">
+                               <span class="major">{$v.cert_type_name|smartSubstr='（'}</span>
+                               <div class="ability">
+                                   <div class="sub-ability">
+
+                                       <span class="sub-ability-stage">F阶段</span>
+                                <if condition="$v['is_allpass']">
+                                        <span>全部通过</span>
+                                <else />
+                                       <span>{$v.fcourse}</span>
+                                 </if>
+                                   </div>
+                                   <div class="sub-ability">
+                                       <span class="sub-ability-stage">P阶段</span>
+                                    <if condition="$v['is_allpass2']">
+                                            <span>全部通过</span>
+                                    <else />
+                                        <span>{$v.pcourse}</span>
+                                </if>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                    </if>
+                </foreach>

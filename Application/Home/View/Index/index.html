@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="菜鸟帮帮是国内领先的金融实习生招聘平台,500强实习,优质实习机会,优秀实习生,找实习就上菜鸟帮帮,实习生招聘首选菜鸟帮帮,大学生金融实习第一品牌。">
+    <meta name="keywords" content="实习,实习生,找实习,实习生招聘,寒假实习,菜鸟帮帮,大学生实习,实习网,实习吧">
+    <title>菜鸟帮帮-想去金融机构实习？上菜鸟帮帮！</title>
+    <include file="./Application/Home/View/libpage/inc_header.html" />
+</head>
+<body>
+<include file="./Application/Home/View/libpage/inc_top.html" />
+
+    <div class="banner" id="slides">
+        <ul class="banner-img">
+            <li class="img-list"><img src="__PUBLIC__/img/banner_jrjg.jpg"/></li>
+            <li class="img-list"><img src="__PUBLIC__/img/banner_cnbb.jpg"/></li>
+            <!-- <li class="img-list"><a href="//campus.finance365.com/" target="_blank"><img src="__PUBLIC__/img/banner_ds.jpg"/></a></li> -->
+            <!-- <li class="img-list"><a href="/activity.html" target="_blank"><img src="__PUBLIC__/img/banner_cj.jpg"/></a></li> -->
+        </ul>
+        <div class="banner-slider">
+            <a class="banner-btn prev" href="javascript:;"><i></i></a>
+            <a class="banner-btn next" href="javascript:;"><i></i></a>
+        </div>
+    </div>
+
+    <div class="index">
+        <div class="index-content">
+            <div class="classify">
+                <p class="slide-tag"></p>
+                <div class="classify-item">
+                    <a class="classify-title syyh" href="/postList.html?trade=1" target="_blank"><i></i>商业银行</a>
+                    <div class="sub-classify">
+                        <a href="/postList.html?trade=1" target="_blank">国有银行</a>
+                        <a href="/postList.html?trade=1" target="_blank">股份制银行</a>
+                        <a href="/postList.html?trade=1" target="_blank">外资银行</a>
+                        <a href="/postList.html?trade=1" target="_blank">城商行/农商行</a>
+                    </div>
+                </div>
+                <div class="classify-item">
+                    <a class="classify-title zqtz" href="/postList.html?trade=5" target="_blank"><i></i>证券投资</a>
+                    <div class="sub-classify">
+                        <a href="/postList.html?trade=5" target="_blank">券商(含投行)</a>
+                        <a href="/postList.html?trade=5" target="_blank">期货</a>
+                        <a href="/postList.html?trade=5" target="_blank">信托</a>
+                        <a href="/postList.html?trade=5" target="_blank">基金</a>
+                        <a href="/postList.html?trade=5" target="_blank">其他投资机构</a>
+                    </div>
+                </div>
+                <div class="classify-item">
+                    <a class="classify-title bxhy" href="/postList.html?trade=11" target="_blank"><i></i>保险</a>
+                    <div class="sub-classify">
+                        <a href="/postList.html?trade=11">全部保险机构</a>
+                    </div>
+                </div>
+                <div class="classify-item">
+                    <a class="classify-title xxjrhy" href="/postList.html?trade=13" target="_blank"><i></i>新兴金融行业</a>
+                    <div class="sub-classify">
+                        <a href="/postList.html?trade=13" target="_blank">第三方理财</a>
+                        <a href="/postList.html?trade=13" target="_blank">互联网金融</a>
+                    </div>
+                </div>
+                <div class="classify-item">
+                    <a class="classify-title cwkj" href="/postList.html?trade=16" target="_blank"><i></i>财务会计</a>
+                    <div class="sub-classify">
+                        <a href="/postList.html?trade=16" target="_blank">外资会计师事务所</a>
+                        <a href="/postList.html?trade=16" target="_blank">企业财会</a>
+                        <a href="/postList.html?trade=16" target="_blank">中资会计师事务所</a>
+                    </div>
+                </div>
+                <div class="classify-item">
+                    <a class="classify-title qt" href="/postList.html?trade=20" target="_blank"><i></i>其他</a>
+                    <div class="sub-classify">
+                        <a href="/postList.html?trade=20" target="_blank">咨询</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service">
+                <img src="__PUBLIC__/img/service.png"/>
+                <div class="service-text">
+                    <p class="text-title">扫一扫</p>
+                    <p class="text-cont">联系猎头姐姐</p>
+                    <p class="text-cont">有独家内推机会哦~</p>
+                </div>
+            </div>
+
+            <div class="post-recommend">
+             <for start="0" end="23" step="2">
+                <div class="post-box">
+                    <div class="post-item">
+                        <a class="post-img" href="/post/company/{$job[$i].org.id|smartBase64=###}.html" target="_blank"><img src="{$job[$i].org.b_logo_url}"/></a>
+                        <div class="post-info">
+                            <a class="post-name" href="/post/{$job[$i].id|smartBase64=###}.html" target="_blank">
+                                <span>{$job[$i].name|msubstr=0,11}</span>
+                                <notempty name="job[$i].ishot">
+                                <!--急招岗位显示img-->
+                                <img class="hot-post" src="__PUBLIC__/img/hot_post.png"/>
+                                </notempty>
+                            </a>
+                            <p class="company-name">{$job[$i].org.abbrname}</p>
+                            <div class="post-demand">
+                                <span class="sub-demand degree"><i></i>{$job[$i].degree|smartDegree=###}</span>
+                                <span class="sub-demand post-addr"><i></i>{$job[$i].city_name}-<notempty name="job[$i].zone_name">{$job[$i].zone_name}<else />全市</notempty></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-item">
+                        <a class="post-img" href="/post/company/{$job[$i+1].org.id|smartBase64=###}.html" target="_blank"><img src="{$job[$i+1].org.b_logo_url}"/></a>
+                        <div class="post-info">
+                            <a class="post-name" href="/post/{$job[$i+1].id|smartBase64=###}.html" target="_blank">
+                                <span>{$job[$i+1].name|msubstr=0,11}</span>
+                                <notempty name="job[$i+1].ishot">
+                                <!--急招岗位显示img-->
+                                <img class="hot-post" src="__PUBLIC__/img/hot_post.png"/>
+                                </notempty>
+                            </a>
+                            <p class="company-name">{$job[$i+1].org.abbrname}</p>
+                            <div class="post-demand">
+                                <span class="sub-demand degree"><i></i>{$job[$i+1].degree|smartDegree=###}</span>
+                                <span class="sub-demand post-addr"><i></i>{$job[$i+1].city_name}-<notempty name="job[$i+1].zone_name">{$job[$i+1].zone_name}<else />全市</notempty></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </for>
+                <a class="more-post" href="/postList.html" target="_blank">更多岗位<i></i></a>
+            </div>
+        </div>
+    </div>
+    <if condition="$is_show eq 1">
+        <include file="./Application/Home/View/index/inc_postwill.html" />
+    </if>
+<include file="./Application/Home/View/libpage/inc_buttom.html" />
+
+<script type="text/javascript">
+    $(function(){
+        $('#slides').slides({
+            container: 'banner-img',
+            preload: true,
+            play: 3000,
+            pause: 1000,
+            hoverPause: true,
+            effect: 'slide',
+            slideSpeed: 850
+        });
+    });
+//     window.onbeforeunload = function(event) 
+//     { 
+//         onunloadcancel;
+//         return layer.msg('确定关闭吗？');
+//     //return confirm("确定退出吗"); 
+//     } 
+//     window.onunloadcancel = function()
+// {
+//     alert("取消离开");
+// }
+</script>
+</body>
+</html>

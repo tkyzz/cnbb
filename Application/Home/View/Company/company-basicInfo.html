@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="金融机构实习，找菜鸟帮帮">
+    <meta name="keys" content="实习,金融,学生">
+    <title>菜鸟帮帮-企业基本信息</title>
+    <include file="./Application/Home/View/libpage/inc_header.html" />
+</head>
+<body>
+    <div class="page company-page company-basic-info">
+<include file="./Application/Home/View/libpage/inc_company_top.html" />
+ <form id="createComForm" name="createComForm" method="post">
+        <div class="logon-box">
+            <div class="basic-title">
+                <span class="title-cont">企业基本信息</span>
+                <span class="title-line"></span>
+            </div>
+            <div class="basic-item">
+                <span class="basic-name">企业全称</span>
+                <input class="basic-cont" type="text" name="fullname" placeholder="请输入与公司营业执照一致的企业名称，如：财金通教育科技（上海）有限公司"/>
+            </div>
+            <div class="basic-item">
+                <span class="basic-name">企业简称</span>
+                <input class="basic-cont" type="text" name="abbrname" placeholder="请输入企业简称，如：财金通。该简称用于向学生用户展示"/>
+            </div>
+            <div class="basic-item">
+                <span class="basic-name">所属行业</span>
+                <div  class="basic-cont basic-choose">
+                    <select onchange="gertrade('org_trade',$(this).val())" name="trade">
+                        <option value="">一级行业</option>
+                        <foreach name="trades" item="v">
+                            <option value="{$v.id}">{$v.name}</option>
+                        </foreach>
+                    </select>
+                </div>
+                <div class="basic-cont basic-choose">
+                    <select id="org_trade" name="subtrade">
+                        <option value="">二级行业</option>
+                    </select>
+                </div>
+            </div>
+<!--             <div class="basic-item">
+                <span class="basic-name">企业性质</span>
+                <div class="basic-cont basic-choose">
+                    <select name="nature">
+                        <option value="">企业性质</option>
+                        <foreach name="company_type" item="v">
+                            <option value="{$v.id}">{$v.name}</option>
+                        </foreach>
+                    </select>
+                </div>
+            </div> -->
+            <div class="basic-item">
+                <span class="basic-name">企业地址</span>
+                <div class="basic-cont addr-choose">
+                    <select onchange="getcity('org_city',$(this).val())" name="province">
+                        <option value="">省/直辖市</option>
+                        <foreach name="area" item="v">
+                            <option value="{$v.code}">{$v.name}</option>
+                        </foreach>
+                    </select>
+                </div>
+                <div class="basic-cont addr-choose">
+                    <select id="org_city" name="city">
+                        <option value="">市</option>
+                    </select>
+                </div>
+                <input class="basic-cont addr-detail" type="text" name="addr" placeholder="请填写机构所在的详细地址">
+            </div>
+            <div class="basic-item">
+                <span class="basic-name">企业简介</span>
+                <textarea class="basic-cont js_org_intro" name="remark" placeholder="请输入企业简介，可包括：企业核心业务、企业文化、竞争优势、核心价值观等亮点，供学生参考了解。描述信息越详尽，合适简历投递也会越多噢~~"></textarea>
+                <div class="font-count"><span class="js_count">0/500</div>
+            </div>
+<!--             <div class="basic-item highlight">
+                <span class="basic-name">亮点标签</span>
+                <div class="highlight-tag">
+                <foreach name="tag_list" item="v">
+                    <span class="sub-tag">{$v.tag_name}</span>
+                </foreach>
+                    <div class="more-tag">
+                        <input class="tag-edit" type="text" placeholder="更多标签"/>
+                        <a class="tag-add">+</a>
+                    </div>
+                </div>
+            </div> -->
+            <div id="error"></div>
+            <!-- <input type="text" name="tags" value="" style="height:0.5px;width:0px;padding:0px;margin:0px;"> -->
+            <input class="submit-btn js_sub_orgcreate" type="button" value="下一步"/>
+        </div>
+</form>
+<include file="./Application/Home/View/libpage/inc_buttom.html" />
+    </div>
+<script src="__PUBLIC__/js/member.js?v=1.1"></script>
+<script type="text/javascript">
+// //标签高亮
+// $("body").delegate(".highlight-tag span","click",function(){
+//     var spans = new Array();
+//     if ($(this).hasClass('active')){
+//         $(this).removeClass('active');
+//     }else{
+//         $(this).addClass('active');
+//     }
+//     //遍历
+//     $('.sub-tag').each(function(i){
+//         if($(this).hasClass('active') == true){
+//             spans.push($(this).text())
+//        } 
+//     });
+//    // console.log(spans);
+//     str = spans.join('|');
+//     $('[name="tags"]').val(str);   
+// });
+
+//计数
+    $('.js_org_intro').keyup(function() {
+        
+        var value = $('.js_org_intro').val();
+        if ($('.js_org_intro').val().length > 500) {
+           $('.js_org_intro').val(value.substring(0,500));
+        }else{
+            $('.js_count').html("<span>"+value.length+"</span>/500");
+        }
+        
+    });
+// //标签添加
+// $('.tag-add').click(function(){
+//     var name = $('.tag-edit').val();
+//      var spans = new Array();
+//     if(name == "" ){
+//         return false;
+//     }
+//     if(name.length >8){
+//         layer.msg('标签不能超过八个字', {icon: 5});
+//         return false;
+//     }
+//     //alert(name);
+//     $('.highlight-tag .more-tag').before('<span class="sub-tag active">'+name+'</span>');
+//     $('.tag-edit').val("");
+//     //遍历
+//     $('.sub-tag').each(function(i){
+//         if($(this).hasClass('active') == true){
+//             spans.push($(this).text())
+//        } 
+//     });
+//    // console.log(spans);
+//     str = spans.join('|');
+//     $('[name="tags"]').val(str); 
+// });
+</script>
+</body>
+</html>

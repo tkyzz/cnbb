@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<include file="./Application/Home/View/libpage/inc_header.html" />
+    <meta charset="UTF-8">
+    <title>菜鸟帮帮-面试通知</title>
+</head>
+<body>
+<include file="./Application/Home/View/libpage/inc_top.html" />
+
+    <div class="profile-banner"><img src="__PUBLIC__/img/profile_top.jpg"/></div>
+
+    <div class="my-info-box">
+        <div class="content">
+  <include file="./Application/Home/View/libpage/inc_my_nav.html" />
+            <!--<p class="block-title">面试通知</p>-->
+        </div>
+
+        <div class="my-detail">
+        <foreach name="res" item="v">
+            <div class="detail my-notice">
+                <a class="from-info" href="companyProfile.html">
+                    <div class="avatar"><img src="{$v.org.b_logo_url}"/></div>
+                    <span class="from-name">{$v.org.abbrname}</span>
+                </a>
+                <div class="notice-info">
+                    <!-- 面试提醒 -->
+                     <if condition="$v['msg_count'] egt 4">
+                    <div class="notice-item <if condition="$v['messages'][3]['interview_message']['is_end'] eq 0">new-notice</if>">
+                        <p class="notice-title <if condition="$v['msg_count'] eq 4">notice-up</if>">
+                            <span class="notice-post">【面试提醒】<a class="from" href="/post/{$v.post.id|smartBase64=###}.html" target="_blank">{$v.post.name}</a>
+                                <!--<i class="notice-icon"></i>-->
+                            </span>
+                            <span class="time">{$v.messages.3.post_time|smartTimeFormat=###}</span>
+                            <i class="up-down"></i>
+                        </p>
+                        <div class="notice-cont">
+                            <p class="interview-cont">
+                                {$v.messages.content}
+                            </p>
+                            </p>
+                        </div>
+                    </div>
+                    </if>
+                    <!-- 再次改期 -->
+                     <if condition="$v['msg_count'] egt 3">
+                    <div class="notice-item <if condition="$v['messages'][2]['interview_message']['is_end'] eq 0">new-notice</if>">
+                       <p class="notice-title <if condition="$v['msg_count'] eq 3">notice-up</if>">
+                           <span class="notice-post">【面试改期】<a class="from" href="/post/{$v.post.id|smartBase64=###}.html" target="_blank">{$v.post.name}</a>
+                               <!--<i class="notice-icon"></i>-->
+                           </span>
+                           <span class="time">{$v.messages.2.post_time|smartTimeFormat=###}</span>
+                           <i class="up-down"></i>
+                       </p>
+                       <div class="notice-cont">
+                           <p class="interview-cont">
+                               {$v.messages.0.content}
+                           </p>
+                            <p class="interview-info">面试时间：<span>{$v.messages.0.interview_message.interview_time|smartTimeFormat=###}</span></p>
+                            <p class="interview-info">面试地点：<span>{$v.messages.0.interview_message.address}</span></p>
+                            <p class="interview-info">面试要求：<span>{$v.messages.0.interview_message.claim}</span></p>
+                            <p class="interview-info info-tel">联系电话：<span>{$v.messages.0.interview_message.phone}</span></p>
+
+                            <foreach name="v.messages.1.interview_message.event_items" item="val">
+                            <if condition="$v['messages'][1]['interview_message']['selected_event_id'] eq $val['event_id']">
+                            <p class="reply-warn">
+                                面试时间更改为：<span>{$val.value|str_replace='/','.',###}</span>
+                            </p>
+                            </if>
+                            </foreach>
+                            <if condition="$v['messages'][2]['interview_message']['selected_event_item_type'] eq 0">
+                           <div class="notice-btn">
+                               <a class="sure" href="javascript:;" data-id="{$v.messages.2.id}" data-eventid="{$v.messages.2.interview_message.event_items.0.event_id}">参加</a>
+                               <a class="resign" href="javascript:;" data-id="{$v.messages.2.id}" data-eventid="{$v.messages.2.interview_message.event_items.1.event_id}">放弃</a>
+                           </div>
+                            <elseif condition="$v['messages'][2]['interview_message']['selected_event_item_type'] eq 2"/>
+                           <div class="results results-sure">
+                               <p class="profile-results">
+                                   <span class="last-results">你已确认参加面试</span>
+                               </p>
+                               <div class="last-reply"><img src="__PUBLIC__/img/company_sure.png"/></div>
+                           </div>
+                            <elseif condition="$v['messages'][2]['interview_message']['selected_event_item_type'] eq 3" />
+                           <div class="results results-resign">
+                               <p class="profile-results">
+                                   <span class="last-results">你已放弃面试机会</span>
+                               </p>
+                               <div class="last-reply"><img src="__PUBLIC__/img/resign.png"/></div>
+                           </div>
+                           </if>
+                       </div>
+                   </div>
+                   </if>
+                   <!-- 改期 -->
+                    <if condition="$v['msg_count'] egt 2">
+                    <div class="notice-item <if condition="$v['messages'][1]['interview_message']['is_end'] eq 0">new-notice</if>">
+                        <p class="notice-title <if condition="$v['msg_count'] eq 2">notice-up</if>">
+                            <span class="notice-post">【面试改期】<a class="from" href="/post/{$v.post.id|smartBase64=###}.html" target="_blank">{$v.post.name}</a>
+                                <!--<i class="notice-icon"></i>-->
+                            </span>
+                            <span class="time">{$v.messages.1.post_time|smartTimeFormat=###}</span>
+                            <i class="up-down"></i>
+                        </p>
+                        <div class="notice-cont">
+                            <p class="interview-cont">
+                                {$v.messages.0.content}
+                            </p>
+                            <p class="interview-info">面试时间：<span>{$v.messages.0.interview_message.interview_time|smartTimeFormat=###}</span></p>
+                            <p class="interview-info">面试地点：<span>{$v.messages.0.interview_message.address}</span></p>
+                            <p class="interview-info">面试要求：<span>{$v.messages.0.interview_message.claim}</span></p>
+                            <p class="interview-info">联系电话：<span>{$v.messages.0.interview_message.phone}</span></p>
+                            
+                            <if condition="$v['messages'][1]['interview_message']['is_end'] eq 0">
+                            <p class="profile-results">
+                                面试时间更改为：<span>{$v['messages'][1]['interview_message']['interview_time']|smartTimeFormat=###}</span>，等待企业确认。
+                            </p>
+                            <else />
+                            <p class="profile-results">
+                                面试时间更改为：<span>{$v['messages'][1]['interview_message']['interview_time']|smartTimeFormat=###}</span>
+                                <span class="last-results">你已确认参加面试</span>
+                            </p>
+                            </if>
+                           
+                            <if condition="$v['messages'][1]['interview_message']['is_end'] eq 1">
+                            <div class="last-reply"><img src="__PUBLIC__/img/company_sure.png"/></div>
+                            </if>
+                        </div>
+                    </div>
+                    </if>
+                    <!-- 面试通知 -->
+                    <if condition="$v['msg_count'] egt 1">
+                    <div class="notice-item <if condition="$v['messages'][0]['interview_message']['is_end'] eq 0">new-notice</if>">
+                       <p class="notice-title <if condition="$v['msg_count'] eq 1">notice-up</if>">
+                           <span class="notice-post">【面试通知】<a class="from" href="/post/{$v.post.id|smartBase64=###}.html" target="_blank">{$v.post.name}</a>
+                               <!--<i class="notice-icon"></i>-->
+                           </span>
+                           <span class="time">{$v.messages.0.post_time|smartTimeFormat=###}</span>
+                           <i class="up-down"></i>
+                       </p>
+                       <div class="notice-cont">
+                           <p class="interview-cont">
+                              {$v.messages.0.content}
+                           </p>
+                            <p class="interview-info">面试时间：<span>{$v.messages.0.interview_message.interview_time|smartTimeFormat=###}</span></p>
+                            <p class="interview-info">面试地点：<span>{$v.messages.0.interview_message.address}</span></p>
+                            <p class="interview-info">面试要求：<span>{$v.messages.0.interview_message.claim}</span></p>
+                            <p class="interview-info">联系电话：<span>{$v.messages.0.interview_message.phone}</span></p>
+                            <if condition="$v['messages'][0]['interview_message']['is_end'] eq 0">
+                           <p class="reply-warn">
+                               请于<span class="reply-time">{$v.messages.0.interview_message.last_reply_time|smartTimeFormat=###}</span>前回复本通知
+                               <!--无面试备选时间的change-tips不显示-->
+                               <if condition="$v['messages'][0]['interview_message']['event_items'][2]['value']">
+                               <span class="change-tips">，如需改期请点击<a class="reply-change" href="javascript:;">【改期】</a></span>
+                               </if>
+                           </p>
+                            </if>
+                            <if condition="$v['messages'][0]['interview_message']['event_items'][2]['value']">
+                           <div class="reply-info" style="display:none;">
+                               <p>我希望的面试时间</p>
+                            <if condition="$v['messages'][0]['interview_message']['event_items'][2]['value']">
+                               <div class="sub-reply">
+                                   <input id="reply{$v.messages.0.interview_message.event_items.2.event_id|substr=0,2}" type="radio" name="reply" value="{$v.messages.0.interview_message.event_items.2.event_id}"/>
+                                   <label for="reply{$v.messages.0.interview_message.event_items.2.event_id|substr=0,2}">{$v.messages.0.interview_message.event_items.2.value}  </label>
+                               </div>
+                            </if>
+                             <if condition="$v['messages'][0]['interview_message']['event_items'][3]['value']">
+                               <div class="sub-reply">
+                                   <input id="reply{$v.messages.0.interview_message.event_items.3.event_id|substr=0,2}" type="radio" name="reply" value="{$v.messages.0.interview_message.event_items.3.event_id}"/>
+                                   <label for="reply{$v.messages.0.interview_message.event_items.3.event_id|substr=0,2}">{$v.messages.0.interview_message.event_items.3.value}</label>
+                               </div>
+                            </if>
+                           </div>
+                           </if>
+                            <if condition="$v['messages'][0]['interview_message']['selected_event_item_type'] eq 0">
+                           <div class="notice-btn">
+
+                               <a class="sure" href="javascript:;" data-id="{$v.messages.0.id}" data-eventid="{$v.messages.0.interview_message.event_items.0.event_id}">参加</a>
+                               <a class="resign" href="javascript:;" data-id="{$v.messages.0.id}" data-eventid="{$v.messages.0.interview_message.event_items.1.event_id}">放弃</a>
+                           </div>
+                        <elseif condition="$v['messages'][0]['interview_message']['selected_event_item_type'] eq 2"/>
+                           <div class="results results-sure">
+                               <p class="profile-results">
+                                   <span class="last-results">你已确认参加面试</span>
+                               </p>
+                               <div class="last-reply"><img src="__PUBLIC__/img/company_sure.png"/></div>
+                           </div>
+                        <elseif condition="$v['messages'][0]['interview_message']['selected_event_item_type'] eq 3" />
+                           <div class="results results-resign" >
+                               <p class="profile-results">
+                                   <span class="last-results">你已放弃面试机会</span>
+                               </p>
+                               <div class="last-reply"><img src="__PUBLIC__/img/resign.png"/></div>
+                           </div>
+                        <elseif condition="$v['messages'][0]['interview_message']['selected_event_item_type'] eq 4" />
+                           <div class="results results-sure">
+                               <p class="profile-results">
+                                   <span class="last-results">你已改期</span>
+                               </p>
+                               <div class="last-reply"><img src="__PUBLIC__/img/company_sure.png"/></div>
+                           </div>
+                        </if>
+                       </div>
+                   </div>
+                   </if>
+                </div>
+            </div>
+        </foreach>
+            <!-- 分页-->
+<!--             <div class="paging">
+                <span class="page-up" id="pageUp"><i></i></span>
+                <div class="page-list" id="pageGroup">
+                    <span class="active">1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                </div>
+                <span class="page-down" id="pageDown"><i></i></span>
+            </div> -->
+        </div>
+    </div>
+
+ <include file="./Application/Home/View/libpage/inc_buttom.html" />
+ <script type="text/javascript">
+//    myNotice reply-change
+    $(".my-notice").each(function () {
+        $(this).find(".reply-change").click(function () {
+            if ($(this).text()=="【改期】"){
+                $(this).parent().parent().next(".reply-info").show();
+                $(this).text("【取消改期】");
+            }else {
+                $(this).parent().parent().next(".reply-info").find("input").removeAttr("checked");
+                $(this).parent().parent().next(".reply-info").hide();
+                $(this).text("【改期】");
+            }
+        });
+
+        //    myNotice notice-cont show/hide
+        $(this).find(".up-down").click(function () {
+            $(this).parent().toggleClass("notice-up");
+            $(this).parent().next(".notice-cont").toggle();
+        });
+
+    //    myNotice results
+    //同意/改期
+        $(this).find(".notice-btn .sure").click(function () {
+            var val = $(this).parent().parent().find(".sub-reply").children("input:radio:checked").val();
+            var id= $(this).attr('data-id');
+            var event_id = $(this).attr('data-eventid');
+            if(event_id !=""){
+                if (typeof(val)!="undefined"){
+                    event_id = val;
+
+                }
+                $.post("/ajax/messageReply",{id:id,event_id:event_id},
+                          function(data){
+                             if (data.status==1) {
+                            $(this).parent().hide();
+                            $(this).parent().parent().find(".results.results-sure").show();
+                            window.location.reload();
+                                } else {
+                                    alert(data.msg);
+                                   window.location.reload();
+                                }
+                              },
+                          "json");
+             }else{
+                return;
+             }
+        });
+
+
+$('.results.results-sure').show();
+        //拒绝
+        $(this).find(".notice-btn .resign").click(function () {
+            var id= $(this).attr('data-id');
+            var event_id = $(this).attr('data-eventid');
+        $.post("/ajax/messageReply",{id:id,event_id:event_id},
+                  function(data){
+                     if (data.status==1) {
+                $(this).parent().hide();
+                $(this).parent().parent().find(".results.results-resign").show();
+                 window.location.reload();
+                        } else {
+                             window.location.reload();
+                        }
+                      },
+                  "json");
+        })
+
+    });
+ </script>
+</body>
+</html>

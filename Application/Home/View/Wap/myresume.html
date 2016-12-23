@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>我的简历</title>
+    <include file="./Application/Home/View/libpage/inc_wap_header.html" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/h5/resume.css">
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <a class="back" href="/mpostList.html"><i></i></a>
+            <span class="title">我的简历</span>
+        </header>
+        <div class="footer">
+            <div class="logo"><img src="__PUBLIC__/img/wap/logo.png"/></div>
+            <div class="slogan"><img src="__PUBLIC__/img/wap/slogan.png"/></div>
+            <div class="app-download">
+                <div class="cartoon"><img src="__PUBLIC__/img/wap/cartoon.png"/></div>
+                <a class="download" href="{$download_url}"><img src="__PUBLIC__/img/wap/download_btn.png"/></a>
+            </div>
+        </div>
+        <div class="content">
+        <form id="avatarform" name="avatarform" method="post" >
+            <div class="resume-block">
+                <p class="block-title">添加头像</p>
+                <div class="block-info">
+                    <div class="my-avatar">
+                        <div class="avatar-img">
+                            <notempty name="res.avatar_url">
+                                <img class="js_avatar_show" src="{$res.avatar_url}">
+                            <else />
+                            <if condition="$res['gender'] eq 2">
+                                <img class="js_avatar_show" src="__PUBLIC__/img/female.jpg">
+                            <else />
+                                <img class="js_avatar_show" src="__PUBLIC__/img/man.jpg">
+                            </if>    
+                            </notempty>
+                        </div>
+                        <div class="avatar-edit"><i></i></div>
+                        <input class="avatar-upload" name="avatar_file" id="avatar_file" type="file">
+                    </div>
+                    <p class="upload-text">点击更换</p>
+                    <p class="upload-tips">上传正方形照片，展示最佳效果！</p>
+                </div>
+            </div>
+        </form>
+            <div class="resume-block">
+                <p class="block-title">基本信息</p>
+                <div class="block-info">
+                    <a class="resume-edit" href="/mresumeBase.html"><i></i>编辑</a>
+                    <div class="field-bar my-name">
+                        <span class="field-name">姓名</span>
+                        <span class="field-cont">{$res.fullname}</span>
+                    </div>
+                    <div class="field-bar">
+                        <span class="field-name">性别</span>
+                        <span class="field-cont">{$res.gender|smartGender}</span>
+                    </div>
+                    <div class="field-bar">
+                        <span class="field-name">手机号码</span>
+                        <span class="field-cont">{$res.phone}</span>
+                    </div>
+<!--                     <div class="field-bar">
+                        <span class="field-name">身高</span>
+                        <span class="field-cont">{$res.height}</span>
+                    </div> -->
+                    <div class="field-bar">
+                        <span class="field-name">Email</span>
+                        <span class="field-cont">{$res.email}</span>
+                    </div>
+                    <div class="field-bar">
+                        <span class="field-name">出生日期</span>
+                        <span class="field-cont">{$res.birthday|substr=0,4}年{$res.birthday|substr=4,2}月{$res.birthday|substr=6,2}日</span>
+                    </div>
+                    <div class="field-bar">
+                        <span class="field-name">实习居住地</span>
+                        <span class="field-cont">{$res.province_name}{$res.city_name}{$res.address}</span>
+                    </div>
+                    <div class="field-bar">
+                        <span class="field-name">户口所在地</span>
+                        <span class="field-cont">{$res.hk_province_name}{$res.hk_city_name}</span>
+                    </div>
+                    <div class="field-bar">
+                        <span class="field-name">户口类型</span>
+                        <span class="field-cont">{$res.hk_type|smartResumeDict=hktype,###}</span>
+                    </div>
+                    <div class="field-bar">
+                        <span class="field-name">身份证号码</span>
+                        <span class="field-cont">{$res.card_no}</span>
+                    </div>
+                    <div class="field-bar">
+                        <span class="field-name">政治面貌</span>
+                        <span class="field-cont">{$res.politics|smartResumeDict=politics,###}</span>
+                    </div>
+                    <div class="field-bar">
+                        <span class="field-name">自我描述</span>
+                        <span class="field-cont">{$res.tags|implode=；,###}</span>
+                    </div>
+                </div>
+            </div>
+            <notempty name="edu.id">
+            <div class="resume-block">
+                <p class="block-title">教育经历</p>
+                <div class="block-info">
+                    <a class="resume-edit" href="/mresumeEdu.html"><i></i>编辑</a>
+                    <notempty name="edu.school_name">
+                    <div class="field-bar my-name">
+                        <span class="field-name">学校</span>
+                        <span class="field-cont">{$edu.school_name}</span>
+                    </div>
+                    </notempty>
+                    <notempty name="edu.faculty">
+                    <div class="field-bar">
+                        <span class="field-name">院系</span>
+                        <span class="field-cont">{$edu.faculty}</span>
+                    </div>
+                    </notempty>
+                    <notempty name="edu['major_category_name']">
+                    <div class="field-bar">
+                        <span class="field-name">专业分类</span>
+                        <span class="field-cont">{$edu['major_category_name']}</span>
+                    </div>
+                    </notempty>
+                    <notempty name="edu.major">
+                    <div class="field-bar">
+                        <span class="field-name">专业</span>
+                        <span class="field-cont">{$edu.major}</span>
+                    </div>
+                    </notempty>
+                    <notempty name="edu.sdate">
+                    <div class="field-bar">
+                        <span class="field-name">入校时间</span>
+                        <span class="field-cont">{$edu.sdate|substr=0,4}-{$edu.sdate|substr=4,2}</span>
+                    </div>
+                    </notempty>
+                    <notempty name="edu.edate">
+                    <div class="field-bar">
+                        <span class="field-name">毕业时间</span>
+                        <span class="field-cont">{$edu.edate|substr=0,4}-{$edu.edate|substr=4,2}</span>
+                    </div>
+                    </notempty>
+                    <notempty name="edu.degree">
+                    <div class="field-bar">
+                        <span class="field-name">学历</span>
+                        <span class="field-cont">{$edu.degree|smartDegree=###}</span>
+                    </div>
+                    </notempty>
+                </div>
+            </div>
+            </notempty>
+        </div>
+    </div>
+    <input type="hidden" id="id" value="{$res.id}">
+</body>
+<script src="__PUBLIC__/js/validate/lib/jquery.form.js?{:date("Ymd")}"></script>
+<script src="__PUBLIC__/js/validate/dist/jquery.validate.js?{:date("Ymd")}"></script>
+<script src="__PUBLIC__/js/validate/dist/localization/messages_zh.js?{:date("Ymd")}"></script>
+<script type="text/javascript">
+      //图片上传
+    $("#avatar_file").change(function(){
+      var fname = $('#avatar_file').val();
+        if (fname){
+            if (/\.(jpg|jpeg|png)$/i.test(fname)){
+                $('#avatarform').submit();
+            }else{
+                $('#avatar_file').val("");
+                 layer.msg('上传格式不正确', {icon: 2});
+            }
+        }return ;
+    });
+    $('#avatarform').validate({
+        rules : {},
+        messages : {},
+        submitHandler:function(form) {
+            $('#avatarform').ajaxSubmit({
+                dataType:'json',
+                url:'/picUpload',
+                data:{name:'avatar_file'},
+                beforeSubmit:function(){},
+                success:function(data){
+                     $('#avatar_file').val("");
+                    if (data.status == 1) {
+                        var path = data.path;
+                        $.post("/updateAvatar",{avatar_id:data.file_id,id:$('#id').val()},
+                          function(data){
+                             if (data.status==1) {
+                                $(".js_avatar_show").attr('src',path);
+                                } else {
+
+                                    layer.msg(data.msg, {icon: 5});
+                                }
+                              },
+                          "json");
+                        
+                        //$('.avatar_id').val(data.file_id);
+                    } else {
+                        ///showDialogInfo(data.msg);
+                        //$("#avatar_file").val('');
+                        //$('.mask').show();
+                         layer.msg(data.msg, {icon: 5});
+                    }
+                }
+            });
+        }
+    });
+</script>
+</html>

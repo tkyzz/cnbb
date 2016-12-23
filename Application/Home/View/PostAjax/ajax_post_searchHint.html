@@ -1,0 +1,11 @@
+                                <if condition="count($job)">
+                                <foreach name="job" item="v">
+                                    <div class="relation-item" data-type="{$v['type']}" data-kw="{$v['name']}">
+                                        <span class="item-cont">{$v['t_name']}</span>
+                                        <notempty name="v['count']">
+                                        <span class="item-count">共<span>{$v['count']}</span>个职位</span>
+                                        </notempty>
+                                    </div>
+                                </foreach>
+                                </if>
+

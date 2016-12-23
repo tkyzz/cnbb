@@ -1,0 +1,42 @@
+ <div class="detail-item-title">
+                            <p class="title"><span>实习经验</span></p>
+                            <div class="action-box">
+                                
+                                <div class="sub-action add js_internship_add"><i></i>添加</div>
+                            </div>
+                        </div>
+                        <foreach name="internships" item="v">
+                        <div class="sub-info education-info">
+                        <div class="sub-edit edit js_internship_edit" data-id="{$v.id}"><i></i>编辑</div>
+                            <div class="college-info">
+                                <span class="company-tag">{$v.company_name}</span>
+                                <span class="company-tag">{$v.nature_name}<span>{$v.work_type|smartdictval=###}</span></span>
+                                <span class="from-to"><span>{$v.sdate|substr_replace=###,'.',4,0}</span>—<span><if condition="$v.edate eq 0">至今<else />{$v.edate|substr_replace=###,'.',4,0}</if></span></span>
+                            </div>
+                            <div class="college-info">
+                                <span class="company-tag">部门：{$v.department}</span>
+                                <span class="company-tag">职能名称：{$v.function_name}</span>
+                            </div>
+                            <notempty name="v.work_remark">
+                            <div class="harvest">
+                                <p class="harvest-title">工作描述</p>
+                                <div class="harvest-info">
+                                    <div class="sub-harvest">
+                                        
+                                        {$v.work_remark|smartTextarea=###}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="harvest">
+                                <p class="harvest-title">项目经验</p>
+                                <div class="harvest-info">
+                                    <div class="sub-harvest">
+                                       
+                                        {$v.work_ex|smartTextarea=###}
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            </notempty>
+                        </div>
+                        </foreach>

@@ -1,0 +1,71 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class AboutController extends Controller {
+
+ /**
+ * @desc 构造
+ * @author zhuyi
+ * @date 2016-07-02
+ */
+public function __construct(){
+    parent::__construct();
+    $this->assign('navclass','about');
+
+}
+ /**
+ * @desc 关于我们
+ * @author zhuyi
+ * @date 2016-09-02
+ */
+public function About(){
+	$this->display('aboutUs');
+}
+
+/**
+* @desc 管理团队
+* @author zhuyi
+* @date 2016-09-02
+*/
+public function Team(){
+	$this->display('ourTeam');
+}
+
+/**
+* @desc 招贤纳士
+* @author zhuyi
+* @date 2016-09-02
+*/
+public function Join(){
+	$this->display('ourRecruit');
+}
+
+/**
+* @desc 联系我们
+* @author zhuyi
+* @date 2016-09-02
+*/
+public function Contact(){
+	$this->display('contactUs');
+}
+
+/**
+* @desc 合伙人
+* @author zhuyi
+* @date 2016-09-13
+*/
+public function Partner(){
+	$this->display('partner');
+}
+
+/**
+* @desc 合伙人
+* @author zhuyi
+* @date 2016-09-13
+*/
+public function Download_App(){
+	$this->display('appDownload');
+}
+
+
+}

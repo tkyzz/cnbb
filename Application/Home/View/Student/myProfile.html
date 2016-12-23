@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菜鸟帮帮-我的简历</title>
+<include file="./Application/Home/View/libpage/inc_header.html" />
+</head>
+<body>
+    <include file="./Application/Home/View/libpage/inc_top.html" />
+
+    <div class="profile-banner"><img src="__PUBLIC__/img/profile_top.jpg"/></div>
+
+    <div class="content">
+<include file="./Application/Home/View/libpage/inc_my_nav.html" />
+        <div class="block-detail">
+            <div class="profiles">
+                <div class="post-will">
+                    <p class="will-line"></p>
+                    <div class="will-box will-show js_intention_show" <if condition="$is_show gt 0">style="display: none;"</if>>
+                        <div class="will-top">
+                            <p class="will-name">实习意向</p>
+                            <div class="edit-btn" onclick="$('.js_intention_show').hide();$('.js_intention_edit').show();"><i></i>编辑</div>
+                        </div>
+                        <div class="will-cont">
+                            <div class="will-item"><span>期望工作城市：<span>{$intention.work_citiesstr|default="不限"|msubstr=0,11}</span></span></div>
+                            <div class="will-item"><span>期望工作行业：<span><notempty name="intention.tradestr">{$intention.tradestr}<else />不限</notempty></span></span></div>
+                            <div class="will-item"><span>工作性质：<span>{$intention.work_type|smartWorkType=###}</span></span></div>
+                            <div class="will-item"><span>到岗时间：<span>{$intention.arrive_days|smartArrDay=###}</span></span></div>
+                            <div class="will-item"><span>每周工作天数：<span><if condition="$intention['week_workdays'] eq 0">不限<else />{$intention['week_workdays']}天</if></span></span></div>
+                            <if condition="$intention.work_type eq 2">
+                            <div class="will-item"><span>连续实习时长: <span><if condition="$intention['work_duration'] eq 0">不限<else />{$intention['work_duration']/30}个月</if></span></span></div>
+                            </if>
+                        </div>
+                    </div>
+                    <!--实习意向编辑部分-->
+                    <form id="resumelist_intention" name="resumelist_intention" method="post">
+                    <div class="will-box will-edit js_intention_edit" <if condition="$is_show gt 0">style="display: block;"<else />style="display: none;"</if>>
+                        <div class="will-top">
+                            <p class="will-name">实习意向</p>
+                            <div class="will-cont">
+                                <div class="info-item hope-info">
+                                    <span class="info-name"><b class="must-lab"></b>期望工作城市（最多3个）</span>
+                                    <div class="input-box">
+                                        <input type="text" value="点击选择" readonly/>
+                                        <i></i>
+                                    </div>
+                                    <div class="selected-box js_city_show">
+
+                                    </div>
+                                    <div class="select-container">
+                                        <ul class="province js_intention_province">
+                                            <li>热门城市</li>
+                                            <foreach name="area" item="v">
+                                            <li value="{$v.code}">{$v.name}</li>
+                                            </foreach>
+                                        </ul>
+                                        <ul class="city selected-right js_intention_city">
+                                        </ul>
+                            <input type="hidden" name="work_cities_id" value="{$intention.work_citiesid}">
+                            <input type="hidden" name="work_cities_name" value="{$intention.work_citiesstr}">
+                                    </div>
+                                </div>
+                                <div class="info-item hope-info">
+                                    <span class="info-name"><b class="must-lab"></b>期望工作行业（最多3个）</span>
+                                    <div class="input-box">
+                                        <input type="text" value="点击选择" readonly/>
+                                        <i></i>
+                                    </div>
+                                    <div class="selected-box js_trade_show">
+                                    </div>
+                                    <ul class="select-container trade-select selected-right js_intention_trade">
+                                        <foreach name="trades" item="v">
+                                            <li value="{$v.id}">{$v.name}</li>
+                                        </foreach>
+                                    </ul>
+                            <input type="hidden" name="trade_id" value="{$intention.tradeid}">
+                            <input type="hidden" name="trade_name" value="{$intention.tradestr}">
+                                </div>
+
+                                <div class="info-item check-info">
+                                    <span class="info-name"><b class="must-lab"></b>期待工作性质</span>
+                                    <div class="check-box">
+                                        <input class="check" id="nature2" type="radio" name="work_type" value="2" <if condition="$intention['work_type'] eq 2 || $intention['work_type'] eq ''">checked</if>>
+                                        <label for="nature2" >日常</label>
+                                    </div>
+                                    <div class="check-box">
+                                        <input class="check" id="nature1" type="radio" name="work_type" value="1" <if condition="$intention['work_type'] eq 1">checked</if>>
+                                        <label for="nature1" >假期</label>
+                                    </div>
+                                    <!--<label class="error">请选择期待工作性质</label>-->
+
+                                    <div class="entry-time">
+                                        <span class="info-name">到岗时间</span>
+                                        <div class="time-selection">
+                                    <select name="arrive_days">
+                                        <option value="0" <if condition="$intention['arrive_days'] eq 0">selected</if>>待定</option>
+                                        <option value="-1" <if condition="$intention['arrive_days'] eq -1">selected</if>>立即到岗</option>
+                                        <option value="7" <if condition="$intention['arrive_days'] eq 7">selected</if>>1周内</option>
+                                        <option value="14" <if condition="$intention['arrive_days'] eq 14">selected</if>>2周内</option>
+                                        <option value="30" <if condition="$intention['arrive_days'] eq 30">selected</if>>1个月</option>
+                                    </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info-item check-info work-days">
+                                    <span class="info-name"><b class="must-lab"></b>每周工作天数</span>
+                                    <input type="hidden" name="week_day" value="{$intention['week_workdays']}">
+                               <div class="check-box">
+                                    <input class="check" id="work0" type="radio" value="0" name="week_workdays" <if condition="$intention['week_workdays'] eq 0 || $intention['week_workdays'] eq ''">checked</if>>
+                                    <label for="work0">不限</label>
+                                </div>
+                                <div class="check-box">
+                                    <input class="check" id="work1" type="radio" value="1" name="week_workdays" <if condition="$intention['week_workdays'] eq 1">checked</if>>
+                                    <label for="work1">1天</label>
+                                </div>
+                                <div class="check-box">
+                                    <input class="check" id="work2" type="radio" value="2" name="week_workdays" <if condition="$intention['week_workdays'] eq 2">checked</if>>
+                                    <label for="work2">2天</label>
+                                </div>
+                                <div class="check-box">
+                                    <input class="check" id="work3" type="radio" value="3" name="week_workdays" <if condition="$intention['week_workdays'] eq 3">checked</if>>
+                                    <label for="work3">3天</label>
+                                </div>
+                                <div class="check-box">
+                                    <input class="check" id="work4" type="radio" value="4" name="week_workdays" <if condition="$intention['week_workdays'] eq 4">checked</if>>
+                                    <label for="work4">4天</label>
+                                </div>
+                                <div class="check-box">
+                                    <input class="check" id="work5" type="radio" value="5" name="week_workdays" <if condition="$intention['week_workdays'] eq 5">checked</if>>
+                                    <label for="work5">5天</label>
+                                </div>
+                                <div class="check-box">
+                                    <input class="check" id="work6" type="radio" value="6" name="week_workdays" <if condition="$intention['week_workdays'] eq 6">checked</if>>
+                                    <label for="work6">6天</label>
+                                </div>
+                                <div class="check-box">
+                                    <input class="check" id="work7" type="radio" value="7" name="week_workdays" <if condition="$intention['week_workdays'] eq 7">checked</if>>
+                                    <label for="work7">7天</label>
+                                </div>
+
+                                    <!--<label class="error">请选择每周工作天数</label>-->
+                                </div>
+                                <div class="info-item check-info work-days" id="resume_workDays" <if condition="$intention['work_type'] neq 2">style="display:none;"</if>>
+                                    <span class="info-name"><b class="must-lab"></b>连续实习时长</span>
+                                    <div class="check-box">
+                                        <input class="check" id="duration0" type="radio" name="duration" value="1" <if condition="$intention['work_duration'] eq 0">checked="checked"</if>>
+                                        <label for="duration0">不限</label>
+                                    </div>
+                                    <div class="duration-month">
+                                        <i class="reduce"></i>
+                                        <span class="js_duration_show"><if condition="$intention['work_duration'] eq 0">1个月<else />{$intention['work_duration']/30}个月</if></span>
+                                        <i class="raise"></i>
+                                        <input type="hidden" name="work_duration" value="<if condition="$intention['work_duration'] eq 0">1<else />{$intention['work_duration']/30}</if>">
+                                    </div>
+                                </div>
+                                <div class="error-area" id="intention_error"></div>
+                                <div class="detail-btn">
+                                <input type="hidden" name="resume_id" value="{$res['0']['id']}">
+                                <input type="hidden" name="id" value="{$intention.id}">
+                                <input type="hidden" name="type" <empty name="intention['work_type']">value="intention_create"<else />value="intention_update"</empty>>
+                                    <input class="sub-btn save intention_resumelist_save" type="button" value="保存">
+                                    <a class="sub-btn cancel" href="javascript:;" onclick="$('.js_intention_show').show();$('.js_intention_edit').hide();">取消</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+
+                <div class="profile-list-box">
+            <foreach name="res" item="v" key="k">
+                <if condition="$k eq 0">
+                    <div class="sub-profile default-profile">
+                        <div class="profile-avatar">
+                                <notempty name="v.avatar_url">
+                                    <img src="{$v.avatar_url}">
+                                <else />
+                                <if condition="$v['gender'] eq 2">
+                                    <img src="__PUBLIC__/img/female.jpg">
+                                <else />
+                                    <img src="__PUBLIC__/img/man.jpg">
+                                </if>    
+                                </notempty>  
+                        </div>
+                        <div class="name-default">
+                            <p class="profile-name">{$v.name}</p>
+                            <div class="radio-info">
+                                <input id="profile{$v.id}" type="radio" name="profile" checked/>
+                                <label for="profile{$v.id}" checked>默认简历</label>
+                            </div>
+                        </div>
+                        <div class="profile-activity">
+                            <div class="update-open">
+                                <div class="update-time"><i></i>简历更新于：<span>{$v.last_tinme|substr=0,10|str_replace='-','.',###}</span></div>
+                                <div class="open-class">
+                                    <ul class="class-info">
+                                       <if condition="$v.openlevel eq 0">
+                                        <li class="class-item checked" data-name="{$v.name}" data-id="{$v.id}" data-open="0">对企业公开</li>
+                                        <li class="class-item" data-name="{$v.name}" data-id="{$v.id}" data-open="2">完全保密</li>
+                                    <elseif condition="$v.openlevel eq 2" />
+                                        <li class="class-item checked" data-name="{$v.name}" data-id="{$v.id}" data-open="2">完全保密</li>
+                                        <li class="class-item" data-name="{$v.name}" data-id="{$v.id}" data-open="0">对企业公开</li>
+
+                                    </if>
+                                    </ul>
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="my-activity">
+                                <div class="full-count">
+                                    <div class="count-info"><span class="progress"></span></div>
+                                    <span class="count-num">{$v.completeness}%</span>
+                                </div>
+                                 <a class="activity-item my-edit" href="/resume/detail/{$v.id|smartBase64=###}.html" target="_blank"><i></i>编辑</a>
+                                <a class="activity-item my-del js_del_resume_show" href="javascript:;" data-name="{$v.name}" data-id="{$v.id}"><i></i>删除</a>
+                                <notempty name="v.has_basicinfo">
+                                <a class="activity-item my-preview" href="/resume/view/{$v.id|smartBase64=###}.html" target="_blank"><i></i>预览</a>
+                                <else />
+                                <a class="activity-item my-preview ws_resume_tip" href="javascript:;" target="_blank"><i></i>预览</a>
+                                </notempty>
+                            </div>
+                        </div>
+                    </div>
+
+                    <else />
+                    <div class="sub-profile">
+                        <div class="profile-avatar">
+                                <notempty name="v.avatar_url">
+                                    <img src="{$v.avatar_url}">
+                                <else />
+                                <if condition="$v['gender'] eq 2">
+                                    <img src="__PUBLIC__/img/female.jpg">
+                                <else />
+                                    <img src="__PUBLIC__/img/man.jpg">
+                                </if>    
+                                </notempty>  
+                        </div>
+                        <div class="name-default">
+                            <p class="profile-name">{$v.name}</p>
+                            <div class="radio-info">
+                                <input id="profile{$v.id}" type="radio" name="profile" class="js_set_default" value="{$v.id}" />
+                                <label for="profile{$v.id}">设为默认</label>
+                            </div>
+                        </div>
+                        <div class="profile-activity">
+                            <div class="update-open">
+                                <div class="update-time"><i></i>简历更新于：<span>{$v.last_tinme|substr=0,10|str_replace='-','.',###}</span></div>
+                                <div class="open-class">
+                                    <ul class="class-info">
+                                    <if condition="$v.openlevel eq 0">
+                                        <li class="class-item checked" data-name="{$v.name}" data-id="{$v.id}" data-open="0">对企业公开</li>
+                                        <li class="class-item" data-name="{$v.name}" data-id="{$v.id}" data-open="2">完全保密</li>
+                                    <elseif condition="$v.openlevel eq 2" />
+                                        <li class="class-item checked" data-name="{$v.name}" data-id="{$v.id}" data-open="2">完全保密</li>
+                                        <li class="class-item" data-name="{$v.name}" data-id="{$v.id}" data-open="0">对企业公开</li>
+
+                                    </if>
+
+                                    </ul>
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="my-activity">
+                                <div class="full-count">
+                                    <div class="count-info"><span class="progress"></span></div>
+                                    <span class="count-num">{$v.completeness}%</span>
+                                </div>
+                                <a class="activity-item my-edit" href="/resume/detail/{$v.id|smartBase64=###}.html" target="_blank"><i></i>编辑</a>
+                                <a class="activity-item my-del js_del_resume_show" href="javascript:;" data-name="{$v.name}" data-id="{$v.id}"><i></i>删除</a>
+                                <notempty name="v.has_basicinfo">
+                                <a class="activity-item my-preview" href="/resume/view/{$v.id|smartBase64=###}.html" target="_blank"><i></i>预览</a>
+                                <else />
+                                <a class="activity-item my-preview ws_resume_tip" href="javascript:;" target="_blank"><i></i>预览</a>
+                                </notempty>
+                            </div>
+                        </div>
+                    </div>
+                    </if>
+                </foreach>
+                </div>
+
+                <button class="new-profile" onclick="$('#newPopup').show()"><i></i>新建简历</button>
+            </div>
+        </div>
+    </div>
+
+ <include file="./Application/Home/View/libpage/inc_buttom.html" />
+
+    <!--删除简历提醒-->
+    <div class="popup warn-layer">
+        <div class="popup-info warn">
+            <div class="warn-img"><img src="__PUBLIC__/img/warn.png"/></div>
+            <p class="warn-info">是否确定删除名称为<span>财小金</span>的简历</p>
+            <div class="warn-btn">
+                <a id="sure" class="sub-warn sure js_del_resume" href="javascript:;">确定</a>
+                <a id="cancel" class="sub-warn cancel" href="javascript:;">取消</a>
+            </div>
+        </div>
+    </div>
+
+<!--新建简历弹层-->
+    <div class="popup" id="newPopup">
+        <div class="popup-info new-info">
+            <a class="popup-close" href="javascript:;"><i></i></a>
+            <div class="new-detail">
+                <div class="new-item">
+                    <span class="new-title">简历名称</span>
+                    <input class="profile-name" id="new_resume_name" type="text" placeholder="请输入简历名称" maxlength="13">
+                </div>
+                <div class="new-item">
+                    <span class="new-title">公开程度</span>
+                    <div class="sub-radio">
+                        <input id="open1" type="radio" name="open" data-id="0" checked/>
+                        <label for="open1">对企业公开<span class="open-lab"></span></label>
+                    </div>
+                    <div class="sub-radio">
+                        <input id="open2" type="radio" name="open" data-id="2"/>
+                        <label for="open2">完全保密<span class="open-lab"></span></label>
+                    </div>
+                </div>
+            </div>
+            <input type="button" class="new-btn sub_new_resume" value="创建简历">
+        </div>
+    </div>
+    <if condition="$is_show eq 1">
+<!-- 求职意向弹窗 -->
+    <div class="popup" id="intention_tip" style="display: block">
+        <div class="popup-info will-popup">
+            <a class="popup-close" href="javascript:;"><i class="js_close_intention_tip"></i></a>
+            <div class="popup-img"><img src="__PUBLIC__/img/will_tips.png"/></div>
+            <p class="no-will">您还未填写<span>实习意向</span>哦~</p>
+            <p class="will-tips">完善的实习意向，才能接收到最精准的推荐岗位哦~</p>
+
+            <a class="will-btn" href="javascript:;" onclick="$(this).parent().parent().hide();">现在就去填</a>
+        </div>
+    </div>
+    </if>
+<script src="__PUBLIC__/js/myCenter.js"></script>
+<script src="__PUBLIC__/js/intention.js"></script>
+
+<script>
+    //    myProfile progress
+    $(function () {
+        $(".sub-profile").each(function (index) {
+            $(".sub-profile").eq(index).find(".progress").width(parseFloat($(".progress").eq(index).parent().next(".count-num").text())+"%");
+        })
+    $(".open-class").click(function () {
+        var divH = $(this).height();
+        if (divH == 22){
+            divH = $(this).height("auto");
+            $(this).find(".class-item").click(function () {
+                var id = $(this).attr('data-id');
+                var name = $(this).attr('data-name');
+                var open_level = $(this).attr('data-open');
+                if(id.length == 0 || name.length == 0 || open_level.length == 0){
+                    layer.msg('未知错误', {icon: 5});
+                    return false;
+                }
+
+                $.post("/ajax/createUpdateResume",{name:name,id:id,open_level:open_level,type:'update'},
+                          function(data){
+                             if (data.status==1) {
+                                   // alert(data.msg);
+                                    // layer.msg("简历名称修改成功！", {icon: 6,time: 1000});
+                                    // $('#js_resume_name_bak').val(name);
+                                } else {
+                                    layer.msg(data.msg, {icon: 5,time: 1000});
+                                   // alert(data.msg);
+                                }
+                              },
+                "json");
+                $(this).parent().prepend($(this));
+                $(this).addClass("checked").siblings().removeClass("checked");
+
+            })
+        }else {
+            divH = $(this).height("22");
+        }
+    });
+    intention_city();//初始化求职意向行业
+    intention_trade();//初始化求职意向
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,448 @@
+    <div id="printvalue">
+        <div class="profile-preview">
+            <div class="profile-detail">
+                <div class="detail-item">
+                    <div class="profile-show">
+                        <div class="my-avatar">
+                            <notempty name="resumeinfo['info']['photo']['path']">
+                                <img src="{$resumeinfo['info']['photo']['path']}">
+                            <else />
+                            <if condition="$resumeinfo['info']['gender'] eq 2">
+                                <img src="__PUBLIC__/img/female.jpg">
+                            <else />
+                                <img src="__PUBLIC__/img/man.jpg">
+                            </if>    
+                            </notempty> 
+                        </div>
+                        <div class="basic-info">
+                            <div class="my-name">
+                                <span class="name">{$resumeinfo['info']['fullname']}</span>
+                            </div>
+                            <div class="my-basic my-basic-info">
+                                <i></i>
+                                <span>{$globalgender[$resumeinfo['info']['gender']]}</span>
+                                <span>{$resumeinfo['info']['height']}</span>
+                                <span>{$resumeinfo['info']['birthday']|strtotime|date="Y年m月d日",###}</span>
+                                <span>{$resumeinfo['info']['card_no']}</span>
+                                <span>
+                                    <foreach name="politicslist" item="val">
+                                        <if condition="$val['id'] eq $resumeinfo['info']['politics']">
+                                        {$val['name']}
+                                        </if>
+                                    </foreach>
+                                </span>
+                            </div>
+                            <div class="my-basic two-column my-phone">
+                                <i></i>
+                                <span>{$resumeinfo['info']['phone']}</span>
+                            </div>
+                            <div class="my-basic two-column my-mail">
+                                <i></i>
+                                <span>{$resumeinfo['info']['email']}</span>
+                            </div>
+                            <div class="my-basic addr-live">
+                                <i></i>
+                                <span>实习居住地：<span>{$resumeinfo['info']['province_name']}-{$resumeinfo['info']['city_name']}-{$resumeinfo['info']['zone_name']}-{$resumeinfo['info']['address']}</span></span>
+                            </div>
+                            <div class="my-basic addr-born">
+                                <i></i>
+                                <span>户口所在地：<span>{$resumeinfo['info']['hk_province_name']}-{$resumeinfo['info']['hk_city_name']}</span></span>
+                                <span>{$hktypelist[$resumeinfo['info']['hk_type']]['name']}</span>
+                            </div>
+                            <div class="my-basic about-me">
+                                <foreach name="resumeinfo['info']['tags']" item="val">
+                                    <span>{$val}</span>
+                                </foreach>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="profile-show">
+                        <div class="detail-item-title">
+                            <p class="title"><span>求职意向</span></p>
+                        </div>
+                        <div class="sub-info"><span>期望工作城市：<span>
+                            <foreach name="resumeinfo['intention']['new_work_cities']" item="val" key="k">
+                                {$val}<if condition="end($resumeinfo['intention']['new_work_cities']) neq $val">/</if>
+                            </foreach>
+                        </span></span></div>
+                        <div class="sub-info"><span>期望工作行业：<span>
+                            <foreach name="resumeinfo['intention']['new_trades']" item="val" key="k">
+                                {$val}<if condition="end($resumeinfo['intention']['new_trades']) neq $val">/</if>
+                            </foreach>
+                        </span></span></div>
+                        <div class="sub-info subfield"><span>工作性质：<span>
+                            <foreach name="worktypelist" item="val">
+                                <if condition="$val['id'] eq $resumeinfo['intention']['work_type']">{$val['name']}</if>
+                            </foreach>
+                        </span></span></div>
+                        <div class="sub-info subfield"><span>到岗时间：<span>
+                            <if condition="$resumeinfo['intention']['arrive_days'] eq '0'">待定
+                            <elseif condition="$resumeinfo['intention']['arrive_days'] eq '-1'" />立即到岗
+                            <elseif condition="$resumeinfo['intention']['arrive_days'] eq '3'" />1个月
+                            <else />{$resumeinfo['intention']['arrive_days']}天
+                            </if>
+                        </span></span></div>
+                        <div class="sub-info subfield"><span>每周工作天数：<span>
+                            <if condition="$resumeinfo['intention']['week_workdays'] eq '0'">不限
+                            <else />{$resumeinfo['intention']['week_workdays']}天
+                            </if>
+                        </span></span></div>
+                        <if condition="$resumeinfo['intention']['work_type'] eq 2">
+                        <div class="sub-info subfield"><span>连续实习时长：<span>
+                            <if condition="$resumeinfo['intention']['work_duration'] eq '0'">不限
+                            <else />{$resumeinfo['intention']['work_duration']/30|round}个月
+                            </if>
+                        </span></span></div>
+                        </if>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="profile-show">
+                        <div class="show-block" style="zoom:1;content:'.';overflow:hidden;">
+                            <div class="detail-item-title">
+                                <p class="title"><span>教育经历</span></p>
+                            </div>
+
+                            <foreach name="resumeinfo['edus']" item="val">
+                                <div class="sub-info education-info">
+                                    <div class="college-info">
+                                        <span>{$val['school_name']}</span>
+                                        <span>{$val['faculty']}</span>
+                                    </div>
+                                    <div class="college-info">
+                                        <span class="degree">
+                                            <if condition="$val['degree'] eq '0'">不限
+                                            <else />{$globaldegree[$val['degree']]}
+                                            </if>
+                                        </span>
+                                        <span class="major">{$val['major_category_name']}</span>
+                                        <span class="others">绩点{$val['bp']}</span>
+                                        <span class="others">排名{$val['rank']}</span>
+                                        <if condition="$val['sdate']">
+                                            <span class="from-to"><span>{$val['sdate']|substr=0,4}.{$val['sdate']|substr=4}</span>—<span>{$val['edate']|substr=0,4}.{$val['edate']|substr=4}</span></span>
+                                        </if>
+                                    </div>
+                                </div>
+                            </foreach>
+
+                        </div>
+                        <div class="show-block" style="zoom:1;content:'.';overflow:hidden;">
+                            <div class="detail-item-title level-title">
+                                <p class="title"><span>交换生经历</span></p>
+                            </div>
+                            <div class="show-level">
+
+                                <foreach name="resumeinfo['edus']" item="val">
+                                    <foreach name="val['exchanges']" item="v">
+                                        <div class="sub-info">
+                                            <div class="college-info">
+                                                <span class="name">{$v['country_name']}-{$v['school_name']}</span>
+                                                <span class="major">{$v['major']}</span>
+                                                <if condition="$val['sdate']">
+                                                    <span class="from-to"><span>{$val['sdate']|substr=0,4}.{$val['sdate']|substr=4}</span>—<span>{$val['edate']|substr=0,4}.{$val['edate']|substr=4}</span></span>
+                                                </if>
+                                            </div>
+                                            <div class="harvest">
+                                                <p class="harvest-title">收获及成绩</p>
+                                                <div class="harvest-info">
+                                                    <if condition="$v['remark']">
+                                                        <div class="sub-harvest">
+                                                            <span class="list-point"></span>
+                                                            <span>{$v['remark']}</span>
+                                                        </div>
+                                                    </if>
+                                                    <!-- <div class="sub-harvest">
+                                                        <span class="list-point"></span>
+                                                        <span>收集研究对象，对其产品进行分析研究，提供分析研究及投资价值报告</span>
+                                                    </div>
+                                                    <div class="sub-harvest">
+                                                        <span class="list-point"></span>
+                                                        <span>跟踪研究对象变化情况，及时动态判断研究对象的投资价值变化情况，做出投资预期回报与风险分析。</span>
+                                                    </div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </foreach>
+                                </foreach>
+
+                            </div>
+                        </div>
+                        <div class="show-block" style="zoom:1;content:'.';overflow:hidden;">
+                            <div class="detail-item-title level-title">
+                                <p class="title"><span>专业研究项目</span></p>
+                            </div>
+                            <div class="show-level">
+
+                                <foreach name="resumeinfo['edus']" item="val">
+                                    <foreach name="val['others']" item="v">
+                                        <div class="sub-info">
+                                            <div class="college-info">
+                                                <span class="name">项目名称：{$v['name']}</span>
+                                                <span class="major">
+                                                    <if condition="$v['role'] eq '1'">负责人
+                                                    <elseif condition="$v['role'] eq '0'" />参与者
+                                                    </if>
+                                                </span>
+                                                <if condition="$val['sdate']">
+                                                    <span class="from-to"><span>{$val['sdate']|substr=0,4}.{$val['sdate']|substr=4}</span>—<span>{$val['edate']|substr=0,4}.{$val['edate']|substr=4}</span></span>
+                                                </if>
+                                            </div>
+                                            <div class="harvest">
+                                                <p class="harvest-title">收获及成绩</p>
+                                                <div class="harvest-info">
+                                                    <if condition="$v['remark']">
+                                                        <div class="sub-harvest">
+                                                            <span class="list-point"></span>
+                                                            <span>{$v['remark']}</span>
+                                                        </div>
+                                                    </if>
+                                                    <!-- <div class="sub-harvest">
+                                                        <span class="list-point"></span>
+                                                        <span>收集研究对象，对其产品进行分析研究，提供分析研究及投资价值报告</span>
+                                                    </div>
+                                                    <div class="sub-harvest">
+                                                        <span class="list-point"></span>
+                                                        <span>跟踪研究对象变化情况，及时动态判断研究对象的投资价值变化情况，做出投资预期回报与风险分析，调整投资操作。建议对公开发行的各种理财产品的设计、谈判、签约发行及维护。</span>
+                                                    </div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </foreach>
+                                </foreach>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="profile-show">
+                        <div class="detail-item-title">
+                            <p class="title"><span>语言技能</span></p>
+                        </div>
+                        <div class="sub-info">
+                            <div class="college-info">
+                                <span class="major">英语能力</span>
+                                <span class="ability">
+                                    <if condition="$resumeinfo['skill']['en_level'] eq '0'">CET4
+                                    <elseif condition="$resumeinfo['skill']['en_level'] eq '1'" />CET6
+                                    <elseif condition="$resumeinfo['skill']['en_level'] eq '2'" />专业四级
+                                    <elseif condition="$resumeinfo['skill']['en_level'] eq '3'" />专业六级
+                                    <elseif condition="$resumeinfo['skill']['en_level'] eq '4'" />专业八级
+                                    </if>
+                                </span>
+                            </div>
+
+                            <foreach name="resumeinfo['skill']['other_languages']" item="val">
+                                <div class="college-info">
+                                    <span class="major">{$val['name']}</span>
+                                    
+                                    <if condition="$val['name'] eq '计算机'">
+                                        <span class="ability">熟练程度（{$skillotherstate[$val['proficiency']]}）</span>
+                                    <else />
+                                        <span class="ability">读写能力（{$skillotherstate[$val['literacy']]}），听说能力（{$skillotherstate[$val['lwability']]}），熟练程度（{$skillotherstate[$val['proficiency']]}）</span>
+                                    </if>
+                                </div>
+                            </foreach>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="profile-show">
+                        <div class="detail-item-title">
+                            <p class="title"><span>财经证书</span></p>
+                        </div>
+                        <div class="sub-info">
+
+                            <foreach name="resumeinfo['certificates']" item="val">
+                                <if condition="$val['cert_type_id'] neq '10'">
+                                    <div class="college-info">
+                                        <span class="major">{$val['cert_type_name']}</span>
+                                        <span class="ability">
+                                            <foreach name="val['coursenames']" item="v">
+                                                <span>{$v}</span>
+                                            </foreach>
+                                        </span>
+                                    </div>
+                                </if>
+                                
+                                <if condition="$val['cert_type_id'] eq '10'">
+                                    <div class="college-info">
+                                        <span class="major">{$val['cert_type_name']}</span>
+                                        <div class="ability">
+                                            <foreach name="val['certificates10group']" item="cv" key="ck">
+                                                <div class="sub-ability">
+                                                    <span class="sub-ability-stage">{$ck}阶段</span>
+                                                    
+                                                    <foreach name="cv" item="cv10">
+                                                        <span>{$cv10}</span>
+                                                    </foreach>
+                                                
+                                                </div>
+                                            </foreach>
+                                        </div>
+                                    </div>
+                                </if>
+                            </foreach>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="profile-show">
+                        <div class="detail-item-title">
+                            <p class="title"><span>实习经验</span></p>
+                        </div>
+
+                        <foreach name="resumeinfo['internships']" item="val">
+                            <div class="sub-info education-info">
+                                <div class="college-info">
+                                    <span class="company-tag">{$val['company_name']}</span>
+                                    <span class="company-tag">{$val['trade_name']} ( {$val['subtrade_name']} ) <span>
+                                        <foreach name="worktypelist" item="v">
+                                            <if condition="$v['id'] eq $val['work_type']">
+                                            {$val['name']}
+                                            </if>
+                                        </foreach>
+                                    </span></span>
+                                    <if condition="$val['sdate']">
+                                        <span class="from-to"><span>{$val['sdate']|substr=0,4}.{$val['sdate']|substr=4}</span>—<span>{$val['edate']|substr=0,4}.{$val['edate']|substr=4}</span></span>
+                                    </if>
+                                </div>
+                                <div class="college-info">
+                                    <span class="company-tag">部门：{$val['department']}</span>
+                                    <span class="company-tag">职位名称：{$val['function_name']}</span>
+                                </div>
+                                <div class="harvest">
+                                    <p class="harvest-title">收获及成绩</p>
+                                    <div class="harvest-info">
+                                        <if condition="$val['work_remark']">
+                                            <div class="sub-harvest">
+                                                <span class="list-point"></span>
+                                                <span>{$val['work_remark']}</span>
+                                            </div>
+                                        </if>
+                                        <!-- <div class="sub-harvest">
+                                            <span class="list-point"></span>
+                                            <span>收集研究对象，对其产品进行分析研究，提供分析研究及投资价值报告</span>
+                                        </div>
+                                        <div class="sub-harvest">
+                                            <span class="list-point"></span>
+                                            <span>跟踪研究对象变化情况，及时动态判断研究对象的投资价值变化情况，做出投资预期回报与风险分析。</span>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </foreach>
+
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="profile-show">
+                        <div class="detail-item-title">
+                            <p class="title"><span>校内经历</span></p>
+                        </div>
+                        <div class="show-block" style="zoom:1;content:'.';overflow:hidden;">
+                            <div class="detail-item-title level-title">
+                                <p class="title"><span>学生奖励与荣誉</span></p>
+                            </div>
+                            <div class="show-level">
+                                <div class="sub-info">
+                                    <foreach name="resumeinfo['rjp']['rewards']" item="val">
+                                        <div class="college-info">
+                                            <span class="company-tag">{$val['name']}</span>
+                                            <span class="company-tag">
+                                                <if condition="$val['level'] eq '0'">国家级获奖
+                                                    <elseif condition="$val['level'] eq '1'" />省市级获奖
+                                                    <elseif condition="$val['level'] eq '2'" />校级获奖
+                                                </if>
+                                            </span>
+                                            <span class="from-to"><span>{$val['get_time']|substr=0,4}.{$val['get_time']|substr=4}</span></span>
+                                        </div>
+                                    </foreach>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="show-block" style="zoom:1;content:'.';overflow:hidden;">
+                            <div class="detail-item-title level-title">
+                                <p class="title"><span>校内职务/社团活动</span></p>
+                            </div>
+                            <div class="show-level">
+                                <foreach name="resumeinfo['rjp']['jobs']" item="val">
+                                    <div class="sub-info education-info">
+                                        <div class="college-info">
+                                            <span>
+                                                <if condition="$val['role'] eq '0'">参与者
+                                                <elseif condition="$val['role'] eq '1'" />负责人
+                                                </if>
+                                            </span>
+                                            <if condition="$val['sdate']">
+                                                <span class="from-to"><span>{$val['sdate']|substr=0,4}.{$val['sdate']|substr=4}</span>—<span>{$val['edate']|substr=0,4}.{$val['edate']|substr=4}</span></span>
+                                            </if>
+                                        </div>
+                                        <div class="harvest">
+                                            <p class="harvest-title">职务描述</p>
+                                            <div class="harvest-info">
+                                                <if condition="$val['remark']">
+                                                    <div class="sub-harvest">
+                                                        <span class="list-point"></span>
+                                                        <span>{$val['remark']}</span>
+                                                    </div>
+                                                </if>
+                                                <!-- <div class="sub-harvest">
+                                                    <span class="list-point"></span>
+                                                    <span>收集研究对象，对其产品进行分析研究，提供分析研究及投资价值报告</span>
+                                                </div>
+                                                <div class="sub-harvest">
+                                                    <span class="list-point"></span>
+                                                    <span>跟踪研究对象变化情况，及时动态判断研究对象的投资价值变化情况，做出投资预期回报与风险分析。</span>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </foreach>
+                            </div>
+                        </div>
+                        <div class="show-block" style="zoom:1;content:'.';overflow:hidden;">
+                            <div class="detail-item-title level-title">
+                                <p class="title"><span>社会实践经验（非实习）</span></p>
+                            </div>
+                            <div class="show-level">
+                                <foreach name="resumeinfo['rjp']['practice']" item="val">
+                                    <div class="sub-info education-info">
+                                        <div class="college-info">
+                                            <span>{$val['name']}</span>
+                                            <if condition="$val['sdate']">
+                                                <span class="from-to"><span>{$val['sdate']|substr=0,4}.{$val['sdate']|substr=4}</span>—<span>{$val['edate']|substr=0,4}.{$val['edate']|substr=4}</span></span>
+                                            </if>
+                                        </div>
+                                        <div class="harvest">
+                                            <p class="harvest-title">实践描述</p>
+                                            <div class="harvest-info">
+                                                <if condition="$val['remark']">
+                                                    <div class="sub-harvest">
+                                                        <span class="list-point"></span>
+                                                        <span>{$val['remark']}</span>
+                                                    </div>
+                                                </if>
+                                                <!-- <div class="sub-harvest">
+                                                    <span class="list-point"></span>
+                                                    <span>收集研究对象，对其产品进行分析研究，提供分析研究及投资价值报告</span>
+                                                </div>
+                                                <div class="sub-harvest">
+                                                    <span class="list-point"></span>
+                                                    <span>跟踪研究对象变化情况，及时动态判断研究对象的投资价值变化情况，做出投资预期回报与风险分析。</span>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </foreach>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  

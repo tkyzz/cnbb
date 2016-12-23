@@ -1,0 +1,85 @@
+<!-- <a class="my-advice" href=""><i></i><span>我的建议</span></a> -->
+        <if condition="$navclass eq 'index' || $navclass eq 'post' || $navclass eq 'student' || $navclass eq 'about'">
+<!--         <div class="bottom-ad">
+                <a class="ad-img" href="/activity.html" target="_blank"><img src="__PUBLIC__/img/bottom_ad.png"/></a>
+        </div> -->
+        </if>
+        <div class="footer">
+            <!--登录注册及密码重置验证页面使用-->
+           <if condition="$navclass eq 'index' || $navclass eq 'post' || $navclass eq 'student' || $navclass eq 'about'">
+            <img src="__PUBLIC__/img/cjn_logo_bottom2.png"/>
+           <elseif condition="$navclass eq 'user'||$navclass eq 'company'"/>
+            <!--其他页面使用-->
+            <img src="__PUBLIC__/img/cjn_logo_bottom.png"/>
+           </if>
+            <div class="bottom-nav">
+                <a class="sub-bottom-nav" href="/about/aboutUs.html">关于我们</a>
+               <!--  <a class="sub-bottom-nav" href="/team.html">管理团队</a> -->
+                <a class="sub-bottom-nav" href="/about/mileStone.html">大事记</a>
+                <a class="sub-bottom-nav" href="/about/ourPartner.html">合作伙伴</a>
+                <a class="sub-bottom-nav" href="/about/joinUs.html">招贤纳士</a>
+                <a class="sub-bottom-nav" href="/about/contactUs.html">联系我们</a>
+                <p class="icp"><a href="http://www.miitbeian.gov.cn/" target="_blank">沪ICP备15055517号</a> @2016 cainiaobangbang.com All rights reserved</p>
+
+            </div>
+            <div class="code">
+                <span class="code-nav"><img src="__PUBLIC__/img/28x28.png">App下载</span>
+                <div class="app-code"><img src="/public/img/app_download.jpg"/></div>
+            </div>
+        </div>
+    </div>
+    <script src="__PUBLIC__/js/style.js?{:date("Ymd")}"></script>
+<if condition="$navclass eq index">
+  <script src="__PUBLIC__/js/slides.jquery.js?{:date("Ymd")}"></script>
+<elseif condition="$navclass eq post" />
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=QE14lsaHjpl3lTkpSIKOcGnKYpPt68zu">
+<else />
+    <script src="__PUBLIC__/js/jquery.lazyload.js?{:date("Ymd")}"></script>
+    <script src="__PUBLIC__/js/validate/lib/jquery.form.js?{:date("Ymd")}"></script>
+    <script src="__PUBLIC__/js/validate/dist/jquery.validate.js?{:date("Ymd")}"></script>
+    <script src="__PUBLIC__/js/validate/dist/localization/messages_zh.js?{:date("Ymd")}"></script>
+    <script src="__PUBLIC__/js/common.js?{:date("Ymd")}.2"></script>
+    
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=QE14lsaHjpl3lTkpSIKOcGnKYpPt68zu"></script>
+</if>
+    <!-- Start of KF5 supportbox script -->
+
+<script type="text/javascript">
+  // $(function () {
+  //     $(window).scroll(function () {
+  //         if ($(document).scrollTop() >= ($(document).height()-$(window).height())){
+  //             $(".bottom-ad").css("bottom","76px");
+  //         }else {
+  //             $(".bottom-ad").css("bottom","0");
+  //         }
+  //     })
+  // });
+//IE9以下placeholder
+$(function(){
+    if(!placeholderSupport()){   // 判断浏览器是否支持 placeholder
+        $('[placeholder]').focus(function() {
+            var input = $(this);
+            if(input.attr('type') == 'password'){
+              return false;
+            }
+            if (input.val() == input.attr('placeholder')) {
+                input.val('');
+                input.removeClass('placeholder');
+            }
+        }).blur(function() {
+            var input = $(this);
+            if(input.attr('type') == 'password'){
+              return false;
+            }
+            if (input.val() == '' || input.val() == input.attr('placeholder')) {
+                input.addClass('placeholder');
+                input.val(input.attr('placeholder'));
+            }
+        }).blur();
+    }
+});
+function placeholderSupport() {
+    return 'placeholder' in document.createElement('input');
+}
+</script>
+<!-- End of KF5 supportbox script -->

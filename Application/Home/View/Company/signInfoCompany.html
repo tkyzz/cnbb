@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菜鸟帮帮-企业注册资料-联系方式</title>
+    <include file="./Application/Home/View/libpage/inc_header.html" />
+
+</head>
+<body>
+    <div class="page info-page company-page company-info-page">
+
+<include file="./Application/Home/View/libpage/inc_company_top.html" />
+        <div class="logon-box">
+            <div class="progress">
+                <div class="progress-item current-progress">
+                    <span class="progress-number">01</span>
+                    <span>填写联系方式</span>
+                </div>
+<!--                 <span class="progress-space past-space"></span>
+                <div class="progress-item current-progress">
+                    <span class="progress-number">02</span>
+                    <span>验证公司邮箱</span>
+                </div> -->
+                <span class="progress-space past-space"></span>
+                <div class="progress-item current-progress">
+                    <span class="progress-number">02</span>
+                    <span>填写公司信息</span>
+                </div>
+            </div>
+        <form id="createComForm" name="createComForm" method="post">
+            <div class="input-item company-name">
+                <i></i>
+                <div class="input-box">
+                    <input type="text" name="name" placeholder="请输入与公司营业执照一致的公司名称"/>
+                </div>
+                <span class="tips">请输入与公司营业执照一致的公司全称，审核通过后不可更改。</span>
+            </div>
+            <div class="sector-box">
+                <div class="input-item sector">
+                    <i></i>
+                    <div class="input-box">
+                        <input type="text" name="department" placeholder="请输入部门" />
+                    </div>
+                </div>
+                <div class="input-item position">
+                    <i></i>
+                    <div class="input-box">
+                        <input type="text" name="job" placeholder="请输入职务" />
+                    </div>
+                </div>
+            </div>
+            <div class="input-item linkman">
+                <i></i>
+                <div class="input-box">
+                    <input type="text" name="contacter" placeholder="请输入机构联系人" />
+                </div>
+                <!--<span class="tips">请输入机构联系人，使我们更好的为贵司提供产品服务</span>-->
+            </div>
+            <div class="input-item phone">
+                <i></i>
+                <div class="input-box">
+                    <input type="text" name="mobile" placeholder="请输入公司联系人手机号" />
+                </div>
+            </div>
+            <div class="input-item tel">
+                <i></i>
+                <div class="input-box">
+                    <input type="text" name="tel" placeholder="公司座机号" />
+                </div>
+            </div>
+
+            <div class="company-prove">
+                <div class="img-upload">
+                    <img id="logo" src=""/>
+                    <input type="file" name="yyzz" id="yyzz" alt="请选择图片" accept="">
+                    <div class="mask js_mask_yyzz">
+                        <p class="upload"><i></i>上传公司资质证明</p>
+                        <span class="upload-info">支持jpg/png/pdf格式，文件不超过10MB</span>
+                    </div>
+                </div>
+                <div class="img-upload">
+                    <img  src=""/>
+                    <input type="file" name="other" id="other" alt="请选择图片" accept="">
+                    <div class="mask js_mask_other">
+                        <p class="upload"><i></i>上传其他资质材料<span>（非必填）</span></p>
+                        <span class="upload-info">上传名片、工作证等</span>
+                    </div>
+                </div>
+                <span class="tips">
+                    1.新公司请提供有效年检期内的《企业营业执照》或《核名通知书》副本。<br>
+                    2.如果您所在的公司已经存在，请提供其他证明资料如：名片或者工作证等。<br>
+                    3.为保证信息安全，您上传的资质证明不提供预览功能，请谅解。<br>
+                    2.该资质证明只用作菜鸟帮帮审核使用，请您放心上传。
+                </span>
+            </div>
+            <div class="version-choose">
+                <p class="choose-title">选择版本信息</p>
+                <div class="choose-item">
+                    <input id="version01" type="radio" name="product_type" value="体验版"/>
+                    <label for="version01"><img src="__PUBLIC__/img/company_free.png"/></label>
+                </div>
+                <div class="choose-item">
+                    <input id="version02" type="radio" name="product_type" value="基础版"/>
+                    <label for="version02"><img src="__PUBLIC__/img/company_normal.png"/></label>
+                </div>
+            </div>
+            <div id="error"></div>
+            <div class="btn next-btn"><input class="sub-btn" type="button" id="sub_create_com" value="{$button}"></div>
+            <div class="sign">如有任何问题，请致电021-31063013或写信给我们：services@cainiaobangbang.com，我们会尽快为你解决。</div>
+    </form>
+        </div>
+
+  <include file="./Application/Home/View/libpage/inc_buttom.html" />
+    </div>
+<script type="text/javascript">
+    $("#yyzz").change(function(){
+
+      var fname = $('#yyzz').val();//营业执照
+      var strFileName=fname.replace(/^.+?\\([^\\]+?)(\.[^\.\\]*?)?$/gi,"$1$2");
+        if (fname){
+            if (/\.(jpg|jpeg|png|pdf)$/i.test(fname)){
+                $('.js_mask_yyzz').html('<p class="upload">'+strFileName+'</p>');
+            }else{
+                alert('上传格式不正确');
+            }
+        }return ;
+    });
+    $("#other").change(function(){
+      var fname = $('#other').val();//其他证明
+      var strFileName=fname.replace(/^.+?\\([^\\]+?)(\.[^\.\\]*?)?$/gi,"$1$2");
+        if (fname){
+            if (/\.(jpg|jpeg|png|pdf)$/i.test(fname)){
+                $('.js_mask_other').html('<p class="upload">'+strFileName+'</p>');
+            }else{
+                alert('上传格式不正确');
+            }
+        }return ;
+    });
+</script>
+</body>
+</html>

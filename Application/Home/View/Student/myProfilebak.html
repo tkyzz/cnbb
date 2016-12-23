@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<include file="./Application/Home/View/libpage/inc_header.html" />
+    <meta charset="UTF-8">
+    <title>菜鸟帮帮-我的简历</title>
+<body>
+    <include file="./Application/Home/View/libpage/inc_top.html" />
+
+    <div class="profile-banner"><img src="__PUBLIC__/img/profile_top.jpg"/></div>
+
+    <div class="content">
+    <!--引入导航文件-->
+    <include file="./Application/Home/View/libpage/inc_my_nav.html" />
+
+
+        <div class="block-detail">
+            <!--<p class="block-title profile-block-title">我的简历<span>{$email}</span></p>-->
+            <div class="profiles">
+
+            <foreach name="res" item="v">
+                <div class="profile-item">
+                    <div class="profile-cover">
+                                <notempty name="v.avatar_url">
+                                    <img src="{$v.avatar_url}">
+                                <else />
+                                <if condition="$v['gender'] eq 2">
+                                    <img src="__PUBLIC__/img/female.jpg">
+                                <else />
+                                    <img src="__PUBLIC__/img/man.jpg">
+                                </if>    
+                                </notempty>  
+                        <div class="profile-info">
+                            <div class="profile-name">
+                                <span class="name">{$v.name}</span>
+                                <!--未完善加no-full-->
+                                <if condition="$v['must_completed'] eq 1">
+                                    <span class="full-info">完成度{$v.completeness}%</span>
+                                <else />
+                                    <span class="full-info no-full">未完善</span>
+                                </if>
+                               
+                            </div>
+                            <!--<p class="profile-name">{$v.name}</p>-->
+                            <div class="update-time"><i></i>更新于<span>{$v.last_tinme|substr=0,10|str_replace='-','.',###}</span></div>
+                        </div>
+                        <div class="profile-state">
+                            <a class="profile-remove" data-name="{$v.name}" data-id="{$v.id}" href="javascript:;"><i></i></a>
+                            <div class="state-info">
+                                <p class="state-title"><if condition="$v['delivereds'][0]['time']">已投递<else />未投递</if></p>
+                                <div class="state-detail">
+                                <foreach name="v.delivereds" item="vo">
+                                <span class="post">{$vo.post_name}</span><span class="time">{$vo.time|substr=0,10| str_replace='-','.',###}</span>
+                                </foreach>
+                                </div>
+                                <a class="more-mail" href="/resume/detail/{$v.id|smartBase64=###}.html">查看简历<i></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="radio-info">
+                            <input  id="profile{$v.id}" class="js_default" type="radio" name="profile" value="{$v.id}" <if condition="$v.is_default eq 1">checked</if>/>
+                            <label for="profile{$v.id}">默认简历</label>
+                        </div>
+                        
+                    </div>
+                    <div class="profile-title">{$v.name}</div>
+                </div>
+            </foreach>
+
+
+                <div class="profile-item profile-new">
+                 <a id="newProfile" class="profile-item profile-new" href="javascript:;">
+                    <div class="profile-cover">
+                        <span class="add-profile"></span>
+                    </div>
+                    <div class="profile-title">新建简历</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--删除简历提醒-->
+    <div class="popup warn-layer">
+        <div class="popup-info warn">
+            <div class="warn-img"><img src="__PUBLIC__/img/warn.png"/></div>
+            <p class="warn-info"></p>
+            <div class="warn-btn">
+                <a id="sure" class="sub-warn sure js_del_resume" data-id="0" href="javascript:;">确定</a>
+                <a id="cancel" class="sub-warn cancel" href="javascript:;">取消</a>
+            </div>
+        </div>
+    </div>
+
+<!--新建简历弹层-->
+    <div class="popup" id="newPopup">
+        <div class="popup-info new-info">
+            <a class="popup-close" href="javascript:;"><i></i></a>
+            <div class="new-detail">
+                <div class="new-item">
+                    <span class="new-title">简历名称</span>
+                    <input class="profile-name" id="new_resume_name" type="text" placeholder="请输入简历名称">
+                </div>
+                <div class="new-item">
+                    <span class="new-title">公开程度</span>
+                    <div class="sub-radio">
+                        <input id="open1" type="radio" name="open" data-id="0" checked/>
+                        <label for="open1">对企业公开<span class="open-lab"></span></label>
+                    </div>
+                    <div class="sub-radio">
+                        <input id="open2" type="radio" name="open" data-id="2"/>
+                        <label for="open2">完全保密<span class="open-lab"></span></label>
+                    </div>
+                </div>
+            </div>
+            <input type="button" class="new-btn sub_new_resume" value="创建简历">
+        </div>
+    </div>
+
+
+ <include file="./Application/Home/View/libpage/inc_buttom.html" />
+ <script type="text/javascript">
+ //创建简历
+    $('.sub_new_resume').click(function(){
+        var name = $('#new_resume_name').val();
+        var open_level = $('input[name="open"]:checked').attr('data-id');
+        if (name.length == 0 ){
+            layer.msg('请输入简历名称', {icon: 5});
+            return false;
+        }
+        if(open_level.length == 0){
+            layer.msg('请设置简历的公开程度', {icon: 5});
+            return false;
+        }
+        $.post("/ajax/createUpdateResume",{name:name,open_level:open_level,type:'create'},
+          function(data){
+             if (data.status==1) {
+                    $('.sub_new_resume').val('创建成功');
+                    var id = data.info.result;
+                    window.location.href = "/resume/detail/"+id+'.html';
+                } else {
+                    layer.msg(data.msg, {icon: 5});
+                }
+              },
+          "json");
+    });
+
+    //弹出窗口
+    //   profile-remove 
+        $("body").find(".profile-remove").click(function () {
+            var name = $(this).attr('data-name');
+            var id = $(this).attr('data-id');
+            var text = "是否确定删除名称为<span>"+name+"</span>的简历";
+            $('.warn-info').html(text);
+            $('.js_del_resume').attr('data-id',id);
+            $(".warn-layer").show();
+        })
+//删除简历
+    $('.js_del_resume').click(function(){
+        var id = $('.js_del_resume').attr('data-id');
+        if (id.length == 0){
+            layer.msg('未知错误', {icon: 5});
+            return false;
+        }
+        $.post("/ajax/createUpdateResume",{id:id,type:'del'},
+          function(data){
+             if (data.status==1) {
+                    var id = data.info.result;
+                    $('.js_del_resume').val('删除成功');
+                    window.location.reload();
+                } else {
+                     layer.msg(data.msg, {icon: 5});
+                }
+              },
+          "json");
+    });
+//设置默认简历
+    $('input[name="profile"]').click(function(){
+        var id = $(this).val();
+        $.post("/ajax/setDefault",{id:id},
+          function(data){
+             if (data.status==1) {
+                 layer.msg(data.msg, {icon: 1});
+                } else {
+                  layer.msg(data.msg, {icon: 5});
+                }
+              },
+          "json");
+    });
+ </script>
+</body>
+</html>

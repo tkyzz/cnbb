@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+<include file="./Application/Home/View/libpage/inc_header.html" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/cropper/cropper.min.css">
+<script src="__PUBLIC__/js/cropper/cropper.min.js"></script>
+    <meta charset="UTF-8">
+    <title>菜鸟帮帮-我的简历</title>
+        
+</head>
+<body>
+
+<include file="./Application/Home/View/libpage/inc_top.html" />
+
+    <div class="profile-banner"><img src="__PUBLIC__/img/profile_top.jpg"/></div>
+
+    <div class="content">
+    <!--引入导航文件-->
+    <include file="./Application/Home/View/libpage/inc_my_nav.html" />
+
+        <div class="profile-basic">
+            <div class="basic-item">
+                <p class="item-name">简历名称：<input type="text" id="js_resume_name" data-id="{$res.id}" value="{$res.base_info.name}"/>
+                <input type="hidden" id="js_resume_name_bak" value="{$res.base_info.name}"></p>
+                <div class="item-info">
+                    <span>
+                    <if condition="$res['base_info']['must_completed'] eq 1">
+                    简历完成度：<span>{$res['completeness']}%</span>
+                    <else />
+                    简历未完善
+                    </if>
+                    </span>
+                    <span class="profile-update">简历更新于：<span>{$res.base_info.last_tinme|strtotime=###|date="Y-m-d H:i",###}</span></span>
+                </div>
+            </div>
+            <div class="basic-item profile-open">
+                <p class="item-name">公开程度</p>
+                <div class="item-info">
+                    <div class="open-choice">
+                        <input class="js_re_open" id="choice01" type="radio" name="choice" value="0" <if condition="$res['base_info']['openlevel'] eq 0">checked</if>/>
+                        <label for="choice01">对企业公开<span></span></label>
+                    </div>
+                    <div class="open-choice">
+                        <input class="js_re_open" id="choice02" type="radio" name="choice" value="2" <if condition="$res['base_info']['openlevel'] eq 2">checked</if>/>
+                        <label for="choice02">完全保密<span></span></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-detail-box" id="profileDetail">
+            <div class="profile-detail">
+                <div class="detail-item js_info_box" id="profile">
+                    <div class="profile-show js_info_show" data-id="{$info['gender']|default=0}">
+                        <div class="my-avatar">
+                                <notempty name="info.avatar_url">
+                                    <img src="{$info.avatar_url}">
+                                <else />
+                                <if condition="$info['gender'] eq 2">
+                                    <img src="__PUBLIC__/img/female.jpg">
+                                <else />
+                                    <img src="__PUBLIC__/img/man.jpg">
+                                </if>    
+                                </notempty>    
+                        </div>
+                        <div class="basic-info">
+                            <div class="my-name">
+                                <span class="name">{$info.fullname}</span>
+                                <span class="edit js_baseinfo_edit"><i></i>编辑</span>
+                            </div>
+                            <div class="my-basic">
+                                <div class="my-basic-info basic-sex">
+                                    <i></i>
+                                    <span><if condition="$res['info']['gender'] eq 1">男<else />女</if></span>
+                                </div>
+                                <if condition="$info['height']">
+                                    <div class="my-basic-info basic-height">
+                                        <i></i>
+                                    <span>{$info['height']*100}CM</span>
+                                    </div>
+                                </if>
+
+                                <div class="my-basic-info basic-birth">
+                                    <i></i>
+                                    <span>{$info.birthday|substr=0,4}年{$info.birthday|substr=4,2}月{$info.birthday|substr=6,2}日</span>
+                                </div>
+                                <div class="my-basic-info basic-org">
+                                    <i></i>
+                                    <span>{$info.politics|smartResumeDict=politics,###}</span>
+                                </div>
+                            </div>
+                            <!--<div class="my-basic my-basic-info">-->
+                                <!--<i></i>-->
+                                <!--<span><if condition="$res['info']['gender'] eq 1">男<else />女</if></span>-->
+                            <!--<if condition="$info['height']">-->
+                                <!--<span>{$info['height']*100}CM</span>-->
+                            <!--</if>-->
+                                <!--<span>{$info.birthday|substr=0,4}年{$info.birthday|substr=4,2}月{$info.birthday|substr=6,2}日</span>-->
+                                <!--<span>{$info.card_no}</span>-->
+                                <!--<span>{$info.politics|smartResumeDict=politics,###}</span>-->
+                            <!--</div>-->
+                            <div class="my-basic two-column my-phone">
+                                <i></i>
+                                <span>{$info.phone}</span>
+                            </div>
+                            <div class="my-basic two-column my-mail">
+                                <i></i>
+                                <span>{$info.email}</span>
+                            </div>
+                            <div class="my-basic addr-live">
+                                <i></i>
+                                <span>实习居住地：<span>{$info.province_name}-{$info.city_name}-{$info.address}</span></span>
+                            </div>
+                            <div class="my-basic">
+                                <div class="my-basic-info addr-born">
+                                    <i></i>
+                                    <span>户口所在地：<span>{$info.hk_province_name}-{$info.hk_city_name}</span></span>
+                                </div>
+                                <div class="my-basic-info account">
+                                    <i></i>
+                                    <span>{$info.hk_type|smartResumeDict=hktype,###}</span>
+                                </div>
+                            </div>
+                            <div class="my-basic about-me">
+                            <foreach name="res.info.tags" item="v">
+                                <span>{$v}</span>
+                            </foreach> 
+                            </div>
+                        </div>
+                    </div>
+               
+                    <div class="profile-edit" data-id="{$info['gender']|default=0}">
+                        <div class="detail-item-title">
+                            <p class="title"><span>个人信息<b class="must-lab">必填</b></span></p>
+                        </div>
+                        <div class="avatar-box">
+                            <div class="my-avatar" id="avatar">
+                                <form id="avatarform" name="avatarform" method="post" >
+                                    <div class="image js_avatar_show">
+                                        <notempty name="info.avatar_url">
+                                            <img src="{$info.avatar_url}">
+                                            <else />
+                                            <if condition="$info['gender'] eq 2">
+                                                <img src="__PUBLIC__/img/female.jpg">
+                                                <else />
+                                                <img src="__PUBLIC__/img/man.jpg">
+                                            </if>
+                                        </notempty>
+                                    </div>
+                                    <input type="file" id="avatar_file" name="avatar_file" accept="image/*" alt="请选择图片"/>
+                                    <input type="hidden"  id="pic_x" value="0">
+                                    <input type="hidden"  id="pic_y" value="0">
+                                    <input type="hidden"  id="pic_h" value="0">
+                                    <input type="hidden"  id="pic_w" value="0">
+                                    <input type="hidden"  id="pic_name" value="">
+                                    <p class="upload-tips">+&nbsp;点击上传</p>
+                                    <div class="mask">
+                                        <i></i>
+                                        <span>240*240</span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="upload-tag">
+                                <p class="our-tips">*专业简历照片将明显提高你的简历查看率</p>
+                                <div class="upload-ask">
+                                    文件最佳尺寸：240×240像素，文件小于100KB<br>
+                                    文件格式：jpg、jpeg、png
+                                </div>
+                            </div>
+                            <div class="avatar-example">
+                                <span class="example-title">示例头像</span>
+                                <div class="our-avatar"><img src="__PUBLIC__/img/profile_photo.jpg"/></div>
+                            </div>
+                        </div>
+                    <form id="resumebaseForm" name="resumebaseForm" method="post" style="display: inline-block">
+                        <div class="basic-info">
+                            <div class="info-item">
+                                <span class="info-name"><b class="must-lab"></b>姓名</span>
+                                <div class="input-box must-input">
+                                    <input id="name" type="text" name="full_name" value="{$info.fullname}" />
+                                </div>
+                                <div class="sex-box">
+                                    <b class="must-lab"></b>
+                                    <div class="radio-sex">
+                                        <input id="sex0" type="radio" name="gender" value="1" <if condition="$info['gender'] eq '1'">checked</if>>
+                                        <label for="sex0">男</label>
+                                    </div>
+                                    <div class="radio-sex">
+                                        <input id="sex1" type="radio" name="gender" value="2" <if condition="$info['gender'] eq 2">checked</if>>
+                                        <label for="sex1">女</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-name"><b class="must-lab"></b>手机号码</span>
+                                <div class="input-box must-input">
+                                    <input id="tel" type="text" name="mobile" value="<empty name="info.phone">{$Think.session.member.user_name}<else />{$info.phone}</empty>"/>
+                                </div>
+
+                                <div class="my-height">
+                                    <span class="info-name">身高</span>
+                                    <div class="input-height">
+                                        <input type="text" name="height" maxlength="3" value="<if condition="$info['height']">{$info['height']*100}</if>"/>
+                                        <span class="unit">CM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-name"><b class="must-lab"></b>联系邮箱</span>
+                                <div class="input-box must-input">
+                                    <input id="email" type="email" name="email" value="{$info.email}"/>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-name"><b class="must-lab"></b>出生日期</span>
+                                <div class="input-box must-input">
+                                    <input type="text" value="<notempty name="info['birthday']">{$info.birthday|substr=0,4}-{$info.birthday|substr=4,2}-{$info.birthday|substr=6,2}</notempty>" name="birthday" id="birth" readonly/>
+                                </div>
+                            </div>
+                            <div class="info-item addr-info">
+                                <span class="info-name"><b class="must-lab"></b>实习居住地</span>
+                                <div class="input-box must-input">
+                                    <select class="sx_prov" name="province_id">
+                                        <option>请选择省份</option>
+
+                                    <volist name="area" id="v">
+                                        <option value="{$v.code}" <if condition="$v['code'] eq $info['province_code']">selected</if>>{$v.name}</option>
+                                    </volist>
+
+                                    </select>
+                                </div>
+                                <div class="input-box must-input">
+                                    <select id="sx_city" name="city_id">
+                                        <option>请选择城市</option>
+                                    </select>
+                                </div>
+                                <div class="input-box addr must-input">
+                                    <input id="addr" type="text" name="address" value="{$info.address}" placeholder="请输入详细地址" />
+                                </div>
+                            </div>
+                            <div class="info-item addr-info">
+                                <span class="info-name"><b class="must-lab"></b>户口所在地</span>
+                                <div class="input-box must-input">
+                                    <select class="hk_prov" name="hk_province_id">
+                                        <option>请选择省份</option>
+                                    <volist name="area" id="v">
+                                        <option value="{$v.code}" <if condition="$v['code'] eq $info['hk_province_code']">selected</if>>{$v.name}</option>
+                                    </volist>
+                                    </select>
+                                </div>
+                                <div class="input-box must-input">
+                                    <select id="hk_city" name="hk_city_id">
+                                        <option>请选择城市</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="info-item check-info">
+                                <span class="info-name"><b class="must-lab"></b>户口类型</span>
+                            <volist name="hktype" id="v">
+                                <div class="check-box must-input">
+                                    <input class="check" id="account{$v.id}" type="radio" name="hk_type" value="{$v.id}"<if condition="$v['id'] eq $info['hk_type']">checked</if>>
+                                    <label for="account{$v.id}">{$v.name}</label>
+                                </div>
+                            </volist>
+
+                                <div class="tips">
+                                    <span class="tips-title"><i></i>什么是集体户口</span>
+                                       <span class="tips-info">
+                                           <span class="tips-lab"><em></em></span>
+                                           集体户口，暂时还不具备单独立户条件，或暂时还没有办理单独立户手续的居民，其户籍关系挂靠在某一集体户头上的居民户口。（例如：学校）
+                                       </span>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <span class="info-name">身份证号码</span>
+                                <div class="input-box">
+                                    <input id="id" type="text" name="card_no" value="{$info.card_no}"/>
+                                </div>
+                            </div>
+
+                            <div class="info-item check-info">
+                                <span class="info-name">政治面貌</span>
+                                <volist name="politics" id="v">
+                                <div class="check-box">
+                                    <input class="check" id="status{$v.id}" type="radio" name="politics" value="{$v.id}" <if condition="$v['id'] eq $info['politics']">checked</if>>
+                                    <label for="status{$v.id}">{$v.name}</label>
+                                </div>
+                                </volist>
+                            </div>
+
+                            <div class="info-item check-info">
+                                <span class="info-name">自我描述</span>
+                                <div class="self-box">
+                                    <volist name="tags" id="v">
+                                        <div class="check-box">
+                                            <input class="check stag" id="depict{$v.id}" name="stags" type="checkbox" value="{$v.name}">
+                                            <label for="depict{$v.id}">{$v.name}</label>
+                                        </div>
+
+                                    </volist>
+                                </div>
+                                <div class="input-box">
+                                    <input class="self-depict" placeholder="自己填"/>
+                                    <a id="selfAdd" class="self-add" href="javascript:;">+</a>
+
+                                </div>
+                            </div>
+                            <div class="error-area" id="info_error"></div>
+                        </div>
+                        
+                            <input type="hidden" name="resume_id" value="{$res.id}" data-id="{$res.id|smartBase64=###}">
+                            <input type="hidden" name="id" value={$res.info.id}>
+                            <input type="hidden" name="avatar_id" id="avatar_id" value="{$info.avatar_id}">
+                            <input type="hidden" name="card_type" value="1">
+                            <input type="hidden" name="tags" value="{$mytags}">
+                            <input type="hidden" class="sx_city_code" value="{$info['city_code']}">
+                            <input type="hidden" class="hk_city_code" value="{$info['hk_city_code']}">
+                            <notempty name="info['fullname']">
+                                <input type="hidden" name="type" value="base_update">
+                            <else />
+                                <input type="hidden" name="type" value="base_create">
+                            </notempty>
+                        <div class="detail-btn">
+                            <input class="save js_baseinfo_save" type="button" value="保存">
+                            <a class="cancel js_baseinfo_cancel" href="javascript:;">取消</a>
+                        </div>
+                    </form>
+                    </div>
+                
+
+                </div>
+
+                <!--<div class="detail-item" id="intention">-->
+
+                    <!--<div class="profile-show" data-id="{$intention.trades.name|default=0}">-->
+                        <!--<div class="detail-item-title">-->
+                            <!--<p class="title"><span>求职意向</span><b class="must-lab">必填</b></p>-->
+                            <!--<div class="action-box">-->
+                                <!--<div class="sub-action edit js_intention_edit"><i></i>编辑</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="sub-info"><span>期望工作城市：<span class="profile-show-city"> {$intention.work_cities.name}</span></span></div>-->
+                        <!--<div class="sub-info"><span>期望工作行业：<span class="profile-show-trade">{$intention.trades.name}</span></span></div>-->
+                        <!--<div class="sub-info subfield"><span>工作性质：<span class="profile-show-worktype">{$intention.work_type|smartdictval=###}</span></span></div>-->
+                        <!--<div class="sub-info subfield"><span>到岗时间：<span <span class="profile-show-arrive"><if condition="$intention.arrive_days eq 0">待定<else />{$intention.arrive_days}天内</if></span></span></div>-->
+                        <!--<div class="sub-info subfield"><span>每周工作天数：<span class="profile-show-weekday"><if condition="$intention['week_workdays'] eq 0">不限<else />{$intention.week_workdays}天</if></span></span></div>-->
+                        <!--<if condition="$intention['work_type'] eq 2">-->
+                        <!--<div class="sub-info subfield sub-info-duration"><span>连续实习时长：<span class="profile-show-duration"><if condition="$intention['work_duration'] eq 0">不限<else />{$intention['work_duration']/30}个月</if></span></span></div>-->
+                        <!--</if>-->
+                    <!--</div>-->
+                   <!--<form id="resume_intention" name="resume_intention" method="post">-->
+                    <!--<div class="profile-edit" data-id="{$intention.trades.name|default=0}">-->
+                        <!--<div class="detail-item-title">-->
+                            <!--<p class="title"><span>求职意向</span><b class="must-lab">必填</b></p>-->
+                        <!--</div>-->
+                        <!--<div class="info-item hope-info">-->
+                            <!--<span class="info-name"><b class="must-lab"></b>期望工作城市（最多3个）</span>-->
+                            <!--<div class="input-box"><input type="text" placeholder="点击选择" readonly/><i></i></div>-->
+                            <!--<div class="selected-box js_city_show">-->
+                                <!---->
+                            <!--</div>-->
+                            <!--<div class="select-container">-->
+                                <!--<ul class="province js_intention_province">-->
+                                    <!--<li >城市</li>-->
+                                    <!--<foreach name="area" item="v">-->
+                                    <!--<li value="{$v.code}">{$v.name}</li>-->
+                                    <!--</foreach>-->
+                                <!--</ul>-->
+                                <!--<ul class="city selected-right js_intention_city">-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                            <!--<input type="hidden" name="work_cities_id" value="{$intention.work_cities.id}">-->
+                            <!--<input type="hidden" name="work_cities_name" value="{$intention.work_cities.name}">-->
+                        <!--</div>-->
+                        <!--<div class="info-item hope-info">-->
+                            <!--<span class="info-name"><b class="must-lab"></b>期望工作行业（最多3个）</span>-->
+                            <!--<div class="input-box"><input type="text" placeholder="点击选择" readonly/><i></i></div>-->
+                            <!--<div class="selected-box js_trade_show">-->
+
+                                <!---->
+
+                            <!--</div>-->
+                            <!--<ul class="select-container trade-select selected-right js_intention_trade">-->
+                            <!--<foreach name="trades" item="v">-->
+                                <!--<li value="{$v.id}">{$v.name}</li>-->
+                            <!--</foreach>-->
+                            <!--</ul>-->
+                            <!--<input type="hidden" name="trade_id" value="{$intention.trades.id|default=0}">-->
+                            <!--<input type="hidden" name="trade_name" value="{$intention.trades.name|default=0}">-->
+                        <!--</div>-->
+
+                        <!--<div class="info-item check-info">-->
+                            <!--<span class="info-name"><b class="must-lab"></b>期待工作性质</span>-->
+                            <!--<foreach name="work_type" item="v">-->
+                            <!--<div class="check-box">-->
+                                <!--<input class="check" id="nature{$v.id}" value="{$v.id}" type="radio" name="work_type" <if condition="$intention['work_type'] eq $v['id']">checked</if>>-->
+                                <!--<label for="nature{$v.id}">{$v.name}</label>-->
+                            <!--</div>-->
+                            <!--</foreach>-->
+                            <!--<div class="entry-time">-->
+                                <!--<span class="info-name">到岗时间</span>-->
+                                <!--<div class="time-selection">-->
+                                    <!--<select name="arrive_days">-->
+                                        <!--<option value="0" <if condition="$intention['arrive_days'] eq 0">selected</if>>待定</option>-->
+                                        <!--<option value="7" <if condition="$intention['arrive_days'] eq 7">selected</if>>1周内</option>-->
+                                        <!--<option value="14" <if condition="$intention['arrive_days'] eq 14">selected</if>>2周内</option>-->
+                                        <!--<option value="30" <if condition="$intention['arrive_days'] eq 30">selected</if>>1个月</option>-->
+                                    <!--</select>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="info-item check-info work-days">-->
+                            <!--<span class="info-name"><b class="must-lab"></b>每周工作天数</span>-->
+                            <!--<input type="hidden" name="week_day" value="{$intention.week_workdays}">-->
+                            <!--<div class="check-box">-->
+                                <!--<input class="check" id="work0" type="radio" value="0" name="week_workdays">-->
+                                <!--<label for="work0">不限</label>-->
+                            <!--</div>-->
+                            <!--<div class="check-box">-->
+                                <!--<input class="check" id="work1" type="radio" value="1" name="week_workdays">-->
+                                <!--<label for="work1">1天</label>-->
+                            <!--</div>-->
+                            <!--<div class="check-box">-->
+                                <!--<input class="check" id="work2" type="radio" value="2" name="week_workdays">-->
+                                <!--<label for="work2">2天</label>-->
+                            <!--</div>-->
+                            <!--<div class="check-box">-->
+                                <!--<input class="check" id="work3" type="radio" value="3" name="week_workdays">-->
+                                <!--<label for="work3">3天</label>-->
+                            <!--</div>-->
+                            <!--<div class="check-box">-->
+                                <!--<input class="check" id="work4" type="radio" value="4" name="week_workdays">-->
+                                <!--<label for="work4">4天</label>-->
+                            <!--</div>-->
+                            <!--<div class="check-box">-->
+                                <!--<input class="check" id="work5" type="radio" value="5" name="week_workdays">-->
+                                <!--<label for="work5">5天</label>-->
+                            <!--</div>-->
+                            <!--<div class="check-box">-->
+                                <!--<input class="check" id="work6" type="radio" value="6" name="week_workdays">-->
+                                <!--<label for="work6">6天</label>-->
+                            <!--</div>-->
+                            <!--<div class="check-box">-->
+                                <!--<input class="check" id="work7" type="radio" value="7" name="week_workdays">-->
+                                <!--<label for="work7">7天</label>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="info-item check-info work-days" id="resume_workDays" style="display:none;">-->
+                            <!--<span class="info-name"><b class="must-lab"></b>连续实习时长</span>-->
+                            <!--<div class="check-box">-->
+                                <!--<input class="check" id="duration0" type="radio" name="duration" value="0" <if condition="$intention['work_duration'] eq 0">checked="checked"</if>>-->
+                                <!--<label for="duration0">不限</label>-->
+                            <!--</div>-->
+                            <!--<div class="duration-month">-->
+                                <!--<i class="reduce"></i>-->
+                                <!--<span class="js_duration_show"><if condition="$intention['work_duration'] eq 0">1个月<else />{$intention['work_duration']/30}个月</if></span>-->
+                                <!--<i class="raise"></i>-->
+                            <!--</div>-->
+                            <!--<input type="hidden" name="work_duration" value="<if condition="$intention['work_duration'] eq 0">1<else />{$intention['work_duration']/30}</if>">-->
+                        <!--</div>-->
+                        <!--<div class="error-area" id="intention_error"></div>-->
+                            <!--<input type="hidden" name="resume_id" value="{$res.base_info.id}">-->
+                            <!--<input type="hidden" name="id" value="{$intention.id}">-->
+                            <!--<input type="hidden" name="type" <empty name="intention.work_type">value="intention_create"<else />value="intention_update"</empty>>-->
+                        <!--<div class="detail-btn">-->
+                            <!--<input class="save intention_save" type="button" value="保存">-->
+                            <!--<a class="cancel" href="javascript:;">取消</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--</form>-->
+                <!--</div>-->
+
+                <div class="detail-item" id="education">
+
+                    <div class="show-block">
+                        <div class="profile-show edu_profile_show" data-id="{$edus[0]['major']|default=0}">
+                            <div class="detail-item-title">
+                                <p class="title"><span>教育经历</span><b class="must-lab">必填</b></p>
+                                <div class="action-box">
+                                    <div class="sub-action add js_edu_add"><i></i>添加</div>
+                                </div>
+                            </div>
+                            <foreach name="edus" item="v">
+                            <div class="sub-info" data-id="{$v.id}">
+                            <div class="sub-edit edit js_edu_edit" data-id="{$v.id}"><i></i>编辑</div>
+                                <div class="college-info">
+                                    <span class="major must-field">{$v.school_name}{$v.edate|is_edu_read=###}</span>
+                                    <notempty name="v.faculty">
+                                        <span class="others must-field">{$v.faculty}</span>
+                                    </notempty>
+                                    <span class="major must-field">{$v.major}</span>
+                                    <span class="degree">{$v.degree|smartDegree=###}</span>
+                                    <!--<notempty name="v.bp">-->
+                                    <!--<span class="others bp">绩点{$v.bp}</span>-->
+                                    <!--</notempty>-->
+                                    <!--<notempty name="v.rank">-->
+                                    <!--<span class="others rank">排名{$v.rank}</span>-->
+                                    <!--</notempty>-->
+                                    <span class="from-to"><span class="sdate">{$v.sdate|smartEduGrade=###}</if></span></span>
+                                </div>
+                            </div>
+                            </foreach>
+                        </div>
+
+
+                        <form id="resume_edu" name="resume_edu" method="post">
+                        <div class="profile-edit edu_profile_edit" data-id="{$edus[0]['major']|default=0}">
+                            <div class="detail-item-title">
+                                <p class="title"><span>教育经历</span><b class="must-lab">必填</b></p>
+                                <div class="action-box">
+                                    <div class="sub-action add js_edu_add"><i></i>添加</div>
+                                   <!--  <div class="sub-action edit"><i></i>编辑</div> -->
+                                </div>
+                            </div>
+                            <div class="info-item college school-info">
+                                <span class="info-name"><b class="must-lab"></b>学校</span>
+                                <div class="input-box must-input" id="school">
+                                    <input type="text" id="school_name" name="school_name" placeholder="点击选择学校名称" value="" readonly/>
+                                    <i></i>
+                                </div>
+                                <span class="input-tips">从最近一段教育经历填起</span>
+                                <div class="select-container school-select" id="schoolSelect">
+                                    <ul class="province js_get_school">
+                                    <foreach name="eduarea" item="v">
+                                        <li value="{$v.code}">{$v.name}</li>
+                                    </foreach>
+                                    </ul>
+                                    <ul class="school">
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="info-item addr-info">
+                                <span class="info-name"><b class="must-lab"></b>起止时间</span>
+                                <div class="input-box must-input">
+                                    <select name="syear" id="syear">
+                                    <option value="0">年</option>
+                                    <for start="2008" end="2017">
+                                        <option value="{$i}">{$i}</option>
+                                    </for>
+                                    </select>
+
+                                </div>
+                                <div class="input-box must-input">
+                                    <select name="smonth" id="smonth">
+                                    <option value="0">月</option>
+                                    <for start="1" end="13">
+                                        <option value="{$i}">{$i}</option>
+                                    </for>
+                                    </select>
+                                </div>
+                                <span class="time-part">至</span>
+                                <div class="input-box must-input">
+                                    <select name="eyear" id="eyear">
+                                    <option value="0">年</option>
+                                    <for start="2008" end="2021">
+                                        <option value="{$i}">{$i}</option>
+                                    </for>
+                                    </select>
+                                </div>
+                                <div class="input-box must-input">
+                                <select name="emonth" id="emonth">
+                                <option value="0">月</option>
+                                    <for start="1" end="13">
+                                        <option value="{$i}">{$i}</option>
+                                    </for>
+                                </select>
+                                </div>
+                                <span class="input-tips">终止时间不填表示至今</span>
+                            </div>
+                            <div class="info-item check-info">
+                                <span class="info-name"><b class="must-lab"></b>学历</span>
+                                <div class="check-box must-input">
+                                    <input class="check" id="degree1" type="radio" name="degree" value="1">
+                                    <label for="degree1">大专</label>
+                                </div>
+                                <div class="check-box must-input">
+                                    <input class="check" id="degree2" type="radio" name="degree" value="2">
+                                    <label for="degree2">本科</label>
+                                </div>
+                                <div class="check-box must-input">
+                                    <input class="check" id="degree3" type="radio" name="degree" value="3">
+                                    <label for="degree3">硕士</label>
+                                </div>
+                                <div class="check-box must-input">
+                                    <input class="check" id="degree4" type="radio" name="degree" value="4">
+                                    <label for="degree4">博士</label>
+                                </div>
+                            </div>
+                            <div class="info-item college">
+                                <span class="info-name">院系</span>
+                                <div class="input-box">
+                                    <input id="faculty" type="text" name="faculty"/>
+                                </div>
+                            </div>
+                            <div class="info-item addr-info">
+                                <span class="info-name"><b class="must-lab"></b>专业</span>
+                                <div class="input-box must-input">
+                                    <select name="major_category_id" id="major_category_id">
+                                        <option value="0">选择专业</option>
+                                    <foreach name="major_list" item="v">
+                                        <option value="{$v.id}">{$v.name}</option>
+                                    </foreach>
+                                    </select>
+                                </div>
+                                <div class="input-box school-info must-input">
+                                    <input id="major" type="text" name="major"  placeholder="输入专业名称" onfocus="tj_text_num($(this),$(this).parent().next(),10)" maxlength="10" />
+                                    <!-- <label for="specialty">输入专业名称</label> -->
+                                </div>
+                                <div class="input-tips"><span><span>0</span>/10</span>字</div>
+
+                                <a class="second-specialty" href="javascript:;">添加第二专业<i></i></a>
+                            </div>
+                            <div class="info-item addr-info secmajor" style="display:none;">
+                                <span class="info-name">第二专业</span>
+                                <div class="input-box">
+                                    <select name="second_major_category_id" id="second_major_category_id">
+                                        <option value="0">选择专业</option>
+                                    <foreach name="major_list" item="v">
+
+                                        <option value="{$v.id}">{$v.name}</option>
+                                    </foreach>
+                                    </select>
+                                </div>
+                                <div class="input-box school-info">
+                                    <input id="second_major" type="text" name="second_major" id="second_major"/>
+                                    <!-- <label for="specialty1">输入专业名称</label> -->
+                                </div>
+                            </div>
+                            <!--<div class="info-item ranking">-->
+                                <!--<span class="info-name">绩点</span>-->
+                                <!--<div class="input-box"><input type="text" name="bp" id="bp"/></div>-->
+
+                                <!--<span class="ranking-name">排名</span>-->
+                                <!--<div class="input-box"><input type="text" name="rank" id="rank"/></div>-->
+                            <!--</div>-->
+                            <div class="error-area" id="edu_error"></div>
+                            <div class="detail-btn">
+                                <input type="hidden" class="resume_id" name="resume_id" value="{$res.id}">
+                                <input type="hidden" id="edu_id" name="edu_id" value="0">
+                                <input type="hidden" id="edu_type" name="type" value="edu_create">
+                                 <input class="save edu_save" type="button" value="保存">
+                                <a class="cancel" href="javascript:;">取消</a>
+                                <notempty name="edus[0]['major']">
+                                <a class="del" id="js_edu_del" href="javascript:;" data-id="0" data-name="0">删除</a>
+                                </notempty>
+                            </div>
+                        </div>
+                        </form>
+
+
+                    </div>
+                    <div class="show-block">
+                        <div class="profile-show edu_exchange_profile_show" data-id="<foreach name="edus" item="v">
+                                <foreach name="v.exchanges" item="vo">{$vo.id}</foreach></foreach>">
+                            <div class="detail-item-title level-title">
+                                <p class="title"><span><span>交换生经历</span></span></p>
+                                <div class="action-box">
+                                    
+                                    <div class="sub-action add js_edu_exchange_add"><i></i>添加</div>
+                                </div>
+                            </div>
+                            <div class="show-level">
+                            <foreach name="edus" item="v">
+                                <foreach name="v.exchanges" item="vo">
+                                <div class="sub-info">
+                                <div class="sub-edit edit js_edu_exchange_edit" data-id="{$vo.id}" data-eduid="{$v.id}"><i></i>编辑</div>
+                                    <div class="college-info">
+                                        <span class="name">{$vo.school_name}</span>
+                                        <span class="major">{$vo.major}</span>
+                                        <span class="from-to"><span>{$vo.sdate|substr_replace=###,'.',4,0}</span>—<span><if condition="$vo.edate eq 0">至今<else />{$vo.edate|substr_replace=###,'.',4,0}</if></span></span>
+                                    </div>
+                                <notempty name="vo.remark">
+                                    <div class="harvest">
+                                        <p class="harvest-title">收获及成绩</p>
+                                        <div class="harvest-info">
+                                            <div class="sub-harvest">
+                                               
+                                                {$vo.remark|smartTextarea=###}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </notempty>
+                                </div>
+                                </foreach>
+                            </foreach>
+                            </div>
+
+                        </div>
+                        <form id="resume_edu_exchange" name="resume_edu_exchange" method="post">
+                        <div class="profile-edit edu_exchange_profile_edit" data-id="<foreach name="edus" item="v">
+                                <foreach name="v.exchanges" item="vo">{$vo.id}</foreach></foreach>">
+                            <div class="detail-item-title level-title">
+                                <p class="title"><span><span>交换生经历</span></span></p>
+                                <div class="action-box">
+                                    <div class="sub-action add js_edu_exchange_add"><i></i>添加</div>
+                                </div>
+                            </div>
+
+                            <div class="level-info exchange_sub">
+                             <div class="info-item exchange-school js-exchange-school">
+                                    <span class="info-name"><b class="must-lab"></b>学校</span>
+                                    <div class="input-box">
+                                        <select name="edu_id" id="jh_edu_id">
+                                            <option value="0">请选择学校名称和时间</option>
+                                            <foreach name="edus" item="v">
+                                            <option value="{$v.id}">{$v.school_name} {$v.sdate}—<if condition="$v.edate eq 0">至今<else />{$v.edate}</if></option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                    <span class="input-tips">请选择填写在教育经历中的学校</span>
+                                </div>
+                                <div class="info-item addr-info">
+                                    <span class="info-name"><b class="must-lab"></b>学校</span>
+                                    <div class="input-box">
+                                        <select name="country_code" id="jh_country_code">
+                                            <option value="0">国家</option>
+                                            <foreach name="countries" item="v">
+                                            <option value="{$v.code}">{$v.name}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                    <div class="input-box school-info">
+                                        <input id="jh_school_name" type="text" name="school_name" id="jh_school_name" value="" placeholder="输入学校名称" onfocus="tj_text_num($(this),$(this).parent().next(),18)" maxlength="18"/>
+                                       <!--  <label for="levelSchool">输入学校名称</label> -->
+                                    </div>
+                                    <div class="input-tips"><span><span>0</span>/18</span>字</div>
+                                    <span class="input-tips">从最近一段教育经历填起</span>
+                                </div>
+                                <div class="info-item addr-info">
+                                    <span class="info-name"><b class="must-lab"></b>起止时间</span>
+                                    <div class="input-box">
+                                        <select name="syear" id="jh_syear">
+                                        <option value="0">年</option>
+                                        <for start="2008" end="2021">
+                                            <option value="{$i}">{$i}</option>
+                                        </for>
+                                        </select>
+
+                                    </div>
+                                        <div class="input-box">
+                                            <select name="smonth" id="jh_smonth">
+                                            <option value="0">月</option>
+                                            <for start="1" end="13">
+                                                <option value="{$i}">{$i}</option>
+                                            </for>
+                                            </select>
+                                        </div>
+                                        <span class="time-part">至</span>
+
+                                        <div class="input-box">
+                                        <select name="eyear" id="jh_eyear">
+                                        <option value="0">年</option>
+                                        <for start="2008" end="2021">
+                                            <option value="{$i}">{$i}</option>
+                                        </for>
+                                        </select>
+
+                                         </div>
+                                    <div class="input-box">
+                                        <select name="emonth" id="jh_emonth">
+                                        <option value="0">月</option>
+                                        <for start="1" end="13">
+                                            <option value="{$i}">{$i}</option>
+                                        </for>
+                                        </select>
+                                    </div>
+                                    <span class="input-tips">终止时间不填表示至今</span>
+                                </div>
+                                <div class="info-item addr-info">
+                                    <span class="info-name"><b class="must-lab"></b>专业</span>
+                                    <div class="input-box">
+                                        <select name="major_cid" id="jh_major_cid">
+                                            <option value="0">专业</option>
+                                        <foreach name="major_list" item="v">
+                                            <option value="{$v.id}">{$v.name}</option>
+                                        </foreach>
+                                        </select>
+                                    </div>
+                                    <div class="input-box school-info">
+                                        <input id="jh_major" type="text" name="major" id="jh_major" value="" placeholder="输入专业名称" onfocus="tj_text_num($(this),$(this).parent().next(),10)" maxlength="10"/>
+                                        <!-- <label for="levelSpecialty">输入专业名称</label> -->
+                                    </div>
+                                    <div class="input-tips"><span><span>0</span>/10</span>字</div>
+                                </div>
+                                <div class="info-item text-info">
+                                    <span class="info-name">收获及成绩</span>
+                                    <div class="input-box">
+                                        <textarea name="remark" id="jh_remark"></textarea>
+                                    </div>
+                                </div>
+                                <div class="error-area" id="exchange_error"></div>
+                                <div class="detail-btn">
+                                    <input type="hidden" name="id" id="jh_id">
+                                    <input type="hidden" name="type" id="jh_edu_type" value="edu_exchange_create">
+                                    <input class="save exchange_save" type="button" value="保存">
+                                    <a class="cancel" href="javascript:;">取消</a>
+                                    <notempty name="edus.0.exchanges.0.id">
+                                    <a class="del" id="js_jh_edu__del" href="javascript:;">删除</a>
+                                    </notempty>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="show-block">
+                        <div class="profile-show edu_project_profile_show" data-id="<foreach name="edus" item="v">
+                                    <foreach name="v.others" item="vo">{$vo.id}</foreach></foreach>">
+                            <div class="detail-item-title level-title">
+                                <p class="title"><span><span>专业研究项目</span></span></p>
+                                <div class="action-box">
+                                    <div class="sub-action add js_edu_project_add"><i></i>添加</div>
+                                </div>
+                            </div>
+                            <div class="show-level">
+                                <foreach name="edus" item="v">
+                                    <foreach name="v.others" item="vo">
+                                <div class="sub-info education-info">
+                                <div class="sub-edit edit js_edu_project_edit" data-id="{$vo.id}" data-eduid="{$v.id}"><i></i>编辑</div>
+                                    <div class="college-info">
+                                        <span class="name">项目名称：{$vo.name}</span>
+                                        <span class="major">{$vo.role|smartRole=###}</span>
+                                        <span class="from-to"><span>{$vo.sdate|substr_replace=###,'.',4,0}</span>—<span><if condition="$vo.edate eq 0">至今<else />{$vo.edate|substr_replace=###,'.',4,0}</if></span></span>
+                                    </div>
+                                    <div class="harvest">
+                                        <p class="harvest-title">收获及成绩</p>
+                                        <div class="harvest-info">
+                                            <div class="sub-harvest">
+                                                
+                                                {$vo.remark|smartTextarea=###}
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                    </foreach>
+                                </foreach>
+                            </div>
+                        </div>
+                        <form id="resume_edu_other" name="resume_edu_other" method="post">
+                        <div class="profile-edit edu_project_profile_edit" data-id="<foreach name="edus" item="v">
+                                    <foreach name="v.others" item="vo">{$vo.id}</foreach></foreach>">
+                            <div class="detail-item-title level-title">
+                                <p class="title"><span><span>专业研究项目</span></span></p>
+                                <div class="action-box">
+                                    <div class="sub-action add js_edu_project_add"><i></i>添加</div>
+                                </div>
+                            </div>
+
+                            <div class="level-info project_sub">
+                                
+                             <div class="info-item exchange-school js-project-school">
+                                    <span class="info-name"><b class="must-lab"></b>学校</span>
+                                    <div class="input-box">
+                                        <select name="edu_id" id="project_edu_id">
+                                            <option value="0">请选择学校名称和时间</option>
+                                            <foreach name="edus" item="v">
+                                            <option value="{$v.id}">{$v.school_name} {$v.sdate}—<if condition="$v.edate eq 0">至今<else />{$v.edate}</if></option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                    <span class="input-tips">请选择填写在教育经历中的学校</span>
+                                </div>
+
+                                <div class="info-item project">
+                                    <span class="info-name"><b class="must-lab"></b>项目名称</span>
+                                    <div class="input-box">
+                                        <input type="text" name="name" id="project_name" onfocus="tj_text_num($(this),$(this).parent().next(),18)" maxlength="18"/>
+                                    </div>
+                                    <div class="input-tips"><span><span>0</span>/18</span>字</div>
+                                </div>
+
+                                <div class="info-item addr-info">
+                                    <span class="info-name"><b class="must-lab"></b>起止时间</span>
+                                    <div class="input-box">
+                                        <select name="syear" id="project_syear">
+                                        <option value="0">年</option>
+                                        <for start="2008" end="2021">
+                                            <option value="{$i}">{$i}</option>
+                                        </for>
+                                        </select>
+
+                                    </div>
+                                        <div class="input-box">
+                                            <select name="smonth" id="project_smonth">
+                                            <option value="0">月</option>
+                                            <for start="1" end="13">
+                                                <option value="{$i}">{$i}</option>
+                                            </for>
+                                            </select>
+                                        </div>
+                                        <span class="time-part">至</span>
+                                        
+                                        <div class="input-box">
+                                        <select name="eyear" id="project_eyear">
+                                        <option value="0">年</option>
+                                        <for start="2008" end="2021">
+                                            <option value="{$i}">{$i}</option>
+                                        </for>
+                                        </select>
+
+                                         </div>
+                                    <div class="input-box">
+                                        <select name="emonth" id="project_emonth">
+                                        <option value="0">月</option>
+                                        <for start="1" end="13">
+                                            <option value="{$i}">{$i}</option>
+                                        </for>
+                                        </select>
+                                    </div>
+                                    <span class="input-tips">终止时间不填表示至今</span>
+                                </div>
+                                <div class="info-item check-info">
+                                    <span class="info-name"><b class="must-lab"></b>项目角色</span>
+                                    <div class="check-box">
+                                        <input class="check" id="role0" type="radio" name="role" placeholder="参与者" value="0">
+                                        <label for="role0">参与者</label>
+                                    </div>
+                                    <div class="check-box">
+                                        <input class="check" id="role1" type="radio" name="role" placeholder="负责人" value="1">
+                                        <label for="role1">负责人</label>
+                                    </div>
+                                </div>
+                                <div class="info-item text-info">
+                                    <span class="info-name">收获及成绩</span>
+                                    <div class="input-box">
+                                        <textarea name="remark" id="project_remark"></textarea>
+                                    </div>
+                                </div>
+                                <div class="error-area" id="project_error"></div>
+                                <div class="detail-btn">
+                                    <input type="hidden" name="id" id="project_id" value="">
+                                    <input type="hidden" name="type" id="project_edu_type" value="edu_ex_create">
+                                    <input class="save project_save" type="button" value="保存">
+                                    <a class="cancel" href="javascript:;">取消</a>
+                                    
+                                    <a class="del js_project_edu__del" href="javascript:;" <empty name="edus.0.others.0.id">style="display:none;"</empty>>删除</a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="detail-item" id="language">
+                    <div class="profile-show" data-id="{$skill.id}">
+                        <div class="detail-item-title">
+                            <p class="title"><span>语言技能</span></p>
+                            <div class="action-box">
+                                <div class="sub-action edit js_skill_edit" data-id="{$res.id}"><i></i>编辑</div>
+                            </div>
+                        </div>
+                        <div class="sub-info">
+                            <div class="college-info">
+                                <span class="major">英语能力</span>
+                                <span class="ability">{$skill.enskill}</span>
+                            </div>
+                            <foreach name="skill.other_languages" item="v">
+                            <div class="college-info">
+                                <span class="major">{$v.name}能力</span>
+                                <span class="ability">{$v.proficiency|smartShulian=###}</span>
+                            </div>
+                            </foreach>
+                        </div>
+                    </div>
+                    <form id="resume_skill" name="resume_skill" method="post">
+                    <div class="profile-edit" data-id="{$skill.id}">
+                        <div class="detail-item-title">
+                            <p class="title"><span>语言技能</span></p>
+                            <div class="action-box">
+                                <div class="sub-action edit"><i></i>编辑</div>
+                            </div>
+                        </div>
+                        <div class="info-item addr-info">
+                            <span class="info-name">英语能力</span>
+                            <div class="input-box">
+                                <select name="en" id="skill_en">
+                                    <option value="">选择等级</option>
+                                    <option value="-1">尚未考证</option>
+                                    <option value="0">CET4</option>
+                                    <option value="1">CET6</option>
+                                    <option value="2">专业四级</option>
+                                    <option value="3">专业六级</option>
+                                    <option value="4">专业八级</option>
+                                </select>
+                            </div>
+                            <div class="score">
+                                <span class="score-title">分数</span>
+                                <input class="score-input" name="englishscore" type="text" maxlength="3">
+                            </div>
+
+                            <div class="lang-more">
+                                <div class="others-lang">
+                                    <div class="check-box">
+                                        <input class="check" id="depict00" name="ielts" type="checkbox" value="1">
+                                        <label for="depict00">雅思</label>
+                                    </div>
+                                </div>
+                                <div class="score">
+                                    <span class="score-title">分数</span>
+                                    <input class="score-input" name="ieltsscore" type="text" maxlength="3">
+                                </div>
+
+                                <div class="others-lang">
+                                    <div class="check-box">
+                                        <input class="check" id="depict000" name="toefl" type="checkbox" value="1">
+                                        <label for="depict000">托福</label>
+                                    </div>
+                                </div>
+                                <div class="score">
+                                    <span class="score-title">分数</span>
+                                    <input class="score-input" name="toeflscore" type="text" maxlength="3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-item addr-info">
+                            <span class="info-name">其他技能</span>
+                            <div class="input-box">
+                                <select name="name[]" id="skill_name">
+                                    <option value="">选择语种</option>
+                                    <option value="德语">德语</option>
+                                    <option value="法语">法语</option>
+                                    <option value="俄语">俄语</option>
+                                    <option value="韩语">韩语</option>
+                                    <option value="日语">日语</option>
+                                    <option value="计算机">计算机</option>
+                                </select>
+                            </div>
+                            <div class="input-box">
+                                <select name="proficiency[]" id="proficiency">
+                                    <option value="">熟练程度</option>
+                                    <option value="0">一般</option>
+                                    <option value="1">良好</option>
+                                    <option value="2">熟练</option>
+                                    <option value="3">精通</option>
+                                </select>
+                            </div>
+
+                            <span class="add-more">添加其他技能<span>+</span></span>
+                            <div id="skill_other_sel"></div>
+                            <script>
+                                var more = '<div class="more-language"><div class="input-box"><select name="name[]" id="skill_name2"><option value="">选择语种</option><option value="德语">德语</option><option value="法语">法语</option>'
+                                        +'<option value="俄语">俄语</option><option value="韩语">韩语</option><option value="日语">日语</option><option value="计算机">计算机</option></select></div><div class="input-box">'
+                                        +'<select name="proficiency[]" id="proficiency2"><option value="">熟练程度</option><option value="0">一般</option><option value="1">良好</option><option value="2">熟练</option>'
+                                        +'<option value="3">精通</option></select></div></div>';
+                                var arr = ['德语','法语','俄语','韩语','日语','计算机'];
+                                
+                                $(".add-more").click(function () {
+                                    var sum = 1;
+                                    $('.more-language').each(function(index){
+                                        sum++;
+                                    });
+
+                                    if(sum >5){
+                                       layer.msg('最多添加6个其他技能',{icon:5});
+                                    }else{
+                                        $('#skill_other_sel').append(more);
+                                    }
+                                    
+                                });
+                            </script>
+                            <!--<div class="input-box">-->
+                                <!--<select name="literacy1" id="literacy1">-->
+                                    <!--<option value="">读写能力</option>-->
+                                    <!--<option value="0">一般</option>-->
+                                    <!--<option value="1">良好</option>-->
+                                    <!--<option value="2">熟练</option>-->
+                                    <!--<option value="3">精通</option>-->
+                                <!--</select>-->
+                            <!--</div>-->
+                            <!--<div class="input-box">-->
+                                <!--<select name="lwability1" id="lwability1">-->
+                                    <!--<option value="">听说能力</option>-->
+                                    <!--<option value="0">一般</option>-->
+                                    <!--<option value="1">良好</option>-->
+                                    <!--<option value="2">熟练</option>-->
+                                    <!--<option value="3">精通</option>-->
+                                <!--</select>-->
+                            <!--</div>-->
+                            <!--<div class="more-language">-->
+                                <!--<div class="input-box">-->
+                                    <!--<select name="name2" id="skill_name2">-->
+                                        <!--<option value="">选择语种</option>-->
+                                        <!--<option value="德语">德语</option>-->
+                                        <!--<option value="法语">法语</option>-->
+                                        <!--<option value="俄语">俄语</option>-->
+                                        <!--<option value="韩语">韩语</option>-->
+                                        <!--<option value="日语">日语</option>-->
+                                        <!--<option value="其他">其他</option>-->
+                                    <!--</select>-->
+                                <!--</div>-->
+                                <!--<div class="input-box">-->
+                                    <!--<select name="proficiency2" id="proficiency2">-->
+                                        <!--<option value="">熟练程度</option>-->
+                                        <!--<option value="0">一般</option>-->
+                                        <!--<option value="1">良好</option>-->
+                                        <!--<option value="2">熟练</option>-->
+                                        <!--<option value="3">精通</option>-->
+                                    <!--</select>-->
+                                <!--</div>-->
+                                <!--<div class="input-box">-->
+                                    <!--<select name="literacy2" id="literacy2">-->
+                                        <!--<option value="">读写能力</option>-->
+                                        <!--<option value="0">一般</option>-->
+                                        <!--<option value="1">良好</option>-->
+                                        <!--<option value="2">熟练</option>-->
+                                        <!--<option value="3">精通</option>-->
+                                    <!--</select>-->
+                                <!--</div>-->
+                                <!--<div class="input-box">-->
+                                    <!--<select name="lwability2" id="lwability2">-->
+                                        <!--<option value="">听说能力</option>-->
+                                        <!--<option value="0">一般</option>-->
+                                        <!--<option value="1">良好</option>-->
+                                        <!--<option value="2">熟练</option>-->
+                                        <!--<option value="3">精通</option>-->
+                                    <!--</select>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        </div>
+                        <!--<div class="info-item addr-info">-->
+                            <!--<span class="info-name">计算机技能</span>-->
+                            <!--<div class="input-box">-->
+                                <!--<select name="jsjproficiency" id="jsjproficiency">-->
+                                    <!--<option value="">请选择</option>-->
+                                    <!--<option value="0">一般</option>-->
+                                    <!--<option value="1">良好</option>-->
+                                    <!--<option value="2">熟练</option>-->
+                                    <!--<option value="3">精通</option>-->
+                                <!--</select>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="info-item others-skill">-->
+                            <!--<span class="info-name">其他技能</span>-->
+                            <!--<div class="input-box">-->
+                                <!--<input type="text" name="other" id="skill_other" value=""/>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <div class="error-area" id="skill_error"></div>
+                        <div class="detail-btn">
+                            <input type="hidden" name="skill_id" value="{$skill.id}">
+                            <input type="hidden" name="resume_id" value="{$res.id}">
+                            <input type="hidden" name="type" id="js_skill_type" value="skill_create">
+                            <input class="save skill_save" type="button" value="保存">
+                            <a class="cancel" href="javascript:;">取消</a>
+                            <a class="del js_skill__del" data-id="{$skill.id|default=0}" href="javascript:;" <empty name="skill.id">style="display:none;"</empty>>删除</a>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            
+                <div class="detail-item" id="certificate">
+                   <div class="profile-show cert_profile_show" data-id="{$certificates.0.id}">
+                       <div class="detail-item-title">
+                           <p class="title"><span>财金证书</span></p>
+                           <div class="action-box">
+                              
+                               <div class="sub-action add js_cert_add"><i></i>添加</div>
+                           </div>
+                       </div>
+                <foreach name="certificates" item="v">
+                    <if condition="$v['cert_type_id'] neq 10">
+                       <div class="sub-info">
+                           <div class="sub-edit edit js_cert_edit" data-id="{$v.id}" data-resumeid="{$res.id}" data-cid="{$v.cert_type_id}"><i></i>编辑</div>
+                           <div class="college-info">
+                               <span class="major">{$v.cert_type_name|smartSubstr='（'}</span>
+                               <span class="ability">
+                                <if condition="$v['is_allpass']">
+                                        <if condition="$v['cert_type_id'] eq 5">
+                                        <span>持证人</span>
+                                        <else />
+                                        <span>全部通过</span>
+                                        </if> 
+                                <else />
+                                  <span>{$v.coursenames|implode=；,###}</span>
+                                 </if>
+
+                               </span>
+                           </div>
+                       </div>
+                    <else />
+                       <div class="sub-info">
+                            <div class="sub-edit edit js_cert_edit" data-id="{$v.id}" data-resumeid="{$res.id}" data-cid="{$v.cert_type_id}"><i></i>编辑</div>
+                           <div class="college-info">
+                               <span class="major">{$v.cert_type_name|smartSubstr='（'}</span>
+                               <div class="ability">
+                                   <div class="sub-ability">
+
+                                       <span class="sub-ability-stage">F阶段</span>
+                                <if condition="$v['is_allpass']">
+                                        <span>全部通过</span>
+                                <else />
+                                       <span>{$v.fcourse}</span>
+                                 </if>
+                                   </div>
+                                   <div class="sub-ability">
+                                       <span class="sub-ability-stage">P阶段</span>
+                                    <if condition="$v['is_allpass2']">
+                                            <span>全部通过</span>
+                                    <else />
+                                       <span>{$v.pcourse}</span>
+                                </if>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                    </if>
+                </foreach>
+                   </div>
+                <form id="certForm" name="certForm" method="post">
+                    <div class="profile-edit cert_profile_edit" data-id="{$certificates.0.id}">
+                        <div class="detail-item-title">
+                            <p class="title"><span>财金证书</span></p>
+                            <div class="action-box">
+                                <div class="sub-action add js_cert_add"><i></i>添加</div>
+                            </div>
+                        </div>
+
+                        <div class="level-info cert_sub">
+                            <div class="info-item addr-info">
+                                <span class="info-name"><b class="must-lab"></b>拥有的证书</span>
+                                <div class="input-box">
+                                    <select id="select1" class="js_cert_type" name="cid">
+                                        <option value="0">证书类别</option>
+                                        <foreach name="cert_type" item="v">
+                                        <option value="{$v.id}">{$v.name}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+
+                                <div class="certificate js_cert_cousers">
+
+
+                                </div>
+
+                                <input type="hidden" name="courses" vaule="">
+                                <input type="hidden" name="id" value="">
+                                <input type="hidden" name="resume_id" value="{$res.id}">
+                                <input type="hidden" name="type" value="cert_create">
+                                <div class="detail-btn">
+                                 <input class="save cert_save" type="button" value="保存">
+                                    <a class="cancel cert_cancel" href="javascript:;">取消</a>
+                                    <notempty name="certificates.0.id">
+                                    <a class="del js_cert_del" data-id="" href="javascript:;">删除</a>
+                                    </notempty>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                </div>
+           
+                <div class="detail-item" id="practice">
+                    <div class="profile-show internship_profile_show" data-id="{$internships.0.company_name}">
+                        <div class="detail-item-title">
+                            <p class="title"><span>实习经验</span></p>
+                            <div class="action-box">
+                                
+                                <div class="sub-action add js_internship_add"><i></i>添加</div>
+                            </div>
+                        </div>
+                        <foreach name="internships" item="v">
+                        <div class="sub-info education-info">
+                        <div class="sub-edit edit js_internship_edit" data-id="{$v.id}"><i></i>编辑</div>
+                            <div class="college-info">
+                                <span class="company-tag">{$v.company_name}</span>
+                                <span class="company-tag">{$v.nature_name}<span>{$v.work_type|smartdictval=###}</span></span>
+                                <span class="from-to"><span>{$v.sdate|substr_replace=###,'.',4,0}</span>—<span><if condition="$v.edate eq 0">至今<else />{$v.edate|substr_replace=###,'.',4,0}</if></span></span>
+                            </div>
+                            <div class="college-info">
+                                <span class="company-tag">部门：{$v.department}</span>
+                                <span class="company-tag">职能名称：{$v.function_name}</span>
+                            </div>
+                            <notempty name="v.work_remark">
+                            <div class="harvest">
+                                <p class="harvest-title">工作描述</p>
+                                <div class="harvest-info">
+                                    <div class="sub-harvest">
+                                        
+                                        {$v.work_remark|smartTextarea=###}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="harvest">
+                                <p class="harvest-title">项目经验</p>
+                                <div class="harvest-info">
+                                    <div class="sub-harvest">
+                                        
+                                        {$v.work_ex|smartTextarea=###}
+                                    </div>
+                                </div>
+                            </div>
+                            </notempty>
+                        </div>
+                        </foreach>
+                    </div>
+
+                <form id="internshipForm" name="internshipForm" method="post">
+                    <div class="profile-edit internship_profile_edit" data-id="{$internships.0.company_name}">
+                        <div class="detail-item-title">
+                            <p class="title"><span>实习经验</span></p>
+                            <div class="action-box">
+                                <div class="sub-action add js_internship_add"><i></i>添加</div>
+                            </div>
+                        </div>
+
+                        <div class="level-info internship_sub">
+                            <div class="info-item project">
+                                <span class="info-name"><b class="must-lab"></b>公司名称</span>
+                                <div class="input-box">
+                                    <input type="text" name="company_name" placeholder="请输入公司名称" onfocus="tj_text_num($(this),$(this).parent().next(),24)" maxlength="24"/>
+                                </div>
+                                <div class="input-tips"><span><span>0</span>24</span>字</div>
+                            </div>
+
+                            <div class="info-item addr-info">
+                                <span class="info-name"><b class="must-lab"></b>起止时间</span>
+
+                                    <div class="input-box">
+                                        <select name="syear" id="internship_syear">
+                                        <option value="0">年</option>
+                                        <for start="2008" end="2021">
+                                            <option value="{$i}">{$i}</option>
+                                        </for>
+                                        </select>
+
+                                    </div>
+                                        <div class="input-box">
+                                            <select name="smonth" id="internship_smonth">
+                                            <option value="0">月</option>
+                                            <for start="1" end="13">
+                                                <option value="{$i}">{$i}</option>
+                                            </for>
+                                            </select>
+                                        </div>
+                                        <span class="time-part">至</span>
+                                        
+                                        <div class="input-box">
+                                        <select name="eyear" id="internship_eyear">
+                                        <option value="0">年</option>
+                                        <for start="2008" end="2021">
+                                            <option value="{$i}">{$i}</option>
+                                        </for>
+                                        </select>
+
+                                         </div>
+                                    <div class="input-box">
+                                        <select name="emonth" id="internship_emonth">
+                                        <option value="0">月</option>
+                                        <for start="1" end="13">
+                                            <option value="{$i}">{$i}</option>
+                                        </for>
+                                        </select>
+                                    </div>
+
+
+                                <span class="input-tips">终止时间不填表示至今</span>
+                            </div>
+                            <div class="info-item addr-info">
+                                <span class="info-name">公司性质</span>
+                                <div class="input-box">
+                                    <select name="nature" id="internship_nature">
+                                        <foreach name="company_type" item="v">
+                                            <option value="{$v.id}">{$v.name}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                                <div class="entry-time company-type">
+                                    <span class="info-name">部门</span>
+                                    <div class="time-selection">
+                                        <input type="text" name="department" id="internship_department" placeholder="部门" maxlength="20">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="info-item project">
+                                <span class="info-name"><b class="must-lab"></b>行业</span>
+                                <div class="input-box">
+                                    <input id="industry" type="text" placeholder="点击选择公司所属行业" name="sel_trade" data-id="" readonly/>
+                                </div>
+
+                                <div class="select-container post-select" id="industrySelect">
+                                    <ul class="province js-trade-choose">
+                                    <foreach name="trades" item="v">
+                                        <li data-id="{$v.id}">{$v.name}</li>
+                                    </foreach>
+                                    </ul>
+                                    <ul class="post-choose">
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="info-item project">
+                                <span class="info-name"><b class="must-lab"></b>职能</span>
+                                <div class="input-box">
+                                    <input id="post" type="text" placeholder="点击选择所在职能" name="sel_function" readonly/>
+                                </div>
+
+                                <div class="select-container post-select" id="postSelect">
+                                    <ul class="province js-post-choose">
+                                    <foreach name="wfs" item="v">
+                                        <li data-id="{$v.id}">{$v.name}</li>
+                                    </foreach>
+                                    </ul>
+                                    <ul class="post-choose">
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="info-item check-info">
+                                <span class="info-name"><b class="must-lab"></b>工作类型</span>
+                                <div class="check-box">
+                                    <input class="check" id="workType1" type="radio" name="work_type" value="1">
+                                    <label for="workType1">假期</label>
+                                </div>
+                                <div class="check-box">
+                                    <input class="check" id="workType2" type="radio" name="work_type" value="2">
+                                    <label for="workType2">日常</label>
+                                </div>
+                            </div>
+                            <div class="info-item text-info">
+                                <span class="info-name"><b class="must-lab"></b>工作描述</span>
+                                <div class="input-box">
+                                    <textarea name="work_remark" id="work_remark"></textarea>
+                                </div>
+                                <div class="works-tips">
+                                    <span class="input-tips">请详细描述您的职务范围、任务以及取得的成绩</span>
+                                    <div class="word-count "><span class="work_remarknum"><span>0</span>/2000</span>字</div>
+                                </div>
+                            </div>
+                            <div class="info-item text-info">
+                                <span class="info-name">项目经验</span>
+                                <div class="input-box">
+                                    <textarea name="work_ex" id="work_ex"></textarea>
+                                </div>
+                                <div class="works-tips">
+                                    <!-- <span class="input-tips">请详细描述您的职务范围、任务以及取得的成绩</span> -->
+                                    <div class="word-count "><span class="work_exnum"><span>0</span>/2000</span>字</div>
+                                </div>
+                            </div>
+                            <div class="error-area" id="internship_error"></div>
+                            <div class="detail-btn">
+                                <input type="hidden" name="trade" value="">
+                                <input type="hidden" name="sub_trade" value="">
+                                <input type="hidden" name="function" value="">
+                                <input type="hidden" name="resume_id" value="{$res.id}">
+                                <input type="hidden" name="id" value="0">
+                                <input type="hidden" name="type" value="internship_create">
+                                 <input class="save internship_save" type="button" value="保存">
+                                <a class="cancel js_internship_cancel" data-id="{$internships.0.company_name}" href="javascript:;">取消</a>
+                                <notempty name="internships.0.company_name">
+                                <a class="del js_intership_del" data-id="" href="javascript:;">删除</a>
+                                </notempty>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+               
+                <div class="detail-item" id="campus">
+                    <div class="show-block">
+                        <div class="profile-show rewards-profile-show" data-id="{$rjp.rewards.0.name}">
+                            <div class="detail-item-title">
+                                <p class="title"><span>校内经历</span></p>
+                            </div>
+                            <div class="detail-item-title level-title">
+                                <p class="title"><span><span>学生奖励与荣誉</span></span></p>
+                                <div class="action-box">
+                                    <div class="sub-action add js_reward_add"><i></i>添加</div>
+                                </div>
+                            </div>
+                            <div class="show-level">
+                            <foreach name="rjp.rewards" item="v">
+                                <div class="sub-info">
+                                <div class="sub-edit edit js_reward_edit" data-id="{$v.id}" data-resumeid="{$res.id}"><i></i>编辑</div>
+                                    <div class="college-info">
+                                        <span class="company-tag">{$v.name}</span>
+                                        <span class="company-tag">{$v.level|smartRewardLevel=###}</span>
+                                        <span class="from-to"><span>{$v.get_time|substr_replace=###,'.',4,0}</span></span>
+                                    </div>
+                                </div>
+                            </foreach>
+                            </div>
+                        </div>
+                    <form id="school_reward" name="school_reward" method="post">
+                        <div class="profile-edit" data-id="{$rjp.rewards.0.name}">
+                            <div class="detail-item-title">
+                                <p class="title"><span>校内经历</span></p>
+                            </div>
+                            <div class="detail-item-title level-title">
+                                <p class="title"><span><span>学生奖励与荣誉</span></span></p>
+                                <div class="action-box">
+                                    <div class="sub-action add js_reward_add"><i></i>添加</div>
+                                </div>
+                            </div>
+
+                            <div class="level-info">
+                                <div class="info-item addr-info">
+                                    <span class="info-name"><b class="must-lab"></b>获奖时间</span>
+                                    <div class="input-box">
+                                        <select name="syear" id="reward_syear">
+                                        <option value="0">年</option>
+                                        <for start="2008" end="2021">
+                                            <option value="{$i}">{$i}</option>
+                                        </for>
+                                        </select>
+                                    </div>
+                                    <div class="input-box">
+                                            <select name="smonth" id="reward_smonth">
+                                            <option value="0">月</option>
+                                            <for start="1" end="13">
+                                                <option value="{$i}">{$i}</option>
+                                            </for>
+                                            </select>
+                                        </div>
+                                    <div class="level-box check-info">
+                                        <span class="info-name"><b class="must-lab"></b>级别</span>
+                                        <div class="check-box">
+                                            <input class="check" id="level0" type="radio" name="level" value="0">
+                                            <label for="level0">国家级</label>
+                                        </div>
+                                        <div class="check-box">
+                                            <input class="check" id="level1" type="radio" name="level" value="1">
+                                            <label for="level1">省市级</label>
+                                        </div>
+                                        <div class="check-box">
+                                            <input class="check" id="level2" type="radio" name="level" value="2">
+                                            <label for="level2">校级</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info-item prize">
+                                    <span class="info-name"><b class="must-lab"></b>奖项名称</span>
+                                    <div class="input-box">
+                                        <input type="text" name="name" id="reward_name" placeholder="输入奖项名称" onfocus="tj_text_num($(this),$(this).parent().next(),18)" maxlength="18"/>
+                                    </div>
+
+                                    <div class="input-tips"><span><span>0</span>/18</span>字</div>
+                                </div>
+                                <div class="error-area" id="reward_error"></div>
+                                <div class="detail-btn">
+                                    <input type="hidden" name="resume_id" value="{$res.id}">
+                                    <input type="hidden" name="id" id="reward_id" value="">
+                                    <input type="hidden" name="type" id="reward_type" value="school_reword_create">
+                                     <input class="save reward_save" type="button" value="保存">
+                                    <a class="cancel" href="javascript:;">取消</a>
+                                    <notempty name="rjp.rewards.0.name">
+                                    <a class="del js_reward__del" href="javascript:;">删除</a>
+                                    </notempty>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="show-block">
+                        <div class="profile-show jobs-profile-show" data-id="{$rjp.jobs.0.id}">
+                            <div class="detail-item-title level-title">
+                                <p class="title"><span><span>校内职务/社团活动</span></span></p>
+                                <div class="action-box">
+                                    <div class="sub-action add js_scjob_add"><i></i>添加</div>
+                                </div>
+                            </div>
+                            <div class="show-level">
+                            <foreach name="rjp.jobs" item="v">
+                                <div class="sub-info education-info">
+                                <div class="sub-edit edit js_scjob_edit" data-id="{$v.id}" data-resumeid="{$res.id}"><i></i>编辑</div>
+                                    <div class="college-info">
+                                        <span>{$v.role|smartRole=###}</span>
+                                        <span class="from-to"><span>{$v.sdate|substr_replace=###,'.',4,0}</span>—<span><if condition="$v.edate eq 0">至今<else />{$v.edate|substr_replace=###,'.',4,0}</if></span></span>
+                                    </div>
+                                    <div class="harvest">
+                                        <p class="harvest-title">职务描述</p>
+                                        <div class="harvest-info">
+                                            <div class="sub-harvest">
+                                               
+                                               {$v.remark|smartTextarea=###}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </foreach>
+                            </div>
+                        </div>
+                    <form id="school_job" name="school_job" method="post">
+                        <div class="profile-edit" data-id="{$rjp.jobs.0.id}">
+                            <div class="detail-item-title level-title">
+                                <p class="title"><span><span>校内职务/社团活动</span></span></p>
+                                <div class="action-box">
+                                    <div class="sub-action add js_scjob_add"><i></i>添加</div>
+                                </div>
+                            </div>
+                            <div class="level-info">
+                                <div class="info-item addr-info">
+                                    <span class="info-name"><b class="must-lab"></b>起止时间</span>
+                                    <div class="input-box">
+                                        <select name="syear" id="scjob_syear">
+                                        <option value="0">年</option>
+                                        <for start="2008" end="2021">
+                                            <option value="{$i}">{$i}</option>
+                                        </for>
+                                        </select>
+
+                                    </div>
+                                        <div class="input-box">
+                                            <select name="smonth" id="scjob_smonth">
+                                            <option value="0">月</option>
+                                            <for start="1" end="13">
+                                                <option value="{$i}">{$i}</option>
+                                            </for>
+                                            </select>
+                                        </div>
+                                        <span class="time-part">至</span>
+                                        
+                                        <div class="input-box">
+                                        <select name="eyear" id="scjob_eyear">
+                                        <option value="0">年</option>
+                                        <for start="2008" end="2021">
+                                            <option value="{$i}">{$i}</option>
+                                        </for>
+                                        </select>
+
+                                         </div>
+                                    <div class="input-box">
+                                        <select name="emonth" id="scjob_emonth">
+                                        <option value="0">月</option>
+                                        <for start="1" end="13">
+                                            <option value="{$i}">{$i}</option>
+                                        </for>
+                                        </select>
+                                    </div>
+                                    <span class="input-tips">终止时间不填表示至今</span>
+                                </div>
+                                <div class="info-item check-info">
+                                    <span class="info-name"><b class="must-lab"></b>角色</span>
+                                    <div class="check-box">
+                                        <input class="check" id="prole0" type="radio" name="role" value="0">
+                                        <label for="prole0">参与者</label>
+                                    </div>
+                                    <div class="check-box">
+                                        <input class="check" id="prole1" type="radio" name="role" value="1">
+                                        <label for="prole1">负责人</label>
+                                    </div>
+                                </div>
+                                <div class="info-item text-info">
+                                    <span class="info-name"><b class="must-lab"></b>职务描述</span>
+                                    <div class="input-box">
+                                        <textarea name="remark" id="scjob_remark"></textarea>
+                                    </div>
+                                    <div class="works-tips">
+                                        <span class="input-tips">请详细描述您的职务范围、任务以及取得的成绩</span>
+                                        <div class="word-count"><span class="scjob_exnum"><span>0</span>/2000</span>字</div>
+                                    </div>
+                                </div>
+                                <div class="error-area" id="school_job_error"></div>
+                                <input type="hidden" name="id" id="scjob_id" value="0">
+                                <input type="hidden" name="resume_id" value="{$res.id}">
+                                <input type="hidden" name="type" value="school_job_create">
+                                <div class="detail-btn">
+                                    <input class="save school_job_save" type="button" value="保存">
+                                    <a class="cancel js_scjob_cancel" data-id="{$rjp.jobs.0.id}" href="javascript:;">取消</a>
+                                    <notempty name="rjp.jobs.0.id">
+                                    <a class="del js_scjob__del" href="javascript:;">删除</a>
+                                    <input id="scjob_res" type="reset" style="display:none;" />
+                                    </notempty>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                    <div class="show-block">
+                        <div class="profile-show practice-profile-show" data-id="{$rjp.practice.0.name}">
+                            <div class="detail-item-title level-title">
+                                <p class="title"><span><span>社会实践经验（非实习）</span></span></p>
+                                <div class="action-box">
+                                    <div class="sub-action add js_practice_add"><i></i>添加</div>
+                                </div>
+                            </div>
+                            <div class="show-level">
+                            <foreach name="rjp.practice" item="v">
+                                <div class="sub-info education-info">
+                                 <div class="sub-edit edit js_practice_edit" data-resumeid="{$res.id}" data-id="{$v.id}"><i></i>编辑</div>
+                                    <div class="college-info">
+                                        <span class="long-info">{$v.name}</span>
+                                        <span class="from-to"><span>{$v.sdate|substr_replace=###,'.',4,0}</span>—<span><if condition="$v.edate eq 0">至今<else />{$v.edate|substr_replace=###,'.',4,0}</if></span></span>
+                                    </div>
+                                    <div class="harvest">
+                                        <p class="harvest-title">实践描述</p>
+                                        <div class="harvest-info">
+                                            <div class="sub-harvest">
+                                                
+                                                {$v.remark|smartTextarea=###}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </foreach>
+                            </div>
+                        </div>
+                    <form id="school_practice" name="school_practice" method="post">
+                        <div class="profile-edit" data-id="{$rjp.practice.0.name}">
+                            <div class="detail-item-title level-title">
+                                <p class="title"><span><span>社会实践经验（非实习）</span></span></p>
+                                <div class="action-box">
+                                    <div class="sub-action add js_practice_add"><i></i>添加</div>
+                                </div>
+                            </div>
+                            <div class="level-info">
+                                <div class="info-item addr-info">
+                                    <span class="info-name"><b class="must-lab"></b>起止时间</span>
+
+                                    <div class="input-box">
+                                        <select name="syear" id="practice_syear">
+                                        <option value="0">年</option>
+                                        <for start="2008" end="2021">
+                                            <option value="{$i}">{$i}</option>
+                                        </for>
+                                        </select>
+
+                                    </div>
+                                        <div class="input-box">
+                                            <select name="smonth" id="practice_smonth">
+                                            <option value="0">月</option>
+                                            <for start="1" end="13">
+                                                <option value="{$i}">{$i}</option>
+                                            </for>
+                                            </select>
+                                        </div>
+                                        <span class="time-part">至</span>
+                                        
+                                        <div class="input-box">
+                                        <select name="eyear" id="practice_eyear">
+                                        <option value="0">年</option>
+                                        <for start="2008" end="2021">
+                                            <option value="{$i}">{$i}</option>
+                                        </for>
+                                        </select>
+
+                                         </div>
+                                    <div class="input-box">
+                                        <select name="emonth" id="practice_emonth">
+                                        <option value="0">月</option>
+                                        <for start="1" end="13">
+                                            <option value="{$i}">{$i}</option>
+                                        </for>
+                                        </select>
+                                    </div>
+
+
+                                    <span class="input-tips">终止时间不填表示至今</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-name"><b class="must-lab"></b>实践名称</span>
+                                    <div class="input-box"><input type="text" name="name" id="practice_name" onfocus="tj_text_num($(this),$(this).parent().next(),18)" maxlength="18"/></div>
+                                    <div class="input-tips"><span><span>0</span>/18</span>字</div>
+                                </div>
+                                <div class="info-item text-info">
+                                    <span class="info-name"><b class="must-lab"></b>实践描述</span>
+                                    <div class="input-box">
+                                        <textarea name="remark" id="practice_remark"></textarea>
+                                    </div>
+                                    <div class="works-tips">
+                                        <span class="input-tips">请详细描述您的职务范围、任务以及取得的成绩</span>
+                                        <div class="word-count"><span id="practice_remarknum"><span>0</span>/2000</span>字</div>
+                                    </div>
+                                </div>
+                                <div class="error-area" id="practice_error"></div>
+                                <div class="detail-btn">
+                                    <input type="hidden" name="type" id="practice_type" value="school_practice_create">
+                                    <input type="hidden" name="id" id="practice_id" value="">
+                                    <input type="hidden" name="resume_id" value="{$res.id}">
+                                    <input class="save practice_save" type="button" value="保存">
+                                    <a class="cancel" href="javascript:;">取消</a>
+                                    <notempty name="rjp.practice.0.name">
+                                    <a class="del js_practice__del" href="javascript:;">删除</a>
+                                    </notempty>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+
+                <input type="hidden" name="info" value="{$info.fullname}">
+            </div>
+
+
+
+            <div class="slide-nav" id="slideNav">
+                <a class="sub-slide-nav myinfo" href="#profile"><span class="must-tag"></span><i></i>个人信息<notempty name="info.fullname"><i class="full"></i></notempty></a>
+                <!--<a class="sub-slide-nav intention" href="#intention"><span class="must-tag"></span><i></i>求职意向<notempty name="intention.work_cities.name"><i class="full"></i></notempty></a>-->
+                <a class="sub-slide-nav education" href="#education"><span class="must-tag"></span><i></i>教育经历<notempty name="edus.0.school_name"><i class="full"></i></notempty></a>
+                <a class="sub-slide-nav language" href="#language"><i></i>语言技能<notempty name="skill.id"><i class="full"></i></notempty></a>
+                <a class="sub-slide-nav certificate" href="#certificate"><i></i>财金证书<notempty name="certificates.0.cert_type_name"><i class="full"></i></notempty></a>
+                <a class="sub-slide-nav practice" href="#practice"><i></i>实习经验<notempty name="internships.0.company_name"><i class="full"></i></notempty></a>
+                <a class="sub-slide-nav campus" href="#campus"><i></i>校内经历 <if condition="$rjp['rewards'][0]['name'] || $rjp['jobs'][0]['role'] || $rjp['practice'][0]['name']"><i class="full"></i></if></a>
+
+                <a class="profile-btn preview" data-url="/resume/view/{$res.id|smartBase64=###}.html" <notempty name="info.fullname">href="/resume/view/{$res.id|smartBase64=###}.html" target="_blank"<else />href="javascript:;" onclick="alert('至少填写基本信息才能预览！')"</notempty>>预览简历</a>
+            </div>
+        </div>
+    </div>
+
+
+ <include file="./Application/Home/View/libpage/inc_buttom.html" />
+ <script src="__PUBLIC__/js/pikaday.min.js"></script>
+ <script src="__PUBLIC__/js/resume.js?{:date("Ymd")}"></script>
+</body>
+</html>

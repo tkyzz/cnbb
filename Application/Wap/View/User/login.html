@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>菜鸟帮帮</title>
+    <include file="./Application/Home/View/libpage/inc_wap_header.html" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/h5/sign.css">
+</head>
+<body>
+    <div class="sign-page">
+        <header class="header">
+            <a class="back" href="/m/postList.html"><i></i></a>
+            <span class="title">菜鸟帮帮</span>
+        </header>
+
+        <div class="sign">
+            <div class="sign-item user">
+                <div class="border border-top"></div>
+                <div class="border border-bottom"></div>
+                <i></i>
+                <input class="input" type="text" id="username" placeholder="请输入已验证的手机号">
+            </div>
+            <div class="sign-item password">
+                <div class="border border-top"></div>
+                <div class="border border-bottom"></div>
+                <i></i>
+                <input class="input" type="password" id="password" placeholder="请输入密码">
+            </div>
+            <input class="sign-btn" type="button" id="login" value="登录"/>
+            <div class="sign-link">
+                <div class="line line-left"></div>
+                <div class="line line-right"></div>
+                <a class="link" href="/m/register.html<notempty name="Think.get.return">?return={$Think.get.return}</notempty>">立即注册</a>
+            </div>
+            <div class="org-web">
+                <i></i>
+                企业用户请登录b.cainiaobangbang.com
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="return_url" value="{$Think.get.return}">
+</body>
+<script src="__PUBLIC__/js/wap/user.js"></script>
+</html>

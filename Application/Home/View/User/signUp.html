@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<include file="./Application/Home/View/libpage/inc_header.html" />
+    <meta charset="UTF-8">
+    <title>注册-菜鸟帮帮-想去金融机构实习？上菜鸟帮帮！</title>
+  <meta name="description" content="菜鸟帮帮是国内领先的金融实习生招聘平台,500强实习,优质实习机会,优秀实习生,找实习就上菜鸟帮帮,实习生招聘首选菜鸟帮帮,大学生金融实习第一品牌。">
+  <meta name="keywords" content="实习,实习生,找实习,实习生招聘,寒假实习,菜鸟帮帮,大学生实习,实习网,实习吧">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/login.css">
+
+</head>
+<body>
+    <div class="page sign-page">
+<include file="./Application/Home/View/libpage/inc_top.html" />
+
+        <div class="logon-box logon-sign">
+        
+<!--             <div class="tab-title">
+                <span class="phonecli select">手机注册</span>
+                <span class="emailcli">邮箱注册</span>
+            </div> -->
+            <div class="sign-box">
+                <div class="input-item phone">
+                    <i></i>
+                    <div class="input-box">
+                        <input id="js_phone" class="js_phone" type="text" placeholder="请输入手机号码" />
+                    </div>
+                </div>
+                <div class="input-item password">
+                    <i></i>
+                    <div class="input-box">
+                        <input id="phonepassword" type="password" placeholder="请输入密码" />
+                    </div>
+                </div>
+
+                <div class="input-item sms-code">
+                    <i></i>
+                    <div class="input-box code-box">
+                        <input type="text" id="verify_code" class="verify_code" placeholder="请输入验证码" />
+                        <div class="code-img"><img alt="验证码" src="/verifyImg.html" class="js_verifyImg" title="点击刷新"> </div>
+                    </div>
+                </div>
+
+                <div class="input-item sms-code">
+                    <i></i>
+                    <div class="input-box code-box">
+                        <input id="smsCode" type="text" maxlength="4" placeholder="请输入短信验证码" />
+                        <input type="button" class="send-sms js_send_phone_code sign-btn" data-id="1" data-type="register" value="获取验证码">
+                        <!-- <a class="send-sms js_send_phone_code" data-id="1">获取验证码</a> -->
+                    </div>
+                </div>
+                <div class="input-item invite-code">
+                    <i></i>
+                    <div class="input-box">
+                        <input id="inviteCode" type="text" maxlength="5" placeholder="请输入邀请码(非必填)" />
+                    </div>
+                </div>
+            </div>
+            <div class="sign-box sign-email">
+                <div class="input-item email">
+                    <i></i>
+                    <div class="input-box">
+                        <input id="email" type="text" placeholder="请输入常用邮箱地址" />
+                    </div>
+                </div>
+                <div class="input-item password">
+                    <i></i>
+                    <div class="input-box">
+                        <input id="emailpassword" type="password" placeholder="请输入密码" />
+                    </div>
+                </div>
+            </div>
+
+<!--             <div class="module">
+                <div class="module-item">
+                    <input id="module1" type="radio" name="module"/>
+                    <label for="module1">我是学生</label>
+                </div>
+                <div class="module-item js_wsqy">
+                    <input id="module2" type="radio" name="module"/>
+                    <label for="module2">我是企业</label>
+                </div>
+            </div> -->
+             <input type="hidden" id="sendcodetime" value="180"/>
+            <div class="btn">
+            <input class="sub-btn login-btn" type="button" id="signup" value="注册">
+            </div>
+            <div class="sign">已有账号？<a href="login.html">立即登录</a></div>
+            <input type="hidden" name="is_phone" id="is_phone" value="1">
+            <input type="hidden" name="mt" id="mt" value="">
+          
+        </div>
+
+ <include file="./Application/Home/View/libpage/inc_buttom.html" />
+    </div>
+</body>
+</html>

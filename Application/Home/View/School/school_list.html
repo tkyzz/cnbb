@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学校列表</title>
+	<script src="__PUBLIC__/js/jquery.min.js"></script>
+</head>
+<body>
+<form action="/getschool" method="post"></form>
+名称：
+<input type="text" name="name" id="name">
+code:
+<input type="text" name="province" id="province" value="E0000001
+
+">
+&nbsp;
+<input type="button" id="sub_info" value="提交">
+</form>
+<p></p>
+<p></p>
+<p></p>
+<table border="1">
+  <tr>
+    <th>id</th>
+    <th>名称</th>
+    <th>省id</th>
+    <th>sequence</th>
+  </tr>
+    <foreach name="res" item="v">
+  <tr>
+    <td>{$v.id}</td>
+    <td>{$v.name}</td>
+    <td>{$v.province}</td>
+    <td>{$v.sequence}</td>
+    </foreach>
+  </tr>
+</table>
+
+
+</body>
+<script>
+      //提交信息
+    $('#sub_info').click(function(){
+        var name = $('#name').val();
+        var province = $('#province').val();
+            $.post("/getschool",{name:name,province:province},
+              function(data){
+                 if (data.status==1) {
+                      	//alert(data.msg);
+                        window.location.reload();
+                    } else {
+                    	alert(data.msg);
+                    }
+                  },
+              "json").error(function(){
+					alert("致命性错误！");
+              });
+    });
+</script>
+</html>

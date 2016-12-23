@@ -1,0 +1,26 @@
+                            <div class="detail-item-title level-title">
+                                <p class="title"><span>校内职务/社团活动</span></p>
+                                <div class="action-box">
+                                    <div class="sub-action add js_scjob_add"><i></i>添加</div>
+                                </div>
+                            </div>
+                            <div class="show-level">
+                            <foreach name="rjp.jobs" item="v">
+                                <div class="sub-info education-info">
+                                <div class="sub-edit edit js_scjob_edit" data-id="{$v.id}" data-resumeid="{$rjp.resume_id}"><i></i>编辑</div>
+                                    <div class="college-info">
+                                        <span>{$v.role|smartRole=###}</span>
+                                        <span class="from-to"><span>{$v.sdate|substr_replace=###,'.',4,0}</span>—<span><if condition="$v.edate eq 0">至今<else />{$v.edate|substr_replace=###,'.',4,0}</if></span></span>
+                                    </div>
+                                    <div class="harvest">
+                                        <p class="harvest-title">职务描述</p>
+                                        <div class="harvest-info">
+                                            <div class="sub-harvest">
+                                               
+                                                {$v.remark|smartTextarea=###}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </foreach>
+                            </div>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<include file="./Application/Home/View/libpage/inc_header.html" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>菜鸟帮帮-岗位详情</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/h5/postDetail.css">
+</head>
+<body>
+    <!--<div class="header">-->
+        <!--<a class="back" href="javascript:history.go(-1)"><i></i>返回</a>-->
+        <!--<span class="title">菜鸟帮帮</span>-->
+        <!--<a class="others" href=""><i></i></a>-->
+    <!--</div>-->
+
+    <div class="content">
+        <div class="cont-item">
+            <div class="name-pay">
+                <span class="post-name">{$res.name}</span>
+                  <egt name="res['esalary']" value="1">
+                  <span class="post-pay">{$res['ssalary']}-{$res['esalary']}<if condition="$res['salary_unit'] eq 0">元/天<else />元/月</if></span>
+                  <else />
+                  <span class="post-pay"> <if condition="$res['ssalary'] elt 0">面议<else /><if condition="$res['salary_unit'] eq 0">{$res.ssalary}元/天<else />{$res.ssalary}元/月</if></if></span>
+                  </egt>
+            </div>
+            <div class="post-basic">
+                <span class="basic-item post-type"><i></i>{$res.work_type|smartdictval=###}</span>
+                <!--每周至少实习天数和实习月数不限，不显示post-days、post-month-->
+                <notempty name="res.work_days">
+                <span class="basic-item post-days"><i></i>{$res.work_days}天/周</span>
+                </notempty>
+                <notempty name="res.work_duration">
+                <span class="basic-item post-month"><i></i>至少{$res['work_duration']/30}个月</span>
+                </notempty>
+                <span class="basic-item post-degree"><i></i>{$res.degree|smartDegree=###}</span>
+                <!--<div class="basic-left">-->
+                    <!--<span class="basic-item post-type"><i></i>兼职</span>-->
+                    <!--&lt;!&ndash;每周至少实习天数和实习月数不限，不显示post-days、post-month&ndash;&gt;-->
+                    <!--<span class="basic-item post-days"><i></i>3天/周</span>-->
+                    <!--<span class="basic-item post-month"><i></i>3个月</span>-->
+                <!--</div>-->
+                <!--<div class="basic-right">-->
+                    <!--<span class="basic-item post-degree"><i></i>本科</span>-->
+                <!--</div>-->
+            </div>
+            <div class="post-basic">
+                <div class="basic-left">
+                <notempty name="res.work_stime">
+                    <if condition="substr($res['work_stime'],0,4) eq substr($res['work_etime'],0,4)">
+                    <span class="basic-item post-time"><i></i>{$res.work_stime|substr=0,4}年{$res.work_stime|substr=4,2}月{$res.work_stime|substr=6,2}日—{$res.work_etime|substr=4,2}月{$res.work_etime|substr=6,2}日</span>
+                    <else />
+                    <span class="basic-item post-time"><i></i>{$res.work_stime|substr=0,4}年{$res.work_stime|substr=4,2}月{$res.work_stime|substr=6,2}日—{$res.work_etime|substr=0,4}年{$res.work_etime|substr=4,2}月{$res.work_etime|substr=6,2}日</span>
+                    </if>
+
+                </notempty>
+
+                    <div class="welfare-box">
+                        <notempty name="res['weal_tags']">
+                        <span class="basic-title">福利标签</span>
+                        <div class="welfare">
+                            <foreach name="res.fl_tags" item="v">
+                                <span class="sub-welfare">{$v}</span>
+                            </foreach>
+                        </div>
+                        </notempty>
+                    </div>
+                    <div class="welfare-box">
+                        <notempty name="res.high_lights">
+                            <span class="basic-title">岗位亮点</span>
+                            <span class="post-key">{$res.high_lights}</span>
+                        </notempty>
+                    </div>
+                </div>
+                <div class="basic-right">
+                    <span class="basic-item post-duration">{$res.last_time|smartJobStrTime=###}</span>
+                </div>
+            </div>
+            <!--<notempty name="res.high_lights">-->
+            <!--<div class="post-basic">-->
+                <!--<span class="basic-title">岗位亮点</span>-->
+                <!--<span class="post-key">{$res.high_lights}</span>-->
+            <!--</div>-->
+            <!--</notempty>-->
+
+
+
+            <div class="post-basic">
+                <span class="basic-item post-addr"><i></i>
+                <if condition="is_zhixia($res['province_name'])">
+                                   {$res.province_name}-{$res.zone_name}<notempty name="res.addr">-{$res.addr}</notempty>
+                                   <else />
+                                   {$res.province_name}-{$res.city_name}-<notempty name="res.zone_name">{$res.zone_name}<else />全市</notempty><notempty name="res.addr">-{$res.addr}</notempty>
+                </if>
+               </span>
+                <!-- <span class="basic-item addr-detail">{$res.addr}</span> -->
+            </div>
+        </div>
+
+        <div class="cont-item">
+            <div class="org-img"><img src="{$res.org.b_logo_url}"/></div>
+            <div class="org-info">
+                <p class="org-name">{$res.org.fullname}</p>
+                <div class="info-box">
+                    <span class="info-item">{$res.org.trade_name}</span>
+                    <span class="info-item">{$res.org.nature_name}</span>
+                    <span class="info-item">{$res.org.scale_name}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="cont-item">
+            <div class="post-info">
+                <div class="part-title">
+                    <div class="title-tag"><span></span></div>
+                    <span class="title-info">岗位描述</span>
+                </div>
+                <div class="part-info">
+                    {$res.remark|nl2br}
+                </div>
+            </div>
+            <div class="post-info">
+                <div class="part-title">
+                    <div class="title-tag"><span></span></div>
+                    <span class="title-info">岗位要求</span>
+                </div>
+                <div class="part-info">
+                    {$res.post_remark|nl2br}
+                </div>
+            </div>
+
+            <notempty name="res.ex2">
+                <p class="post-sign"><i></i>该岗位由菜鸟帮帮官方合作伙伴“{$res.ex2}”提供</p>
+            </notempty>
+
+        </div>
+         <notempty name="jobs.posts.0.name">
+        <div class="cont-item">
+            <p class="more-title">该企业更多实习岗位<span class="title-tag"></span></p>
+            <foreach name="jobs.posts" item="v">
+            <a class="more-item" href="/post/{$v.id|smartBase64=###}">
+                <div class="item-line">
+                    <span class="post-name">{$v.name}</span>
+                    <span class="post-pay">
+                        <if condition="$v['ssalary'] eq 0">面议<else /><if condition="$v['salary_unit'] eq 0">{$v.ssalary}元/天<else />{$v.ssalary}元/月</if></if>
+                    </span>
+                </div>
+                <div class="item-line">
+                    <span class="org-name">{$v.org.abbrname}</span>
+                    <span class="basic-item post-addr"><i></i>{$v.org.city_name}-<notempty name="v.org.zone_name">{$v.org.zone_name}<else />全市</notempty></span>
+                </div>
+                <div class="item-line">
+                    <div class="post-demand">
+                        <span class="sub-demand">{$v.degree|smartDegree=###}</span>
+                    <notempty name="v.work_days">
+                        <span class="sub-demand">{$v.work_days}天/周</span>
+                    </notempty>
+                    <notempty name="v.work_duration">
+                        <span class="sub-demand">{$v['work_duration']/30}个月</span>
+                    </notempty>
+                    </div>
+                    <span class="post-duration">{$v.last_time|smartJobStrTime=###}</span>
+                </div>
+            </a>
+            </foreach>
+        </div>
+        </notempty>
+    </div>
+
+    <div class="footer">
+        <div class="logo"><img src="__PUBLIC__/img/h5/logo.png"/></div>
+        <div class="slogan"><img src="__PUBLIC__/img/h5/slogan.png"/></div>
+        <div class="app-download">
+            <div class="cartoon"><img src="__PUBLIC__/img/h5/cartoon.png"/></div>
+            <a class="download" href="{$down_url}"><img src="__PUBLIC__/img/h5/download_btn.png"/></a>
+        </div>
+    </div>
+</body>
+</html>

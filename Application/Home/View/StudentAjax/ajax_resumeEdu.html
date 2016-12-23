@@ -1,0 +1,29 @@
+                    <div class="show-block">
+                        <div class="profile-show edu_profile_show" data-id="{$edus[0]['major']|default=0}">
+                            <div class="detail-item-title">
+                                <p class="title"><span>教育经历</span><b class="must-lab">必填</b></p>
+                                <div class="action-box">
+                                    <div class="sub-action add js_edu_add"><i></i>添加</div>
+                                </div>
+                            </div>
+                            <foreach name="edus" item="v">
+                            <div class="sub-info" data-id="{$v.id}">
+                            <div class="sub-edit edit js_edu_edit" data-id="{$v.id}"><i></i>编辑</div>
+                                <div class="college-info">
+                                    <span class="major must-field">{$v.school_name}{$v.edate|is_edu_read=###}</span>
+                                    <notempty name="v.faculty">
+                                        <span class="others must-field">{$v.faculty}</span>
+                                    </notempty>
+                                    <span class="major must-field">{$v.major}</span>
+                                    <span class="degree">{$v.degree|smartDegree=###}</span>
+                                    <!--<notempty name="v.bp">-->
+                                    <!--<span class="others bp">绩点{$v.bp}</span>-->
+                                    <!--</notempty>-->
+                                    <!--<notempty name="v.rank">-->
+                                    <!--<span class="others rank">排名{$v.rank}</span>-->
+                                    <!--</notempty>-->
+                                    <span class="from-to"><span class="sdate">{$v.sdate|smartEduGrade=###}</span></span>
+                                </div>
+                            </div>
+                            </foreach>
+                        </div>

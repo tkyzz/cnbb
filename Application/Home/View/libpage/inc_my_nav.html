@@ -1,0 +1,18 @@
+            <div class="profile-block">
+                <a class="block-info profile-notice" href="/resume/myNotice.html">
+                    <span <if condition="$nav eq notice">class="active"</if>><i></i>面试通知<span class="new-tag notice-tag" <empty name="Think.session.message_num.notice">style="display:none;"</empty>>{$Think.session.message_num.notice}</span></notempty></span>
+                </a>
+                <a class="block-info profile-reply" href="/resume/myFeedback.html">
+                    <span <if condition="$nav eq feed">class="active"</if>><i></i>投递反馈<span class="new-tag js_feedmsg_num" <empty name="Think.session.message_num.deliver">style="display:none;"</empty>></span></span>
+                </a>
+                <a class="block-info profile-favorites" href="/resume/myFavorite.html">
+                    <span <if condition="$nav eq favorite">class="active"</if>><i></i>我的收藏</span>
+                </a>
+                <a class="block-info profile-list" href="/resume/list.html">
+                    <span <if condition="$nav eq resume">class="active"</if>><i></i>我的简历</span>
+                </a>
+
+                <a class="block-info profile-post" href="/messages.html">
+                    <span <if condition="$nav eq message">class="active"</if>><i></i>专属推荐<span class="new-tag js_recommend_num" <empty name="Think.session.message_num.recommend">style="display:none;"</empty>></span></span>
+                </a>
+            </div>

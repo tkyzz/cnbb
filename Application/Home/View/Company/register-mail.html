@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="金融机构实习，找菜鸟帮帮">
+    <meta name="keys" content="实习,金融,学生">
+    <title>菜鸟帮帮-企业注册</title>
+<include file="./Application/Home/View/libpage/inc_header.html" />
+</head>
+<body>
+<div class="page info-page company-page">
+<include file="./Application/Home/View/libpage/inc_company_top.html" />
+
+    <div class="logon-box">
+        <div class="email-info">
+            <div class="email-img"><img src="__PUBLIC__/img/email_img.png"></div>
+            <div class="info">
+                <p class="send-mailbox">验证邮件已发送至：<span class="js_email">{$Think.session.email}</span></p>
+                <span class="others-info">请登录邮箱点击邮件内的链接，此链接24小时后失效。</span>
+            </div>
+        </div>
+
+        <!--重新发送验证邮件使用-->
+        <!--<div class="email-info mail-success">-->
+            <!--<div class="email-img sign-email-img"><img src="../img/email_success.png"></div>-->
+            <!--<p class="success-mailbox">邮件发送成功</p>-->
+        <!--</div>-->
+
+        <span class="info-space"></span>
+        <div class="email-info email-tips">
+            <div class="email-img"><img src="__PUBLIC__/img/email_tips.png"></div>
+            <div class="info">
+                <span class="others-info">没有收到验证邮件怎么办？</span>
+                <ul class="tips-info">
+                    <li>邮箱地址填写错误？<a href="{$url}">{$tips}</a></li>
+                    <li>邮件有时会调皮进入垃圾信箱、广告信箱，请留意</li>
+                    <li>稍等几分钟，若还未收到验证邮件，<a href="javascript:;" id="js_re_send">重新发送验证邮件</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<input type="hidden" name="" id="p_url" value="{$p_url}">
+<include file="./Application/Home/View/libpage/inc_buttom.html" />
+
+</div>
+<script src="__PUBLIC__/js/member.js"></script>
+<script type="text/javascript">
+    $('#js_re_send').click(function(){
+        var p_url = $('#p_url').val();
+        var email = $('.js_email').text();
+        if(email.length == 0 || p_url.length == 0){
+            return false;
+        }
+        $.post(p_url,{email:email},
+          function(data){
+             if (data.status==1) {
+                    layer.msg(data.msg, {icon: 1});
+                    //window.location.reload();
+                } else {
+                    layer.msg(data.msg, {icon: 5});
+                }
+              },
+          "json");
+    });
+
+
+</script>
+</body>
+</html>

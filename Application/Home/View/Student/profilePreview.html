@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<include file="./Application/Home/View/libpage/inc_header.html" />
+    <meta charset="UTF-8">
+    <title>菜鸟帮帮-我的简历</title>
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/public.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/main.css">
+    <script src="__PUBLIC__/js/layer/layer.js"></script>
+</head>
+<body>
+<div class="profile-preview">
+<!--startprint-->
+    <div class="profile-detail">
+        <div class="detail-item">
+            <div class="profile-show">
+                <div class="my-avatar">
+                                <notempty name="info.avatar_url">
+                                    <img src="{$info.avatar_url}">
+                                <else />
+                                <if condition="$info['gender'] eq 2">
+                                    <img src="__PUBLIC__/img/female.jpg">
+                                <else />
+                                    <img src="__PUBLIC__/img/man.jpg">
+                                </if>    
+                                </notempty>    
+                </div>
+                <div class="basic-info">
+                    <div class="my-name">
+                        <span class="name">{$info.fullname}</span>
+                    </div>
+                    <div class="my-basic">
+                        <div class="my-basic-info basic-sex">
+                            <i></i>
+                            <span><if condition="$res['info']['gender'] eq 1">男<elseif condition="$res['info']['gender'] eq 2" />女</if></span>
+                        </div>
+                        <if condition="$info['height']">
+                        <div class="my-basic-info basic-height">
+                            <i></i>
+                            <span>{$info['height']*100}CM</span>
+                        </div>
+                        </if>
+                        <div class="my-basic-info basic-birth">
+                            <i></i>
+                            <span>{$info.birthday|substr=0,4}年{$info.birthday|substr=4,2}月{$info.birthday|substr=6,2}日</span>
+                        </div>
+                        <div class="my-basic-info basic-org">
+                            <i></i>
+                            <span>{$info.politics|smartResumeDict=politics,###}</span>
+                        </div>
+                    </div>
+                    <div class="my-basic two-column my-phone">
+                        <i></i>
+                        <span>{$info.phone}</span>
+                    </div>
+                    <div class="my-basic two-column my-mail">
+                        <i></i>
+                        <span>{$info.email}</span>
+                    </div>
+                    <div class="my-basic addr-live">
+                        <i></i>
+                        <span>实习居住地：<span>{$info.province_name}-{$info.city_name}-{$info.address}</span></span>
+                    </div>
+                    <div class="my-basic">
+                        <div class="my-basic-info addr-born">
+                            <i></i>
+                            <span>户口所在地：<span>{$info.hk_province_name}-{$info.hk_city_name}</span></span>
+                        </div>
+                        <div class="my-basic-info account">
+                            <i></i>
+                            <span>{$info.hk_type|smartResumeDict=hktype,###}</span>
+                        </div>
+                    </div>
+                    <div class="my-basic about-me">
+                    <foreach name="res.info.tags" item="v">
+                        <span>{$v}</span>
+                    </foreach> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <notempty name="intention.work_cities.name">
+        <div class="detail-item">
+            <div class="profile-show">
+                <div class="detail-item-title">
+                    <p class="title"><span>求职意向</span></p>
+                </div>
+                <div class="sub-info"><span>期望工作城市：<span>{$intention.work_cities.name}</span></span></div>
+                <div class="sub-info"><span>期望工作行业：<span>{$intention.trades.name}</span></span></div>
+                <div class="sub-info subfield"><span>工作性质：<span>{$intention.work_type|smartdictval=###}</span></span></div>
+                <div class="sub-info subfield"><span>到岗时间：<span>{$intention.arrive_days|smartArrDay=###}</span></span></div>
+                <div class="sub-info subfield"><span>每周工作天数：<span><if condition="$intention['week_workdays'] eq 0">不限<else />{$intention.week_workdays}天</if></span></span></div>
+                <if condition="$intention['work_type'] eq 2">
+                <div class="sub-info subfield"><span>连续实习时长：<span><if condition="$intention['work_duration'] eq 0">不限<else />{$intention['work_duration']/30}个月</if></span></span></div>
+                </if>
+            </div>
+        </div>
+        </notempty>
+    
+        <div class="detail-item">
+            <div class="profile-show">
+    <notempty name="edus.0.school_name">
+                <div class="show-block">
+                    <div class="detail-item-title">
+                        <p class="title"><span>教育经历</span></p>
+                    </div>
+                    <foreach name="edus" item="v">
+                    <div class="sub-info">
+                        <div class="college-info">
+                            <span class="major must-field">{$v.school_name}</span>
+                            <notempty name="v.faculty">
+                            <span class="others must-field">{$v.faculty}</span>
+                            </notempty>
+                            <span class="major must-field">{$v.major}</span>
+                            <span class="degree">{$v.degree|smartDegree=###}</span>
+
+                            <!--<span class="others">绩点{$v.bp}</span>-->
+                            <!--<span class="others">排名{$v.rank}</span>-->
+                            <span class="from-to"><span>{$v.sdate|smartEduGrade=###}</span></span>
+                        </div>
+                    </div>
+                    </foreach>
+                </div>
+    </notempty>
+    <notempty name="edus.0.exchanges.0.school_name">
+                <div class="show-block">
+                    <div class="detail-item-title level-title">
+                        <p class="title"><span><span>交换生经历</span></span></p>
+                    </div>
+                    <div class="show-level">
+                    <foreach name="edus" item="v">
+                         <foreach name="v.exchanges" item="vo">
+                        <div class="sub-info">
+                            <div class="college-info">
+                                <span class="name">{$vo.school_name}</span>
+                                <span class="major">{$vo.major}</span>
+                                <span class="from-to"><span>{$vo.sdate|substr_replace=###,'.',4,0}</span>—<span><if condition="$vo.edate eq 0">至今<else />{$vo.edate|substr_replace=###,'.',4,0}</if></span></span>
+                            </div>
+                            <notempty name="vo.remark">
+                            <div class="harvest">
+                                <p class="harvest-title">收获及成绩</p>
+                                <div class="harvest-info">
+                                    <div class="sub-harvest">
+                                        
+                                        {$vo.remark|smartTextarea=###}
+                                    </div>
+
+                                </div>
+                            </div>
+                            </notempty>
+                        </div>
+                    </foreach>
+                        </foreach>
+                    </div>
+                </div>
+    </notempty>
+    <notempty name="edus.0.others.0.name">
+                <div class="show-block">
+                    <div class="detail-item-title level-title">
+                        <p class="title"><span><span>专业研究项目</span></span></p>
+                    </div>
+                    <div class="show-level">
+                        <foreach name="edus" item="v">
+                            <foreach name="v.others" item="vo">
+                        <div class="sub-info">
+                            <div class="college-info">
+                                <span class="name">项目名称：{$vo.name}</span>
+                                <span class="major">{$vo.role|smartRole=###}</span>
+                                <span class="from-to"><span>{$vo.sdate|substr_replace=###,'.',4,0}</span>—<span><if condition="$vo.edate eq 0">至今<else />{$vo.edate|substr_replace=###,'.',4,0}</if></span></span>
+                            </div>
+                            <notempty name="vo.remark">
+                            <div class="harvest">
+                                <p class="harvest-title">收获及成绩</p>
+                                <div class="harvest-info">
+                                    <div class="sub-harvest">
+                                        
+                                        {$vo.remark|smartTextarea=###}
+                                    </div>
+                                </div>
+                            </div>
+                            </notempty>
+                        </div>
+                    </foreach>
+                        </foreach>
+                    </div>
+                </div>
+    </notempty>
+            </div>
+        </div>
+   <notempty name="skill.id">
+        <div class="detail-item">
+            <div class="profile-show">
+                <div class="detail-item-title">
+                    <p class="title"><span>语言技能</span></p>
+                </div>
+                <div class="sub-info">
+                    <div class="college-info">
+                        <span class="major">英语能力</span>
+                        <span class="ability">{$skill.enskill}</span>
+                    </div>
+                    <foreach name="skill.other_languages" item="v">
+                    <div class="college-info">
+                        <span class="major">{$v.name}</span>
+                        <span class="ability">{$v.proficiency|smartShulian=###}</span>
+                    </div>
+                    </foreach>
+                </div>
+            </div>
+        </div>
+    </notempty>
+    <notempty name="certificates.0.cert_type_name">
+        <div class="detail-item">
+            <div class="profile-show">
+                <div class="detail-item-title">
+                    <p class="title"><span>财金证书</span></p>
+                </div>
+                <div class="sub-info">
+                <foreach name="certificates" item="v">
+                <if condition="$v.cert_type_id neq 10">
+                    <div class="college-info">
+                        <span class="major">{$v.cert_type_name|smartSubstr='（'}</span>
+                               <span class="ability">
+                                <if condition="$v['is_allpass']">
+                                        <if condition="$v['cert_type_id'] eq 5">
+                                        <span>持证人</span>
+                                        <else />
+                                        <span>全部通过</span>
+                                        </if> 
+                                <else />
+                                   <span>{$v.coursenames|implode=；,###}</span>
+                                 </if>
+                               </span>
+                    </div>
+                <else />
+                    <div class="college-info">
+                        <span class="major">{$v.cert_type_name|smartSubstr='（'}</span>
+                        <div class="ability">
+                            <div class="sub-ability">
+                                <span class="sub-ability-stage">F阶段</span>
+                                <if condition="$v['is_allpass']">
+                                        <span>全部通过</span>
+                                <else />
+                                    <span>{$v.fcourse}</span>
+                                 </if>
+                            </div>
+                            <div class="sub-ability">
+                                <span class="sub-ability-stage">P阶段</span>
+                                    <if condition="$v['is_allpass2']">
+                                            <span>全部通过</span>
+                                    <else />
+                                       <span>{$v.pcourse}</span>
+                                </if>
+                            </div>
+                        </div>
+                    </div>
+                </if>
+            </foreach>
+                </div>
+            </div>
+        </div>
+    </notempty>
+    <notempty name="internships.0.company_name">
+        <div class="detail-item">
+            <div class="profile-show">
+                <div class="detail-item-title">
+                    <p class="title"><span>实习经验</span></p>
+                </div>
+            <foreach name="internships" item="v">
+                <div class="sub-info education-info">
+                    <div class="college-info">
+                        <span class="company-tag">{$v.company_name}</span>
+                        <span class="company-tag">{$v.nature_name}<span>{$v.work_type|smartdictval=###}</span></span>
+                        <span class="from-to"><span>{$v.sdate|substr_replace=###,'.',4,0}</span>—<span><if condition="$v.edate eq 0">至今<else />{$v.edate|substr_replace=###,'.',4,0}</if></span></span>
+                    </div>
+                    <div class="college-info">
+                        <span class="company-tag">部门：{$v.department}</span>
+                        <span class="company-tag">职能名称：{$v.function_name}</span>
+                    </div>
+                    <div class="harvest">
+                        <p class="harvest-title">工作描述</p>
+                        <div class="harvest-info">
+                            <div class="sub-harvest">
+                                {$v.work_remark|smartTextarea=###}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="harvest">
+                        <p class="harvest-title">项目经验</p>
+                        <div class="harvest-info">
+                            <div class="sub-harvest">
+                                {$v.work_ex|smartTextarea=###}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </foreach>
+            </div>
+        </div>
+    </notempty>
+    <if condition="$rjp['rewards'][0]['name'] || $rjp['jobs'][0]['role'] || $rjp['practice'][0]['name']">
+        <div class="detail-item">
+            <div class="profile-show">
+                <div class="detail-item-title">
+                    <p class="title"><span>校内经历</span></p>
+                </div>
+                <notempty name="rjp.rewards.0.name">
+                <div class="show-block">
+                    <div class="detail-item-title level-title">
+                        <p class="title"><span><span>学生奖励与荣誉</span></span></p>
+                    </div>
+                    <div class="show-level">            
+                        <div class="sub-info">
+                        <foreach name="rjp.rewards" item="v">
+                            <div class="college-info">
+                                <span class="company-tag">{$v.name}</span>
+                                <span class="company-tag">{$v.level|smartRewardLevel=###}</span>
+                                <span class="from-to"><span>{$v.get_time|substr_replace=###,'.',4,0}</span></span>
+                            </div>
+                        </foreach>
+                        </div>
+                    </div>
+                </div>
+                </notempty>
+                <if condition="$rjp['jobs']['0']['sdate']">
+                <div class="show-block">
+                    <div class="detail-item-title level-title">
+                        <p class="title"><span><span>校内职务/社团活动</span></span></p>
+                    </div>
+                    <div class="show-level">
+                    <foreach name="rjp.jobs" item="v">
+                        <div class="sub-info education-info">
+                            <div class="college-info">
+                                <span>{$v.role|smartRole=###}</span>
+                                <span class="from-to"><span>{$v.sdate|substr_replace=###,'.',4,0}</span>—<span>{$v.edate|substr_replace=###,'.',4,0}</span></span>
+                            </div>
+                            <div class="harvest">
+                                <p class="harvest-title">职务描述</p>
+                                <div class="harvest-info">
+                                    <div class="sub-harvest">
+                                       
+                                       {$v.remark|smartTextarea=###}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreach>
+                    </div>
+                </div>  
+                </if>
+                 <if condition="$rjp['practice']['0']['name']">
+                <div class="show-block">
+                    <div class="detail-item-title level-title">
+                        <p class="title"><span><span>社会实践经验（非实习）</span></span></p>
+                    </div>
+                    <div class="show-level">
+                    <foreach name="rjp.practice" item="v">
+                        <div class="sub-info education-info">
+                            <div class="college-info">
+                                <span class="long-info">{$v.name}</span>
+                                <span class="from-to"><span>{$v.sdate|substr_replace=###,'.',4,0}</span>—<span><if condition="$v.edate eq 0">至今<else />{$v.edate|substr_replace=###,'.',4,0}</if></span></span>
+                            </div>
+                            <div class="harvest">
+                                <p class="harvest-title">实践描述</p>
+                                <div class="harvest-info">
+                                    <div class="sub-harvest">
+                                       
+                                        {$v.remark|smartTextarea=###}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreach>
+                    </div>
+                </div>
+                </if>
+            </div>
+        </div>
+        </if>
+        <if condition="$nav neq 'snapshoot'">
+        <!--endprint-->
+        <div class="detail-item">
+            <div class="detail-btn">
+                <a class="save js_down_resume" href="javascript:;" data-id="{$res.id}">下载简历</a>
+                <a class="cancel" href="javascript:;"  onclick="doPrint()">打印简历</a>
+            </div>
+        </div>
+        </if>
+    </div>
+</div>
+<script type="text/javascript">
+
+        function doPrint() { 
+            bdhtml=window.document.body.innerHTML; 
+            sprnstr="<!--startprint-->"; //开始打印标识字符串有17个字符
+            eprnstr="<!--endprint-->"; //结束打印标识字符串
+            prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17); //从开始打印标识之后的内容
+            prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr)); //截取开始标识和结束标识之间的内容
+            window.document.body.innerHTML=prnhtml; //把需要打印的指定内容赋给body.innerHTML
+            window.print(); //调用浏览器的打印功能打印指定区域
+            window.document.body.innerHTML=bdhtml; // 最后还原页面
+        }
+
+$(function(){
+
+
+
+            $('.js_down_resume').click(function(){
+                var id = $(this).attr('data-id');
+                 layer.msg('简历生成中……请稍等>..<',{icon:1});
+                 $.post("/ajax/getResumeFile",{resume_id:id},
+                      function(data){
+                         if (data.status==1) {
+                            var w=window.open('about:blank');
+                            setTimeout(function(){
+                            w.location.href=data.info;                            
+                            }, 100);
+                            
+                                //window.open();
+                            } else {
+                                layer.alert(data.msg);
+                            }
+                          },
+                      "json"); 
+            });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<include file="./Application/Home/View/libpage/inc_header.html" />
+    <meta charset="UTF-8">
+    <title>菜鸟帮帮-我的收藏</title>
+</head>
+<body>
+<include file="./Application/Home/View/libpage/inc_top.html" />
+
+    <div class="profile-banner"><img src="__PUBLIC__/img/profile_top.jpg"/></div>
+
+    <div class="my-info-box">
+        <div class="content">
+    <include file="./Application/Home/View/libpage/inc_my_nav.html" />
+            <!--<p class="block-title">我收藏的岗位</p>-->
+        </div>
+
+        <div class="my-detail">
+            <div class="detail my-favorite">
+
+
+            <volist name="posts" id="v">
+
+                <div class="favorite-item">
+                    <a class="avatar" href=""><img src="{$v.post.org.b_logo_url}"/></a>
+                    <div class="favorite-info">
+                        <a class="post-info" href="/post/{$v.post.id|smartBase64=###}.html" target="_blank">
+                            <div class="post-basic">
+                                <span class="post-name">{$v.post.name}</span>
+                                  <egt name="v['post']['esalary']" value="1">
+                                  <span class="post-pay">{$v['post']['ssalary']}-{$v['post']['esalary']}<if condition="$v['post']['salary_unit'] eq 0">元/天<else />元/月</if></span>
+                                  <else />
+                                  <span class="post-pay"> <if condition="$v['post']['ssalary'] elt 0">面议<else /><if condition="$v['post']['salary_unit'] eq 0">{$v.post.ssalary}元/天<else />{$v.post.ssalary}元/月</if></if></span>
+                                  </egt>
+                                <span class="post-addr"><i></i>{$v.post.city_name}</span>
+                            </div>
+                            <div class="post-demand">
+                                <span class="sub-demand degree"><i></i>{$v.post.degree|smartDegree=###}</span>
+                                <span class="sub-demand post-time"><i></i>{$v.post.work_type|smartWorkType=###}</span>
+                                <notempty name="v.post.work_days">
+                                <span class="sub-demand demand-time"><i></i>{$v.post.work_days}天/周</span>
+                                </notempty>
+                                <notempty name="v.post.work_days">
+                                <span class="sub-demand demand-time"><i></i>至少{$v['post']['work_duration']/30}个月</if></span>
+                                </notempty>
+                            </div>
+                            <!-- <div class="last-time"><i></i>距离投递结束还有<span>{$v.post.rev_stop_time|smartPostStrTime=###}</span>天</div> -->
+                        </a>
+                        <div class="post-active">
+                            <div class="publish-info">
+                                <span class="publish-company">{$v.post.org.abbrname}</span>
+                                <span class="publish-time">更新时间：<span>{$v.post.last_time|smartJobStrTime=###}</span></span>
+                            </div>
+                            <div class="active">
+                                <a class="active-btn resume js_deliver_show" href="javascript:;" data-id="{$v.post_id}" data-orgid="{$v.org_id}" data-sedate="{$v.post.work_etime|substr=0,4}年{$v.post.work_etime|substr=5,1}月{$v.post.work_etime|substr=7,1}日-{$v.post.work_stime|substr=0,4}年{$v.post.work_stime|substr=5,1}月{$res.work_stime|substr=7,1}日" data-area="{$v.post.city_name}" data-worktime="至少连续实习{$v['post']['work_duration']/30}个月，每周工作{$v.post.work_days}天" data-worktype="{$v.post.work_type|smartdictval=###}" data-sdate="{$v.post.work_stime}">一键投递<span></span></a>
+                                <a class="active-btn undo-favorite js_qxsc" href="javascript:;" data-id="{$v.post.id}">取消收藏<span></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </volist>
+
+
+            </div>
+        </div>
+    </div>
+<input type="hidden" id="is_resume" value="<if condition="$myresume['0']['id']">1<else />0</if>">
+<!--投个简历弹框-->
+<div class="popup" id="choosePopup">
+    <div class="popup-info choose-info">
+        <a class="popup-close" href="javascript:;"><i></i></a>
+        <div class="choose-img"><img src="__PUBLIC__/img/profile_choose.png"/></div>
+        <div class="profile-choose">
+        <foreach name="myresume" item="v" key="k">
+            <div class="sub-choose">
+                <input id="profile{$v.id}" type="radio" name="choose" data-id="{$v.must_completed|default='0'}" data-baseid="{$v.id|smartBase64=###}" value="{$v.id}" <if condition="$k eq 0">checked</if>/>
+                <label for="profile{$v.id}">{$v.name|msubstr=0,10}</label>
+            </div>
+        </foreach>
+        </div>
+        <a class="choose-btn js_deliver_check" data-id="" href="javascript:;">一键投递</a>
+    </div>
+</div>
+
+<!--立即申请弹层——求职意向匹配-->
+    <div class="popup" id="willPopup">
+        <div class="popup-info">
+            <a class="popup-close" href="javascript:;"><i></i></a>
+            <div class="will will-title">
+                <span class="will-left">你的求职意向</span>
+                <span class="will-middle"></span>
+                <span class="will-right">企业的岗位要求</span>
+            </div>
+            <div class="will-detail">
+                <div class="will">
+                    <span class="will-left js_my_city" data-id="" data-name=""></span>
+                    <span class="will-middle js_pp_city" data-id="{$res.city_code}" data-name="{$res.city_name}">工作地点<i></i></span>
+                    <span class="will-right "><span class="point"></span>{$res.city_name}</span>
+                </div>
+                <div class="will">
+                    <span class="will-left js_my_worktype"></span>
+                    <span class="will-middle js_pp_worktype" data-id="{$res.work_type}">工作性质<i></i></span>
+                    <span class="will-right"><span class="point"></span>{$res.work_type|smartdictval=###}</span>
+                </div>
+                <div class="will">
+                    <span class="will-left js_my_workdays"></span>
+                    <span class="will-middle js_pp_workdays" data-week="{$res.work_days}" data-duration="{$res.work_duration}">工作时间<i></i></span>
+                    <span class="will-right"><span class="point"></span>至少连续实习{$res['work_duration']}个月，每周工作{$res.work_days}天</span>
+                </div>
+                <div class="will">
+                    <span class="will-left js_my_trade"></span>
+                    <span class="will-middle js_pp_trade" data-id="{$res.org.trade_id}" data-name="{$res.org.trade_name}">工作行业<i></i></span>
+                    <span class="will-right"><span class="point"></span>{$res.org.trade_name}</span>
+                </div>
+            </div>
+            <div class="popup-btn">
+                <span class="popup-tips">匹配的求职意向，可以提高你的求职成功率。</span>
+                <div class="btn">
+                    <a class="sub-btn sure-edit js_edit_intention" href="javascript:;">一键修改</a>
+                    <a class="sub-btn sure-go js_continue_post" href="javascript:;" data-id="{$res.id}">继续投递</a>
+                </div>
+            </div>
+            <input type="hidden" id="job_trade" value="{$res.org.trade_id}">
+            <input type="hidden" id="job_city" value="{$res.city_code}">
+            <input type="hidden" id="job_work_type" value="{$res.work_type}">
+            <input type="hidden" id="job_work_duration" value="{$res.work_duration}">
+            <input type="hidden" id="job_week_workdays" value="{$res.work_days}">
+           <input type="hidden" id="intention_id">
+            <input type="hidden" id="arrive_days">
+        </div>
+    </div>
+    <!--立即申请弹层——信息确认-->
+    <div class="popup" id="surePopup">
+        <div class="popup-info sure-info">
+            <a class="popup-close" href="javascript:;"><i></i></a>
+            <div class="sure-detail">
+                <div class="sure-img"><img src="__PUBLIC__/img/mailing_sure.png"/></div>
+                <div class="sure-detail-info">
+                    <div class="sure-item">
+                        <span class="sure-title">工作地点：</span>
+                        <span class="sure js_area">{$res.city_name}</span>
+                    </div>
+                    <div class="sure-item">
+                        <span class="sure-title">工作性质：</span>
+                        <span class="sure js_worktype">{$res.work_type|smartWorkType=###}</span>
+                    </div>
+                    <div class="sure-item">
+                        <span class="sure-title">工作时间：</span>
+                        <span class="sure js_worktime">至少连续实习{$res.work_duration}个月，每周工作{$res.work_days}天</span>
+                    </div>
+                    <div class="sure-item js_setime_zone">
+                        <span class="sure-title">起止时间：</span>
+                        <span class="sure js_setime">{$res.work_etime|substr=0,4}年{$res.work_etime|substr=5,1}月{$res.work_etime|substr=7,1}日—{$res.work_stime|substr=0,4}年{$res.work_stime|substr=5,1}月{$res.work_stime|substr=7,1}日</span>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-btn">
+                <span class="popup-tips ">我已确认，以上实习时间、地点要求均已清楚知晓。</span>
+                <div class="btn">
+                    <a class="sub-btn sure-edit js_fav_deliver" href="javascript:;" data-id="{$res.id}">确认投递</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--立即申请弹层——简历完成度不够-->
+    <div class="popup" id="noProfilePopup">
+        <div class="popup-info sure-info pro-info">
+            <a class="popup-close" href="javascript:;"><i></i></a>
+            <div class="pro-img"><img src="__PUBLIC__/img/no_profile.png"/></div>
+            <div class="popup-btn">
+                <span class="pro-tips">请完善当前简历必填项之后进行投递</span>
+                <div class="btn">
+                    <a class="sub-btn sure-edit js_wsjl_tc" href="">完善简历</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!--立即申请弹层——没有简历-->
+    <div class="popup noResumePopup">
+        <div class="popup-info sure-info pro-info">
+            <a class="popup-close" href="javascript:;"><i></i></a>
+            <div class="pro-img"><img src="__PUBLIC__/img/mailing_sure.png"/></div>
+            <div class="popup-btn">
+                <span class="pro-tips">请创建简历之后进行投递</span>
+                <div class="btn">
+                    <a class="sub-btn sure-edit" href="/resume/list.html">创建简历</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<input type="hidden" class="is_default" value="{$is_default}">
+ <include file="./Application/Home/View/libpage/inc_buttom.html" />
+<script src="__PUBLIC__/js/myCenter.js"></script>
+</body>
+</html>
